@@ -12,10 +12,10 @@ Android Studio is currently the only prerequisite software needed to run the app
 
 ## Authors
 
-* **Ayse Hunt** - *Initial work* - [GitHub](https://github.com/aysehunt)
-* **Nick Bigger** - *Initial work* - [GitHub](https://github.com/nbigger)
-* **Kayla Ramos** - *Initial work* - [GitHub](https://github.com/kramos577)
-* **Marwan Johnstone** - *Initial work* - [GitHub](https://github.com/mjohnstone14)
+* **Ayse Hunt** - [GitHub](https://github.com/aysehunt)
+* **Nick Bigger** - [GitHub](https://github.com/nbigger)
+* **Kayla Ramos** - [GitHub](https://github.com/kramos577)
+* **Marwan Johnstone** - [GitHub](https://github.com/mjohnstone14)
 
 ## Acknowledgments
 
