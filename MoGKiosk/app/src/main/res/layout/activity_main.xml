@@ -17,13 +17,13 @@
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
-            app:title="@string/app_name"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:layout_weight="1"
             android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:layout_scrollFlags="scroll|enterAlways">
+            app:title="@string/app_name">
 
         </android.support.v7.widget.Toolbar>
 
@@ -31,8 +31,8 @@
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabMode="fixed"
-            app:tabGravity="fill"/>
+            app:tabGravity="fill"
+            app:tabMode="fixed" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -50,6 +50,15 @@
         android:layout_margin="@dimen/fab_margin"
         android:tint="#F5F5F6"
         app:srcCompat="@android:drawable/ic_input_add" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="goToAdmin"
+        android:text="Button"
+        app:layout_anchor="@+id/container"
+        app:layout_anchorGravity="bottom|center" />
 
 
 </android.support.design.widget.CoordinatorLayout>

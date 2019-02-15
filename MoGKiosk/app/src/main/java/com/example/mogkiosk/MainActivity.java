@@ -91,8 +91,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    
-  
+    public void goToAdmin(View view) {
+        Intent intent = new Intent(this, AdminActivity.class);
+        startActivity(intent);
+    }
+
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
