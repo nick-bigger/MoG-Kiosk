@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToAdmin(View view) {
-        Intent intent = new Intent(this, AdminActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 
