@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setLogo(R.mipmap.ic_launcher_round);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -92,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToAdmin(View view) {
-        Intent intent = new Intent(this, AdminActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 
@@ -109,9 +110,21 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            Fragment fragment = null;
+
+            switch(position){
+                case 0:
+                    fragment = new ArtistFrag();
+                    break;
+                case 1:
+                    fragment = new WorkFrag();
+                    break;
+                case 2:
+                    fragment = new ProcessFrag();
+                    break;
+
+            }
+            return fragment;
         }
 
         @Override
