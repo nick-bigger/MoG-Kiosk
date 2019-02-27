@@ -2,10 +2,21 @@
     <string name="app_name">Museum of Glass</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
-    <string name="artist_name">Dave Chihuly</string>
-    <string name="artist_img_description">An image of the artist</string>
     <string name="admin_button">Admin Center</string>
     <string name="title_activity_settings">Settings</string>
+
+    <!-- String related to The Artist tab -->
+
+    <string name="artist_name">Dale Chihuly</string>
+    <string name="artist_img_description">An image of the artist</string>
+    <string name="artist_subtitle">Subtitle placeholder</string>
+    <string name="about_artist_title">About the artist</string>
+    <string name="artist_bio">Bio placeholder</string>
+    <string name="related_work_title">Related Work</string>
+    <string name="related_work_1_title">The orange one</string>
+    <string name="related_work_2_title">The purple one</string>
+    <string name="related_work_3_title">The blue one</string>
+
 
     <!-- Strings related to Settings -->
 
