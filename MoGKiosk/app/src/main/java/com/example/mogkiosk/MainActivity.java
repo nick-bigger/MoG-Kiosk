@@ -83,18 +83,13 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
 
             case R.id.action_settings:
-                Intent intent1 = new Intent(this, SettingsActivity.class);
+                Intent intent1 = new Intent(this, LoginActivity.class);
                 this.startActivity(intent1);
                 return true;
 
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    public void goToAdmin(View view) {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
     }
 
 
