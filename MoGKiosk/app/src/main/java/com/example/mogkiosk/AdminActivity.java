@@ -34,7 +34,6 @@ public class AdminActivity extends AppCompatActivity {
         setContentView(R.layout.admin_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setLogo(R.mipmap.ic_launcher_round);
         //setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
