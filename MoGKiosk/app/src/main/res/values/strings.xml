@@ -44,7 +44,7 @@
     <string name="admin_button">Admin Center</string>
     <string name="action_login">Log In</string>
     <string name="forgot_pwd">Forgot your password?</string>
-    <string name="name_field">Name</string>
+    <string name="name_field">Username</string>
     <string name="pwd_field">Password</string>
     <string name="admin">Admin</string>
     <string name="log_in">Log In</string>
