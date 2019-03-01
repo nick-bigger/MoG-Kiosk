@@ -4,201 +4,216 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D3D3D3">
-
-
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ArtistFrag">
+    android:background="#FFFFFF">
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/artist_image"
-            android:layout_width="346dp"
-            android:layout_height="539dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginRight="24dp"
-            android:background="#FFFFFF"
-            android:visibility="visible"
-            app:layout_constraintEnd_toStartOf="@+id/artist_bio_card"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/artist_bio_card">
-
-            <ImageView
-                android:id="@+id/artist_headshot"
-                android:layout_width="300dp"
-                android:layout_height="261dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="8dp"
-                android:contentDescription="@string/artist_img_description"
-                android:src="@drawable/artist_photo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.091" />
-
-            <TextView
-                android:id="@+id/artist_name"
-                android:layout_width="268dp"
-                android:layout_height="52dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:text="@string/artist_name"
-                android:textSize="16pt"
-                app:layout_constraintBottom_toTopOf="@+id/artist_subtitle"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.596"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/artist_headshot"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <TextView
-                android:id="@+id/artist_subtitle"
-                android:layout_width="269dp"
-                android:layout_height="38dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="132dp"
-                android:text="@string/artist_subtitle"
-                android:textSize="9pt"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.627"
-                app:layout_constraintStart_toStartOf="parent" />
-
-        </android.support.constraint.ConstraintLayout>
-
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/artist_bio_card"
-            android:layout_width="553dp"
-            android:layout_height="379dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="74dp"
-            android:background="#FFFFFF"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.118">
-
-            <TextView
-                android:id="@+id/artist_bio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/artist_bio"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/about_the_artist_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="32dp"
-                android:text="@string/about_artist_title"
-                android:textSize="12pt"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </android.support.constraint.ConstraintLayout>
-
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/related_work"
-            android:layout_width="549dp"
-            android:layout_height="313dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="8dp"
-            android:background="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/artist_bio_card"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/artist_bio_card"
-            app:layout_constraintTop_toBottomOf="@+id/artist_bio_card">
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ArtistFrag"
+            android:clipToPadding="false">
 
             <TextView
                 android:id="@+id/related_work_title"
-                android:layout_width="527dp"
+                android:layout_width="157dp"
                 android:layout_height="32dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="396dp"
+                android:layout_marginLeft="396dp"
+                android:layout_marginBottom="16dp"
                 android:text="@string/related_work_title"
                 android:textSize="12pt"
+                app:layout_constraintBottom_toTopOf="@+id/related_work"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/artist_image"
+                android:layout_width="346dp"
+                android:layout_height="650dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginBottom="8dp"
+                android:background="#FFFFFF"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/artist_bio_card"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/artist_headshot"
+                    android:layout_width="349dp"
+                    android:layout_height="344dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:contentDescription="@string/artist_img_description"
+                    android:src="@drawable/artist_photo"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.428"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@android:color/darker_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/artist_tagline" />
+
+                <TextView
+                    android:id="@+id/artist_subbio"
+                    android:layout_width="268dp"
+                    android:layout_height="163dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="40dp"
+                    android:lineSpacingExtra="10dp"
+                    android:text="@string/artist_subbio"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/artist_tagline" />
+
+                <TextView
+                    android:id="@+id/artist_name"
+                    android:layout_width="268dp"
+                    android:layout_height="42dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/artist_name"
+                    android:textAppearance="@android:style/TextAppearance.Medium.Inverse"
+                    android:textColor="@color/textDark"
+                    android:textSize="@dimen/font_size_large"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/artist_headshot" />
+
+                <TextView
+                    android:id="@+id/artist_tagline"
+                    android:layout_width="255dp"
+                    android:layout_height="29dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="@string/artist_tagline"
+                    android:textSize="9pt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.106"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/artist_name" />
+
+            </android.support.constraint.ConstraintLayout>
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/artist_bio_card"
+                android:layout_width="553dp"
+                android:layout_height="399dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="74dp"
+                android:background="#D3D3D3"
+                android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.037" />
+                app:layout_constraintVertical_bias="0.118">
 
-            <ImageView
-                android:id="@+id/related_work_1"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginTop="52dp"
-                android:contentDescription="@string/related_work_1_title"
-                app:layout_constraintStart_toStartOf="@+id/related_work_title"
-                app:layout_constraintTop_toBottomOf="@+id/related_work_title"
-                app:srcCompat="@drawable/related_work_1" />
+                <TextView
+                    android:id="@+id/artist_bio"
+                    android:layout_width="504dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:lineSpacingExtra="10dp"
+                    android:text="@string/artist_bio"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.484"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/related_work_3"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:layout_marginStart="48dp"
-                android:layout_marginLeft="48dp"
-                android:layout_marginBottom="72dp"
-                android:contentDescription="@string/related_work_3_title"
+            </android.support.v7.widget.CardView>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/related_work"
+                android:layout_width="549dp"
+                android:layout_height="214dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginBottom="8dp"
+                android:background="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/related_work_title"
-                app:layout_constraintHorizontal_bias="0.285"
-                app:layout_constraintStart_toEndOf="@+id/related_work_2"
-                app:srcCompat="@drawable/related_work_3" />
+                app:layout_constraintEnd_toEndOf="@+id/artist_bio_card"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/artist_bio_card"
+                app:layout_constraintTop_toBottomOf="@+id/artist_bio_card">
 
-            <ImageView
-                android:id="@+id/related_work_2"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:layout_marginStart="48dp"
-                android:layout_marginLeft="48dp"
-                android:layout_marginBottom="72dp"
-                android:contentDescription="@string/related_work_2_title"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/related_work_1"
-                app:srcCompat="@drawable/related_work_2" />
+                <ImageView
+                    android:id="@+id/related_work_1"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:contentDescription="@string/related_work_1_title"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/related_work_1" />
+
+                <ImageView
+                    android:id="@+id/related_work_3"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginLeft="48dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:contentDescription="@string/related_work_3_title"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/related_work_2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/related_work_3" />
+
+                <ImageView
+                    android:id="@+id/related_work_2"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginLeft="48dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:contentDescription="@string/related_work_2_title"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/related_work_1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/related_work_2" />
+            </android.support.constraint.ConstraintLayout>
+
         </android.support.constraint.ConstraintLayout>
-
-    </android.support.constraint.ConstraintLayout>
 
 </android.support.v4.widget.NestedScrollView>
