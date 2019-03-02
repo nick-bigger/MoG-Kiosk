@@ -40,6 +40,15 @@
     <string name="related_work_2_title">The purple one</string>
     <string name="related_work_3_title">The blue one</string>
 
+    <!-- String related to The Work tab -->
+
+    <!-- String related to The Process tab -->
+    <string name="video_title">Dale Chihuly in the Studio</string>
+    <string name="video_detail">1 Video, 3:20 min</string>
+    <string name="video_next_text">Swipe for more</string>
+    <string name="share_icon">Share Icon</string>
+
+
     <!-- String related to login -->
     <string name="admin_button">Admin Center</string>
     <string name="action_login">Log In</string>
