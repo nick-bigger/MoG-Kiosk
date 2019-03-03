@@ -17,13 +17,16 @@
                 android:id="@+id/related_work_title"
                 android:layout_width="157dp"
                 android:layout_height="32dp"
-                android:layout_marginStart="396dp"
-                android:layout_marginLeft="396dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:text="@string/related_work_title"
                 android:textSize="12pt"
                 app:layout_constraintBottom_toTopOf="@+id/related_work"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="@+id/artist_bio_card"
+                app:layout_constraintTop_toBottomOf="@+id/artist_bio_card"
+                app:layout_constraintVertical_bias="0.712" />
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/artist_image"
@@ -33,14 +36,10 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="30dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginRight="24dp"
                 android:layout_marginBottom="8dp"
                 android:background="#FFFFFF"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/artist_bio_card"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -119,10 +118,10 @@
 
             <android.support.v7.widget.CardView
                 android:id="@+id/artist_bio_card"
-                android:layout_width="553dp"
+                android:layout_width="752dp"
                 android:layout_height="399dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginLeft="32dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
@@ -131,14 +130,13 @@
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/artist_image"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.118">
 
                 <TextView
                     android:id="@+id/artist_bio"
-                    android:layout_width="504dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginLeft="8dp"
@@ -162,13 +160,16 @@
                 android:id="@+id/related_work"
                 android:layout_width="549dp"
                 android:layout_height="214dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="70dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 android:layout_marginBottom="8dp"
                 android:background="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/artist_bio_card"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/artist_bio_card"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/artist_image"
                 app:layout_constraintTop_toBottomOf="@+id/artist_bio_card">
 
                 <ImageView

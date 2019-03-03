@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 /**
@@ -26,6 +27,11 @@ public class ArtistFrag extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private TextView artistNameTextView;
+    private TextView tagLineTextView;
+    private TextView bioTextView;
+    private TextView subBioTextView;
 
     private OnFragmentInteractionListener mListener;
 
@@ -64,7 +70,14 @@ public class ArtistFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_artist, container, false);
+        View v = inflater.inflate(R.layout.fragment_artist, container, false);
+
+        artistNameTextView = v.findViewById(R.id.artist_name);
+        tagLineTextView = v.findViewById(R.id.artist_tagline);
+        subBioTextView = v.findViewById(R.id.artist_subbio);
+        bioTextView = v.findViewById(R.id.artist_bio);
+
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -90,6 +103,22 @@ public class ArtistFrag extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    public void updateName(String newName) {
+        artistNameTextView.setText(newName);
+    }
+
+    public void updateTagline(String newTag) {
+        tagLineTextView.setText(newTag);
+    }
+
+    public void updateSubBio(String newSubBio) {
+        subBioTextView.setText(newSubBio);
+    }
+
+    public void updateBio(String newBio) {
+        bioTextView.setText(newBio);
     }
 
     /**
