@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
@@ -22,9 +23,10 @@ import javax.crypto.spec.PBEKeySpec;
  * Will add change password feature
  */
 public class LoginActivity extends AppCompatActivity {
-    private EditText Name;
-    private EditText Password;
-    private Button Login;
+    private EditText mNameEditText; //use m for global variables because history
+    private EditText mPassEditText;
+    private Button mLoginButton;
+    private TextView mBadLoginTextView;
 
 
     @Override
@@ -33,16 +35,26 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.login_main);
 
         //assigning variables from layout
-        Name = findViewById(R.id.etName);
-        Password = findViewById(R.id.etPassword);
-        Login = findViewById(R.id.btnLogin);
+        mNameEditText = findViewById(R.id.etName);
+        mPassEditText = findViewById(R.id.etPassword);
+        mLoginButton = findViewById(R.id.btnLogin);
+        mBadLoginTextView = findViewById(R.id.incorrectLogin);
+
+        mBadLoginTextView.setVisibility(View.INVISIBLE);
 
         //setting the login button to validate
-        Login.setOnClickListener(new View.OnClickListener() {
+        mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
-                    validate(Name.getText().toString(), Password.getText().toString());
+                   if (validate(mNameEditText.getText().toString(), mPassEditText.getText().toString())) {
+                       mBadLoginTextView.setVisibility(View.INVISIBLE);
+                       Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+                       startActivity(intent);
+                   }
+                   else{
+                        mBadLoginTextView.setVisibility(View.VISIBLE);
+                   }
                 } catch (InvalidKeySpecException e) {
                     e.printStackTrace();
                 } catch (NoSuchAlgorithmException e) {
@@ -61,12 +73,9 @@ public class LoginActivity extends AppCompatActivity {
      * @param userName the username to login
      * @param userPassword the user password
      */
-    private void validate(String userName, String userPassword) throws InvalidKeySpecException, NoSuchAlgorithmException {
+    private boolean validate(String userName, String userPassword) throws InvalidKeySpecException, NoSuchAlgorithmException {
         String passKey = "1000:3a4d05d77bda836207a9371cb9b83f20:4070110c8a7c5fba1250b9614b04a98566765ebd0565cb765f71a9920be5433b860a02f512211f249d53ac032065651e0e2db80628e7570cbb3e05b477b2c604";
-        if((userName.equals("admin")) && (passKey.equals(generatePasswordHash(userPassword)))) {
-            Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
-            startActivity(intent);
-        }
+        return ((userName.equals("admin")) && (passKey.equals(generatePasswordHash(userPassword))));
     }
 
 //    //To be used later when we make a change password feature
