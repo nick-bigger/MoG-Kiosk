@@ -13,7 +13,7 @@
         convallis tristique sollicitudin. Integer ut auctor nisl, ac
         pretium enim. Duis id mi aliquet, pulvinar diam consectetur,
         efficitur sapien.</string>
-    <string name="about_artist_title">About the artist</string>
+    <string name="artist_bio_title">About the Artist</string>
     <string name="artist_bio">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Pellentesque libero massa, pellentesque id placerat nec,
@@ -34,7 +34,18 @@
         feugiat velit, vel mattis purus metus a orci. Phasellus
         iaculis ligula turpis, et tempus orci euismod vitae.
         Vivamus maximus eu lectus eu ullamcorper. Curabitur ut
-        lacus vel mi aliquet consequat at ac turpis.</string>
+        lacus vel mi aliquet consequat at ac turpis.
+        \n
+        \n
+        Nullam porttitor posuere tempus. Cras
+        turpis massa, rutrum eget eros a, lacinia accumsan odio.
+        Integer convallis tristique sollicitudin. Integer ut
+        auctor nisl, ac pretium enim. Pellentesque ornare congue odie eget aliquam. Quisque
+        dictum, ligula quis pretium sagittis, mauris magna
+        feugiat velit, vel mattis purus metus a orci. In placerat pretium odio tristique congue.
+        Mauris elementum magna ornare diam dictum, eget vehicula
+        lacus suscipit. Sed sed lacus congue, pulvinar augue a,
+        bibendum massa.</string>
     <string name="related_work_title">Related Work</string>
     <string name="related_work_1_title">The orange one</string>
     <string name="related_work_2_title">The purple one</string>
