@@ -30,7 +30,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/etDate"
+            android:id="@+id/etTag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -88,6 +88,6 @@
             android:layout_marginTop="68dp"
             android:src="@android:drawable/ic_menu_camera"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etDate" />
+            app:layout_constraintTop_toBottomOf="@+id/etTag" />
     </android.support.constraint.ConstraintLayout>
 </android.support.v4.widget.NestedScrollView>

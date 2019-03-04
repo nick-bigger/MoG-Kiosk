@@ -1,5 +1,6 @@
 package com.example.mogkiosk;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -8,9 +9,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.EditText;
 
 
-public class AdminActivity extends AppCompatActivity {
+public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.OnDataPass {
 
 
     /**
@@ -27,11 +29,17 @@ public class AdminActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    private ArtistFragAdmin a_frag_admin;
+    private ArtistFrag a_frag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_main);
+
+        //initialize fragments
+        a_frag_admin = new ArtistFragAdmin();
+        a_frag = new ArtistFrag();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
@@ -46,6 +54,32 @@ public class AdminActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
+    }
+
+    /**
+     * Implementation of interface method located in ArtistFragAdmin, handles the passing of data
+     * from the Artist Admin page. It takes the name, tag, and description and converts them to
+     * a String explicitly. Then it uses a newly created intent that points to MainActivity and sets
+     * the information as arguments for that intent. Finally, with the arguments set the intent
+     * is started with startActivity(intent)
+     *
+     * @param name the name sent by the submit button in the AdminArtistFragment
+     * @param tag the tag sent by the submit button in the AdminArtistFragment
+     * @param description the description sent by the submit button in the AdminArtistFragment
+     */
+    @Override
+    public void onDataPass(CharSequence name, CharSequence tag, CharSequence description) {
+        Intent intent = new Intent(AdminActivity.this, MainActivity.class);
+        //convert to string
+        String n = name.toString();
+        String t = tag.toString();
+        String d = description.toString();
+        //set args
+        intent.putExtra("name", n);
+        intent.putExtra("tag", t);
+        intent.putExtra("description", d);
+        //start
+        startActivity(intent);
     }
 
     /**

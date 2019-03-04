@@ -1,8 +1,10 @@
 package com.example.mogkiosk;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,13 +23,14 @@ import android.widget.TextView;
 public class ArtistFrag extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String NAME = "NAME";
+    private static final String BIO = "BIO";
+    private static final String TAG = "TAG";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    private String mParam3;
     private TextView artistNameTextView;
     private TextView tagLineTextView;
     private TextView bioTextView;
@@ -43,16 +46,20 @@ public class ArtistFrag extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+     * @param String Name.
+     * @param String Bio.
+     * @param String Tag
      * @return A new instance of fragment ArtistFrag.
      */
     // TODO: Rename and change types and number of parameters
-    public static ArtistFrag newInstance(String param1, String param2) {
+    public ArtistFrag newInstance(String name, String bio, String tag) {
         ArtistFrag fragment = new ArtistFrag();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        //put the values into the arguments of this AristFragment instance and associate them with its final values
+        args.putString(NAME, name);
+        args.putString(BIO, bio);
+        args.putString(BIO, tag);
+        //set the arguments to the fragment and return
         fragment.setArguments(args);
         return fragment;
     }
@@ -60,11 +67,10 @@ public class ArtistFrag extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -77,7 +83,55 @@ public class ArtistFrag extends Fragment {
         subBioTextView = v.findViewById(R.id.artist_subbio);
         bioTextView = v.findViewById(R.id.artist_bio);
 
+        //check if there are arguments in the savedInstanceState
+        if (getArguments() != null) {
+            //get the arguments that were passed
+            mParam1 = getArguments().getString(NAME);
+            mParam2 = getArguments().getString(BIO);
+            mParam3 = getArguments().getString(NAME);
+            //update artist fragment with those values
+            updateName(mParam1, artistNameTextView);
+            updateBio(mParam2, bioTextView);
+            updateTagline(mParam3, tagLineTextView);
+        }
         return v;
+    }
+
+    /**
+     * Method to set text of artist name fragment
+     * @param newName the parameter name sent by admin artist fragment via AdminActivity
+     * @param tv the textview associated with the name textview of the artist fragment
+     */
+    public void updateName(CharSequence newName, TextView tv) {
+        tv.setText(newName);
+    }
+
+    /**
+     * Method to set tagline of artist fragment
+     * @param newTag the tagline sent by admin artist fragment via AdminActivity
+     * @param tv
+     */
+    public void updateTagline(CharSequence newTag, TextView tv) {
+        tv.setText(newTag);
+    }
+
+    public void updateSubBio(CharSequence newSubBio, TextView tv) {
+        subBioTextView.setText(newSubBio);
+    }
+
+    /**
+     * Method to set the bio of the artist fragment
+     * @param newBio
+     * @param tv
+     */
+    public void updateBio(CharSequence newBio, TextView tv) {
+        tv.setText(newBio);
+    }
+
+
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -105,21 +159,6 @@ public class ArtistFrag extends Fragment {
         mListener = null;
     }
 
-    public void updateName(String newName) {
-        artistNameTextView.setText(newName);
-    }
-
-    public void updateTagline(String newTag) {
-        tagLineTextView.setText(newTag);
-    }
-
-    public void updateSubBio(String newSubBio) {
-        subBioTextView.setText(newSubBio);
-    }
-
-    public void updateBio(String newBio) {
-        bioTextView.setText(newBio);
-    }
 
     /**
      * This interface must be implemented by activities that contain this

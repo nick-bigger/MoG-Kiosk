@@ -51,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
                        mBadLoginTextView.setVisibility(View.INVISIBLE);
                        Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
                        startActivity(intent);
+
                    }
                    else{
                         mBadLoginTextView.setVisibility(View.VISIBLE);

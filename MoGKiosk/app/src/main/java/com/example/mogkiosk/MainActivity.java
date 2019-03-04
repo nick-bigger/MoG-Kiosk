@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
    
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
+    private ArtistFrag a_frag;
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -48,13 +49,40 @@ public class MainActivity extends AppCompatActivity {
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
+        a_frag = new ArtistFrag();
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+
+        //Get transferred data from admin
+        Bundle extras = getIntent().getExtras();
+        //check if there are args passed to MainActivity, otherwise skip code block
+        if(extras != null) {
+            //get the arguments that were passed to the MainActivity by AdminActivity
+            String name = extras.getString("name");
+            String tag = extras.getString("tag");
+            String description = extras.getString("description");
+
+//  Using bundle instead of factory instance method - kept for reference
+//            //update artist
+//            Bundle data = new Bundle();
+//            data.putString("name", name);
+//            data.putString("description", description);
+//            data.putString("tag", tag);
+
+            //create a new instance of ArtistFragment and assign it arguments
+            a_frag = a_frag.newInstance(name, description, tag);
+            //detach the fragment and reattach it on order to reset the AritstFrament view (assuming it works)
+            final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.detach(a_frag);
+            ft.attach(a_frag);
+            ft.commit();
+        }
+
+
 
       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
       fab.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_settings:
                 Intent intent1 = new Intent(this, LoginActivity.class);
                 this.startActivity(intent1);
+                this.finish(); //intended to quit MainActivity (I'm doing this in hopes that it resets the main page when admin submits)
                 return true;
 
             default:
