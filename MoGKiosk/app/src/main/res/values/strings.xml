@@ -53,6 +53,40 @@
 
     <!-- String related to The Work tab -->
 
+    <string name="work_image_desc">An image of End of Day Chandelier</string>
+    <string name="work_desc_title">About the work</string>
+    <string name="work_desc">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Pellentesque libero massa, pellentesque id placerat nec,
+        consequat luctus tortor. Morbi congue scelerisque odio
+        eu varius. In placerat pretium odio tristique congue.
+        Mauris elementum magna ornare diam dictum, eget vehicula
+        lacus suscipit. Sed sed lacus congue, pulvinar augue a,
+        bibendum massa. Nullam porttitor posuere tempus. Cras
+        turpis massa, rutrum eget eros a, lacinia accumsan odio.
+        Integer convallis tristique sollicitudin. Integer ut
+        auctor nisl, ac pretium enim.
+        \n
+        \n
+        Duis id mi aliquet, pulvinar diam consectetur, efficitur
+        sapien. Maecenas ac posuere massa, in bibendum nunc.
+        Pellentesque ornare congue odie eget aliquam. Quisque
+        dictum, ligula quis pretium sagittis, mauris magna
+        feugiat velit, vel mattis purus metus a orci. Phasellus
+        iaculis ligula turpis, et tempus orci euismod vitae.
+        Vivamus maximus eu lectus eu ullamcorper. Curabitur ut
+        lacus vel mi aliquet consequat at ac turpis.
+    </string>
+    <string name="work_title">End of the Day Chandelier</string>
+    <string name="artist_table_title">ARTIST</string>
+    <string name="date_table_title">DATE</string>
+    <string name="medium_table_title">MEDIUM</string>
+    <string name="dimensions_table_title">DIMENSIONS</string>
+    <string name="artist_table_entry">Dale Chihuly</string>
+    <string name="date_table_entry">2001</string>
+    <string name="medium_table_entry">Blown glass</string>
+    <string name="dimensions_table_entry">N/A</string>
+
     <!-- String related to The Process tab -->
     <string name="video_title">Dale Chihuly in the Studio</string>
     <string name="video_detail">1 Video, 3:20 min</string>
