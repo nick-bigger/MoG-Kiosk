@@ -13,8 +13,8 @@
         convallis tristique sollicitudin. Integer ut auctor nisl, ac
         pretium enim. Duis id mi aliquet, pulvinar diam consectetur,
         efficitur sapien.</string>
-    <string name="artist_bio_title">About the Artist</string>
-    <string name="artist_bio">
+    <string name="artistFrag_bio_title">About the Artist</string>
+    <string name="artistFrag_bio">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Pellentesque libero massa, pellentesque id placerat nec,
         consequat luctus tortor. Morbi congue scelerisque odio
@@ -46,7 +46,7 @@
         Mauris elementum magna ornare diam dictum, eget vehicula
         lacus suscipit. Sed sed lacus congue, pulvinar augue a,
         bibendum massa.</string>
-    <string name="related_work_title">Related Work</string>
+    <string name="artistFrag_related_work_title">Featured Work</string>
     <string name="related_work_1_title">The orange one</string>
     <string name="related_work_2_title">The purple one</string>
     <string name="related_work_3_title">The blue one</string>

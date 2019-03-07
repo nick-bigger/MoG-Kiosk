@@ -23,31 +23,31 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/artist_bio_title"
+                    android:id="@+id/artistFrag_bio_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="32dp"
-                    android:text="@string/artist_bio_title"
+                    android:text="@string/artistFrag_bio_title"
                     android:textSize="12pt"
-                    app:layout_constraintStart_toStartOf="@+id/artist_bio_card"
+                    app:layout_constraintStart_toStartOf="@+id/artistFrag_bio_card"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/related_work_title"
+                    android:id="@+id/artistFrag_related_work_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="74dp"
-                    android:text="@string/related_work_title"
+                    android:text="@string/artistFrag_related_work_title"
                     android:textSize="12pt"
-                    app:layout_constraintStart_toStartOf="@+id/artist_bio_card"
-                    app:layout_constraintTop_toBottomOf="@+id/artist_bio_card" />
+                    app:layout_constraintStart_toStartOf="@+id/artistFrag_bio_card"
+                    app:layout_constraintTop_toBottomOf="@+id/artistFrag_bio_card" />
 
                 <android.support.constraint.ConstraintLayout
-                    android:id="@+id/artist_bio_card"
+                    android:id="@+id/artistFrag_bio_card"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -58,10 +58,10 @@
                     android:visibility="visible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/artist_bio_title">
+                    app:layout_constraintTop_toBottomOf="@+id/artistFrag_bio_title">
 
                     <TextView
-                        android:id="@+id/artist_bio"
+                        android:id="@+id/artistFrag_bio"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -69,7 +69,7 @@
                         android:layout_marginEnd="16dp"
                         android:layout_marginRight="16dp"
                         android:lineSpacingExtra="10dp"
-                        android:text="@string/artist_bio"
+                        android:text="@string/artistFrag_bio"
                         android:textColor="@color/textDark"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -81,8 +81,8 @@
 
                 <android.support.constraint.ConstraintLayout
                     android:id="@+id/related_work"
-                    android:layout_width="549dp"
-                    android:layout_height="214dp"
+                    android:layout_width="796dp"
+                    android:layout_height="299dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="8dp"
@@ -93,50 +93,24 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/related_work_title"
+                    app:layout_constraintTop_toBottomOf="@+id/artistFrag_related_work_title"
                     app:layout_constraintVertical_bias="0.111">
 
-                    <ImageView
-                        android:id="@+id/related_work_1"
-                        android:layout_width="140dp"
-                        android:layout_height="140dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:contentDescription="@string/related_work_1_title"
+                    <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/gridview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:columnWidth="500dp"
+                        android:gravity="center"
+                        android:horizontalSpacing="5dp"
+                        android:numColumns="3"
+                        android:stretchMode="columnWidth"
+                        android:verticalSpacing="5dp"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/related_work_1" />
-
-                    <ImageView
-                        android:id="@+id/related_work_3"
-                        android:layout_width="140dp"
-                        android:layout_height="140dp"
-                        android:layout_marginStart="48dp"
-                        android:layout_marginLeft="48dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:contentDescription="@string/related_work_3_title"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/related_work_2"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/related_work_3" />
-
-                    <ImageView
-                        android:id="@+id/related_work_2"
-                        android:layout_width="140dp"
-                        android:layout_height="140dp"
-                        android:layout_marginStart="48dp"
-                        android:layout_marginLeft="48dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:contentDescription="@string/related_work_2_title"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/related_work_1"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/related_work_2" />
+                        app:layout_constraintTop_toTopOf="parent" />
+                    
                 </android.support.constraint.ConstraintLayout>
 
             </android.support.constraint.ConstraintLayout>
