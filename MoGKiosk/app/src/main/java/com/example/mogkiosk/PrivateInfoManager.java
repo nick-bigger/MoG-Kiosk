@@ -5,8 +5,12 @@ import android.util.Log;
 
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -41,7 +45,7 @@ class PrivateInfoManager
 
     private Context context;
     private JSONObject infoManager;
-    private String legiblePass;
+    private String legiblePass = "";
 
     /**
      * Constructor for PrivateInfoManager object
@@ -49,33 +53,86 @@ class PrivateInfoManager
      */
     public PrivateInfoManager(Context context)
     {
-        try { readJSONfromFile(context);}
-        catch (Exception e) { Log.d(ERROR, e.toString()); }
-
         this.context = context;
+        try { readJSONfromFile(this.context);}
+        catch (Exception e) { Log.d(ERROR, e.toString()); }
     }
 
     /**
      * Initializes infoManager JSONObject using data from info file.
+     * If the current device does not contain secret file, it creates a basic one to be filled in.
      * @param context the context of the app
      */
-    private void readJSONfromFile(Context context)
-    {
+    private void readJSONfromFile(Context context) throws InvalidKeySpecException, NoSuchAlgorithmException, IOException {
         //Read in file
-        try {
+        try
+        {
             FileInputStream fis = context.openFileInput("pw.pw");
-            //System.out.println("Found file!");
+            System.out.println("Found file!");
 
             byte[] barray = new byte[0124];
             StringBuffer fc = new StringBuffer("");
             int n;
 
             while ((n = fis.read(barray)) != -1) fc.append(new String(barray, 0, n));
+            System.out.println("FC is " + fc.toString());
+            if (fc.toString().equals(""))
+            {
+                System.out.println("IN CREATING VALUES");
+                String data = "{\n" +
+                        "        \"username\": \"\",\n" +
+                        "        \"tempUsername\": \"\",\n" +
+                        "        \"salt\": \"\",\n" +
+                        "        \"tempSalt\": \"\",\n" +
+                        "        \"hash\": \"\",\n" +
+                        "        \"tempHash\": \"\",\n" +
+                        "        \"email\": \"\"" +
+                        "    }";
+                try {
+                    OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("pw.pw", Context.MODE_PRIVATE));
+                    outputStreamWriter.write(data);
+                    outputStreamWriter.close();
+                }
+                catch (IOException e) { Log.e("Exception", "File write failed: " + e.toString()); }
 
+                while ((n = fis.read(barray)) != -1) fc.append(new String(barray, 0, n));
+            }
+            //System.out.println(fc.toString());
             //Make file a jsonobject
             infoManager = new JSONObject(fc.toString());
+            //writeInitialInfo(context);
+            //System.out.println("I can make an info manager");
+        }
+        catch (FileNotFoundException f)
+        {
+            System.out.println("IN EXCEPTION");
+            File file = new File(context.getFilesDir(), "pw.pw");
+            file.createNewFile();
+            readJSONfromFile(context);
+            writeInitialInfo(context);
         }
         catch (Exception e) {Log.d(ERROR, e.toString());}
+    }
+
+    /**
+     * Creates initial values for when app first installed on a new device
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidKeySpecException
+     */
+    private void writeInitialInfo(Context context) throws NoSuchAlgorithmException, InvalidKeySpecException
+    {
+        System.out.println("HEY EVERYONE");
+        //Initial username glassAdmin
+        // Initial password glassiscool
+        addKVpair(USERNAME, "glassAdmin");
+        addKVpair(TEMP_USERNAME, "");
+        addKVpair(SALT, "");
+        updateSalt();
+        addKVpair(TEMP_SALT, "");
+        addKVpair(PASS_HASH, generatePasswordHash("glassiscool", false));
+        addKVpair(TEMP_HASH, "");
+        addKVpair(EMAIL, "kramos577@gmail.com");
+        printContents();
     }
 
     /**
@@ -118,6 +175,7 @@ class PrivateInfoManager
             Log.d(ERROR, e.toString());
             return null;
         }
+
         return salt;
     }
 
@@ -228,10 +286,12 @@ class PrivateInfoManager
             {
                 FileOutputStream fos = context.openFileOutput("pw.pw", Context.MODE_PRIVATE);
                 fos.write(infoManager.toString(4).getBytes());
+//                System.out.println("Writing" + infoManager.toString(4));
+                fos.close();
             }
-            catch (Exception e) {Log.d(ERROR, e.toString());}
+            catch (Exception e) {Log.d(ERROR, e.toString()); System.out.println("problem with file");}
         }
-        catch (Exception e) {Log.d(ERROR, e.toString()); }
+        catch (Exception e) {Log.d(ERROR, e.toString()); System.out.println("problem with json");}
     }
 
     /**
@@ -335,7 +395,8 @@ class PrivateInfoManager
      */
     private boolean isEmptyTempHash()
     {
-        if (getTempHash().equals(""))  return true;
+        System.out.println("Temp hash is: " + "\"" + getTempHash() + "\"");
+        if (getTempHash() == null || getTempHash().equals(""))  return true;
         return false;
     }
 
@@ -345,7 +406,9 @@ class PrivateInfoManager
      */
     private boolean isEmptyTempSalt()
     {
-        if (getTempSalt() == null) return true;
+        System.out.println("Temp salt is: " + "\"" + getTempSalt() + "\"");
+        System.out.println("the thing" + (getTempSalt() == null));
+        if (getTempSalt() == null || getTempSalt().equals("")) return true;
         return false;
     }
 
@@ -467,6 +530,7 @@ class PrivateInfoManager
      */
     public int validateLogin(String username, String password) throws InvalidKeySpecException, NoSuchAlgorithmException
     {
+        printContents();
         if (isEmptyTempHash() && isEmptyTempSalt())
         {
             if ((getHash().equals(generatePasswordHash(password, false))) && (getUsername().equals(username))) return GOTOADMIN;
