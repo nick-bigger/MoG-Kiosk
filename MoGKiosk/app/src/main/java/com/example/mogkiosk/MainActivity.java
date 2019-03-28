@@ -1,5 +1,6 @@
 package com.example.mogkiosk;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -86,7 +87,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent1 = new Intent(this, LoginActivity.class);
                 this.startActivity(intent1);
                 return true;
-
+            case R.id.action_about:
+                Intent intent2 = new Intent(this, AboutActivity.class);
+                this.startActivity(intent2);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
