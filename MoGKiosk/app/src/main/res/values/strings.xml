@@ -105,6 +105,34 @@
     <string name="log_in">Log In</string>
 
 
+    <!-- String related to About Page -->
+    <string name="about_title">About the Kiosk</string>
+    <string name="about_text">
+        This kiosk was designed by a team of four Computer Science
+        students from the University of Puget Sound: Ayse Hunt, Kayla
+        Ramos, Marwan Johnstone, and Nick Bigger. The idea for this
+        project stemmed from research that Ayse completed as part of
+        her undergraduate thesis studying the use of educational
+        technology in art museums. This work suggests the potential
+        of digital tools to provide uniquely flexible and
+        self-directed learning experiences for museum visitors.
+        \n
+        \n
+        Ayse pitched the idea of creating an interactive kiosk to
+        feature video content to the rest of the team in November
+        2018. From there, the team decided to build an application
+        that would showcase a particular piece of art, including
+        biographical information about the artist and video of the
+        piece\'s creation.
+        \n
+        \n
+        This project was made possible with help of Rebecca Engelhardt,
+        Katie Buckingham, and Professor Adam Smith. In addition we\'d
+        like to thank [insert donor name here] for helping fund the
+        purchase of this tablet.
+
+    </string>
+
 
     <!-- Strings related to Settings -->
 
@@ -181,4 +209,5 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="mogAdminString">Museum of Glass Admin Center</string>
+    <string name="title_activity_about">AboutActivity</string>
 </resources>
