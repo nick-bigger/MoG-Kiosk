@@ -17,7 +17,7 @@
             android:id="@+id/infoPanel"
             android:layout_width="371dp"
             android:layout_height="wrap_content"
-            android:background="#CC606060"
+            android:background="#363636"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imagePanel"
@@ -37,6 +37,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/darker_gray"
+                    app:layout_constraintBottom_toTopOf="@+id/infoTable"
+                    app:layout_constraintTop_toBottomOf="@+id/work_title"
+                    tools:layout_editor_absoluteX="10dp" />
+
                 <TextView
                     android:id="@+id/work_title"
                     android:layout_width="wrap_content"
@@ -47,9 +57,8 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:text="@string/work_title"
-                    android:textColor="@color/textLight"
-                    android:textSize="28pt"
-                    android:textStyle="italic"
+                    android:textAppearance="@android:style/TextAppearance.Large.Inverse"
+                    android:textSize="50sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -79,8 +88,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="0dp"
                         android:layout_margin="1dp"
-                        android:layout_weight="1"
-                        android:background="#000000">
+                        android:layout_weight="1">
 
                         <TextView
                             android:id="@+id/artist_title"
@@ -88,9 +96,10 @@
                             android:layout_height="match_parent"
                             android:layout_column="0"
                             android:layout_margin="1dp"
-                            android:background="#FFFFFF"
                             android:gravity="center"
                             android:text="@string/artist_table_title"
+                            android:textColor="@color/textLight"
+                            android:textSize="14sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -99,9 +108,9 @@
                             android:layout_height="match_parent"
                             android:layout_column="1"
                             android:layout_margin="1dp"
-                            android:background="#FFFFFF"
                             android:gravity="center"
-                            android:text="@string/artist_table_entry" />
+                            android:text="@string/artist_table_entry"
+                            android:textColor="@color/textLight" />
 
                     </TableRow>
 
@@ -111,8 +120,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="0dp"
                         android:layout_margin="1dp"
-                        android:layout_weight="1"
-                        android:background="#000000">
+                        android:layout_weight="1">
 
                         <TextView
                             android:id="@+id/date_title"
@@ -120,9 +128,9 @@
                             android:layout_height="match_parent"
                             android:layout_column="0"
                             android:layout_margin="1dp"
-                            android:background="#FFFFFF"
                             android:gravity="center"
                             android:text="@string/date_table_title"
+                            android:textColor="@color/textLight"
                             android:textStyle="bold" />
 
                         <TextView
@@ -131,9 +139,9 @@
                             android:layout_height="match_parent"
                             android:layout_column="1"
                             android:layout_margin="1dp"
-                            android:background="#FFFFFF"
                             android:gravity="center"
-                            android:text="@string/date_table_entry" />
+                            android:text="@string/date_table_entry"
+                            android:textColor="@color/textLight" />
 
                     </TableRow>
 
@@ -142,8 +150,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="0dp"
                         android:layout_margin="1dp"
-                        android:layout_weight="1"
-                        android:background="#000000">
+                        android:layout_weight="1">
 
                         <TextView
                             android:id="@+id/medium_title"
@@ -151,9 +158,9 @@
                             android:layout_height="match_parent"
                             android:layout_column="0"
                             android:layout_margin="1dp"
-                            android:background="#FFFFFF"
                             android:gravity="center"
                             android:text="@string/medium_table_title"
+                            android:textColor="@color/textLight"
                             android:textStyle="bold" />
 
                         <TextView
@@ -161,9 +168,9 @@
                             android:layout_height="match_parent"
                             android:layout_column="1"
                             android:layout_margin="1dp"
-                            android:background="#FFFFFF"
                             android:gravity="center"
-                            android:text="@string/medium_table_entry" />
+                            android:text="@string/medium_table_entry"
+                            android:textColor="@color/textLight" />
 
                     </TableRow>
 
@@ -172,8 +179,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="0dp"
                         android:layout_margin="1dp"
-                        android:layout_weight="1"
-                        android:background="#000000">
+                        android:layout_weight="1">
 
                         <TextView
                             android:id="@+id/dimensions_title"
@@ -181,9 +187,9 @@
                             android:layout_height="match_parent"
                             android:layout_column="0"
                             android:layout_margin="1dp"
-                            android:background="#FFFFFF"
                             android:gravity="center"
                             android:text="@string/dimensions_table_title"
+                            android:textColor="@color/textLight"
                             android:textStyle="bold" />
 
                         <TextView
@@ -192,9 +198,9 @@
                             android:layout_height="match_parent"
                             android:layout_column="1"
                             android:layout_margin="1dp"
-                            android:background="#FFFFFF"
                             android:gravity="center"
-                            android:text="@string/dimensions_table_entry" />
+                            android:text="@string/dimensions_table_entry"
+                            android:textColor="@color/textLight" />
 
                     </TableRow>
 
@@ -244,11 +250,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="32dp"
                     android:layout_marginEnd="20dp"
                     android:maxLines="1"
                     android:text="@string/work_desc_title"
-                    android:textSize="12pt"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.031"
                     app:layout_constraintStart_toStartOf="parent"
@@ -258,16 +267,18 @@
                     android:id="@+id/work_desc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="92dp"
-                    android:layout_marginLeft="92dp"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginEnd="32dp"
-                    android:layout_marginRight="32dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginRight="24dp"
                     android:layout_marginBottom="32dp"
+                    android:lineSpacingExtra="10dp"
                     android:text="@string/work_desc"
+                    android:textColor="@color/textDark"
                     app:layout_constraintBottom_toBottomOf="@id/work_description"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/work_description"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/work_desc_title"
                     app:layout_constraintVertical_bias="0.0"
                     tools:text="@string/work_desc" />

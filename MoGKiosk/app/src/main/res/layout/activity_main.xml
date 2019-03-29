@@ -50,8 +50,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_margin"
-        android:tint="#F5F5F6"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        android:tint="#FFFFFF"
+        app:srcCompat="@android:drawable/ic_menu_send" />
 
 
 </android.support.design.widget.CoordinatorLayout>
