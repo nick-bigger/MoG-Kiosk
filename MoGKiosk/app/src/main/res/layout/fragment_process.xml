@@ -26,7 +26,7 @@
         <FrameLayout
             android:id="@+id/frameLayout4"
             android:layout_width="wrap_content"
-            android:layout_height="603dp"
+            android:layout_height="542dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -66,9 +66,9 @@
             android:layout_marginLeft="8dp"
             android:layout_marginBottom="8dp"
             android:text="@string/video_title"
-            android:textAppearance="@android:style/TextAppearance.Material.Title"
-            android:textColor="@android:color/white"
-            android:textSize="30sp"
+            android:textColor="@color/textLight"
+            android:textSize="49sp"
+            android:textStyle="bold|italic"
             app:layout_constraintBottom_toTopOf="@+id/frameLayout4"
             app:layout_constraintStart_toStartOf="parent" />
 

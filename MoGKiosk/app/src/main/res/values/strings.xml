@@ -77,7 +77,8 @@
         Vivamus maximus eu lectus eu ullamcorper. Curabitur ut
         lacus vel mi aliquet consequat at ac turpis.
     </string>
-    <string name="work_title">End of the Day Chandelier</string>
+    <string name="work_title">End of the Day Chandelier,</string>
+    <string name="work_date">2001</string>
     <string name="artist_table_title">ARTIST</string>
     <string name="date_table_title">DATE</string>
     <string name="medium_table_title">MEDIUM</string>
