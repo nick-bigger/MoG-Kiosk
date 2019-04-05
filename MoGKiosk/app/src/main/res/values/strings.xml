@@ -86,20 +86,26 @@
         Vivamus maximus eu lectus eu ullamcorper. Curabitur ut
         lacus vel mi aliquet consequat at ac turpis.
     </string>
-    <string name="work_title">End of the Day Chandelier,</string>
-    <string name="work_date">2001</string>
+    <string name="work_title">The Ones that Got Away</string>
+    <string name="work_date">2007</string>
     <string name="artist_table_title">ARTIST</string>
     <string name="date_table_title">DATE</string>
     <string name="medium_table_title">MEDIUM</string>
     <string name="dimensions_table_title">DIMENSIONS</string>
-    <string name="artist_table_entry">Dale Chihuly</string>
-    <string name="date_table_entry">2001</string>
-    <string name="medium_table_entry">Blown glass</string>
-    <string name="dimensions_table_entry">N/A</string>
+    <string name="artist_table_entry">David Walters (American, born 1968)</string>
+    <string name="date_table_entry">Made at the Museum in 2007</string>
+    <string name="medium_table_entry">Blown glass and enamel paint</string>
+    <string name="dimensions_table_entry">29 x 9 x 8 in. (73.7 x 22.9 x 20.3 cm)
+</string>
+    <string name="collection_table_title">COLLECTION</string>
+    <string name="collection_table_entry">Collection of Museum of Glass, Tacoma, Washington,
+        \ngift of the artist</string>
+    <string name="table_photo_credit_title">PHOTO BY</string>
+    <string name="photo_credit_entry">Russell Johnson</string>
 
     <!-- String related to The Process tab -->
-    <string name="video_title">Dale Chihuly in the Studio</string>
-    <string name="video_detail">1 Video, 3:20 min</string>
+    <string name="video_title">David Walters in the Hot Shop</string>
+    <string name="video_detail">1 Video, 1:50 min</string>
     <string name="video_next_text">Swipe for more</string>
     <string name="share_icon">Share Icon</string>
 
@@ -138,8 +144,21 @@
         \n
         This project was made possible with help of Rebecca Engelhardt,
         Katie Buckingham, and Professor Adam A Smith. In addition we\'d
-        like to thank [insert donor name here] for helping fund the
-        purchase of this tablet.
+        like to thank the following donors for their generous help in fund the
+        purchase of this tablet"
+
+            Tammy Ramos
+            Dustin Cook
+            Thomas Hunt
+            Curt and Paige Houck
+            Chris Lawson
+            Mikako Endo
+            Catherine Hunt
+            James and Jennifer Bigger
+            Anonymous
+            Anonymous
+        \n
+        \n
 
     </string>
 

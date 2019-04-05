@@ -28,6 +28,7 @@ public class ProcessFrag extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private VideoView videoView;
 
     private OnFragmentInteractionListener mListener;
 
@@ -67,8 +68,8 @@ public class ProcessFrag extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_process, container, false);
-        VideoView videoView = (VideoView) rootView.findViewById(R.id.videoView);
-        String videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.video;
+        videoView = (VideoView) rootView.findViewById(R.id.videoView);
+        String videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.videoplayback;
         Uri uri = Uri.parse(videoPath);
         videoView.setVideoURI(uri);
 
@@ -76,7 +77,8 @@ public class ProcessFrag extends Fragment {
         videoView.setMediaController(mediaController);
         mediaController.setAnchorView(videoView);
 
-        videoView.start();
+
+
 
         // Inflate the layout for this fragment
         return rootView;
@@ -86,6 +88,7 @@ public class ProcessFrag extends Fragment {
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
+            videoView.start();
         }
     }
 
