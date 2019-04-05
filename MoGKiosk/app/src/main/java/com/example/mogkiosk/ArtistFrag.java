@@ -9,7 +9,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 
 /**
@@ -26,11 +29,13 @@ public class ArtistFrag extends Fragment {
     private static final String NAME = "NAME";
     private static final String BIO = "BIO";
     private static final String TAG = "TAG";
+    private static final String SUBBIO = "SUBBIO";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-    private String mParam3;
+    private String name;
+    private String tag;
+    private String description;
+    private String subbio;
     private TextView artistNameTextView;
     private TextView tagLineTextView;
     private TextView bioTextView;
@@ -78,21 +83,39 @@ public class ArtistFrag extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_artist, container, false);
 
+        //get layout EditTexts
         artistNameTextView = v.findViewById(R.id.artist_name);
         tagLineTextView = v.findViewById(R.id.artist_tagline);
         subBioTextView = v.findViewById(R.id.artist_subbio);
         bioTextView = v.findViewById(R.id.artist_bio);
 
+        Bundle bundle = getArguments();
         //check if there are arguments in the savedInstanceState
-        if (getArguments() != null) {
+        if (bundle != null) {
             //get the arguments that were passed
-            mParam1 = getArguments().getString(NAME);
-            mParam2 = getArguments().getString(BIO);
-            mParam3 = getArguments().getString(NAME);
-            //update artist fragment with those values
-            updateName(mParam1, artistNameTextView);
-            updateBio(mParam2, bioTextView);
-            updateTagline(mParam3, tagLineTextView);
+            name = bundle.getString(NAME);
+            description = bundle.getString(BIO);
+            tag = bundle.getString(TAG);
+            subbio = bundle.getString(SUBBIO);
+
+            //update artist fragment with those values, only if those values contain something
+            if(!name.isEmpty()) {
+                updateName(name, artistNameTextView);
+            }
+
+            if(!description.isEmpty()) {
+                updateBio(description, bioTextView);
+            }
+
+            if(!subbio.isEmpty()) {
+               updateSubBio(subbio, subBioTextView);
+            }
+
+            if(!tag.isEmpty()) {
+                updateTagline(tag, tagLineTextView);
+            }
+
+
         }
         return v;
     }
@@ -102,8 +125,8 @@ public class ArtistFrag extends Fragment {
      * @param newName the parameter name sent by admin artist fragment via AdminActivity
      * @param tv the textview associated with the name textview of the artist fragment
      */
-    public void updateName(CharSequence newName, TextView tv) {
-        tv.setText(newName);
+    public void updateName(CharSequence newName, TextView view) {
+        view.setText(newName);
     }
 
     /**

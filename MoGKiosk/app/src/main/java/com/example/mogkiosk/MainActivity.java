@@ -33,11 +33,17 @@ public class MainActivity extends AppCompatActivity {
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ArtistFrag a_frag;
+    private WorkFrag w_frag;
+    private ProcessFrag p_frag;
     /**
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
 
+    /**
+     * Initializes and creates the sections adapter, sets the content view on activity creation
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,39 +55,6 @@ public class MainActivity extends AppCompatActivity {
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        a_frag = new ArtistFrag();
-        // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
-
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
-
-        //Get transferred data from admin
-        Bundle extras = getIntent().getExtras();
-        //check if there are args passed to MainActivity, otherwise skip code block
-        if(extras != null) {
-            //get the arguments that were passed to the MainActivity by AdminActivity
-            String name = extras.getString("name");
-            String tag = extras.getString("tag");
-            String description = extras.getString("description");
-
-//  Using bundle instead of factory instance method - kept for reference
-//            //update artist
-//            Bundle data = new Bundle();
-//            data.putString("name", name);
-//            data.putString("description", description);
-//            data.putString("tag", tag);
-
-            //create a new instance of ArtistFragment and assign it arguments
-            a_frag = a_frag.newInstance(name, description, tag);
-            //detach the fragment and reattach it on order to reset the AritstFrament view (assuming it works)
-            final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.detach(a_frag);
-            ft.attach(a_frag);
-            ft.commit();
-        }
-
 
 
       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -95,6 +68,58 @@ public class MainActivity extends AppCompatActivity {
       
     }
 
+    /**
+     * Method that activates once the MainActivity lifecycle officially starts, upon which the container is found and set to the fragments.
+     * The tab layout is also defined and set up on start.
+     */
+    public void onStart() {
+        super.onStart();
+        // Set up the ViewPager with the sections adapter.
+        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(mViewPager);
+
+    }
+
+    /**
+     * Once the activity is suspended and resumed, it will first retrieve the fragments in the sections adapter.
+     * Once they are found, it will check if there has been any data passed on from the AdminActivity to the MainActivity
+     * via bundle.
+     */
+    public void onResume() {
+        super.onResume();
+
+        a_frag = (ArtistFrag) mSectionsPagerAdapter.getItem(0);
+
+        //Get transferred data from admin
+        Bundle extras = getIntent().getExtras();
+        //check if there are args passed to MainActivity, otherwise skip code block
+        if(extras != null) {
+
+            //get the arguments that were passed to the MainActivity by AdminActivity
+            String name = extras.getString("name");
+            String tag = extras.getString("tag");
+            String description = extras.getString("description");
+            String subbio = extras.getString("subbio");
+
+            // Using bundle
+            //  update artist
+            Bundle data = new Bundle();
+            data.putString("NAME", name);
+            data.putString("BIO", description);
+            data.putString("TAG", tag);
+            data.putString("SUBBIO", subbio);
+
+            //set arguments and update adapter
+            a_frag.setArguments(data);
+            mSectionsPagerAdapter.setItem(a_frag, 0);
+            //begin the transaction and commit
+            final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.commit();
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -112,8 +137,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.action_settings:
                 Intent intent1 = new Intent(this, LoginActivity.class);
-                this.startActivity(intent1);
-                this.finish(); //intended to quit MainActivity (I'm doing this in hopes that it resets the main page when admin submits)
+                this.startActivity(intent1); //intended to quit MainActivity (I'm doing this in hopes that it resets the main page when admin submits)
                 return true;
 
             default:
@@ -127,28 +151,41 @@ public class MainActivity extends AppCompatActivity {
      * one of the sections/tabs/pages.
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
-
+        Fragment artistFragment = new ArtistFrag();
+        Fragment workFrag = new WorkFrag();
+        Fragment processFrag = new ProcessFrag();
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
         @Override
         public Fragment getItem(int position) {
-            Fragment fragment = null;
+
 
             switch(position){
                 case 0:
-                    fragment = new ArtistFrag();
-                    break;
+                    return artistFragment;
                 case 1:
-                    fragment = new WorkFrag();
-                    break;
+                    return workFrag;
                 case 2:
-                    fragment = new ProcessFrag();
-                    break;
+                    return processFrag;
 
             }
-            return fragment;
+            return null;
+        }
+
+        public void setItem(Fragment frag, int position) {
+            switch(position) {
+                case 0:
+                    artistFragment = frag;
+                    break;
+                case 1:
+                    workFrag = frag;
+                    break;
+                case 2:
+                    processFrag = frag;
+                    break;
+            }
         }
 
         @Override
@@ -169,6 +206,7 @@ public class MainActivity extends AppCompatActivity {
             }
             return null;
         }
+
     }
 
     /**

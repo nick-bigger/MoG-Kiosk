@@ -11,8 +11,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.EditText;
 
-
-public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.OnDataPass {
+/**
+ * Class that facilitates the admin side of the app functionality. It has its own section adapter that manages admin counterpart fragments to the
+ * xml layouts on the frontend (Artist, Process, Work). It implements an interface methods defined in the fragments to send variables back and forth
+ * from the admin side to the front end.
+ */
+public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.OnArtistDataPass, ProcessFragAdmin.OnProcessDataPass {
 
 
     /**
@@ -25,30 +29,21 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
      */
     private AdminActivity.SectionsPagerAdapter mSectionsPagerAdapter;
 
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
-    private ViewPager mViewPager;
-    private ArtistFragAdmin a_frag_admin;
-    private ArtistFrag a_frag;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_main);
 
-        //initialize fragments
-        a_frag_admin = new ArtistFragAdmin();
-        a_frag = new ArtistFrag();
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        /**
+         * The {@link ViewPager} that will host the section contents.
+         */
+        ViewPager mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -68,18 +63,20 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
      * @param description the description sent by the submit button in the AdminArtistFragment
      */
     @Override
-    public void onDataPass(CharSequence name, CharSequence tag, CharSequence description) {
+    public void onArtistDataPass(CharSequence name, CharSequence tag, CharSequence description, CharSequence subbio) {
         Intent intent = new Intent(AdminActivity.this, MainActivity.class);
         //convert to string
         String n = name.toString();
         String t = tag.toString();
         String d = description.toString();
+        String s = subbio.toString();
         //set args
         intent.putExtra("name", n);
         intent.putExtra("tag", t);
         intent.putExtra("description", d);
+        intent.putExtra("subbio", s);
         //start
-        startActivity(intent);
+        this.startActivity(intent);
     }
 
     /**
