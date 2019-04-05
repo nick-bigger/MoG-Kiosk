@@ -3,84 +3,113 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:layout_height="match_parent">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#FFFFFF"
         android:clipToPadding="false"
         tools:context=".WorkFrag">
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/infoPanel"
-            android:layout_width="371dp"
-            android:layout_height="wrap_content"
-            android:background="#CC606060"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="638dp"
+            app:layout_constraintBottom_toTopOf="@id/descriptionPanel"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imagePanel"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintVertical_bias="1.0">
+
+            <ImageView
+                android:id="@+id/work_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="16dp"
+
+                android:contentDescription="@string/work_image_desc"
+                android:src="@drawable/work_img"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/info_card"
+                app:layout_constraintStart_toStartOf="@id/infoPanel"
+                app:layout_constraintTop_toTopOf="@id/infoPanel" />
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/info_card"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="33dp"
-                android:layout_marginLeft="33dp"
-                android:layout_marginEnd="33dp"
-                android:layout_marginRight="33dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="32dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/work_image"
                 app:layout_constraintTop_toTopOf="parent">
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"
+                    app:layout_constraintBottom_toTopOf="@+id/infoTable"
+                    app:layout_constraintTop_toBottomOf="@+id/work_date"
+                    tools:layout_editor_absoluteX="10dp" />
 
                 <TextView
                     android:id="@+id/work_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="136dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="32dp"
                     android:text="@string/work_title"
-                    android:textColor="@color/textLight"
-                    android:textSize="28pt"
-                    android:textStyle="italic"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textAppearance="@android:style/TextAppearance.Large.Inverse"
+                    android:textColor="@color/textDark"
+                    android:textSize="49sp"
+                    android:textStyle="bold|italic"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/work_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/work_date"
+                    android:textSize="50sp"
+                    android:textStyle="italic"
+                    app:fontFamily="sans-serif-light"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/work_title" />
 
                 <TableLayout
 
                     android:id="@+id/infoTable"
-                    android:layout_width="300dp"
-                    android:layout_height="150dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="100dp"
-                    android:layout_marginEnd="63dp"
-                    android:layout_marginRight="63dp"
-                    android:layout_marginBottom="1089dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="1dp"
                     android:gravity="center"
                     android:stretchColumns="0,1,2"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/work_title"
-                    app:layout_constraintVertical_bias="0.52">
+                    app:layout_constraintTop_toBottomOf="@+id/work_date">
 
 
                     <TableRow
                         android:id="@+id/artist_row"
-                        android:layout_width="fill_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_margin="1dp"
-                        android:layout_weight="1"
-                        android:background="#000000">
+                        android:layout_weight="1">
 
                         <TextView
                             android:id="@+id/artist_title"
@@ -88,9 +117,10 @@
                             android:layout_height="match_parent"
                             android:layout_column="0"
                             android:layout_margin="1dp"
-                            android:background="#FFFFFF"
-                            android:gravity="center"
+                            android:gravity="center|start"
                             android:text="@string/artist_table_title"
+                            android:textColor="@color/textDark"
+                            android:textSize="18sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -99,20 +129,20 @@
                             android:layout_height="match_parent"
                             android:layout_column="1"
                             android:layout_margin="1dp"
-                            android:background="#FFFFFF"
-                            android:gravity="center"
-                            android:text="@string/artist_table_entry" />
+                            android:gravity="center|start"
+                            android:text="@string/artist_table_entry"
+                            android:textColor="@color/textDark"
+                            android:textSize="18sp" />
 
                     </TableRow>
 
 
                     <TableRow
                         android:id="@+id/date_row"
-                        android:layout_width="fill_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_margin="1dp"
-                        android:layout_weight="1"
-                        android:background="#000000">
+                        android:layout_weight="1">
 
                         <TextView
                             android:id="@+id/date_title"
@@ -120,9 +150,10 @@
                             android:layout_height="match_parent"
                             android:layout_column="0"
                             android:layout_margin="1dp"
-                            android:background="#FFFFFF"
-                            android:gravity="center"
+                            android:gravity="center|start"
                             android:text="@string/date_table_title"
+                            android:textColor="@color/textDark"
+                            android:textSize="18sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -131,19 +162,19 @@
                             android:layout_height="match_parent"
                             android:layout_column="1"
                             android:layout_margin="1dp"
-                            android:background="#FFFFFF"
-                            android:gravity="center"
-                            android:text="@string/date_table_entry" />
+                            android:gravity="center|start"
+                            android:text="@string/date_table_entry"
+                            android:textColor="@color/textDark"
+                            android:textSize="18sp" />
 
                     </TableRow>
 
                     <TableRow
                         android:id="@+id/medium_row"
-                        android:layout_width="fill_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_margin="1dp"
-                        android:layout_weight="1"
-                        android:background="#000000">
+                        android:layout_weight="1">
 
                         <TextView
                             android:id="@+id/medium_title"
@@ -151,9 +182,10 @@
                             android:layout_height="match_parent"
                             android:layout_column="0"
                             android:layout_margin="1dp"
-                            android:background="#FFFFFF"
-                            android:gravity="center"
+                            android:gravity="center|start"
                             android:text="@string/medium_table_title"
+                            android:textColor="@color/textDark"
+                            android:textSize="18sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -161,19 +193,19 @@
                             android:layout_height="match_parent"
                             android:layout_column="1"
                             android:layout_margin="1dp"
-                            android:background="#FFFFFF"
-                            android:gravity="center"
-                            android:text="@string/medium_table_entry" />
+                            android:gravity="center|start"
+                            android:text="@string/medium_table_entry"
+                            android:textColor="@color/textDark"
+                            android:textSize="18sp" />
 
                     </TableRow>
 
                     <TableRow
                         android:id="@+id/dimensions_row"
-                        android:layout_width="fill_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_margin="1dp"
-                        android:layout_weight="1"
-                        android:background="#000000">
+                        android:layout_weight="1">
 
                         <TextView
                             android:id="@+id/dimensions_title"
@@ -181,9 +213,10 @@
                             android:layout_height="match_parent"
                             android:layout_column="0"
                             android:layout_margin="1dp"
-                            android:background="#FFFFFF"
-                            android:gravity="center"
+                            android:gravity="center|start"
                             android:text="@string/dimensions_table_title"
+                            android:textColor="@color/textDark"
+                            android:textSize="18sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -192,12 +225,72 @@
                             android:layout_height="match_parent"
                             android:layout_column="1"
                             android:layout_margin="1dp"
-                            android:background="#FFFFFF"
-                            android:gravity="center"
-                            android:text="@string/dimensions_table_entry" />
+                            android:gravity="center|start"
+                            android:text="@string/dimensions_table_entry"
+                            android:textColor="@color/textDark"
+                            android:textSize="18sp" />
 
                     </TableRow>
 
+                    <TableRow
+                        android:id="@+id/collection_row"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/collection_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_margin="1dp"
+                            android:gravity="center|start"
+                            android:text="@string/collection_table_title"
+                            android:textColor="@color/textDark"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/collection_entry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_column="1"
+                            android:layout_margin="1dp"
+                            android:gravity="center|start"
+                            android:text="@string/collection_table_entry"
+                            android:textColor="@color/textDark"
+                            android:textSize="18sp" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/photo_credit_row"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/photo_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_margin="1dp"
+                            android:gravity="center|start"
+                            android:text="@string/table_photo_credit_title"
+                            android:textColor="@color/textDark"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/photo_credit_entry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_column="1"
+                            android:layout_margin="1dp"
+                            android:gravity="center|start"
+                            android:text="@string/photo_credit_entry"
+                            android:textColor="@color/textDark"
+                            android:textSize="18sp" />
+
+                    </TableRow>
 
                 </TableLayout>
 
@@ -206,51 +299,42 @@
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/imagePanel"
-            android:layout_width="0dp"
+            android:id="@+id/descriptionPanel"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/infoPanel"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
-
-            <ImageView
-                android:id="@+id/work_image"
-                android:layout_width="0dp"
-                android:layout_height="608dp"
-                android:contentDescription="@string/work_image_desc"
-                android:src="@drawable/union_station_chandelier"
-                app:layout_constraintBottom_toTopOf="@id/work_description"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@id/imagePanel"
-                app:layout_constraintTop_toTopOf="@id/imagePanel"
-                app:srcCompat="@drawable/union_station_chandelier" />
+            app:layout_constraintVertical_bias="0.556">
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/work_description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@id/imagePanel"
-                app:layout_constraintEnd_toEndOf="@id/imagePanel"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@id/imagePanel"
-                app:layout_constraintTop_toBottomOf="@+id/work_image">
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
 
                 <TextView
                     android:id="@+id/work_desc_title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="32dp"
                     android:maxLines="1"
                     android:text="@string/work_desc_title"
-                    android:textSize="12pt"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.031"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -258,19 +342,71 @@
                     android:id="@+id/work_desc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="92dp"
-                    android:layout_marginLeft="92dp"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginEnd="32dp"
-                    android:layout_marginRight="32dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginRight="24dp"
                     android:layout_marginBottom="32dp"
+                    android:lineSpacingExtra="10dp"
                     android:text="@string/work_desc"
+                    android:textColor="@color/textDark"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="@id/work_description"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/work_description"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/work_desc_title"
                     app:layout_constraintVertical_bias="0.0"
                     tools:text="@string/work_desc" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/related_work"
+                android:layout_width="0dp"
+                android:layout_height="311dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/work_description"
+                app:layout_constraintStart_toStartOf="@+id/work_description"
+                app:layout_constraintTop_toBottomOf="@+id/work_description">
+
+                <TextView
+                    android:id="@+id/related_work_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:maxLines="1"
+                    android:text="@string/related_work_title"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/gridview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:columnWidth="500dp"
+                    android:gravity="center"
+                    android:horizontalSpacing="5dp"
+                    android:numColumns="3"
+                    android:stretchMode="columnWidth"
+                    android:verticalSpacing="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/related_work_title"
+                    app:layout_constraintVertical_bias="0.0" />
 
             </android.support.constraint.ConstraintLayout>
 

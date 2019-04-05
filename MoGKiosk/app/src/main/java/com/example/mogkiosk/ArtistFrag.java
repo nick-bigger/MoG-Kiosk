@@ -1,5 +1,4 @@
-package com.example.mogkiosk;
-
+package com.example.mogkiosk;
 import android.content.Context;
 <<<<<<< HEAD
 import android.content.Intent;
@@ -7,6 +6,12 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 >>>>>>> master
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -98,98 +103,6 @@ public class ArtistFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        v = inflater.inflate(R.layout.fragment_artist, container, false);
-
-        //get layout EditTexts
-        artistNameTextView = v.findViewById(R.id.artist_name);
-        tagLineTextView = v.findViewById(R.id.artist_tagline);
-        subBioTextView = v.findViewById(R.id.artist_subbio);
-        bioTextView = v.findViewById(R.id.artistFrag_bio);
-
-        this.imageGrid = (GridView) v.findViewById(R.id.gridview);
-        this.bitmapList = new ArrayList<Bitmap>();
-
-        try {
-            this.bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
-                    R.drawable.related_work_1));
-            this.bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
-                    R.drawable.related_work_2));
-            this.bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
-                    R.drawable.related_work_3));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        this.imageGrid.setAdapter(new ImageAdapter(getActivity(), this.bitmapList));
-
-        Bundle bundle = getArguments();
-        //check if there are arguments in the savedInstanceState
-        if (bundle != null) {
-            //get the arguments that were passed
-            name = bundle.getString(NAME);
-            description = bundle.getString(BIO);
-            tag = bundle.getString(TAG);
-            subbio = bundle.getString(SUBBIO);
-
-            //update artist fragment with those values, only if those values contain something
-            if(!name.isEmpty()) {
-                updateName(name, artistNameTextView);
-            }
-
-            if(!description.isEmpty()) {
-                updateBio(description, bioTextView);
-            }
-
-            if(!subbio.isEmpty()) {
-               updateSubBio(subbio, subBioTextView);
-            }
-
-            if(!tag.isEmpty()) {
-                updateTagline(tag, tagLineTextView);
-            }
-
-
-        }
-        return v;
-    }
-
-    /**
-     * Method to set text of artist name fragment
-     * @param newName the parameter name sent by admin artist fragment via AdminActivity
-     * @param tv the textview associated with the name textview of the artist fragment
-     */
-    public void updateName(CharSequence newName, TextView view) {
-        view.setText(newName);
-    }
-
-    /**
-     * Method to set tagline of artist fragment
-     * @param newTag the tagline sent by admin artist fragment via AdminActivity
-     * @param tv
-     */
-    public void updateTagline(CharSequence newTag, TextView tv) {
-        tv.setText(newTag);
-    }
-
-    public void updateSubBio(CharSequence newSubBio, TextView tv) {
-        subBioTextView.setText(newSubBio);
-    }
-
-    /**
-     * Method to set the bio of the artist fragment
-     * @param newBio
-     * @param tv
-     */
-    public void updateBio(CharSequence newBio, TextView tv) {
-        tv.setText(newBio);
-    }
-
-
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-    }
-
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
@@ -217,13 +130,6 @@ public class ArtistFrag extends Fragment {
 
 
     /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {

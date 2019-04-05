@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         final PrivateInfoManager manager = new PrivateInfoManager(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_main);
 

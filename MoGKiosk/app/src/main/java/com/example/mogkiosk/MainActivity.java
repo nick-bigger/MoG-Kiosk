@@ -1,24 +1,26 @@
 package com.example.mogkiosk;
 
 import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+<<<<<<< HEAD
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
    
+=======
+>>>>>>> 824154aee8985bdae9e36819cf6465a5f3ed8693
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-  
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -57,14 +59,15 @@ public class MainActivity extends AppCompatActivity {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
 
-      FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-      fab.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-              Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                      .setAction("Action", null).show();
-          }
-      });
+        // logic for hiding the status bar
+//        View decorView = getWindow().getDecorView();
+//        // Hide the status bar.
+//        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+//        decorView.setSystemUiVisibility(uiOptions);
+//        // Remember that you should never show the action bar if the
+//        // status bar is hidden, so hide that too if necessary.
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.hide();
       
     }
 
@@ -139,7 +142,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent1 = new Intent(this, LoginActivity.class);
                 this.startActivity(intent1); //intended to quit MainActivity (I'm doing this in hopes that it resets the main page when admin submits)
                 return true;
-
+            case R.id.action_about:
+                Intent intent2 = new Intent(this, AboutActivity.class);
+                this.startActivity(intent2);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
