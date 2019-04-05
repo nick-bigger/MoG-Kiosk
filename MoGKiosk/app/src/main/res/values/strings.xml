@@ -5,48 +5,57 @@
 
     <!-- String related to The Artist tab -->
 
-    <string name="artist_name">Dale Chihuly</string>
+    <string name="artist_name">David Walters</string>
     <string name="artist_img_description">An image of the artist</string>
-    <string name="artist_tagline">Blown Glass | Italian</string>
-    <string name="artist_subbio">Nullam porttitor posuere tempus. Cras
-        turpis massa, rutrum eget eros a, lacinia accumsan odio. Integer
-        convallis tristique sollicitudin. Integer ut auctor nisl, ac
-        pretium enim. Duis id mi aliquet, pulvinar diam consectetur,
-        efficitur sapien.</string>
+    <string name="artist_tagline">Blown Glass | American</string>
+    <string name="artist_subbio">David was born in Central Pennsylvania
+        in 1968 and studied at the Rhode Island School of Design from
+        1989‐93. After graduating from the Rhode Island School of Design
+        in 1993, he moved to Seattle to work for Dale Chihuly and  many
+        highly regarded artists in the Puget Sound area and beyond.</string>
     <string name="artistFrag_bio_title">About the Artist</string>
     <string name="artistFrag_bio">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Pellentesque libero massa, pellentesque id placerat nec,
-        consequat luctus tortor. Morbi congue scelerisque odio
-        eu varius. In placerat pretium odio tristique congue.
-        Mauris elementum magna ornare diam dictum, eget vehicula
-        lacus suscipit. Sed sed lacus congue, pulvinar augue a,
-        bibendum massa. Nullam porttitor posuere tempus. Cras
-        turpis massa, rutrum eget eros a, lacinia accumsan odio.
-        Integer convallis tristique sollicitudin. Integer ut
-        auctor nisl, ac pretium enim.
+        After receiving his BFA in Glass from the Rhode Island School of Design,
+        David Walters moved to Seattle to work for Dale Chihuly, for whom he
+        still works to this day. There, he met Lino Tagliapietra and also began
+        working as his assistant, a role he has had for 17 years that has taken
+        him all over the world and provided the central influence in his life and
+        work. Walters began experimenting with his signature painted enamel on
+        glass technique during a 1995 residency at the Creative Glass Center of
+        America in Millville, NJ (where he had another residency in 2004), an
+        intricate narrative style that distinguishes him from other glass artists.
         \n
         \n
-        Duis id mi aliquet, pulvinar diam consectetur, efficitur
-        sapien. Maecenas ac posuere massa, in bibendum nunc.
-        Pellentesque ornare congue odie eget aliquam. Quisque
-        dictum, ligula quis pretium sagittis, mauris magna
-        feugiat velit, vel mattis purus metus a orci. Phasellus
-        iaculis ligula turpis, et tempus orci euismod vitae.
-        Vivamus maximus eu lectus eu ullamcorper. Curabitur ut
-        lacus vel mi aliquet consequat at ac turpis.
+        Walters begins by blowing a milky white glass—into serpentine vessels,
+        distorted eggs at times festooned with hats, hyperbolic pitchers and vases,
+        toy cars, and other fantastic shapes. They become the canvas for his
+        minimally colored (mostly black, some primary yellow, blue, and red) exquisitely
+        rendered drawings. Walters calls upon the slightly macabre archetypes of fairy
+        tales and Grimm’s nursery rhymes to tell a moral tale about the nature of human
+        actions and consequences.  Walters exposes the challenges of modern living—our
+        ability to face life’s pitfalls, manage our desires, and live selflessly—when
+        society often  shields us against reality, pushes us to give in to instant
+        gratification, and rewards us for forgetting our moral compass. But Walters’
+        message is not one of mere indictment; rather it is a salve against
+        desensitization, connecting us to our humanity and steering us off the path to
+        ruin. Though the work uses a deeply personal vocabulary, we are all able to
+        relate to the struggle to overcome darkness and embrace the hope of the human
+        spirit. Walters is showing us that we need to look within, not without, to find
+        our own fulfillment.
         \n
         \n
-        Nullam porttitor posuere tempus. Cras
-        turpis massa, rutrum eget eros a, lacinia accumsan odio.
-        Integer convallis tristique sollicitudin. Integer ut
-        auctor nisl, ac pretium enim. Pellentesque ornare congue odie eget aliquam. Quisque
-        dictum, ligula quis pretium sagittis, mauris magna
-        feugiat velit, vel mattis purus metus a orci. In placerat pretium odio tristique congue.
-        Mauris elementum magna ornare diam dictum, eget vehicula
-        lacus suscipit. Sed sed lacus congue, pulvinar augue a,
-        bibendum massa.</string>
-    <string name="artistFrag_related_work_title">Featured Work</string>
+        Like many glass artists, Walters is a perpetual student of his craft but also
+        guides the next generation, teaching at various institutions from Haystack School
+        of Crafts (Deer Isle, ME), to Pilchuck Glass School (Stanwood, WA), Pittsburgh
+        Glass Center (PA), Illinois State University (Normal, IL), and Emporia State
+        University (Lyon, KS). He has had numerous solo gallery and museum exhibitions and
+        was featured in Lino e Amici at Fuller Museum of Art (Brockton, MA) and the
+        Living Legacies Show at the Museum of Glass in Tacoma, WA.
+        \n
+        \n
+        \n
+        \n</string>
+    <string name="related_work_title">Related Work</string>
     <string name="related_work_1_title">The orange one</string>
     <string name="related_work_2_title">The purple one</string>
     <string name="related_work_3_title">The blue one</string>
@@ -77,19 +86,26 @@
         Vivamus maximus eu lectus eu ullamcorper. Curabitur ut
         lacus vel mi aliquet consequat at ac turpis.
     </string>
-    <string name="work_title">End of the Day Chandelier</string>
+    <string name="work_title">The Ones that Got Away</string>
+    <string name="work_date">2007</string>
     <string name="artist_table_title">ARTIST</string>
     <string name="date_table_title">DATE</string>
     <string name="medium_table_title">MEDIUM</string>
     <string name="dimensions_table_title">DIMENSIONS</string>
-    <string name="artist_table_entry">Dale Chihuly</string>
-    <string name="date_table_entry">2001</string>
-    <string name="medium_table_entry">Blown glass</string>
-    <string name="dimensions_table_entry">N/A</string>
+    <string name="artist_table_entry">David Walters (American, born 1968)</string>
+    <string name="date_table_entry">Made at the Museum in 2007</string>
+    <string name="medium_table_entry">Blown glass and enamel paint</string>
+    <string name="dimensions_table_entry">29 x 9 x 8 in. (73.7 x 22.9 x 20.3 cm)
+</string>
+    <string name="collection_table_title">COLLECTION</string>
+    <string name="collection_table_entry">Collection of Museum of Glass, Tacoma, Washington,
+        \ngift of the artist</string>
+    <string name="table_photo_credit_title">PHOTO BY</string>
+    <string name="photo_credit_entry">Russell Johnson</string>
 
     <!-- String related to The Process tab -->
-    <string name="video_title">Dale Chihuly in the Studio</string>
-    <string name="video_detail">1 Video, 3:20 min</string>
+    <string name="video_title">David Walters in the Hot Shop</string>
+    <string name="video_detail">1 Video, 1:50 min</string>
     <string name="video_next_text">Swipe for more</string>
     <string name="share_icon">Share Icon</string>
 
@@ -127,9 +143,22 @@
         \n
         \n
         This project was made possible with help of Rebecca Engelhardt,
-        Katie Buckingham, and Professor Adam Smith. In addition we\'d
-        like to thank [insert donor name here] for helping fund the
-        purchase of this tablet.
+        Katie Buckingham, and Professor Adam A Smith. In addition we\'d
+        like to thank the following donors for their generous help in fund the
+        purchase of this tablet"
+
+            Tammy Ramos
+            Dustin Cook
+            Thomas Hunt
+            Curt and Paige Houck
+            Chris Lawson
+            Mikako Endo
+            Catherine Hunt
+            James and Jennifer Bigger
+            Anonymous
+            Anonymous
+        \n
+        \n
 
     </string>
 
