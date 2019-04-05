@@ -92,7 +92,7 @@
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
                     android:contentDescription="@string/artist_img_description"
-                    android:scaleType="fitXY"
+                    android:scaleType="centerCrop"
                     android:src="@drawable/david_walters"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -161,52 +161,6 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/artist_name"
                 app:layout_constraintTop_toBottomOf="@+id/artist_name" />
-
-            <TextView
-                android:id="@+id/artistFrag_related_work_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="32dp"
-                android:text="@string/artistFrag_related_work_title"
-                android:textAllCaps="true"
-                android:textColor="@color/textDark"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/artist_subbio" />
-
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/related_work"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:background="#FFFFFF"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/artistFrag_related_work_title">
-
-                <GridView xmlns:android="http://schemas.android.com/apk/res/android"
-                    android:id="@+id/gridview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:columnWidth="500dp"
-                    android:gravity="center"
-                    android:horizontalSpacing="5dp"
-                    android:numColumns="3"
-                    android:stretchMode="columnWidth"
-                    android:verticalSpacing="5dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </android.support.constraint.ConstraintLayout>
 
         </android.support.constraint.ConstraintLayout>
 

@@ -1,18 +1,13 @@
 package com.example.mogkiosk;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 
 
 /**
@@ -37,11 +32,6 @@ public class ArtistFrag extends Fragment {
     private TextView tagLineTextView;
     private TextView bioTextView;
     private TextView subBioTextView;
-
-    private View v;
-
-    private GridView imageGrid;
-    private ArrayList<Bitmap> bitmapList;
 
     private OnFragmentInteractionListener mListener;
 
@@ -80,30 +70,7 @@ public class ArtistFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        v = inflater.inflate(R.layout.fragment_artist, container, false);
-
-        artistNameTextView = v.findViewById(R.id.artist_name);
-        tagLineTextView = v.findViewById(R.id.artist_tagline);
-        subBioTextView = v.findViewById(R.id.artist_subbio);
-        bioTextView = v.findViewById(R.id.artistFrag_bio);
-
-        this.imageGrid = (GridView) v.findViewById(R.id.gridview);
-        this.bitmapList = new ArrayList<Bitmap>();
-
-        try {
-            this.bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
-                    R.drawable.related_work_1));
-            this.bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
-                    R.drawable.related_work_2));
-            this.bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
-                    R.drawable.related_work_3));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        this.imageGrid.setAdapter(new ImageAdapter(getActivity(), this.bitmapList));
-
-        return v;
+        return inflater.inflate(R.layout.fragment_artist, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

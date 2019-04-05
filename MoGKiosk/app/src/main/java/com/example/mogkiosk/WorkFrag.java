@@ -1,12 +1,17 @@
 package com.example.mogkiosk;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
+
+import java.util.ArrayList;
 
 
 /**
@@ -28,6 +33,11 @@ public class WorkFrag extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    private View v;
+
+    private GridView imageGrid;
+    private ArrayList<Bitmap> bitmapList;
 
     public WorkFrag() {
         // Required empty public constructor
@@ -64,7 +74,26 @@ public class WorkFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_work, container, false);
+
+        v = inflater.inflate(R.layout.fragment_work, container, false);
+
+        this.imageGrid = (GridView) v.findViewById(R.id.gridview);
+        this.bitmapList = new ArrayList<Bitmap>();
+
+        try {
+            this.bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
+                    R.drawable.related_work_1));
+            this.bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
+                    R.drawable.related_work_2));
+            this.bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
+                    R.drawable.related_work_3));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        this.imageGrid.setAdapter(new ImageAdapter(getActivity(), this.bitmapList));
+
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
