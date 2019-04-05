@@ -2,6 +2,7 @@ package com.example.mogkiosk;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -77,10 +78,26 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                try
-                {
-                    showMessage(manager.forgotPassword());
+                String messageText = "";
+                Boolean alreadySent = false;
+                try {
+                    if (manager.forgotPassword()) {
+                        messageText = "Email sent!";
+                    } else {
+                        messageText = "Email already sent.";
+                        alreadySent = true;
+                    }
 
+                    Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), messageText, Snackbar.LENGTH_LONG);
+                    View sbView = snackbar.getView();
+
+                    if (alreadySent) {
+                        sbView.setBackgroundColor(getResources().getColor(R.color.colorError));
+                    } else {
+                        sbView.setBackgroundColor(getResources().getColor(R.color.colorSuccess));
+                    }
+
+                    snackbar.show();
                 } catch (NoSuchAlgorithmException e) {
                     System.out.println("Something went wrong while forgetting password with stuff");
                     e.printStackTrace();
@@ -88,8 +105,19 @@ public class LoginActivity extends AppCompatActivity {
                     System.out.println("Something went wrong while forgetting password and the keys");
                     e.printStackTrace();
                 }
-                //if forgotPassword(): message saying sending email
-                //else message saying email already sent
+//                try
+//                {
+//                    showMessage(manager.forgotPassword());
+//
+//                } catch (NoSuchAlgorithmException e) {
+//                    System.out.println("Something went wrong while forgetting password with stuff");
+//                    e.printStackTrace();
+//                } catch (InvalidKeySpecException e) {
+//                    System.out.println("Something went wrong while forgetting password and the keys");
+//                    e.printStackTrace();
+//                }
+////                if forgotPassword(): message saying sending email
+////                else message saying email already sent
 
             }
         });
