@@ -1,7 +1,12 @@
 package com.example.mogkiosk;
 
 import android.content.Context;
+<<<<<<< HEAD
 import android.content.Intent;
+=======
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+>>>>>>> master
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,10 +14,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+<<<<<<< HEAD
 import android.widget.EditText;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
+=======
+import android.widget.GridView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+>>>>>>> master
 
 
 /**
@@ -40,6 +52,11 @@ public class ArtistFrag extends Fragment {
     private TextView tagLineTextView;
     private TextView bioTextView;
     private TextView subBioTextView;
+
+    private View v;
+
+    private GridView imageGrid;
+    private ArrayList<Bitmap> bitmapList;
 
     private OnFragmentInteractionListener mListener;
 
@@ -81,13 +98,29 @@ public class ArtistFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_artist, container, false);
+        v = inflater.inflate(R.layout.fragment_artist, container, false);
 
         //get layout EditTexts
         artistNameTextView = v.findViewById(R.id.artist_name);
         tagLineTextView = v.findViewById(R.id.artist_tagline);
         subBioTextView = v.findViewById(R.id.artist_subbio);
-        bioTextView = v.findViewById(R.id.artist_bio);
+        bioTextView = v.findViewById(R.id.artistFrag_bio);
+
+        this.imageGrid = (GridView) v.findViewById(R.id.gridview);
+        this.bitmapList = new ArrayList<Bitmap>();
+
+        try {
+            this.bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
+                    R.drawable.related_work_1));
+            this.bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
+                    R.drawable.related_work_2));
+            this.bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
+                    R.drawable.related_work_3));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        this.imageGrid.setAdapter(new ImageAdapter(getActivity(), this.bitmapList));
 
         Bundle bundle = getArguments();
         //check if there are arguments in the savedInstanceState

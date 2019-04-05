@@ -1,15 +1,279 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WorkFrag">
+    android:background="#FFFFFF">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-       />
+        android:clipToPadding="false"
+        tools:context=".WorkFrag">
 
-</FrameLayout>
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/infoPanel"
+            android:layout_width="371dp"
+            android:layout_height="wrap_content"
+            android:background="#CC606060"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imagePanel"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/info_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="33dp"
+                android:layout_marginLeft="33dp"
+                android:layout_marginEnd="33dp"
+                android:layout_marginRight="33dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/work_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="136dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="@string/work_title"
+                    android:textColor="@color/textLight"
+                    android:textSize="28pt"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TableLayout
+
+                    android:id="@+id/infoTable"
+                    android:layout_width="300dp"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginEnd="63dp"
+                    android:layout_marginRight="63dp"
+                    android:layout_marginBottom="1089dp"
+                    android:gravity="center"
+                    android:stretchColumns="0,1,2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/work_title"
+                    app:layout_constraintVertical_bias="0.52">
+
+
+                    <TableRow
+                        android:id="@+id/artist_row"
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_margin="1dp"
+                        android:layout_weight="1"
+                        android:background="#000000">
+
+                        <TextView
+                            android:id="@+id/artist_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_margin="1dp"
+                            android:background="#FFFFFF"
+                            android:gravity="center"
+                            android:text="@string/artist_table_title"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/artist_entry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_column="1"
+                            android:layout_margin="1dp"
+                            android:background="#FFFFFF"
+                            android:gravity="center"
+                            android:text="@string/artist_table_entry" />
+
+                    </TableRow>
+
+
+                    <TableRow
+                        android:id="@+id/date_row"
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_margin="1dp"
+                        android:layout_weight="1"
+                        android:background="#000000">
+
+                        <TextView
+                            android:id="@+id/date_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_margin="1dp"
+                            android:background="#FFFFFF"
+                            android:gravity="center"
+                            android:text="@string/date_table_title"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/date_entry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_column="1"
+                            android:layout_margin="1dp"
+                            android:background="#FFFFFF"
+                            android:gravity="center"
+                            android:text="@string/date_table_entry" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/medium_row"
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_margin="1dp"
+                        android:layout_weight="1"
+                        android:background="#000000">
+
+                        <TextView
+                            android:id="@+id/medium_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_margin="1dp"
+                            android:background="#FFFFFF"
+                            android:gravity="center"
+                            android:text="@string/medium_table_title"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_column="1"
+                            android:layout_margin="1dp"
+                            android:background="#FFFFFF"
+                            android:gravity="center"
+                            android:text="@string/medium_table_entry" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/dimensions_row"
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_margin="1dp"
+                        android:layout_weight="1"
+                        android:background="#000000">
+
+                        <TextView
+                            android:id="@+id/dimensions_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_column="0"
+                            android:layout_margin="1dp"
+                            android:background="#FFFFFF"
+                            android:gravity="center"
+                            android:text="@string/dimensions_table_title"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/dimensions_entry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_column="1"
+                            android:layout_margin="1dp"
+                            android:background="#FFFFFF"
+                            android:gravity="center"
+                            android:text="@string/dimensions_table_entry" />
+
+                    </TableRow>
+
+
+                </TableLayout>
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/imagePanel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/infoPanel"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <ImageView
+                android:id="@+id/work_image"
+                android:layout_width="0dp"
+                android:layout_height="608dp"
+                android:contentDescription="@string/work_image_desc"
+                android:src="@drawable/union_station_chandelier"
+                app:layout_constraintBottom_toTopOf="@id/work_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/imagePanel"
+                app:layout_constraintTop_toTopOf="@id/imagePanel"
+                app:srcCompat="@drawable/union_station_chandelier" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/work_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@id/imagePanel"
+                app:layout_constraintEnd_toEndOf="@id/imagePanel"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/imagePanel"
+                app:layout_constraintTop_toBottomOf="@+id/work_image">
+
+                <TextView
+                    android:id="@+id/work_desc_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="20dp"
+                    android:maxLines="1"
+                    android:text="@string/work_desc_title"
+                    android:textSize="12pt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.031"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/work_desc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="92dp"
+                    android:layout_marginLeft="92dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginRight="32dp"
+                    android:layout_marginBottom="32dp"
+                    android:text="@string/work_desc"
+                    app:layout_constraintBottom_toBottomOf="@id/work_description"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/work_description"
+                    app:layout_constraintTop_toBottomOf="@+id/work_desc_title"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="@string/work_desc" />
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>
