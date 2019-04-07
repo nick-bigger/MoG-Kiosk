@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -33,7 +34,14 @@ public class WorkFrag extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-
+    private TextView workTitle;
+    private TextView workDate;
+    private TextView artistTitle;
+    private TextView workBio;
+    private TextView mediumTitle;
+    private TextView dimensions;
+    private TextView collection;
+    private TextView photoBy;
     private View v;
 
     private GridView imageGrid;
@@ -92,6 +100,15 @@ public class WorkFrag extends Fragment {
         }
 
         this.imageGrid.setAdapter(new ImageAdapter(getActivity(), this.bitmapList));
+
+        artistTitle = v.findViewById(R.id.artist_entry);
+        workDate = v.findViewById(R.id.work_date);
+        workBio = v.findViewById(R.id.work_desc);
+        workTitle = v.findViewById(R.id.work_title);
+        collection = v.findViewById(R.id.collection_entry);
+        mediumTitle = v.findViewById(R.id.medium_entry);
+        dimensions = v.findViewById(R.id.dimensions_entry);
+        photoBy = v.findViewById(R.id.photo_credit_entry);
 
         return v;
     }
