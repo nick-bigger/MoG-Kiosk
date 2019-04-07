@@ -1,13 +1,28 @@
 package com.example.mogkiosk;
-
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
+import org.w3c.dom.Text;
+import android.widget.GridView;
+import android.widget.TextView;
+import java.util.ArrayList;
+
 
 
 /**
@@ -21,17 +36,25 @@ import android.widget.TextView;
 public class ArtistFrag extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String NAME = "NAME";
+    private static final String BIO = "BIO";
+    private static final String TAG = "TAG";
+    private static final String SUBBIO = "SUBBIO";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+    private String name;
+    private String tag;
+    private String description;
+    private String subbio;
     private TextView artistNameTextView;
     private TextView tagLineTextView;
     private TextView bioTextView;
     private TextView subBioTextView;
+
+    private View v;
+
+    private GridView imageGrid;
+    private ArrayList<Bitmap> bitmapList;
 
     private OnFragmentInteractionListener mListener;
 
@@ -43,16 +66,17 @@ public class ArtistFrag extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
      * @return A new instance of fragment ArtistFrag.
      */
     // TODO: Rename and change types and number of parameters
-    public static ArtistFrag newInstance(String param1, String param2) {
+    public ArtistFrag newInstance(String name, String bio, String tag) {
         ArtistFrag fragment = new ArtistFrag();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        //put the values into the arguments of this AristFragment instance and associate them with its final values
+        args.putString(NAME, name);
+        args.putString(BIO, bio);
+        args.putString(BIO, tag);
+        //set the arguments to the fragment and return
         fragment.setArguments(args);
         return fragment;
     }
@@ -60,21 +84,49 @@ public class ArtistFrag extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_artist, container, false);
+        v = inflater.inflate(R.layout.fragment_artist, container, false);
+
+        artistNameTextView = v.findViewById(R.id.artist_name);
+        bioTextView = v.findViewById(R.id.artistFrag_bio);
+        subBioTextView = v.findViewById(R.id.artist_subbio);
+        tagLineTextView = v.findViewById(R.id.artist_tagline);
+        Bundle extras = getArguments();
+
+        if(extras != null) {
+            if(!extras.getString(NAME).isEmpty()) {
+                artistNameTextView.setText(extras.getString(NAME));
+            }
+
+            if(!extras.getString(BIO).isEmpty()) {
+                bioTextView.setText(extras.getString(BIO));
+            }
+
+            if(!extras.getString(TAG).isEmpty()) {
+                tagLineTextView.setText(extras.getString(TAG));
+            }
+
+            if(!extras.getString(SUBBIO).isEmpty()) {
+                subBioTextView.setText(extras.getString(SUBBIO));
+            }
+
+        }
+
+
+        return v;
     }
 
+
     // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
+    public void onButtonPressed (Uri uri){
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
@@ -98,30 +150,8 @@ public class ArtistFrag extends Fragment {
         mListener = null;
     }
 
-    public void updateName(String newName) {
-        artistNameTextView.setText(newName);
-    }
-
-    public void updateTagline(String newTag) {
-        tagLineTextView.setText(newTag);
-    }
-
-    public void updateSubBio(String newSubBio) {
-        subBioTextView.setText(newSubBio);
-    }
-
-    public void updateBio(String newBio) {
-        bioTextView.setText(newBio);
-    }
 
     /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
