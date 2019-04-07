@@ -162,6 +162,9 @@
 
     </string>
 
+    <!-- Strings for Login Functions -->
+    <string name="email_sending">Email Sent.</string>
+    <string name="email_sent">Email Already Sent.</string>
 
     <!-- Strings related to Settings -->
 
@@ -234,6 +237,7 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

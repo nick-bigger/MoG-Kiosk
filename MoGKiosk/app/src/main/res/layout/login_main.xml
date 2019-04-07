@@ -154,7 +154,7 @@
         <!--</android.support.v7.widget.CardView>-->
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/forgotPass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -178,7 +178,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:text="@string/incorrect_entry"
-            android:textColor="@color/errorRed"
+            android:textColor="@color/colorError"
             app:layout_constraintBottom_toTopOf="@+id/btnLogin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.501"
