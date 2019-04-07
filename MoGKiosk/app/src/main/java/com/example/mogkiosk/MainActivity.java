@@ -3,13 +3,9 @@ package com.example.mogkiosk;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-<<<<<<< HEAD
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-   
-=======
->>>>>>> 824154aee8985bdae9e36819cf6465a5f3ed8693
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;

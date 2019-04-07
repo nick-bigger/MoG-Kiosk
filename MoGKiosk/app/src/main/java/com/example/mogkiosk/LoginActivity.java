@@ -52,21 +52,6 @@ public class LoginActivity extends AppCompatActivity {
                 mBadLoginTextView.setVisibility(View.INVISIBLE);
 
                 try {
-<<<<<<< HEAD
-                   if (validate(mNameEditText.getText().toString(), mPassEditText.getText().toString())) {
-                       mBadLoginTextView.setVisibility(View.INVISIBLE);
-                       Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
-                       startActivity(intent);
-
-                   }
-                   else{
-                        mBadLoginTextView.setVisibility(View.VISIBLE);
-                   }
-                } catch (InvalidKeySpecException e) {
-                    e.printStackTrace();
-                } catch (NoSuchAlgorithmException e) {
-                    e.printStackTrace();
-=======
                     switch (manager.validateLogin(mNameEditText.getText().toString(), mPassEditText.getText().toString())) {
                         case -1:
                             mBadLoginTextView.setVisibility(View.VISIBLE);
@@ -84,7 +69,6 @@ public class LoginActivity extends AppCompatActivity {
                     e1.printStackTrace();
                 } catch (NoSuchAlgorithmException e1) {
                     e1.printStackTrace();
->>>>>>> master
                 }
             }
         });
@@ -200,4 +184,3 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 }
-

@@ -1,11 +1,8 @@
-package com.example.mogkiosk;
+package com.example.mogkiosk;
 import android.content.Context;
-<<<<<<< HEAD
 import android.content.Intent;
-=======
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
->>>>>>> master
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -19,17 +16,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-<<<<<<< HEAD
 import android.widget.EditText;
 import android.widget.TextView;
-
 import org.w3c.dom.Text;
-=======
 import android.widget.GridView;
 import android.widget.TextView;
-
 import java.util.ArrayList;
->>>>>>> master
+
 
 
 /**
@@ -73,9 +66,6 @@ public class ArtistFrag extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param String Name.
-     * @param String Bio.
-     * @param String Tag
      * @return A new instance of fragment ArtistFrag.
      */
     // TODO: Rename and change types and number of parameters
@@ -103,8 +93,40 @@ public class ArtistFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        v = inflater.inflate(R.layout.fragment_artist, container, false);
+
+        artistNameTextView = v.findViewById(R.id.artist_name);
+        bioTextView = v.findViewById(R.id.artistFrag_bio);
+        subBioTextView = v.findViewById(R.id.artist_subbio);
+        tagLineTextView = v.findViewById(R.id.artist_tagline);
+        Bundle extras = getArguments();
+
+        if(extras != null) {
+            if(!extras.getString(NAME).isEmpty()) {
+                artistNameTextView.setText(extras.getString(NAME));
+            }
+
+            if(!extras.getString(BIO).isEmpty()) {
+                bioTextView.setText(extras.getString(BIO));
+            }
+
+            if(!extras.getString(TAG).isEmpty()) {
+                tagLineTextView.setText(extras.getString(TAG));
+            }
+
+            if(!extras.getString(SUBBIO).isEmpty()) {
+                subBioTextView.setText(extras.getString(SUBBIO));
+            }
+
+        }
+
+
+        return v;
+    }
+
+
     // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
+    public void onButtonPressed (Uri uri){
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
