@@ -5,6 +5,9 @@
     android:layout_width="match_parent"
     android:elevation="10dp" >
     <!-- you can use any color you want I used here gray color-->
-    <solid android:color="@color/colorAccent"/>
-    <corners android:radius="25dp"/>
+    <!-- background -->
+    <solid android:color="@color/transparent" />
+    <!-- border -->
+    <stroke android:width="2dp" android:color="@color/colorAccent" />
+    <!--<corners android:radius="25dp"/>-->
 </shape>

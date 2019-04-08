@@ -12,61 +12,76 @@
         android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <ImageButton
+        <Button
             android:id="@+id/etImage"
-            android:layout_width="147dp"
-            android:layout_height="70dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
+            android:background="@drawable/buttonround"
+            android:backgroundTint="@color/colorSuccess"
             android:contentDescription="Add an image"
-            android:src="@android:drawable/ic_menu_camera"
-            android:tint="@color/colorAccent"
+            android:text="Upload file"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:textColor="@color/colorSuccess"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="305dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginLeft="64dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/david_walters"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            app:layout_constraintTop_toBottomOf="@+id/artist_admin_imageText" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/artist_admin_imageText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="Upload to image gallery"
+            android:text="Current Image:"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="@+id/taglineInputLayout"
             app:layout_constraintTop_toBottomOf="@+id/taglineInputLayout" />
 
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/workNameInputLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="74dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
             app:counterEnabled="true"
             app:counterMaxLength="30"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/artist_admin_artistInfo">
 
             <EditText
                 android:id="@+id/etName"
-                android:layout_width="259dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="74dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
-                android:contentDescription="Name"
+                android:contentDescription="Artist name"
                 android:ems="10"
-                android:hint="Name"
+                android:hint="@string/artist_name"
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.501"
@@ -77,14 +92,14 @@
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/taglineInputLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
             app:counterEnabled="true"
             app:counterMaxLength="30"
             app:layout_constraintEnd_toEndOf="parent"
@@ -93,20 +108,30 @@
 
             <EditText
                 android:id="@+id/etTag"
-                android:layout_width="259dp"
-                android:layout_height="44dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:ems="10"
-                android:hint="Tagline (Occupation)"
+                android:hint="@string/artist_tagline"
                 android:inputType="textShortMessage"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/workNameInputLayout" />
         </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:id="@+id/artist_admin_artistInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Artist Info:"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/workNameInputLayout"
+            app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
@@ -118,14 +143,14 @@
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/bioInputLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="74dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="74dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
             app:counterEnabled="true"
             app:counterMaxLength="250"
             app:layout_constraintEnd_toEndOf="parent"
@@ -134,8 +159,8 @@
 
             <EditText
                 android:id="@+id/etDescription"
-                android:layout_width="430dp"
-                android:layout_height="195dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="74dp"
@@ -144,7 +169,7 @@
                 android:layout_marginBottom="8dp"
                 android:ems="10"
                 android:gravity="top|left"
-                android:hint="Bio"
+                android:hint="@string/artistFrag_bio"
                 android:inputType="textMultiLine"
                 android:lines="6"
                 android:maxLength="3000"
@@ -160,14 +185,14 @@
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/subBioInputLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
             app:counterEnabled="true"
             app:counterMaxLength="100"
             app:layout_constraintEnd_toEndOf="parent"
@@ -176,8 +201,8 @@
 
             <EditText
                 android:id="@+id/etSubBio"
-                android:layout_width="430dp"
-                android:layout_height="110dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="32dp"
@@ -185,7 +210,7 @@
                 android:layout_marginRight="8dp"
                 android:ems="10"
                 android:gravity="top|left"
-                android:hint="Summary (sub-bio)"
+                android:hint="@string/artist_subbio"
                 android:inputType="textMultiLine"
                 android:lines="6"
                 android:maxLength="3000"
@@ -198,12 +223,31 @@
 
         <Button
             android:id="@+id/submitBtn"
-            android:layout_width="102dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="74dp"
-            android:text="Submit"
-            app:layout_constraintStart_toStartOf="@+id/subBioInputLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/buttonround"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="Update"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/subBioInputLayout" />
+
+        <TextView
+            android:id="@+id/artist_admin_bioInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Artist Bio:"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/bioInputLayout"
+            app:layout_constraintStart_toStartOf="@+id/bioInputLayout" />
 
     </android.support.constraint.ConstraintLayout>
 
