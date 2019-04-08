@@ -21,12 +21,12 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:background="@drawable/buttonround"
-            android:backgroundTint="@color/colorSuccess"
+            android:backgroundTint="@color/textDark"
             android:contentDescription="Add an image"
             android:text="Upload file"
             android:paddingRight="20dp"
             android:paddingLeft="20dp"
-            android:textColor="@color/colorSuccess"
+            android:textColor="@color/textDark"
             app:layout_constraintBottom_toBottomOf="@+id/imageView2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
@@ -49,7 +49,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="Current Image:"
-            android:textSize="24sp"
+            android:textAllCaps="true"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/taglineInputLayout"
             app:layout_constraintTop_toBottomOf="@+id/taglineInputLayout" />
 
@@ -129,7 +132,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="Artist Info:"
-            android:textSize="24sp"
+            android:textAllCaps="true"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/workNameInputLayout"
             app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
@@ -148,14 +154,14 @@
             android:layout_height="300dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="74dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             app:counterEnabled="true"
             app:counterMaxLength="250"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/artist_admin_bioInfo">
 
             <EditText
                 android:id="@+id/etDescription"
@@ -243,11 +249,14 @@
             android:id="@+id/artist_admin_bioInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginTop="32dp"
             android:text="Artist Bio:"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/bioInputLayout"
-            app:layout_constraintStart_toStartOf="@+id/bioInputLayout" />
+            android:textAllCaps="true"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/bioInputLayout"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
 
