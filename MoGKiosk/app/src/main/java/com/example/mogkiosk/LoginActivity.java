@@ -1,8 +1,9 @@
 package com.example.mogkiosk;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
@@ -27,6 +29,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button mLoginButton;
     private TextView mBadLoginTextView;
     private TextView mForgotPassTextView;
+    AlertDialog alertDialog;
+    AlertDialog errorDialog;
 
 
     @Override
@@ -78,26 +82,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                String messageText = "";
-                Boolean alreadySent = false;
                 try {
                     if (manager.forgotPassword()) {
-                        messageText = "Email sent!";
+                        open(view);
                     } else {
-                        messageText = "Email already sent.";
-                        alreadySent = true;
+                        error(view);
                     }
-
-                    Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), messageText, Snackbar.LENGTH_LONG);
-                    View sbView = snackbar.getView();
-
-                    if (alreadySent) {
-                        sbView.setBackgroundColor(getResources().getColor(R.color.colorError));
-                    } else {
-                        sbView.setBackgroundColor(getResources().getColor(R.color.colorSuccess));
-                    }
-
-                    snackbar.show();
                 } catch (NoSuchAlgorithmException e) {
                     System.out.println("Something went wrong while forgetting password with stuff");
                     e.printStackTrace();
@@ -116,8 +106,8 @@ public class LoginActivity extends AppCompatActivity {
 //                    System.out.println("Something went wrong while forgetting password and the keys");
 //                    e.printStackTrace();
 //                }
-////                if forgotPassword(): message saying sending email
-////                else message saying email already sent
+//                if forgotPassword(): message saying sending email
+//                else message saying email already sent
 
             }
         });
@@ -181,6 +171,44 @@ public class LoginActivity extends AppCompatActivity {
 
             return v;
         }
+    }
+
+    public void open(View view){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage("Would you like to reset your password?");
+        alertDialogBuilder.setTitle("Reset Password");
+                alertDialogBuilder.setPositiveButton("Reset",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface arg0, int arg1) {
+                                Toast.makeText(LoginActivity.this,"A reset email has been sent.",Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+        alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                alertDialog.cancel();
+            }
+        });
+
+        alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+    public void error(View view){
+        final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage("An email has already been sent.");
+        alertDialogBuilder.setTitle("Error");
+        alertDialogBuilder.setNeutralButton("Dismiss",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        errorDialog.cancel();
+                    }
+                });
+        errorDialog = alertDialogBuilder.create();
+        errorDialog.show();
     }
 
 }
