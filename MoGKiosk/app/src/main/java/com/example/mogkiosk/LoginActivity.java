@@ -63,6 +63,8 @@ public class LoginActivity extends AppCompatActivity {
                             System.out.println("This should lead to the admin page");
                             break;
                         case 1:
+                            Intent intent2 = new Intent(LoginActivity.this, ChangePassActivity.class);
+                            startActivity(intent2);
                             System.out.println("This should lead to the change password page");
                     }
                 } catch (InvalidKeySpecException e1) {
@@ -78,6 +80,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
+                manager.printContents();
                 String messageText = "";
                 Boolean alreadySent = false;
                 try {
