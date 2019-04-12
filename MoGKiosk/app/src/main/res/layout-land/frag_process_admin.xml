@@ -27,9 +27,6 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="88dp"
                 android:layout_marginLeft="88dp"
-                android:layout_marginTop="108dp"
-                android:layout_marginEnd="191dp"
-                android:layout_marginRight="191dp"
                 android:background="@drawable/buttonround"
                 android:backgroundTint="@color/textDark"
                 android:contentDescription="Add an image"
@@ -37,9 +34,9 @@
                 android:paddingRight="20dp"
                 android:text="Browse Media"
                 android:textColor="@color/textDark"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/imageButton"
                 app:layout_constraintStart_toEndOf="@+id/imageButton"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/imageButton" />
 
             <TextView
                 android:id="@+id/upload_title"
@@ -58,15 +55,12 @@
 
             <ImageButton
                 android:id="@+id/imageButton"
-                android:layout_width="174dp"
-                android:layout_height="126dp"
-                android:layout_marginStart="18dp"
-                android:layout_marginLeft="18dp"
-                android:layout_marginTop="39dp"
-                android:layout_marginEnd="448dp"
-                android:layout_marginRight="448dp"
+                android:layout_width="139dp"
+                android:layout_height="129dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
                 android:src="@android:drawable/ic_menu_upload_you_tube"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/upload_title" />
 
@@ -74,20 +68,19 @@
                 android:id="@+id/submitBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="250dp"
-                android:layout_marginLeft="250dp"
-                android:layout_marginEnd="250dp"
-                android:layout_marginRight="250dp"
-                android:layout_marginBottom="124dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="64dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 android:background="@drawable/buttonround"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="Update"
                 android:textColor="@color/colorAccent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
         </android.support.constraint.ConstraintLayout>
 

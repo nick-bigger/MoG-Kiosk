@@ -499,9 +499,8 @@
                 android:id="@+id/browse_main_img"
                 android:layout_width="169dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="280dp"
-                android:layout_marginLeft="280dp"
-                android:layout_marginTop="128dp"
+                android:layout_marginStart="88dp"
+                android:layout_marginLeft="88dp"
                 android:background="@drawable/buttonround"
                 android:backgroundTint="@color/textDark"
                 android:contentDescription="Add an image"
@@ -509,8 +508,9 @@
                 android:paddingRight="20dp"
                 android:text="Browse Images"
                 android:textColor="@color/textDark"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+                app:layout_constraintStart_toEndOf="@+id/imageButton"
+                app:layout_constraintTop_toTopOf="@+id/imageButton" />
 
             <Button
                 android:id="@+id/browse_main_img2"
@@ -564,36 +564,30 @@
                 android:id="@+id/related_img_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="256dp"
-                android:layout_marginEnd="400dp"
-                android:layout_marginRight="400dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="32dp"
                 android:text="Related Work Images:"
                 android:textAllCaps="true"
                 android:textColor="@color/colorAccent"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.99"
-                app:layout_constraintStart_toStartOf="@+id/video_title_input"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
             <TextView
                 android:id="@+id/main_img_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="32dp"
-                android:layout_marginEnd="515dp"
-                android:layout_marginRight="515dp"
                 android:text="Main Image:"
                 android:textAllCaps="true"
                 android:textColor="@color/colorAccent"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/video_title_input"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
@@ -602,14 +596,14 @@
                 android:layout_height="129dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="92dp"
+                android:layout_marginTop="24dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:src="@android:drawable/ic_menu_camera"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/main_img_title" />
 
             <ImageButton
                 android:id="@+id/related_work_1"
@@ -660,23 +654,19 @@
                 android:id="@+id/submitBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="275dp"
-                android:layout_marginLeft="275dp"
-                android:layout_marginTop="100dp"
-                android:layout_marginEnd="271dp"
-                android:layout_marginRight="271dp"
-                android:layout_marginBottom="436dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="64dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 android:background="@drawable/buttonround"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="Update"
                 android:textColor="@color/colorAccent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/browse_main_img3"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/browse_main_img3" />
 
             <TextView
                 android:id="@+id/related_work_1_title"
