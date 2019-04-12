@@ -113,11 +113,16 @@
                 android:id="@+id/submitBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="32dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:text="Button"
+                android:background="@drawable/buttonround"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Update"
+                android:textColor="@color/colorAccent"
                 app:layout_constraintEnd_toEndOf="@+id/etDescriptionInputLayout"
+                app:layout_constraintStart_toStartOf="@+id/etDescriptionInputLayout"
                 app:layout_constraintTop_toBottomOf="@+id/etDescriptionInputLayout" />
 
             <android.support.design.widget.TextInputLayout
