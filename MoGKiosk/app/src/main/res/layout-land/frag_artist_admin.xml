@@ -92,7 +92,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/artistNameDesc">
 
                 <EditText
-                    android:id="@+id/etName"
+                    android:id="@+id/title"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="8dp"
@@ -194,7 +194,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/artistBioDesc">
 
                 <EditText
-                    android:id="@+id/etDescription"
+                    android:id="@+id/description"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="8dp"

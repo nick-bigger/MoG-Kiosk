@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.login_main);
 
         //assigning variables from layout
-        mNameEditText = findViewById(R.id.etName);
+        mNameEditText = findViewById(R.id.title);
         mPassEditText = findViewById(R.id.etPassword);
         mLoginButton = findViewById(R.id.btnLogin);
         mBadLoginTextView = findViewById(R.id.incorrectLogin);
