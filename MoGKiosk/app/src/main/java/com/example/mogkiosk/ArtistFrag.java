@@ -91,6 +91,7 @@ public class ArtistFrag extends Fragment {
         Bundle extras = getArguments();
 
         if(extras != null) {
+            // this string name is null
             if(!extras.getString(NAME).isEmpty()) {
                 artistNameTextView.setText(extras.getString(NAME));
             }
