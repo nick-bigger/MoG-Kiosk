@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/etName"
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -44,10 +44,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.132"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etName" />
+            app:layout_constraintTop_toBottomOf="@+id/title" />
 
         <EditText
-            android:id="@+id/etDescription"
+            android:id="@+id/description"
             android:layout_width="486dp"
             android:layout_height="260dp"
             android:layout_marginStart="8dp"
@@ -79,7 +79,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.02"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etDescription" />
+            app:layout_constraintTop_toBottomOf="@+id/description" />
 
         <Button
             android:id="@+id/submitBtn"
@@ -106,7 +106,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
             android:src="@android:drawable/ic_menu_camera"
-            app:layout_constraintBottom_toTopOf="@+id/etDescription"
+            app:layout_constraintBottom_toTopOf="@+id/description"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.806"
             app:layout_constraintStart_toStartOf="parent"

@@ -1,26 +1,15 @@
 package com.example.mogkiosk;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.net.Uri;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
-import org.w3c.dom.Text;
 import android.widget.GridView;
-import android.widget.TextView;
+
 import java.util.ArrayList;
 
 
@@ -102,6 +91,7 @@ public class ArtistFrag extends Fragment {
         Bundle extras = getArguments();
 
         if(extras != null) {
+            // this string name is null
             if(!extras.getString(NAME).isEmpty()) {
                 artistNameTextView.setText(extras.getString(NAME));
             }

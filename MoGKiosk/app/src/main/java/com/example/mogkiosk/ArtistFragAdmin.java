@@ -92,9 +92,9 @@ public class ArtistFragAdmin extends Fragment {
 
         View rootView = inflater.inflate(R.layout.frag_artist_admin, container, false);
         //get values
-        Name = rootView.findViewById(R.id.etName);
+        Name = rootView.findViewById(R.id.title);
         Tag = rootView.findViewById(R.id.etTag);
-        Description = rootView.findViewById(R.id.etDescription);
+        Description = rootView.findViewById(R.id.description);
         SubBio = rootView.findViewById(R.id.etSubBio);
         submit = rootView.findViewById(R.id.submitBtn);
         //set onclick method
