@@ -107,6 +107,8 @@ public class LoginActivity extends AppCompatActivity {
                 } catch (InvalidKeySpecException e) {
                     System.out.println("Something went wrong while forgetting password and the keys");
                     e.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
 //                try
 //                {

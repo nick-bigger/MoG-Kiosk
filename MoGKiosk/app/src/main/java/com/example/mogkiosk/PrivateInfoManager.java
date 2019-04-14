@@ -39,6 +39,12 @@ class PrivateInfoManager
     private static final int GOTOADMIN = 0;
     private static final int GOTOCHANGEPW = 1;
 
+    private static final int NOTHINGSAME = 0;
+    private static final int SAMEUSER  = 1;
+    private static final int SAMEPASS = 2;
+    private static final int SAMEEMAIL = 3;
+
+
     private static final String ERROR = "PrivateInfoManager";
     private static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     private static  final String[] WORDS = {"beautiful", "mango", "bizarre", "platypus", "jazz", "bluejayrox", "hydrogen", "squeakycelery", "purple"};
@@ -100,8 +106,6 @@ class PrivateInfoManager
             //System.out.println(fc.toString());
             //Make file a jsonobject
             infoManager = new JSONObject(fc.toString());
-            //writeInitialInfo(context);
-            //System.out.println("I can make an info manager");
         }
         catch (FileNotFoundException f)
         {
@@ -109,7 +113,7 @@ class PrivateInfoManager
             File file = new File(context.getFilesDir(), "pw.pw");
             file.createNewFile();
             readJSONfromFile(context);
-            writeInitialInfo(context);
+            writeInitialInfo();
         }
         catch (Exception e) {Log.d(ERROR, e.toString());}
     }
@@ -119,10 +123,9 @@ class PrivateInfoManager
      * @throws NoSuchAlgorithmException
      * @throws InvalidKeySpecException
      */
-    private void writeInitialInfo(Context context) throws NoSuchAlgorithmException, InvalidKeySpecException
+    private void writeInitialInfo() throws NoSuchAlgorithmException, InvalidKeySpecException
     {
-        System.out.println("HEY EVERYONE");
-        //Initial username glassAdmin
+        // Initial username glassAdmin
         // Initial password glassiscool
         addKVpair(USERNAME, "glassAdmin");
         addKVpair(TEMP_USERNAME, "");
@@ -131,8 +134,8 @@ class PrivateInfoManager
         addKVpair(TEMP_SALT, "");
         addKVpair(PASS_HASH, generatePasswordHash("glassiscool", false));
         addKVpair(TEMP_HASH, "");
-        addKVpair(EMAIL, "kramos577@gmail.com");
-        printContents();
+        addKVpair(EMAIL, "upsmogkioskautomatic@gmail.com");
+        // printContents();
     }
 
     /**
@@ -386,7 +389,6 @@ class PrivateInfoManager
     void clearTempUsername()
     {
         writeToJSON(TEMP_USERNAME, "");
-        printContents();
     }
 
     /**
@@ -588,12 +590,13 @@ class PrivateInfoManager
      * @throws NoSuchAlgorithmException
      * @throws InvalidKeySpecException
      */
-    public boolean forgotPassword() throws NoSuchAlgorithmException, InvalidKeySpecException
-    {
+    public boolean forgotPassword() throws Exception {
         if (isEmptyTempHash() && isEmptyTempSalt())
         {
             generateTemps();
-            //sendEmail()
+            System.out.println("I generated Temps");
+            sendEmail();
+            System.out.println("I finished sending the email");
             return true;
         }
         //indicates that there is already an email sent
@@ -601,7 +604,7 @@ class PrivateInfoManager
     }
 
     /**
-     * change the hash and username
+     * Change the hash and username
      * @param username username to be updated
      * @param password hash to be updated
      * @throws InvalidKeySpecException
@@ -624,22 +627,29 @@ class PrivateInfoManager
      * @throws InvalidKeySpecException
      * @throws NoSuchAlgorithmException
      */
-    public boolean updateCredentials(String username, String newUsername, String password, String newPassword,  String email, String newEmail) throws InvalidKeySpecException, NoSuchAlgorithmException
+    public int updateCredentials(String username, String newUsername, String password, String newPassword,  String email, String newEmail) throws InvalidKeySpecException, NoSuchAlgorithmException
     {
-        if (!getUsername().equals(username)) return false;
+        if (!getUsername().equals(username)) return SAMEUSER;
         updateUsername(newUsername);
-        if (! getHash().equals(generatePasswordHash(password, false))) return false;
+        if (! getHash().equals(generatePasswordHash(password, false))) return SAMEPASS;
         updateHash(newPassword);
-        if (! getEmail().equals(email)) return false;
+        if (! getEmail().equals(email)) return SAMEEMAIL;
         updateEmail(newEmail);
 
-        return true;
+        return NOTHINGSAME;
     }
 
-//    // More difficult than I was expecting
-//    private void sendEmail()
-//    {
-//        String email = getEmail();
-//        String pass = legiblePass;
-//    }
+
+
+    // More difficult than I was expecting
+    public void sendEmail() throws Exception
+    {
+        updateEmail("museumofglasskiosk@gmail.com");
+        String email = getEmail();
+        String pass = legiblePass;
+        String user = getTempUsername();
+
+        Report report = new Report();
+        report.sendMail(email, pass, user);
+    }
 }
