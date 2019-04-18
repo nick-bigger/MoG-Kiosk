@@ -77,9 +77,6 @@ public class ProcessFrag extends Fragment {
         videoView.setMediaController(mediaController);
         mediaController.setAnchorView(videoView);
 
-
-
-
         // Inflate the layout for this fragment
         return rootView;
     }
