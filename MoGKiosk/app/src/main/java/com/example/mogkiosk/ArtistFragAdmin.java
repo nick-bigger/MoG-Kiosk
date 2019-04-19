@@ -1,6 +1,10 @@
 package com.example.mogkiosk;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,6 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import static android.app.Activity.RESULT_OK;
 
 
 /**
@@ -24,12 +32,15 @@ public class ArtistFragAdmin extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static int RESULT_LOAD_IMG = 1;
+
 
     private EditText Name;
     private EditText Tag;
     private EditText Description;
     private EditText SubBio;
     private Button submit;
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -110,7 +121,51 @@ public class ArtistFragAdmin extends Fragment {
                 onButtonPressed(inputName, inputTag, inputDescription, subBio);
             }
         });
+
+        Button uploadImageBtn = rootView.findViewById(R.id.etImage);
+        uploadImageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadImageFromGallery(view);
+            }
+        });
+
         return rootView;
+    }
+
+    private void loadImageFromGallery(View view) {
+        // Create intent to Open Image applications like Gallery, Google Photos
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        // Start the Intent
+        startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        try {
+            // When an Image is picked
+            if (requestCode == RESULT_LOAD_IMG && resultCode == RESULT_OK
+                    && null != data) {
+                // Get the Image from data
+
+                Uri selectedImage = data.getData();
+                Bitmap bitmap = BitmapFactory.decodeStream(getActivity().getApplicationContext().getContentResolver().openInputStream(selectedImage));
+
+                ImageView imgView = (ImageView) getView().findViewById(R.id.currentImage);
+                // Set the Image in ImageView after decoding the String
+                imgView.setImageBitmap(bitmap);
+
+            } else {
+                Toast.makeText(getActivity(), "You haven't picked Image",
+                        Toast.LENGTH_LONG).show();
+            }
+        } catch (Exception e) {
+            Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_LONG)
+                    .show();
+        }
+
     }
 
     /**
@@ -139,6 +194,24 @@ public class ArtistFragAdmin extends Fragment {
     public void onDetach() {
         super.onDetach();
         dataPasser = null;
+    }
+
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     * <p>
+     * See the Android Training lesson <a href=
+     * "http://developer.android.com/training/basics/fragments/communicating.html"
+     * >Communicating with Other Fragments</a> for more information.
+     */
+    public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        void onFragmentInteraction(Uri uri);
+    }
+
+    public interface OnProcessDataPass {
     }
 
 }
