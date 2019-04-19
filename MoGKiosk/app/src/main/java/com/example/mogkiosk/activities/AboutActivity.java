@@ -15,6 +15,7 @@ public class AboutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        numClicks = 0;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -27,6 +28,7 @@ public class AboutActivity extends AppCompatActivity {
             public void onClick(View v) {
                 numClicks++;
                 if (numClicks > 9) {
+                    numClicks = 0;
                     startActivity(new Intent(AboutActivity.this, LoginActivity.class));
                 }
             }
