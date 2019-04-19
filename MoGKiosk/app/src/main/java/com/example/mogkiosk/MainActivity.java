@@ -91,29 +91,46 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         a_frag = (ArtistFrag) mSectionsPagerAdapter.getItem(0);
+        w_frag = (WorkFrag) mSectionsPagerAdapter.getItem(1);
 
         //Get transferred data from admin
         Bundle extras = getIntent().getExtras();
         //check if there are args passed to MainActivity, otherwise skip code block
         if(extras != null) {
-
-            //get the arguments that were passed to the MainActivity by AdminActivity
+            //get the arguments that were passed to the MainActivity by AdminActivity for Artist
             String name = extras.getString("name");
             String tag = extras.getString("tag");
             String description = extras.getString("description");
             String subbio = extras.getString("subbio");
-
+            //get arguments form Work Fragment
+            String artist = extras.getString("artist");
+            String piecedate = extras.getString("piecedate");
+            String title = extras.getString("title");
+            String dimensions = extras.getString("dimensions");
+            String medium = extras.getString("medium");
+            String collection = extras.getString("collection");
+            String date = extras.getString("date");
             // Using bundle
             //  update artist
-            Bundle data = new Bundle();
-            data.putString("NAME", name);
-            data.putString("BIO", description);
-            data.putString("TAG", tag);
-            data.putString("SUBBIO", subbio);
-
+            Bundle artistData = new Bundle();
+            artistData.putString("NAME", name);
+            artistData.putString("BIO", description);
+            artistData.putString("TAG", tag);
+            artistData.putString("SUBBIO", subbio);
+            //update work
+            Bundle workData = new Bundle();
+            workData.putString("ARTIST", artist);
+            workData.putString("TITLE", title);
+            workData.putString("PIECEDATE", piecedate);
+            workData.putString("DIMENSIONS", dimensions);
+            workData.putString("MEDIUM", medium);
+            workData.putString("COLLECTION", collection);
+            workData.putString("DATE", date);
             //set arguments and update adapter
-            a_frag.setArguments(data);
+            a_frag.setArguments(artistData);
             mSectionsPagerAdapter.setItem(a_frag, 0);
+            w_frag.setArguments(workData);
+            mSectionsPagerAdapter.setItem(w_frag, 1);
             //begin the transaction and commit
             final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.commit();
@@ -162,7 +179,6 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-
 
             switch(position){
                 case 0:

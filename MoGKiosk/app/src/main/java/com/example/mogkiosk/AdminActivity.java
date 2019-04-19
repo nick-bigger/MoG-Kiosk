@@ -16,7 +16,8 @@ import android.widget.EditText;
  * xml layouts on the frontend (Artist, Process, Work). It implements an interface methods defined in the fragments to send variables back and forth
  * from the admin side to the front end.
  */
-public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.OnArtistDataPass, ProcessFragAdmin.OnProcessDataPass {
+public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.OnArtistDataPass, ProcessFragAdmin.OnProcessDataPass
+, WorkFragAdmin.OnWorkDataPass {
 
 
     /**
@@ -77,6 +78,30 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
         intent.putExtra("subbio", s);
         //start
         this.startActivity(intent);
+    }
+
+    @Override
+    public void onWorkDataPass(CharSequence artist, CharSequence piecedate, CharSequence title, CharSequence date,
+                               CharSequence collection, CharSequence dimensions, CharSequence medium) {
+        Intent intent = new Intent(AdminActivity.this, MainActivity.class);
+        //converting to string
+        String a = artist.toString();
+        String p = piecedate.toString();
+        String t = title.toString();
+        String d = date.toString();
+        String c = collection.toString();
+        String dim = dimensions.toString();
+        String m = medium.toString();
+        intent.putExtra("artist", a);
+        intent.putExtra("piecedate", p);
+        intent.putExtra("title", t);
+        intent.putExtra("date", d);
+        intent.putExtra("collection", c);
+        intent.putExtra("dimensions", dim);
+        intent.putExtra("medium", m);
+        //start
+        this.startActivity(intent);
+
     }
 
     /**

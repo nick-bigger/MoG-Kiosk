@@ -36,12 +36,14 @@ public class WorkFrag extends Fragment {
     private OnFragmentInteractionListener mListener;
     private TextView workTitle;
     private TextView workDate;
+    private TextView date;
     private TextView artistTitle;
     private TextView workBio;
     private TextView mediumTitle;
     private TextView dimensions;
     private TextView collection;
     private TextView photoBy;
+    private TextView workDescription;
     private View v;
 
     private GridView imageGrid;
@@ -103,12 +105,52 @@ public class WorkFrag extends Fragment {
 
         artistTitle = v.findViewById(R.id.artist_entry);
         workDate = v.findViewById(R.id.work_date);
+        date = v.findViewById(R.id.date_entry);
         workBio = v.findViewById(R.id.work_desc);
         workTitle = v.findViewById(R.id.work_title);
         collection = v.findViewById(R.id.collection_entry);
         mediumTitle = v.findViewById(R.id.medium_entry);
         dimensions = v.findViewById(R.id.dimensions_entry);
         photoBy = v.findViewById(R.id.photo_credit_entry);
+
+        Bundle extras = getArguments();
+
+        if(extras != null) {
+            // this string name is null
+            if(extras.getString("TITLE") != null && !extras.getString("TITLE").isEmpty()) {
+                workTitle.setText(extras.getString("TITLE"));
+            }
+
+            if(extras.getString("DATE") != null && !extras.getString("DATE").isEmpty()) {
+                date.setText(extras.getString("DATE"));
+            }
+
+            if(extras.getString("COLLECTION") != null && !extras.getString("COLLECTION").isEmpty()) {
+                collection.setText(extras.getString("COLLECTION"));
+            }
+
+            if(extras.getString("DIMENSIONS") != null && !extras.getString("DIMENSIONS").isEmpty()) {
+                dimensions.setText(extras.getString("DIMENSIONS"));
+            }
+
+
+            if(extras.getString("MEDIUM") != null && !extras.getString("MEDIUM").isEmpty()) {
+                mediumTitle.setText(extras.getString("MEDIUM"));
+            }
+
+            if(extras.getString("ARTIST") != null && !extras.getString("ARTIST").isEmpty()) {
+
+                artistTitle.setText(extras.getString("ARTIST"));
+            }
+
+            if(extras.getString("PIECEDATE") != null && !extras.getString("PIECEDATE").isEmpty()) {
+                workDate.setText(extras.getString("PIECEDATE"));
+            }
+
+        }
+
+
+
 
         return v;
     }

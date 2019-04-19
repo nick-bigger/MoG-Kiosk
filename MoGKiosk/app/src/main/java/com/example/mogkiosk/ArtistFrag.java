@@ -92,19 +92,19 @@ public class ArtistFrag extends Fragment {
 
         if(extras != null) {
             // this string name is null
-            if(!extras.getString(NAME).isEmpty()) {
+            if(extras.getString(NAME) != null && !extras.getString(NAME).isEmpty()) {
                 artistNameTextView.setText(extras.getString(NAME));
             }
 
-            if(!extras.getString(BIO).isEmpty()) {
+            if(extras.getString(BIO) != null && !extras.getString(BIO).isEmpty()) {
                 bioTextView.setText(extras.getString(BIO));
             }
 
-            if(!extras.getString(TAG).isEmpty()) {
+            if(extras.getString(TAG) != null && !extras.getString(TAG).isEmpty() ) {
                 tagLineTextView.setText(extras.getString(TAG));
             }
 
-            if(!extras.getString(SUBBIO).isEmpty()) {
+            if(extras.getString(SUBBIO) != null && !extras.getString(SUBBIO).isEmpty()) {
                 subBioTextView.setText(extras.getString(SUBBIO));
             }
 
