@@ -1,14 +1,12 @@
-package com.example.mogkiosk;
+package com.example.mogkiosk.activities.main;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -18,6 +16,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.mogkiosk.LoginActivity;
+import com.example.mogkiosk.R;
+import com.example.mogkiosk.activities.AboutActivity;
+import com.example.mogkiosk.activities.main.fragments.ArtistFrag;
+import com.example.mogkiosk.activities.main.fragments.ProcessFrag;
+import com.example.mogkiosk.activities.main.fragments.WorkFrag;
 
 public class MainActivity extends AppCompatActivity {
 

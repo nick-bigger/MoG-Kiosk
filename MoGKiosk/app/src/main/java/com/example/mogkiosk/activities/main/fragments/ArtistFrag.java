@@ -1,4 +1,5 @@
-package com.example.mogkiosk;
+package com.example.mogkiosk.activities.main.fragments;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -7,8 +8,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.GridView;
+import android.widget.TextView;
+
+import com.example.mogkiosk.R;
 
 import java.util.ArrayList;
 

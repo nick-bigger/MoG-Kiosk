@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:fitsSystemWindows="true"
-    tools:context=".WorkFragAdmin">
+    tools:context=".activities.admin.fragments.WorkFragAdmin">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"

@@ -1,53 +1,45 @@
-package com.example.mogkiosk;
+package com.example.mogkiosk.activities.admin.fragments;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.MediaController;
+import android.widget.Toast;
+import android.widget.VideoView;
 
-import java.util.ArrayList;
+import com.example.mogkiosk.R;
+
+import static android.app.Activity.RESULT_OK;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link WorkFrag.OnFragmentInteractionListener} interface
+ * {@link ProcessFragAdmin.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link WorkFrag#newInstance} factory method to
+ * Use the {@link ProcessFragAdmin#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class WorkFrag extends Fragment {
+public class ProcessFragAdmin extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static int RESULT_LOAD_IMG = 1;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    private TextView workTitle;
-    private TextView workDate;
-    private TextView artistTitle;
-    private TextView workBio;
-    private TextView mediumTitle;
-    private TextView dimensions;
-    private TextView collection;
-    private TextView photoBy;
-    private View v;
 
-    private GridView imageGrid;
-    private ArrayList<Bitmap> bitmapList;
-
-    public WorkFrag() {
+    public ProcessFragAdmin() {
         // Required empty public constructor
     }
 
@@ -57,11 +49,11 @@ public class WorkFrag extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment WorkFrag.
+     * @return A new instance of fragment ProcessFrag.
      */
     // TODO: Rename and change types and number of parameters
-    public static WorkFrag newInstance(String param1, String param2) {
-        WorkFrag fragment = new WorkFrag();
+    public static ProcessFragAdmin newInstance(String param1, String param2) {
+        ProcessFragAdmin fragment = new ProcessFragAdmin();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -82,35 +74,60 @@ public class WorkFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        View rootView = inflater.inflate(R.layout.frag_process_admin, container, false);
 
-        v = inflater.inflate(R.layout.fragment_work, container, false);
+        Button uploadImageBtn = rootView.findViewById(R.id.browse_main_img5);
+        uploadImageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadImageFromGallery(view);
+            }
+        });
 
-        this.imageGrid = (GridView) v.findViewById(R.id.gridview);
-        this.bitmapList = new ArrayList<Bitmap>();
+        VideoView videoView = (VideoView) rootView.findViewById(R.id.videoView2);
+        String videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.videoplayback;
+        Uri uri = Uri.parse(videoPath);
+        videoView.setVideoURI(uri);
 
+        MediaController mediaController = new MediaController(getActivity());
+        videoView.setMediaController(mediaController);
+        mediaController.setAnchorView(videoView);
+
+        return rootView;
+    }
+
+    private void loadImageFromGallery(View view) {
+        // Create intent to Open Image applications like Gallery, Google Photos
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
+        // Start the Intent
+        startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         try {
-            this.bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
-                    R.drawable.related_work_1));
-            this.bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
-                    R.drawable.related_work_2));
-            this.bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
-                    R.drawable.related_work_3));
+            // When an Image is picked
+            if (requestCode == RESULT_LOAD_IMG && resultCode == RESULT_OK
+                    && null != data) {
+                // Get the Image from data
+
+                Uri selectedVideo = data.getData();
+
+                VideoView vidView = (VideoView) getView().findViewById(R.id.videoView2);
+                // Set the Image in ImageView after decoding the String
+                vidView.setVideoURI(selectedVideo);
+
+            } else {
+                Toast.makeText(getActivity(), "No Image Chosen",
+                        Toast.LENGTH_LONG).show();
+            }
         } catch (Exception e) {
-            e.printStackTrace();
+            Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_LONG)
+                    .show();
         }
 
-        this.imageGrid.setAdapter(new ImageAdapter(getActivity(), this.bitmapList));
-
-        artistTitle = v.findViewById(R.id.artist_entry);
-        workDate = v.findViewById(R.id.work_date);
-        workBio = v.findViewById(R.id.work_desc);
-        workTitle = v.findViewById(R.id.work_title);
-        collection = v.findViewById(R.id.collection_entry);
-        mediumTitle = v.findViewById(R.id.medium_entry);
-        dimensions = v.findViewById(R.id.dimensions_entry);
-        photoBy = v.findViewById(R.id.photo_credit_entry);
-
-        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -151,5 +168,8 @@ public class WorkFrag extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    public interface OnProcessDataPass {
     }
 }

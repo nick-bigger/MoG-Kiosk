@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:background="#FFFFFF"
         android:clipToPadding="false"
-        tools:context=".WorkFrag">
+        tools:context=".activities.main.fragments.WorkFrag">
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/infoPanel"

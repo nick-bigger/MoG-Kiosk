@@ -1,4 +1,4 @@
-package com.example.mogkiosk;
+package com.example.mogkiosk.activities.admin;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,12 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.EditText;
+
+import com.example.mogkiosk.R;
+import com.example.mogkiosk.activities.admin.fragments.ArtistFragAdmin;
+import com.example.mogkiosk.activities.admin.fragments.ProcessFragAdmin;
+import com.example.mogkiosk.activities.admin.fragments.WorkFragAdmin;
+import com.example.mogkiosk.activities.main.MainActivity;
 
 /**
  * Class that facilitates the admin side of the app functionality. It has its own section adapter that manages admin counterpart fragments to the
