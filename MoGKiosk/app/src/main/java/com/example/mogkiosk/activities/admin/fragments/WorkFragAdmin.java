@@ -145,7 +145,7 @@ public class WorkFragAdmin extends Fragment {
                 Uri selectedImage = data.getData();
                 Bitmap bitmap = BitmapFactory.decodeStream(getActivity().getApplicationContext().getContentResolver().openInputStream(selectedImage));
 
-                ImageView imgView = (ImageView) getView().findViewById(viewId);
+                ImageView imgView = getView().findViewById(viewId);
                 // Set the Image in ImageView after decoding the String
                 imgView.setImageBitmap(bitmap);
 

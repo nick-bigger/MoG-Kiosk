@@ -84,7 +84,7 @@ public class ProcessFragAdmin extends Fragment {
             }
         });
 
-        VideoView videoView = (VideoView) rootView.findViewById(R.id.videoView2);
+        VideoView videoView = rootView.findViewById(R.id.videoView2);
         String videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.videoplayback;
         Uri uri = Uri.parse(videoPath);
         videoView.setVideoURI(uri);
@@ -115,7 +115,7 @@ public class ProcessFragAdmin extends Fragment {
 
                 Uri selectedVideo = data.getData();
 
-                VideoView vidView = (VideoView) getView().findViewById(R.id.videoView2);
+                VideoView vidView = getView().findViewById(R.id.videoView2);
                 // Set the Image in ImageView after decoding the String
                 vidView.setVideoURI(selectedVideo);
 

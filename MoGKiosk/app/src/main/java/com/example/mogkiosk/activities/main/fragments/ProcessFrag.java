@@ -70,7 +70,7 @@ public class ProcessFrag extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_process, container, false);
-        videoView = (VideoView) rootView.findViewById(R.id.videoView);
+        videoView = rootView.findViewById(R.id.videoView);
         String videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.videoplayback;
         Uri uri = Uri.parse(videoPath);
         videoView.setVideoURI(uri);

@@ -88,7 +88,7 @@ public class WorkFrag extends Fragment {
 
         v = inflater.inflate(R.layout.fragment_work, container, false);
 
-        this.imageGrid = (GridView) v.findViewById(R.id.gridview);
+        this.imageGrid = v.findViewById(R.id.gridview);
         this.bitmapList = new ArrayList<Bitmap>();
 
         try {

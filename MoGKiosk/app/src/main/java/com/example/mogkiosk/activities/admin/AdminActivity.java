@@ -39,7 +39,7 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -48,10 +48,10 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
         /**
          * The {@link ViewPager} that will host the section contents.
          */
-        ViewPager mViewPager = (ViewPager) findViewById(R.id.container);
+        ViewPager mViewPager = findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
     }
