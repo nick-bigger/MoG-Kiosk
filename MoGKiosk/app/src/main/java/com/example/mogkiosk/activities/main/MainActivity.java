@@ -1,7 +1,9 @@
 package com.example.mogkiosk.activities.main;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
     private ArtistFrag a_frag;
     private WorkFrag w_frag;
     private ProcessFrag p_frag;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -58,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = sharedPreferences.edit();
         // logic for hiding the status bar
 //        View decorView = getWindow().getDecorView();
 //        // Hide the status bar.
@@ -85,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
     }
 
     /**
@@ -139,13 +143,68 @@ public class MainActivity extends AppCompatActivity {
             //set arguments and update adapter
             a_frag.setArguments(artistData);
             w_frag.setArguments(workData);
+            updateSharedPreferences(extras);
             mSectionsPagerAdapter.setItem(a_frag, 0);
             mSectionsPagerAdapter.setItem(w_frag, 1);
-////            //begin the transaction and commit
-//            final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//
-//            ft.commit();
         }
+    }
+
+    private void updateSharedPreferences(Bundle extras) {
+        //get the arguments that were passed to the MainActivity by AdminActivity for Artist
+        String name = extras.getString("name");
+        String tag = extras.getString("tag");
+        String description = extras.getString("description");
+        String subbio = extras.getString("subbio");
+        //get arguments form Work Fragment
+        String artist = extras.getString("artist");
+        String piecedate = extras.getString("piecedate");
+        String title = extras.getString("title");
+        String dimensions = extras.getString("dimensions");
+        String medium = extras.getString("medium");
+        String collection = extras.getString("collection");
+        String date = extras.getString("date");
+
+        if(name != null && !name.isEmpty()) {
+            editor.putString(getString(R.string.a_artistname), name);
+            editor.commit();
+        }
+
+        if(tag != null && !tag.isEmpty()) {
+            editor.putString(getString(R.string.a_tag), tag);
+            editor.commit();
+        }
+
+        if(description != null && !description.isEmpty()) {
+            editor.putString(getString(R.string.a_bio), description);
+            editor.commit();
+        }
+
+        if(subbio != null && !subbio.isEmpty()) {
+            editor.putString(getString(R.string.a_subbio), subbio);
+            editor.commit();
+        }
+
+
+        editor.putString(getString(R.string.a_workartist), artist);
+        editor.commit();
+
+        editor.putString(getString(R.string.a_piecedate), piecedate);
+        editor.commit();
+
+        editor.putString(getString(R.string.a_title), title);
+        editor.commit();
+
+        editor.putString(getString(R.string.a_dimension), dimensions);
+        editor.commit();
+
+        editor.putString(getString(R.string.a_medium), medium);
+        editor.commit();
+
+        editor.putString(getString(R.string.a_collection), collection);
+        editor.commit();
+
+        editor.putString(getString(R.string.a_date), date);
+        editor.commit();
     }
 
     @Override

@@ -98,22 +98,6 @@ public class WorkFragAdmin extends Fragment {
         title = rootView.findViewById(R.id.title);
         piecedate = rootView.findViewById(R.id.date);
         submit = rootView.findViewById(R.id.submitBtn);
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //get text of variables
-                CharSequence artistInput = artist.getText();
-                CharSequence piecedateInput = piecedate.getText();
-                CharSequence mediumInput = medium.getText();
-                CharSequence dimensionsInput = dimensions.getText();
-                CharSequence collectionInput = collection.getText();
-                CharSequence titleInput = title.getText();
-                CharSequence dateInput = date.getText();
-                //pass them to auxiliary method
-                onButtonPressed(artistInput, piecedateInput, titleInput, dateInput, collectionInput,
-                        dimensionsInput, mediumInput);
-            }
-        });
 
 
         Button mainImageBtn = rootView.findViewById(R.id.browse_main_img);
@@ -152,6 +136,25 @@ public class WorkFragAdmin extends Fragment {
                 loadImageFromGallery(view);
             }
         });
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //get text of variables
+                CharSequence artistInput = artist.getText();
+                CharSequence piecedateInput = piecedate.getText();
+                CharSequence mediumInput = medium.getText();
+                CharSequence dimensionsInput = dimensions.getText();
+                CharSequence collectionInput = collection.getText();
+                CharSequence titleInput = title.getText();
+                CharSequence dateInput = date.getText();
+                //pass them to auxiliary method
+                onButtonPressed(artistInput, piecedateInput, titleInput, dateInput, collectionInput,
+                        dimensionsInput, mediumInput);
+            }
+        });
+
+
 
 
         return rootView;

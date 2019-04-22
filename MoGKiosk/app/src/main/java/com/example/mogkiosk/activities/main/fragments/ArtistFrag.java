@@ -1,9 +1,11 @@
 package com.example.mogkiosk.activities.main.fragments;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 import com.example.mogkiosk.R;
+import com.example.mogkiosk.activities.main.MainActivity;
 
 import java.util.ArrayList;
 
@@ -42,6 +45,7 @@ public class ArtistFrag extends Fragment {
     private TextView tagLineTextView;
     private TextView bioTextView;
     private TextView subBioTextView;
+    private SharedPreferences prefs;
 
     private View v;
 
@@ -53,30 +57,32 @@ public class ArtistFrag extends Fragment {
     public ArtistFrag() {
         // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @return A new instance of fragment ArtistFrag.
-     */
-    // TODO: Rename and change types and number of parameters
-    public ArtistFrag newInstance(String name, String bio, String tag) {
-        ArtistFrag fragment = new ArtistFrag();
-        Bundle args = new Bundle();
-        //put the values into the arguments of this AristFragment instance and associate them with its final values
-        args.putString(NAME, name);
-        args.putString(BIO, bio);
-        args.putString(BIO, tag);
-        //set the arguments to the fragment and return
-        fragment.setArguments(args);
-        return fragment;
-    }
+//
+//    /**
+//     * Use this factory method to create a new instance of
+//     * this fragment using the provided parameters.
+//     *
+//     * @return A new instance of fragment ArtistFrag.
+//     */
+//    // TODO: Rename and change types and number of parameters
+//    public ArtistFrag newInstance(String name, String bio, String tag) {
+//        ArtistFrag fragment = new ArtistFrag();
+//        Bundle args = new Bundle();
+//        //put the values into the arguments of this AristFragment instance and associate them with its final values
+//        args.putString(NAME, name);
+//        args.putString(BIO, bio);
+//        args.putString(BIO, tag);
+//        //set the arguments to the fragment and return
+//        fragment.setArguments(args);
+//        return fragment;
+//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+        prefs =  PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+
     }
 
 
@@ -104,20 +110,26 @@ public class ArtistFrag extends Fragment {
 
         if(extras != null) {
             // this string name is null
-            if(extras.getString(NAME) != null && !extras.getString(NAME).isEmpty()) {
-                artistNameTextView.setText(extras.getString(NAME));
+            String name = prefs.getString(getString(R.string.a_artistname), "");
+            String bio = prefs.getString(getString(R.string.a_bio), "");
+            String tag = prefs.getString(getString(R.string.a_tag), "");
+            String subbio = prefs.getString(getString(R.string.a_subbio), "");
+
+
+            if(name != null && !name.isEmpty() )  {
+                artistNameTextView.setText(name);
             }
 
-            if(extras.getString(BIO) != null && !extras.getString(BIO).isEmpty()) {
-                bioTextView.setText(extras.getString(BIO));
+            if(bio != null && !bio.isEmpty()) {
+                bioTextView.setText(bio);
             }
 
-            if(extras.getString(TAG) != null && !extras.getString(TAG).isEmpty() ) {
-                tagLineTextView.setText(extras.getString(TAG));
+            if(tag != null && !tag.isEmpty()) {
+                tagLineTextView.setText(tag);
             }
 
-            if(extras.getString(SUBBIO) != null && !extras.getString(SUBBIO).isEmpty()) {
-                subBioTextView.setText(extras.getString(SUBBIO));
+            if(subbio != null && !subbio.isEmpty()) {
+                subBioTextView.setText(subbio);
             }
 
         }
