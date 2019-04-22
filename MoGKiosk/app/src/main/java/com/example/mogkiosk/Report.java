@@ -29,8 +29,9 @@ public class Report
     public void sendMail(String sendToEmail, String passForEmail, String userForEmail)
     {
         String bodyMessage = "Below are your new credentials:\n\n" + "Username: " + userForEmail + "\nPassword: " + passForEmail +
-                "\n\nOnce you sign in with these credentials, you will be prompted to change your password.\n\n If you did not ask" +
-                " for this email, please sign in with regular credentials and these temporary credentials will disappear.";
+                "\n\nOnce you sign in with these credentials, you will be prompted to change your username and password. " +
+                "You can reuse previous credentials if desired. Reminder, all credentials can be updated once logged in.\n\n " +
+                "If you did not ask for this email, please sign in with regular credentials and these temporary credentials will disappear.";
 
         // Setting up config
         // Durations for the email connection to the Google SMTP server using TLS
