@@ -12,7 +12,7 @@
         android:layout_width="176dp"
         android:layout_height="66dp"
         android:layout_marginTop="49dp"
-        android:background="@drawable/buttonround"
+        android:background="@drawable/btn_normal"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:text="Submit"
