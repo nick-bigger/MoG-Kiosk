@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".WorkFragAdmin">
+    tools:context=".activities.admin.fragments.WorkFragAdmin">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout3"
@@ -499,25 +499,25 @@
                 android:id="@+id/browse_main_img"
                 android:layout_width="169dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="88dp"
-                android:layout_marginLeft="88dp"
-                android:background="@drawable/buttonround"
+                android:layout_marginStart="64dp"
+                android:layout_marginLeft="64dp"
+                android:background="@drawable/btn_normal"
                 android:backgroundTint="@color/textDark"
                 android:contentDescription="Add an image"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="Browse Images"
                 android:textColor="@color/textDark"
-                app:layout_constraintBottom_toBottomOf="@+id/imageButton"
-                app:layout_constraintStart_toEndOf="@+id/imageButton"
-                app:layout_constraintTop_toTopOf="@+id/imageButton" />
+                app:layout_constraintBottom_toBottomOf="@+id/mainImage"
+                app:layout_constraintStart_toEndOf="@+id/mainImage"
+                app:layout_constraintTop_toTopOf="@+id/mainImage" />
 
             <Button
                 android:id="@+id/browse_main_img2"
                 android:layout_width="118dp"
                 android:layout_height="38dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/buttonround"
+                android:background="@drawable/btn_normal"
                 android:backgroundTint="@color/textDark"
                 android:contentDescription="Add an image"
                 android:paddingLeft="20dp"
@@ -533,7 +533,7 @@
                 android:layout_width="118dp"
                 android:layout_height="38dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/buttonround"
+                android:background="@drawable/btn_normal"
                 android:backgroundTint="@color/textDark"
                 android:contentDescription="Add an image"
                 android:paddingLeft="20dp"
@@ -549,7 +549,7 @@
                 android:layout_width="118dp"
                 android:layout_height="38dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/buttonround"
+                android:background="@drawable/btn_normal"
                 android:backgroundTint="@color/textDark"
                 android:contentDescription="Add an image"
                 android:paddingLeft="20dp"
@@ -573,7 +573,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+                app:layout_constraintTop_toBottomOf="@+id/mainImage" />
 
             <TextView
                 android:id="@+id/main_img_title"
@@ -590,22 +590,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="139dp"
-                android:layout_height="129dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:src="@android:drawable/ic_menu_camera"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/main_img_title" />
-
-            <ImageButton
+            <ImageView
                 android:id="@+id/related_work_1"
                 android:layout_width="139dp"
                 android:layout_height="129dp"
@@ -618,9 +603,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/marwan"
+                tools:srcCompat="@drawable/marwan" />
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/related_work_2"
                 android:layout_width="139dp"
                 android:layout_height="129dp"
@@ -633,9 +620,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/related_work_1"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/marwan"
+                tools:srcCompat="@drawable/marwan" />
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/related_work_3"
                 android:layout_width="139dp"
                 android:layout_height="129dp"
@@ -648,7 +637,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/related_work_2"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/marwan"
+                tools:srcCompat="@drawable/marwan" />
 
             <Button
                 android:id="@+id/submitBtn"
@@ -659,7 +650,7 @@
                 android:layout_marginTop="64dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
-                android:background="@drawable/buttonround"
+                android:background="@drawable/btn_normal"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="Update"
@@ -700,6 +691,17 @@
                 android:text="Related Work 3"
                 app:layout_constraintBottom_toTopOf="@+id/related_work_3"
                 app:layout_constraintStart_toStartOf="@+id/related_work_3" />
+
+            <ImageView
+                android:id="@+id/mainImage"
+                android:layout_width="139dp"
+                android:layout_height="129dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/marwan"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/main_img_title" />
 
         </android.support.constraint.ConstraintLayout>
 

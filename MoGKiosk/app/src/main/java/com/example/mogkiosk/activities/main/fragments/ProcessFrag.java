@@ -1,29 +1,27 @@
-package com.example.mogkiosk;
+package com.example.mogkiosk.activities.main.fragments;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
-import android.widget.TextView;
+import android.widget.MediaController;
+import android.widget.VideoView;
 
-import java.util.ArrayList;
+import com.example.mogkiosk.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link WorkFrag.OnFragmentInteractionListener} interface
+ * {@link ProcessFrag.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link WorkFrag#newInstance} factory method to
+ * Use the {@link ProcessFrag#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class WorkFrag extends Fragment {
+public class ProcessFrag extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -32,22 +30,11 @@ public class WorkFrag extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private VideoView videoView;
 
     private OnFragmentInteractionListener mListener;
-    private TextView workTitle;
-    private TextView workDate;
-    private TextView artistTitle;
-    private TextView workBio;
-    private TextView mediumTitle;
-    private TextView dimensions;
-    private TextView collection;
-    private TextView photoBy;
-    private View v;
 
-    private GridView imageGrid;
-    private ArrayList<Bitmap> bitmapList;
-
-    public WorkFrag() {
+    public ProcessFrag() {
         // Required empty public constructor
     }
 
@@ -57,11 +44,11 @@ public class WorkFrag extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment WorkFrag.
+     * @return A new instance of fragment ProcessFrag.
      */
     // TODO: Rename and change types and number of parameters
-    public static WorkFrag newInstance(String param1, String param2) {
-        WorkFrag fragment = new WorkFrag();
+    public static ProcessFrag newInstance(String param1, String param2) {
+        ProcessFrag fragment = new ProcessFrag();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -81,42 +68,26 @@ public class WorkFrag extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View rootView = inflater.inflate(R.layout.fragment_process, container, false);
+        videoView = rootView.findViewById(R.id.videoView);
+        String videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.videoplayback;
+        Uri uri = Uri.parse(videoPath);
+        videoView.setVideoURI(uri);
+
+        MediaController mediaController = new MediaController(getActivity());
+        videoView.setMediaController(mediaController);
+        mediaController.setAnchorView(videoView);
+
         // Inflate the layout for this fragment
-
-        v = inflater.inflate(R.layout.fragment_work, container, false);
-
-        this.imageGrid = (GridView) v.findViewById(R.id.gridview);
-        this.bitmapList = new ArrayList<Bitmap>();
-
-        try {
-            this.bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
-                    R.drawable.related_work_1));
-            this.bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
-                    R.drawable.related_work_2));
-            this.bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
-                    R.drawable.related_work_3));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        this.imageGrid.setAdapter(new ImageAdapter(getActivity(), this.bitmapList));
-
-        artistTitle = v.findViewById(R.id.artist_entry);
-        workDate = v.findViewById(R.id.work_date);
-        workBio = v.findViewById(R.id.work_desc);
-        workTitle = v.findViewById(R.id.work_title);
-        collection = v.findViewById(R.id.collection_entry);
-        mediumTitle = v.findViewById(R.id.medium_entry);
-        dimensions = v.findViewById(R.id.dimensions_entry);
-        photoBy = v.findViewById(R.id.photo_credit_entry);
-
-        return v;
+        return rootView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
+            videoView.start();
         }
     }
 
