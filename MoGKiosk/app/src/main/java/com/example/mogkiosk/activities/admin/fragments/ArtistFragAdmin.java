@@ -1,4 +1,4 @@
-package com.example.mogkiosk;
+package com.example.mogkiosk.activities.admin.fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,8 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.example.mogkiosk.R;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -20,26 +23,32 @@ import static android.app.Activity.RESULT_OK;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link WorkFragAdmin.OnFragmentInteractionListener} interface
+ * {@link ArtistFragAdmin.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link WorkFragAdmin#newInstance} factory method to
+ * Use the {@link ArtistFragAdmin#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class WorkFragAdmin extends Fragment {
+public class ArtistFragAdmin extends Fragment {
+    private OnArtistDataPass dataPasser;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static int RESULT_LOAD_IMG = 1;
-    private static int viewId;
+
+
+    private EditText Name;
+    private EditText Tag;
+    private EditText Description;
+    private EditText SubBio;
+    private Button submit;
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    private OnFragmentInteractionListener mListener;
-
-    public WorkFragAdmin() {
+    public ArtistFragAdmin() {
         // Required empty public constructor
     }
 
@@ -49,11 +58,11 @@ public class WorkFragAdmin extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment WorkFrag.
+     * @return A new instance of fragment ArtistFrag.
      */
     // TODO: Rename and change types and number of parameters
-    public static WorkFragAdmin newInstance(String param1, String param2) {
-        WorkFragAdmin fragment = new WorkFragAdmin();
+    public static ArtistFragAdmin newInstance(String param1, String param2) {
+        ArtistFragAdmin fragment = new ArtistFragAdmin();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -70,57 +79,60 @@ public class WorkFragAdmin extends Fragment {
         }
     }
 
+
+    /**
+     * An interface that communicates with a method defined in the AdminActivity, the definition asks for arguments
+     * pertinent to the EditText layout variables in the ArtistLayout xml.
+     */
+    public interface OnArtistDataPass {
+        //Interface method declaration to pass data to Admin
+        void onArtistDataPass(CharSequence name, CharSequence tag, CharSequence description, CharSequence subbio);
+    }
+
+    /**
+     * Method that creates the view and registers the input given by the user. It then sends those values to onArtistDataPass method
+     * through a helper method.
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.frag_work_admin, container, false);
 
-        Button mainImageBtn = rootView.findViewById(R.id.browse_main_img);
-        Button related1ImageBtn = rootView.findViewById(R.id.browse_main_img2);
-        Button related2ImageBtn = rootView.findViewById(R.id.browse_main_img3);
-        Button related3ImageBtn = rootView.findViewById(R.id.browse_main_img4);
-
-        mainImageBtn.setOnClickListener(new View.OnClickListener() {
+        View rootView = inflater.inflate(R.layout.frag_artist_admin, container, false);
+        //get values
+        Name = rootView.findViewById(R.id.title);
+        Tag = rootView.findViewById(R.id.etTag);
+        Description = rootView.findViewById(R.id.description);
+        SubBio = rootView.findViewById(R.id.etSubBio);
+        submit = rootView.findViewById(R.id.submitBtn);
+        //set onclick method
+        submit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                viewId = R.id.mainImage;
-                loadImageFromGallery(view);
+            public void onClick(View v) {
+                //get text of variables
+                CharSequence inputName = Name.getText();
+                CharSequence inputTag = Tag.getText();
+                CharSequence inputDescription = Description.getText();
+                CharSequence subBio = SubBio.getText();
+                //pass them to auxiliary method
+                onButtonPressed(inputName, inputTag, inputDescription, subBio);
             }
         });
 
-        related1ImageBtn.setOnClickListener(new View.OnClickListener() {
+        Button uploadImageBtn = rootView.findViewById(R.id.etImage);
+        uploadImageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                viewId = R.id.related_work_1;
-                loadImageFromGallery(view);
-            }
-        });
-
-        related2ImageBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                viewId = R.id.related_work_2;
-                loadImageFromGallery(view);
-            }
-        });
-
-        related3ImageBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                viewId = R.id.related_work_3;
                 loadImageFromGallery(view);
             }
         });
 
         return rootView;
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
     }
 
     private void loadImageFromGallery(View view) {
@@ -143,7 +155,7 @@ public class WorkFragAdmin extends Fragment {
                 Uri selectedImage = data.getData();
                 Bitmap bitmap = BitmapFactory.decodeStream(getActivity().getApplicationContext().getContentResolver().openInputStream(selectedImage));
 
-                ImageView imgView = (ImageView) getView().findViewById(viewId);
+                ImageView imgView = getView().findViewById(R.id.currentImage);
                 // Set the Image in ImageView after decoding the String
                 imgView.setImageBitmap(bitmap);
 
@@ -158,22 +170,32 @@ public class WorkFragAdmin extends Fragment {
 
     }
 
+    /**
+     * Auxiliary method that passed data to the interface method associated with the AdminActivity
+     * This is used so AdminActivity can access the data and pass it along
+     * @param name
+     * @param tag
+     * @param description
+     */
+    public void onButtonPressed(CharSequence name, CharSequence tag, CharSequence description, CharSequence subbio) {
+        dataPasser.onArtistDataPass(name, tag, description, subbio);
+    }
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
+        if (context instanceof OnArtistDataPass) {
+            dataPasser = (OnArtistDataPass) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnDataPass interface");
         }
-//        else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+        dataPasser = null;
     }
 
     /**
@@ -190,4 +212,8 @@ public class WorkFragAdmin extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+    public interface OnProcessDataPass {
+    }
+
 }

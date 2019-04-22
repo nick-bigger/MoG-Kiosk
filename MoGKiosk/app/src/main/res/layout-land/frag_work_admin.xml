@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".WorkFragAdmin">
+    tools:context=".activities.admin.fragments.WorkFragAdmin">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout3"
@@ -501,7 +501,7 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="64dp"
                 android:layout_marginLeft="64dp"
-                android:background="@drawable/buttonround"
+                android:background="@drawable/btn_normal"
                 android:backgroundTint="@color/textDark"
                 android:contentDescription="Add an image"
                 android:paddingLeft="20dp"
@@ -517,7 +517,7 @@
                 android:layout_width="118dp"
                 android:layout_height="38dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/buttonround"
+                android:background="@drawable/btn_normal"
                 android:backgroundTint="@color/textDark"
                 android:contentDescription="Add an image"
                 android:paddingLeft="20dp"
@@ -533,7 +533,7 @@
                 android:layout_width="118dp"
                 android:layout_height="38dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/buttonround"
+                android:background="@drawable/btn_normal"
                 android:backgroundTint="@color/textDark"
                 android:contentDescription="Add an image"
                 android:paddingLeft="20dp"
@@ -549,7 +549,7 @@
                 android:layout_width="118dp"
                 android:layout_height="38dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/buttonround"
+                android:background="@drawable/btn_normal"
                 android:backgroundTint="@color/textDark"
                 android:contentDescription="Add an image"
                 android:paddingLeft="20dp"
@@ -650,7 +650,7 @@
                 android:layout_marginTop="64dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
-                android:background="@drawable/buttonround"
+                android:background="@drawable/btn_normal"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="Update"

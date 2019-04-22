@@ -77,7 +77,7 @@ class PrivateInfoManager
             System.out.println("Found file!");
 
             byte[] barray = new byte[0124];
-            StringBuffer fc = new StringBuffer("");
+            StringBuffer fc = new StringBuffer();
             int n;
 
             while ((n = fis.read(barray)) != -1) fc.append(new String(barray, 0, n));
@@ -398,8 +398,7 @@ class PrivateInfoManager
     private boolean isEmptyTempHash()
     {
         System.out.println("Temp hash is: " + "\"" + getTempHash() + "\"");
-        if (getTempHash() == null || getTempHash().equals(""))  return true;
-        return false;
+        return getTempHash() == null || getTempHash().equals("");
     }
 
     /**
@@ -410,8 +409,7 @@ class PrivateInfoManager
     {
         System.out.println("Temp salt is: " + "\"" + getTempSalt() + "\"");
         System.out.println("the thing" + (getTempSalt() == null));
-        if (getTempSalt() == null || getTempSalt().equals("")) return true;
-        return false;
+        return getTempSalt() == null || getTempSalt().equals("");
     }
 
     /**
@@ -468,10 +466,8 @@ class PrivateInfoManager
      * Convert byte array to string
      * @param array array to be converted
      * @return converted array
-     * @throws NoSuchAlgorithmException
      */
-    private static String toHex(byte[] array) throws NoSuchAlgorithmException
-    {
+    private static String toHex(byte[] array) {
         BigInteger bi = new BigInteger(1, array);
         String hex = bi.toString(16);
         int paddingLength = (array.length * 2) - hex.length();
@@ -642,8 +638,7 @@ class PrivateInfoManager
 
 
     // More difficult than I was expecting
-    public void sendEmail() throws Exception
-    {
+    public void sendEmail() {
         updateEmail("museumofglasskiosk@gmail.com");
         String email = getEmail();
         String pass = legiblePass;

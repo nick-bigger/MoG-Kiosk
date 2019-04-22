@@ -1,38 +1,45 @@
-package com.example.mogkiosk;
+package com.example.mogkiosk.activities.admin.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.MediaController;
+import android.widget.Toast;
 import android.widget.VideoView;
+
+import com.example.mogkiosk.R;
+
+import static android.app.Activity.RESULT_OK;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ProcessFrag.OnFragmentInteractionListener} interface
+ * {@link ProcessFragAdmin.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ProcessFrag#newInstance} factory method to
+ * Use the {@link ProcessFragAdmin#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProcessFrag extends Fragment {
+public class ProcessFragAdmin extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static int RESULT_LOAD_IMG = 1;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private VideoView videoView;
 
     private OnFragmentInteractionListener mListener;
 
-    public ProcessFrag() {
+    public ProcessFragAdmin() {
         // Required empty public constructor
     }
 
@@ -45,8 +52,8 @@ public class ProcessFrag extends Fragment {
      * @return A new instance of fragment ProcessFrag.
      */
     // TODO: Rename and change types and number of parameters
-    public static ProcessFrag newInstance(String param1, String param2) {
-        ProcessFrag fragment = new ProcessFrag();
+    public static ProcessFragAdmin newInstance(String param1, String param2) {
+        ProcessFragAdmin fragment = new ProcessFragAdmin();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -66,9 +73,18 @@ public class ProcessFrag extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View rootView = inflater.inflate(R.layout.frag_process_admin, container, false);
 
-        View rootView = inflater.inflate(R.layout.fragment_process, container, false);
-        videoView = (VideoView) rootView.findViewById(R.id.videoView);
+        Button uploadImageBtn = rootView.findViewById(R.id.browse_main_img5);
+        uploadImageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadImageFromGallery(view);
+            }
+        });
+
+        VideoView videoView = rootView.findViewById(R.id.videoView2);
         String videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.videoplayback;
         Uri uri = Uri.parse(videoPath);
         videoView.setVideoURI(uri);
@@ -77,15 +93,47 @@ public class ProcessFrag extends Fragment {
         videoView.setMediaController(mediaController);
         mediaController.setAnchorView(videoView);
 
-        // Inflate the layout for this fragment
         return rootView;
+    }
+
+    private void loadImageFromGallery(View view) {
+        // Create intent to Open Image applications like Gallery, Google Photos
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
+        // Start the Intent
+        startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        try {
+            // When an Image is picked
+            if (requestCode == RESULT_LOAD_IMG && resultCode == RESULT_OK
+                    && null != data) {
+                // Get the Image from data
+
+                Uri selectedVideo = data.getData();
+
+                VideoView vidView = getView().findViewById(R.id.videoView2);
+                // Set the Image in ImageView after decoding the String
+                vidView.setVideoURI(selectedVideo);
+
+            } else {
+                Toast.makeText(getActivity(), "No Image Chosen",
+                        Toast.LENGTH_LONG).show();
+            }
+        } catch (Exception e) {
+            Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_LONG)
+                    .show();
+        }
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
-            videoView.start();
         }
     }
 
@@ -120,5 +168,8 @@ public class ProcessFrag extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    public interface OnProcessDataPass {
     }
 }
