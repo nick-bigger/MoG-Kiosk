@@ -74,6 +74,7 @@ public class WorkFrag extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRetainInstance(true);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -113,46 +114,48 @@ public class WorkFrag extends Fragment {
         dimensions = v.findViewById(R.id.dimensions_entry);
         photoBy = v.findViewById(R.id.photo_credit_entry);
 
+
+
+        return v;
+    }
+
+    public void onResume() {
+        super.onResume();
         Bundle extras = getArguments();
 
-        if(extras != null) {
+        if (extras != null) {
             // this string name is null
-            if(extras.getString("TITLE") != null && !extras.getString("TITLE").isEmpty()) {
+            if (extras.getString("TITLE") != null && !extras.getString("TITLE").isEmpty()) {
                 workTitle.setText(extras.getString("TITLE"));
             }
 
-            if(extras.getString("DATE") != null && !extras.getString("DATE").isEmpty()) {
+            if (extras.getString("DATE") != null && !extras.getString("DATE").isEmpty()) {
                 date.setText(extras.getString("DATE"));
             }
 
-            if(extras.getString("COLLECTION") != null && !extras.getString("COLLECTION").isEmpty()) {
+            if (extras.getString("COLLECTION") != null && !extras.getString("COLLECTION").isEmpty()) {
                 collection.setText(extras.getString("COLLECTION"));
             }
 
-            if(extras.getString("DIMENSIONS") != null && !extras.getString("DIMENSIONS").isEmpty()) {
+            if (extras.getString("DIMENSIONS") != null && !extras.getString("DIMENSIONS").isEmpty()) {
                 dimensions.setText(extras.getString("DIMENSIONS"));
             }
 
 
-            if(extras.getString("MEDIUM") != null && !extras.getString("MEDIUM").isEmpty()) {
+            if (extras.getString("MEDIUM") != null && !extras.getString("MEDIUM").isEmpty()) {
                 mediumTitle.setText(extras.getString("MEDIUM"));
             }
 
-            if(extras.getString("ARTIST") != null && !extras.getString("ARTIST").isEmpty()) {
+            if (extras.getString("ARTIST") != null && !extras.getString("ARTIST").isEmpty()) {
 
                 artistTitle.setText(extras.getString("ARTIST"));
             }
 
-            if(extras.getString("PIECEDATE") != null && !extras.getString("PIECEDATE").isEmpty()) {
+            if (extras.getString("PIECEDATE") != null && !extras.getString("PIECEDATE").isEmpty()) {
                 workDate.setText(extras.getString("PIECEDATE"));
             }
 
         }
-
-
-
-
-        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -73,7 +73,7 @@ public class ArtistFrag extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setRetainInstance(true);
     }
 
 
@@ -88,6 +88,15 @@ public class ArtistFrag extends Fragment {
         bioTextView = v.findViewById(R.id.artistFrag_bio);
         subBioTextView = v.findViewById(R.id.artist_subbio);
         tagLineTextView = v.findViewById(R.id.artist_tagline);
+
+
+
+        return v;
+    }
+
+    public void onResume() {
+
+        super.onResume();
         Bundle extras = getArguments();
 
         if(extras != null) {
@@ -109,11 +118,7 @@ public class ArtistFrag extends Fragment {
             }
 
         }
-
-
-        return v;
     }
-
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed (Uri uri){

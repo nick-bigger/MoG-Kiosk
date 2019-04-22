@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-
         // logic for hiding the status bar
 //        View decorView = getWindow().getDecorView();
 //        // Hide the status bar.
@@ -76,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        //
+        mViewPager.setOffscreenPageLimit(3);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
@@ -97,6 +98,10 @@ public class MainActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         //check if there are args passed to MainActivity, otherwise skip code block
         if(extras != null) {
+            String artistCheck = extras.getString("artistCheck");
+            String workCheck = extras. getString("workCheck"); //check whoich fragment was changed
+            //set the values in the adapter if the check is true
+
             //get the arguments that were passed to the MainActivity by AdminActivity for Artist
             String name = extras.getString("name");
             String tag = extras.getString("tag");
@@ -128,12 +133,13 @@ public class MainActivity extends AppCompatActivity {
             workData.putString("DATE", date);
             //set arguments and update adapter
             a_frag.setArguments(artistData);
-            mSectionsPagerAdapter.setItem(a_frag, 0);
             w_frag.setArguments(workData);
+            mSectionsPagerAdapter.setItem(a_frag, 0);
             mSectionsPagerAdapter.setItem(w_frag, 1);
-            //begin the transaction and commit
-            final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.commit();
+////            //begin the transaction and commit
+//            final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//
+//            ft.commit();
         }
     }
 

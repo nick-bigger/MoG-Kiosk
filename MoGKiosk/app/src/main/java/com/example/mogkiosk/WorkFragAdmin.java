@@ -11,14 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-<<<<<<< HEAD
 import android.widget.TextView;
-=======
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import static android.app.Activity.RESULT_OK;
->>>>>>> bda86e76517b0f40d3472aec5695f730849d0d78
+
 
 
 /**
@@ -89,7 +87,6 @@ public class WorkFragAdmin extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.frag_work_admin, container, false);
 
-<<<<<<< HEAD
         artist = rootView.findViewById(R.id.artist);
         date = rootView.findViewById(R.id.label_date);
         medium = rootView.findViewById(R.id.medium);
@@ -117,7 +114,6 @@ public class WorkFragAdmin extends Fragment {
         });
 
 
-=======
         Button mainImageBtn = rootView.findViewById(R.id.browse_main_img);
         Button related1ImageBtn = rootView.findViewById(R.id.browse_main_img2);
         Button related2ImageBtn = rootView.findViewById(R.id.browse_main_img3);
@@ -154,7 +150,7 @@ public class WorkFragAdmin extends Fragment {
                 loadImageFromGallery(view);
             }
         });
->>>>>>> bda86e76517b0f40d3472aec5695f730849d0d78
+
 
         return rootView;
     }
@@ -172,8 +168,6 @@ public class WorkFragAdmin extends Fragment {
                 date, collection, dimensions, medium);
     }
 
-<<<<<<< HEAD
-=======
     private void loadImageFromGallery(View view) {
         // Create intent to Open Image applications like Gallery, Google Photos
         Intent galleryIntent = new Intent(Intent.ACTION_PICK,
@@ -208,7 +202,6 @@ public class WorkFragAdmin extends Fragment {
         }
 
     }
->>>>>>> bda86e76517b0f40d3472aec5695f730849d0d78
 
     @Override
     public void onAttach(Context context) {
