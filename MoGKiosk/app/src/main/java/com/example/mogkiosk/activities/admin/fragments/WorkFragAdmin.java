@@ -1,4 +1,4 @@
-package com.example.mogkiosk;
+package com.example.mogkiosk.activities.admin.fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.example.mogkiosk.R;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -188,7 +190,7 @@ public class WorkFragAdmin extends Fragment {
                 Uri selectedImage = data.getData();
                 Bitmap bitmap = BitmapFactory.decodeStream(getActivity().getApplicationContext().getContentResolver().openInputStream(selectedImage));
 
-                ImageView imgView = (ImageView) getView().findViewById(viewId);
+                ImageView imgView = getView().findViewById(viewId);
                 // Set the Image in ImageView after decoding the String
                 imgView.setImageBitmap(bitmap);
 

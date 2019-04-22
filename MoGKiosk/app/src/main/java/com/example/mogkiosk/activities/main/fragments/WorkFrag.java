@@ -1,4 +1,4 @@
-package com.example.mogkiosk;
+package com.example.mogkiosk.activities.main.fragments;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -11,6 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.TextView;
+
+import com.example.mogkiosk.R;
+import com.example.mogkiosk.adapters.ImageAdapter;
 
 import java.util.ArrayList;
 
@@ -88,7 +91,7 @@ public class WorkFrag extends Fragment {
 
         v = inflater.inflate(R.layout.fragment_work, container, false);
 
-        this.imageGrid = (GridView) v.findViewById(R.id.gridview);
+        this.imageGrid = v.findViewById(R.id.gridview);
         this.bitmapList = new ArrayList<Bitmap>();
 
         try {

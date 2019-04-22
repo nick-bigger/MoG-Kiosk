@@ -1,4 +1,4 @@
-package com.example.mogkiosk;
+package com.example.mogkiosk.activities.admin;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,12 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.EditText;
+
+import com.example.mogkiosk.R;
+import com.example.mogkiosk.activities.admin.fragments.ArtistFragAdmin;
+import com.example.mogkiosk.activities.admin.fragments.ProcessFragAdmin;
+import com.example.mogkiosk.activities.admin.fragments.WorkFragAdmin;
+import com.example.mogkiosk.activities.main.MainActivity;
 
 /**
  * Class that facilitates the admin side of the app functionality. It has its own section adapter that manages admin counterpart fragments to the
@@ -35,7 +40,7 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -44,10 +49,10 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
         /**
          * The {@link ViewPager} that will host the section contents.
          */
-        ViewPager mViewPager = (ViewPager) findViewById(R.id.container);
+        ViewPager mViewPager = findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
     }

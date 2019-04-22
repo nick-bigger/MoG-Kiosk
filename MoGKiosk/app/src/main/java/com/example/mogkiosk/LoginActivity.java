@@ -15,6 +15,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mogkiosk.activities.admin.AdminActivity;
+import com.example.mogkiosk.activities.changepass.ChangePassActivity;
+
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
@@ -160,12 +163,12 @@ public class LoginActivity extends AppCompatActivity {
             boolean sendEmail = getArguments().getBoolean(DIALOG_TYPE);
             if (sendEmail == EMAIL_SENDING)
             {
-                icon.setImageResource(R.drawable.good);
+                icon.setImageResource(R.drawable.ic_success);
                 messText.setText(R.string.email_sending);
             }
             else if (sendEmail == EMAIL_ALREADY_SENT)
             {
-                icon.setImageResource(R.drawable.bad);
+                icon.setImageResource(R.drawable.ic_error);
                 messText.setText(R.string.email_sent);
             }
 

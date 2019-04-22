@@ -1,4 +1,4 @@
-package com.example.mogkiosk;
+package com.example.mogkiosk.activities.main.fragments;
 
 import android.content.Context;
 import android.net.Uri;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.MediaController;
 import android.widget.VideoView;
+
+import com.example.mogkiosk.R;
 
 
 /**
@@ -68,7 +70,7 @@ public class ProcessFrag extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_process, container, false);
-        videoView = (VideoView) rootView.findViewById(R.id.videoView);
+        videoView = rootView.findViewById(R.id.videoView);
         String videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.videoplayback;
         Uri uri = Uri.parse(videoPath);
         videoView.setVideoURI(uri);

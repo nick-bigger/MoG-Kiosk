@@ -1,4 +1,4 @@
-package com.example.mogkiosk;
+package com.example.mogkiosk.adapters;
 
 import android.content.Context;
 import android.graphics.Bitmap;

@@ -1,14 +1,12 @@
-package com.example.mogkiosk;
+package com.example.mogkiosk.activities.main;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -18,6 +16,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.mogkiosk.LoginActivity;
+import com.example.mogkiosk.R;
+import com.example.mogkiosk.activities.AboutActivity;
+import com.example.mogkiosk.activities.main.fragments.ArtistFrag;
+import com.example.mogkiosk.activities.main.fragments.ProcessFrag;
+import com.example.mogkiosk.activities.main.fragments.WorkFrag;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setLogo(R.mipmap.ic_launcher_round);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
@@ -73,12 +78,12 @@ public class MainActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager = findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
         //
         mViewPager.setOffscreenPageLimit(3);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
     }
@@ -262,7 +267,7 @@ public class MainActivity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+            TextView textView = rootView.findViewById(R.id.section_label);
             return rootView;
         }
     }

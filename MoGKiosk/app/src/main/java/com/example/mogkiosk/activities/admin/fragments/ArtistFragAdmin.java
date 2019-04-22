@@ -1,7 +1,9 @@
-package com.example.mogkiosk;
+package com.example.mogkiosk.activities.admin.fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,9 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.MediaController;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
-import android.widget.VideoView;
+
+import com.example.mogkiosk.R;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -19,25 +23,32 @@ import static android.app.Activity.RESULT_OK;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ProcessFragAdmin.OnFragmentInteractionListener} interface
+ * {@link ArtistFragAdmin.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ProcessFragAdmin#newInstance} factory method to
+ * Use the {@link ArtistFragAdmin#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProcessFragAdmin extends Fragment {
+public class ArtistFragAdmin extends Fragment {
+    private OnArtistDataPass dataPasser;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static int RESULT_LOAD_IMG = 1;
 
+
+    private EditText Name;
+    private EditText Tag;
+    private EditText Description;
+    private EditText SubBio;
+    private Button submit;
+
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    private OnFragmentInteractionListener mListener;
-
-    public ProcessFragAdmin() {
+    public ArtistFragAdmin() {
         // Required empty public constructor
     }
 
@@ -47,11 +58,11 @@ public class ProcessFragAdmin extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ProcessFrag.
+     * @return A new instance of fragment ArtistFrag.
      */
     // TODO: Rename and change types and number of parameters
-    public static ProcessFragAdmin newInstance(String param1, String param2) {
-        ProcessFragAdmin fragment = new ProcessFragAdmin();
+    public static ArtistFragAdmin newInstance(String param1, String param2) {
+        ArtistFragAdmin fragment = new ArtistFragAdmin();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -68,13 +79,52 @@ public class ProcessFragAdmin extends Fragment {
         }
     }
 
+
+    /**
+     * An interface that communicates with a method defined in the AdminActivity, the definition asks for arguments
+     * pertinent to the EditText layout variables in the ArtistLayout xml.
+     */
+    public interface OnArtistDataPass {
+        //Interface method declaration to pass data to Admin
+        void onArtistDataPass(CharSequence name, CharSequence tag, CharSequence description, CharSequence subbio);
+    }
+
+    /**
+     * Method that creates the view and registers the input given by the user. It then sends those values to onArtistDataPass method
+     * through a helper method.
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.frag_process_admin, container, false);
 
-        Button uploadImageBtn = rootView.findViewById(R.id.browse_main_img5);
+        View rootView = inflater.inflate(R.layout.frag_artist_admin, container, false);
+        //get values
+        Name = rootView.findViewById(R.id.title);
+        Tag = rootView.findViewById(R.id.etTag);
+        Description = rootView.findViewById(R.id.description);
+        SubBio = rootView.findViewById(R.id.etSubBio);
+        submit = rootView.findViewById(R.id.submitBtn);
+        //set onclick method
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //get text of variables
+                CharSequence inputName = Name.getText();
+                CharSequence inputTag = Tag.getText();
+                CharSequence inputDescription = Description.getText();
+                CharSequence subBio = SubBio.getText();
+                //pass them to auxiliary method
+                onButtonPressed(inputName, inputTag, inputDescription, subBio);
+            }
+        });
+
+        Button uploadImageBtn = rootView.findViewById(R.id.etImage);
         uploadImageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,22 +132,13 @@ public class ProcessFragAdmin extends Fragment {
             }
         });
 
-        VideoView videoView = (VideoView) rootView.findViewById(R.id.videoView2);
-        String videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.videoplayback;
-        Uri uri = Uri.parse(videoPath);
-        videoView.setVideoURI(uri);
-
-        MediaController mediaController = new MediaController(getActivity());
-        videoView.setMediaController(mediaController);
-        mediaController.setAnchorView(videoView);
-
         return rootView;
     }
 
     private void loadImageFromGallery(View view) {
         // Create intent to Open Image applications like Gallery, Google Photos
         Intent galleryIntent = new Intent(Intent.ACTION_PICK,
-                android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         // Start the Intent
         startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
     }
@@ -111,14 +152,15 @@ public class ProcessFragAdmin extends Fragment {
                     && null != data) {
                 // Get the Image from data
 
-                Uri selectedVideo = data.getData();
+                Uri selectedImage = data.getData();
+                Bitmap bitmap = BitmapFactory.decodeStream(getActivity().getApplicationContext().getContentResolver().openInputStream(selectedImage));
 
-                VideoView vidView = (VideoView) getView().findViewById(R.id.videoView2);
+                ImageView imgView = getView().findViewById(R.id.currentImage);
                 // Set the Image in ImageView after decoding the String
-                vidView.setVideoURI(selectedVideo);
+                imgView.setImageBitmap(bitmap);
 
             } else {
-                Toast.makeText(getActivity(), "No Image Chosen",
+                Toast.makeText(getActivity(), "You haven't picked Image",
                         Toast.LENGTH_LONG).show();
             }
         } catch (Exception e) {
@@ -128,29 +170,32 @@ public class ProcessFragAdmin extends Fragment {
 
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+    /**
+     * Auxiliary method that passed data to the interface method associated with the AdminActivity
+     * This is used so AdminActivity can access the data and pass it along
+     * @param name
+     * @param tag
+     * @param description
+     */
+    public void onButtonPressed(CharSequence name, CharSequence tag, CharSequence description, CharSequence subbio) {
+        dataPasser.onArtistDataPass(name, tag, description, subbio);
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
+        if (context instanceof OnArtistDataPass) {
+            dataPasser = (OnArtistDataPass) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnDataPass interface");
         }
-//        else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+        dataPasser = null;
     }
 
     /**
@@ -170,4 +215,5 @@ public class ProcessFragAdmin extends Fragment {
 
     public interface OnProcessDataPass {
     }
+
 }
