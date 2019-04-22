@@ -1,5 +1,4 @@
-
-package com.example.mogkiosk.activities.changepass;
+package com.example.mogkiosk;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -8,17 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.example.mogkiosk.R;
-
-public class ChangePassActivity extends AppCompatActivity {
+public class UpdateCredActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_pass);
+        setContentView(R.layout.activity_update_cred);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
     }
 
