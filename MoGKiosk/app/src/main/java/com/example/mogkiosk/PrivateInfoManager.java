@@ -25,7 +25,7 @@ import javax.crypto.spec.PBEKeySpec;
  * This class allows for easy management of secret info file stored on internal storage.
  * Methods allow read, writing, and verification of file info.
  */
-class PrivateInfoManager
+public class PrivateInfoManager
 {
     private static final String PASS_HASH = "hash";
     private static final String SALT = "salt";
