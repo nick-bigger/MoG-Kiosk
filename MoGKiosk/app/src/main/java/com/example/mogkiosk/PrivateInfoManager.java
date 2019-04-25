@@ -603,6 +603,23 @@ public class PrivateInfoManager
     }
 
     /**
+     * If a temporary hash does not exist, all temps will be generated and an email will be sent to email in info file
+     * containing new username and password.
+     * If a temp hash does exist, it means this process has already been executed and a message will be reported
+     * @return whether or not this process went through all the steps
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidKeySpecException
+     */
+    public boolean isSent() throws Exception {
+        if (isEmptyTempHash() && isEmptyTempSalt())
+        {
+            return true;
+        }
+        //indicates that there is already an email sent
+        return false;
+    }
+
+    /**
      * Change the hash and username
      * @param username username to be updated
      * @param password hash to be updated

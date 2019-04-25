@@ -4,150 +4,118 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     tools:context=".activities.changepass.fragments.ChangePassActivityFragment"
     tools:showIn="@layout/activity_change_pass">
 
-    <Button
-        android:id="@+id/submit"
-        android:layout_width="176dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="49dp"
-        android:background="@drawable/btn_normal"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:text="Submit"
-        android:textColor="@color/colorAccent"
-        android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="@+id/input_panel"
-        app:layout_constraintStart_toStartOf="@+id/input_panel"
-        app:layout_constraintTop_toBottomOf="@+id/input_panel" />
-
-    <TextView
-        android:id="@+id/change_pass_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:layout_marginBottom="16dp"
-        android:text="Change Password"
-        android:textAllCaps="true"
-        android:textColor="@color/colorAccent"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/input_panel"
-        app:layout_constraintEnd_toEndOf="@+id/input_panel"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/input_panel"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <android.support.constraint.ConstraintLayout
         android:id="@+id/input_panel"
-        android:layout_width="600dp"
-        android:layout_height="470dp"
-        android:layout_marginStart="500dp"
-        android:layout_marginLeft="500dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="500dp"
-        android:layout_marginRight="500dp"
+        android:layout_width="467dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/textLight"
         android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/change_pass_title">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/input_user_title"
-            android:layout_width="0dp"
+            android:id="@+id/change_pass_title"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginRight="100dp"
-            android:text="Input username:"
+            android:layout_marginTop="16dp"
+            android:text="Change Password"
             android:textAllCaps="true"
             android:textColor="@color/textDark"
-            android:textSize="25sp"
+            android:textSize="40sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/input_pass_title"
-            android:layout_width="0dp"
+            android:id="@+id/input_user_title"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginRight="100dp"
+            android:text="Input username:"
+            android:textAllCaps="true"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/change_pass_title" />
+
+        <TextView
+            android:id="@+id/input_pass_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="32dp"
             android:layout_marginBottom="16dp"
             android:text="Input password:"
             android:textAllCaps="true"
-            android:textColor="@color/textDark"
-            android:textSize="25sp"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/input_pass"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/input_user" />
 
         <TextView
             android:id="@+id/input_retype_pass_title"
-            android:layout_width="238dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginRight="100dp"
             android:text="Retype password:"
             android:textAllCaps="true"
-            android:textColor="@color/textDark"
-            android:textSize="25sp"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/input_pass" />
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/input_retype_pass"
             android:layout_width="0dp"
-            android:layout_height="67dp"
-            android:layout_marginStart="48dp"
-            android:layout_marginLeft="48dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginRight="100dp"
-            android:layout_marginBottom="32dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="128dp"
+            android:layout_marginRight="128dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/input_retype_pass_title"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintTop_toBottomOf="@+id/input_retype_pass_title">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/retype_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Retype Password"
-                android:textSize="25dp" />
+                android:textSize="18dp" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/input_user"
             android:layout_width="0dp"
-            android:layout_height="67dp"
-            android:layout_marginStart="48dp"
-            android:layout_marginLeft="48dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginRight="100dp"
+            android:layout_marginEnd="128dp"
+            android:layout_marginRight="128dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/input_user_title">
 
@@ -156,18 +124,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="New Username"
-                android:textSize="25dp" />
+                android:textSize="18dp" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/input_pass"
             android:layout_width="0dp"
-            android:layout_height="67dp"
-            android:layout_marginStart="48dp"
-            android:layout_marginLeft="48dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginRight="100dp"
+            android:layout_marginEnd="128dp"
+            android:layout_marginRight="128dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -178,24 +146,81 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="New Password"
-                android:textSize="25dp" />
+                android:textSize="18dp" />
         </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/btn_normal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="Submit"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/input_retype_pass"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constraintLayout4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/input_retype_pass_title"
+            app:layout_constraintTop_toBottomOf="@+id/input_retype_pass">
+
+            <TextView
+                android:id="@+id/do_not_match"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Passwords do not match!"
+                app:layout_anchor="@+id/include"
+                app:layout_anchorGravity="top|center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/username_length" />
+
+            <TextView
+                android:id="@+id/pass_length"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="Password must be at least 5 characters long."
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/username_length"
+                android:layout_width="wrap_content"
+                android:layout_height="19dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Username must be at least 5 characters long."
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pass_length" />
+        </android.support.constraint.ConstraintLayout>
+
     </android.support.constraint.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/username_length"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Username must be at least 5 characters long."
-        tools:layout_editor_absoluteX="323dp"
-        tools:layout_editor_absoluteY="16dp" />
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="700dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/outside_museum"
+        app:layout_constraintBottom_toBottomOf="@+id/input_panel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/input_panel" />
 
-    <TextView
-        android:id="@+id/pass_length"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Password must be at least 5 characters long."
-        tools:layout_editor_absoluteX="336dp"
-        tools:layout_editor_absoluteY="64dp" />
 
 </android.support.constraint.ConstraintLayout>

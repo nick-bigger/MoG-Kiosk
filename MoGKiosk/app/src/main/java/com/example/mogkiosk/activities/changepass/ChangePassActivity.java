@@ -3,8 +3,6 @@ package com.example.mogkiosk.activities.changepass;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -12,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.mogkiosk.LoginActivity;
 import com.example.mogkiosk.PrivateInfoManager;
 import com.example.mogkiosk.R;
 import com.example.mogkiosk.activities.admin.AdminActivity;
@@ -32,6 +29,9 @@ public class ChangePassActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        setTitle("Change Password");
+
         final PrivateInfoManager manager = new PrivateInfoManager(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_pass);
