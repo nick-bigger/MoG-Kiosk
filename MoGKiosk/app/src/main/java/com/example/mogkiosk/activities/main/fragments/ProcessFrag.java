@@ -1,13 +1,16 @@
 package com.example.mogkiosk.activities.main.fragments;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.MediaController;
+import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.example.mogkiosk.R;
@@ -32,6 +35,10 @@ public class ProcessFrag extends Fragment {
     private String mParam2;
     private VideoView videoView;
 
+    private SharedPreferences prefs;
+
+    private TextView title;
+    private TextView description;
     private OnFragmentInteractionListener mListener;
 
     public ProcessFrag() {
@@ -63,6 +70,8 @@ public class ProcessFrag extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        prefs =  PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+
     }
 
     @Override
@@ -79,10 +88,27 @@ public class ProcessFrag extends Fragment {
         videoView.setMediaController(mediaController);
         mediaController.setAnchorView(videoView);
 
+        title = rootView.findViewById(R.id.video_title);
+        description = rootView.findViewById(R.id.video_duration);
         // Inflate the layout for this fragment
         return rootView;
     }
 
+    public void onResume() {
+        super.onResume();
+        Bundle extras = getArguments();
+        if(extras != null) {
+            String processTitle = prefs.getString(getString(R.string.a_ptitle), "");
+            String processDescription = prefs.getString(getString(R.string.a_pdescription), "");
+            if(processTitle != null && !processTitle.isEmpty()) {
+                title.setText(processTitle);
+            }
+
+            if(processDescription != null && !processDescription.isEmpty()) {
+                description.setText(processDescription);
+            }
+        }
+    }
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {

@@ -102,13 +102,12 @@ public class MainActivity extends AppCompatActivity {
 
         a_frag = (ArtistFrag) mSectionsPagerAdapter.getItem(0);
         w_frag = (WorkFrag) mSectionsPagerAdapter.getItem(1);
+        p_frag = (ProcessFrag) mSectionsPagerAdapter.getItem(2);
 
         //Get transferred data from admin
         Bundle extras = getIntent().getExtras();
         //check if there are args passed to MainActivity, otherwise skip code block
         if(extras != null) {
-            String artistCheck = extras.getString("artistCheck");
-            String workCheck = extras. getString("workCheck"); //check whoich fragment was changed
             //set the values in the adapter if the check is true
 
             //get the arguments that were passed to the MainActivity by AdminActivity for Artist
@@ -124,6 +123,10 @@ public class MainActivity extends AppCompatActivity {
             String medium = extras.getString("medium");
             String collection = extras.getString("collection");
             String date = extras.getString("date");
+            String photo = extras.getString("photo");
+            //get process data from the bundle
+            String processTitle = extras.getString("processTitle");
+            String processDescription = extras.getString("processDescription");
             // Using bundle
             //  update artist
             Bundle artistData = new Bundle();
@@ -140,12 +143,19 @@ public class MainActivity extends AppCompatActivity {
             workData.putString("MEDIUM", medium);
             workData.putString("COLLECTION", collection);
             workData.putString("DATE", date);
+            workData.putString("PHOTOBY", photo);
+            //update process
+            Bundle processData = new Bundle();
+            processData.putString("PTITLE", processTitle);
+            processData.putString("PDESCRIPTION", processDescription);
             //set arguments and update adapter
             a_frag.setArguments(artistData);
             w_frag.setArguments(workData);
+            p_frag.setArguments(processData);
             updateSharedPreferences(extras);
             mSectionsPagerAdapter.setItem(a_frag, 0);
             mSectionsPagerAdapter.setItem(w_frag, 1);
+            mSectionsPagerAdapter.setItem(p_frag, 2);
         }
     }
 
@@ -163,6 +173,10 @@ public class MainActivity extends AppCompatActivity {
         String medium = extras.getString("medium");
         String collection = extras.getString("collection");
         String date = extras.getString("date");
+        String photo = extras.getString("photo");
+        //get arguments from process
+        String pTitle = extras.getString("processTitle");
+        String pDescription = extras.getString("processDescription");
 
         if(name != null && !name.isEmpty()) {
             editor.putString(getString(R.string.a_artistname), name);
@@ -184,27 +198,54 @@ public class MainActivity extends AppCompatActivity {
             editor.commit();
         }
 
+        if(artist != null && !artist.isEmpty()) {
+            editor.putString(getString(R.string.a_workartist), artist);
+            editor.commit();
+        }
 
-        editor.putString(getString(R.string.a_workartist), artist);
-        editor.commit();
+        if(piecedate != null && !piecedate.isEmpty()) {
+            editor.putString(getString(R.string.a_piecedate), piecedate);
+            editor.commit();
+        }
 
-        editor.putString(getString(R.string.a_piecedate), piecedate);
-        editor.commit();
+        if(title != null && !title.isEmpty()) {
+            editor.putString(getString(R.string.a_title), title);
+            editor.commit();
+        }
 
-        editor.putString(getString(R.string.a_title), title);
-        editor.commit();
+        if(dimensions != null && !dimensions.isEmpty()) {
+            editor.putString(getString(R.string.a_dimension), dimensions);
+            editor.commit();
+        }
 
-        editor.putString(getString(R.string.a_dimension), dimensions);
-        editor.commit();
+        if(medium != null && !medium.isEmpty()) {
+            editor.putString(getString(R.string.a_medium), medium);
+            editor.commit();
+        }
 
-        editor.putString(getString(R.string.a_medium), medium);
-        editor.commit();
+        if(collection != null && !collection.isEmpty()) {
+            editor.putString(getString(R.string.a_collection), collection);
+            editor.commit();
+        }
 
-        editor.putString(getString(R.string.a_collection), collection);
-        editor.commit();
+        if(date != null && !date.isEmpty()) {
+            editor.putString(getString(R.string.a_date), date);
+            editor.commit();
+        }
 
-        editor.putString(getString(R.string.a_date), date);
-        editor.commit();
+        if(photo != null && !photo.isEmpty()) {
+            editor.putString(getString(R.string.a_photo), photo);
+            editor.commit();
+        }
+        if(pTitle != null && !pTitle.isEmpty()) {
+            editor.putString(getString(R.string.a_ptitle), pTitle);
+            editor.commit();
+        }
+
+        if(pDescription != null && !pDescription.isEmpty()) {
+            editor.putString(getString(R.string.a_pdescription), pDescription);
+            editor.commit();
+        }
     }
 
     @Override

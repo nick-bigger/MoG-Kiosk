@@ -49,6 +49,7 @@ public class WorkFragAdmin extends Fragment {
     private TextView collection;
     private TextView medium;
     private TextView dimensions;
+    private TextView photoBy;
     private Button submit;
 
 
@@ -98,7 +99,7 @@ public class WorkFragAdmin extends Fragment {
         title = rootView.findViewById(R.id.title);
         piecedate = rootView.findViewById(R.id.date);
         submit = rootView.findViewById(R.id.submitBtn);
-
+        photoBy = rootView.findViewById(R.id.photo_credit);
 
         Button mainImageBtn = rootView.findViewById(R.id.browse_main_img);
         Button related1ImageBtn = rootView.findViewById(R.id.browse_main_img2);
@@ -148,9 +149,10 @@ public class WorkFragAdmin extends Fragment {
                 CharSequence collectionInput = collection.getText();
                 CharSequence titleInput = title.getText();
                 CharSequence dateInput = date.getText();
+                CharSequence photo = photoBy.getText();
                 //pass them to auxiliary method
                 onButtonPressed(artistInput, piecedateInput, titleInput, dateInput, collectionInput,
-                        dimensionsInput, mediumInput);
+                        dimensionsInput, mediumInput, photo);
             }
         });
 
@@ -168,9 +170,9 @@ public class WorkFragAdmin extends Fragment {
      * @param description
      */
     public void onButtonPressed(CharSequence artist, CharSequence piecedate, CharSequence title,
-                                CharSequence date, CharSequence collection, CharSequence dimensions, CharSequence medium) {
+                                CharSequence date, CharSequence collection, CharSequence dimensions, CharSequence medium, CharSequence photo) {
         dataPasser.onWorkDataPass(artist, piecedate, title,
-                date, collection, dimensions, medium);
+                date, collection, dimensions, medium, photo);
     }
 
     private void loadImageFromGallery(View view) {
@@ -232,6 +234,6 @@ public class WorkFragAdmin extends Fragment {
     public interface OnWorkDataPass {
         //Interface method declaration to pass data to Admin
         void onWorkDataPass(CharSequence artist, CharSequence piecedate, CharSequence title,
-                            CharSequence date, CharSequence collection, CharSequence dimensions, CharSequence medium);
+                            CharSequence date, CharSequence collection, CharSequence dimensions, CharSequence medium, CharSequence photo);
     }
 }

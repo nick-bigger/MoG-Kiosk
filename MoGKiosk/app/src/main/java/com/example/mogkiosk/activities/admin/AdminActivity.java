@@ -87,7 +87,7 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
 
     @Override
     public void onWorkDataPass(CharSequence artist, CharSequence piecedate, CharSequence title, CharSequence date,
-                               CharSequence collection, CharSequence dimensions, CharSequence medium) {
+                               CharSequence collection, CharSequence dimensions, CharSequence medium, CharSequence photo) {
         Intent intent = new Intent(AdminActivity.this, MainActivity.class);
         //converting to string
         String a = artist.toString();
@@ -97,6 +97,7 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
         String c = collection.toString();
         String dim = dimensions.toString();
         String m = medium.toString();
+        String ph = photo.toString();
         intent.putExtra("artist", a);
         intent.putExtra("piecedate", p);
         intent.putExtra("title", t);
@@ -104,9 +105,22 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
         intent.putExtra("collection", c);
         intent.putExtra("dimensions", dim);
         intent.putExtra("medium", m);
+        intent.putExtra("photo", ph);
         //start
         this.startActivity(intent);
 
+    }
+
+    @Override
+    public void onProcessDataPass(CharSequence processTitle, CharSequence processDescription) {
+        Intent intent = new Intent(AdminActivity.this, MainActivity.class);
+        //converting
+        String pTitle = processTitle.toString();
+        String pDescription = processDescription.toString();
+        intent.putExtra("processTitle", pTitle);
+        intent.putExtra("processDescription", pDescription);
+        //start
+        this.startActivity(intent);
     }
 
     /**

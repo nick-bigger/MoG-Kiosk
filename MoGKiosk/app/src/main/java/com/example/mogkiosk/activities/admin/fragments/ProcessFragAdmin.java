@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.MediaController;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
@@ -32,11 +33,14 @@ public class ProcessFragAdmin extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static int RESULT_LOAD_IMG = 1;
-
+    private OnProcessDataPass dataPasser;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private Button submit;
 
+    private TextView processTitle;
+    private TextView processDescription;
     private OnFragmentInteractionListener mListener;
 
     public ProcessFragAdmin() {
@@ -93,6 +97,22 @@ public class ProcessFragAdmin extends Fragment {
         videoView.setMediaController(mediaController);
         mediaController.setAnchorView(videoView);
 
+        submit = rootView.findViewById(R.id.submitBtn);
+        processDescription = rootView.findViewById(R.id.description);
+        processTitle = rootView.findViewById(R.id.title);
+
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //get text of variables
+                CharSequence title = processTitle.getText();
+                CharSequence description = processDescription.getText();
+                //pass them to auxiliary method
+                onButtonPressed(title, description);
+            }
+        });
+
         return rootView;
     }
 
@@ -130,23 +150,26 @@ public class ProcessFragAdmin extends Fragment {
 
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+    /**
+     * Auxiliary method that passed data to the interface method associated with the AdminActivity
+     * This is used so AdminActivity can access the data and pass it along
+     * @param name
+     * @param tag
+     * @param description
+     */
+    public void onButtonPressed(CharSequence processTitle, CharSequence processDescription) {
+        dataPasser.onProcessDataPass(processTitle, processDescription);
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
+        if (context instanceof OnProcessDataPass) {
+            dataPasser = (OnProcessDataPass) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnDataPass interface");
         }
-//        else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
     }
 
     @Override
@@ -171,5 +194,6 @@ public class ProcessFragAdmin extends Fragment {
     }
 
     public interface OnProcessDataPass {
+        void onProcessDataPass(CharSequence processTitle, CharSequence processDescription);
     }
 }

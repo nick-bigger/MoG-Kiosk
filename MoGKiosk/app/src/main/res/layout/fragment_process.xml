@@ -55,6 +55,7 @@
             android:layout_marginRight="8dp"
             android:text="@string/video_detail"
             android:textColor="@android:color/darker_gray"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/frameLayout4" />
 
@@ -69,6 +70,7 @@
             android:textColor="@color/textLight"
             android:textSize="49sp"
             android:textStyle="bold|italic"
+            android:visibility="visible"
             app:layout_constraintBottom_toTopOf="@+id/frameLayout4"
             app:layout_constraintStart_toStartOf="parent" />
 

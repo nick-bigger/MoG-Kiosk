@@ -1,10 +1,12 @@
 package com.example.mogkiosk.activities.main.fragments;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,6 +49,8 @@ public class WorkFrag extends Fragment {
     private TextView collection;
     private TextView photoBy;
     private TextView workDescription;
+
+    private SharedPreferences prefs;
     private View v;
 
     private GridView imageGrid;
@@ -82,6 +86,8 @@ public class WorkFrag extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        prefs =  PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+
     }
 
     @Override
@@ -127,35 +133,47 @@ public class WorkFrag extends Fragment {
         Bundle extras = getArguments();
 
         if (extras != null) {
+            String title = prefs.getString(getString(R.string.a_title), "");
+            String tempDate = prefs.getString(getString(R.string.a_date), "");
+            String tempCollection = prefs.getString(getString(R.string.a_collection), "");
+            String medium = prefs.getString(getString(R.string.a_medium), "");
+            String artist = prefs.getString(getString(R.string.a_workartist), "");
+            String pieceDate = prefs.getString(getString(R.string.a_piecedate), "");
+            String dim= prefs.getString(getString(R.string.a_dimension),"");
+            String photo = prefs.getString(getString(R.string.a_photo), "");
+
             // this string name is null
-            if (extras.getString("TITLE") != null && !extras.getString("TITLE").isEmpty()) {
-                workTitle.setText(extras.getString("TITLE"));
+            if (title != null && !title.isEmpty()) {
+                workTitle.setText(title);
             }
 
-            if (extras.getString("DATE") != null && !extras.getString("DATE").isEmpty()) {
-                date.setText(extras.getString("DATE"));
+            if (tempDate != null && !tempDate.isEmpty()) {
+                date.setText(tempDate);
             }
 
-            if (extras.getString("COLLECTION") != null && !extras.getString("COLLECTION").isEmpty()) {
-                collection.setText(extras.getString("COLLECTION"));
+            if (tempCollection != null && !tempCollection.isEmpty()) {
+                collection.setText(tempCollection);
             }
 
-            if (extras.getString("DIMENSIONS") != null && !extras.getString("DIMENSIONS").isEmpty()) {
-                dimensions.setText(extras.getString("DIMENSIONS"));
+            if (dim!= null && !dim.isEmpty()) {
+                dimensions.setText(dim);
             }
 
 
-            if (extras.getString("MEDIUM") != null && !extras.getString("MEDIUM").isEmpty()) {
-                mediumTitle.setText(extras.getString("MEDIUM"));
+            if (medium != null && !medium.isEmpty()) {
+                mediumTitle.setText(medium);
             }
 
-            if (extras.getString("ARTIST") != null && !extras.getString("ARTIST").isEmpty()) {
-
-                artistTitle.setText(extras.getString("ARTIST"));
+            if (artist != null && !artist.isEmpty()) {
+                artistTitle.setText(artist);
             }
 
-            if (extras.getString("PIECEDATE") != null && !extras.getString("PIECEDATE").isEmpty()) {
-                workDate.setText(extras.getString("PIECEDATE"));
+            if (pieceDate != null && !pieceDate.isEmpty()) {
+                workDate.setText(pieceDate);
+            }
+
+            if(photo != null && !photo.isEmpty()) {
+                photoBy.setText(photo);
             }
 
         }
