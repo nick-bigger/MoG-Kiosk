@@ -182,4 +182,20 @@
         </android.support.design.widget.TextInputLayout>
     </android.support.constraint.ConstraintLayout>
 
+    <TextView
+        android:id="@+id/username_length"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username must be at least 5 characters long."
+        tools:layout_editor_absoluteX="323dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/pass_length"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password must be at least 5 characters long."
+        tools:layout_editor_absoluteX="336dp"
+        tools:layout_editor_absoluteY="64dp" />
+
 </android.support.constraint.ConstraintLayout>

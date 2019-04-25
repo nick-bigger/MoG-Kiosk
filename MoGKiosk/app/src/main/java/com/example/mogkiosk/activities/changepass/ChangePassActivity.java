@@ -26,6 +26,10 @@ public class ChangePassActivity extends AppCompatActivity {
     private TextInputEditText mNewUserTextView;
     private Button mSubmitChanges;
 
+    private TextView mNotLongEnoughPassTextView;
+    private TextView mNotLongEnoughUserTextView;
+    private TextView mPassDontMatchTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         final PrivateInfoManager manager = new PrivateInfoManager(this);
@@ -39,6 +43,14 @@ public class ChangePassActivity extends AppCompatActivity {
         mNewUserTextView = findViewById(R.id.username);
         mSubmitChanges = findViewById(R.id.submit);
 
+        mNotLongEnoughPassTextView = findViewById(R.id.pass_length);
+        mNotLongEnoughUserTextView = findViewById(R.id.username_length);
+        mPassDontMatchTextView = findViewById(R.id.do_not_match);
+
+        mNotLongEnoughPassTextView.setVisibility(View.INVISIBLE);
+        mNotLongEnoughUserTextView.setVisibility(View.INVISIBLE);
+        mPassDontMatchTextView.setVisibility(View.INVISIBLE);
+
         mSubmitChanges.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
@@ -46,17 +58,20 @@ public class ChangePassActivity extends AppCompatActivity {
                 if (mNewUserTextView.getText().toString().length() < 5)
                 {
                     //Do a you need at least 5 character message
+                    mNotLongEnoughUserTextView.setVisibility(View.VISIBLE);
                     System.out.println("Not Long enough username");
                 }
 
                 else if (mNewPassTextView.getText().toString().length() < 5)
                 {
                     //Do a you need at least 5 character message
+                    mNotLongEnoughPassTextView.setVisibility(View.VISIBLE);
                     System.out.println("Not Long enough password");
                 }
                 else if (!mNewPassTextView.getText().toString().equals(mRetypePassTextView.getText().toString()))
                 {
                     //Passwords do not match
+                    mPassDontMatchTextView.setVisibility(View.VISIBLE);
                     System.out.println("Do not match");
                 }
                 else {
