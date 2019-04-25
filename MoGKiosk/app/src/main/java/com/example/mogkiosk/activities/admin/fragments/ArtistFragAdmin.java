@@ -1,5 +1,6 @@
 package com.example.mogkiosk.activities.admin.fragments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -16,6 +17,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.mogkiosk.R;
+import com.example.mogkiosk.UpdateCredActivity;
+import com.example.mogkiosk.activities.admin.AdminActivity;
+import com.example.mogkiosk.activities.main.MainActivity;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -129,6 +133,13 @@ public class ArtistFragAdmin extends Fragment {
             @Override
             public void onClick(View view) {
                 loadImageFromGallery(view);
+            }
+        });
+        Button updateCredBtn = rootView.findViewById(R.id.updateCredBtn);
+        updateCredBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), UpdateCredActivity.class));
             }
         });
 
