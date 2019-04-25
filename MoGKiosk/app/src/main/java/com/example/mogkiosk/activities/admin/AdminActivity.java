@@ -21,7 +21,8 @@ import com.example.mogkiosk.activities.main.MainActivity;
  * xml layouts on the frontend (Artist, Process, Work). It implements an interface methods defined in the fragments to send variables back and forth
  * from the admin side to the front end.
  */
-public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.OnArtistDataPass, ProcessFragAdmin.OnProcessDataPass {
+public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.OnArtistDataPass, ProcessFragAdmin.OnProcessDataPass
+, WorkFragAdmin.OnWorkDataPass {
 
 
     /**
@@ -80,6 +81,44 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
         intent.putExtra("tag", t);
         intent.putExtra("description", d);
         intent.putExtra("subbio", s);
+        //start
+        this.startActivity(intent);
+    }
+
+    @Override
+    public void onWorkDataPass(CharSequence artist, CharSequence piecedate, CharSequence title, CharSequence date,
+                               CharSequence collection, CharSequence dimensions, CharSequence medium, CharSequence photo) {
+        Intent intent = new Intent(AdminActivity.this, MainActivity.class);
+        //converting to string
+        String a = artist.toString();
+        String p = piecedate.toString();
+        String t = title.toString();
+        String d = date.toString();
+        String c = collection.toString();
+        String dim = dimensions.toString();
+        String m = medium.toString();
+        String ph = photo.toString();
+        intent.putExtra("artist", a);
+        intent.putExtra("piecedate", p);
+        intent.putExtra("title", t);
+        intent.putExtra("date", d);
+        intent.putExtra("collection", c);
+        intent.putExtra("dimensions", dim);
+        intent.putExtra("medium", m);
+        intent.putExtra("photo", ph);
+        //start
+        this.startActivity(intent);
+
+    }
+
+    @Override
+    public void onProcessDataPass(CharSequence processTitle, CharSequence processDescription) {
+        Intent intent = new Intent(AdminActivity.this, MainActivity.class);
+        //converting
+        String pTitle = processTitle.toString();
+        String pDescription = processDescription.toString();
+        intent.putExtra("processTitle", pTitle);
+        intent.putExtra("processDescription", pDescription);
         //start
         this.startActivity(intent);
     }

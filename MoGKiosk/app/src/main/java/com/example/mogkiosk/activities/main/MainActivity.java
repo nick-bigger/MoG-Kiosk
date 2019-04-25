@@ -1,7 +1,9 @@
 package com.example.mogkiosk.activities.main;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
     private ArtistFrag a_frag;
     private WorkFrag w_frag;
     private ProcessFrag p_frag;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -58,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
-
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = sharedPreferences.edit();
         // logic for hiding the status bar
 //        View decorView = getWindow().getDecorView();
 //        // Hide the status bar.
@@ -81,10 +85,11 @@ public class MainActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        //
+        mViewPager.setOffscreenPageLimit(3);
 
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
     }
 
     /**
@@ -96,32 +101,150 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         a_frag = (ArtistFrag) mSectionsPagerAdapter.getItem(0);
+        w_frag = (WorkFrag) mSectionsPagerAdapter.getItem(1);
+        p_frag = (ProcessFrag) mSectionsPagerAdapter.getItem(2);
 
         //Get transferred data from admin
         Bundle extras = getIntent().getExtras();
         //check if there are args passed to MainActivity, otherwise skip code block
         if(extras != null) {
+            //set the values in the adapter if the check is true
 
-            //get the arguments that were passed to the MainActivity by AdminActivity
+            //get the arguments that were passed to the MainActivity by AdminActivity for Artist
             String name = extras.getString("name");
             String tag = extras.getString("tag");
             String description = extras.getString("description");
             String subbio = extras.getString("subbio");
-
+            //get arguments form Work Fragment
+            String artist = extras.getString("artist");
+            String piecedate = extras.getString("piecedate");
+            String title = extras.getString("title");
+            String dimensions = extras.getString("dimensions");
+            String medium = extras.getString("medium");
+            String collection = extras.getString("collection");
+            String date = extras.getString("date");
+            String photo = extras.getString("photo");
+            //get process data from the bundle
+            String processTitle = extras.getString("processTitle");
+            String processDescription = extras.getString("processDescription");
             // Using bundle
             //  update artist
-            Bundle data = new Bundle();
-            data.putString("NAME", name);
-            data.putString("BIO", description);
-            data.putString("TAG", tag);
-            data.putString("SUBBIO", subbio);
-
+            Bundle artistData = new Bundle();
+            artistData.putString("NAME", name);
+            artistData.putString("BIO", description);
+            artistData.putString("TAG", tag);
+            artistData.putString("SUBBIO", subbio);
+            //update work
+            Bundle workData = new Bundle();
+            workData.putString("ARTIST", artist);
+            workData.putString("TITLE", title);
+            workData.putString("PIECEDATE", piecedate);
+            workData.putString("DIMENSIONS", dimensions);
+            workData.putString("MEDIUM", medium);
+            workData.putString("COLLECTION", collection);
+            workData.putString("DATE", date);
+            workData.putString("PHOTOBY", photo);
+            //update process
+            Bundle processData = new Bundle();
+            processData.putString("PTITLE", processTitle);
+            processData.putString("PDESCRIPTION", processDescription);
             //set arguments and update adapter
-            a_frag.setArguments(data);
+            a_frag.setArguments(artistData);
+            w_frag.setArguments(workData);
+            p_frag.setArguments(processData);
+            updateSharedPreferences(extras);
             mSectionsPagerAdapter.setItem(a_frag, 0);
-            //begin the transaction and commit
-            final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.commit();
+            mSectionsPagerAdapter.setItem(w_frag, 1);
+            mSectionsPagerAdapter.setItem(p_frag, 2);
+        }
+    }
+
+    private void updateSharedPreferences(Bundle extras) {
+        //get the arguments that were passed to the MainActivity by AdminActivity for Artist
+        String name = extras.getString("name");
+        String tag = extras.getString("tag");
+        String description = extras.getString("description");
+        String subbio = extras.getString("subbio");
+        //get arguments form Work Fragment
+        String artist = extras.getString("artist");
+        String piecedate = extras.getString("piecedate");
+        String title = extras.getString("title");
+        String dimensions = extras.getString("dimensions");
+        String medium = extras.getString("medium");
+        String collection = extras.getString("collection");
+        String date = extras.getString("date");
+        String photo = extras.getString("photo");
+        //get arguments from process
+        String pTitle = extras.getString("processTitle");
+        String pDescription = extras.getString("processDescription");
+
+        if(name != null && !name.isEmpty()) {
+            editor.putString(getString(R.string.a_artistname), name);
+            editor.commit();
+        }
+
+        if(tag != null && !tag.isEmpty()) {
+            editor.putString(getString(R.string.a_tag), tag);
+            editor.commit();
+        }
+
+        if(description != null && !description.isEmpty()) {
+            editor.putString(getString(R.string.a_bio), description);
+            editor.commit();
+        }
+
+        if(subbio != null && !subbio.isEmpty()) {
+            editor.putString(getString(R.string.a_subbio), subbio);
+            editor.commit();
+        }
+
+        if(artist != null && !artist.isEmpty()) {
+            editor.putString(getString(R.string.a_workartist), artist);
+            editor.commit();
+        }
+
+        if(piecedate != null && !piecedate.isEmpty()) {
+            editor.putString(getString(R.string.a_piecedate), piecedate);
+            editor.commit();
+        }
+
+        if(title != null && !title.isEmpty()) {
+            editor.putString(getString(R.string.a_title), title);
+            editor.commit();
+        }
+
+        if(dimensions != null && !dimensions.isEmpty()) {
+            editor.putString(getString(R.string.a_dimension), dimensions);
+            editor.commit();
+        }
+
+        if(medium != null && !medium.isEmpty()) {
+            editor.putString(getString(R.string.a_medium), medium);
+            editor.commit();
+        }
+
+        if(collection != null && !collection.isEmpty()) {
+            editor.putString(getString(R.string.a_collection), collection);
+            editor.commit();
+        }
+
+        if(date != null && !date.isEmpty()) {
+            editor.putString(getString(R.string.a_date), date);
+            editor.commit();
+        }
+
+        if(photo != null && !photo.isEmpty()) {
+            editor.putString(getString(R.string.a_photo), photo);
+            editor.commit();
+        }
+        if(pTitle != null && !pTitle.isEmpty()) {
+            editor.putString(getString(R.string.a_ptitle), pTitle);
+            editor.commit();
+        }
+
+        if(pDescription != null && !pDescription.isEmpty()) {
+            editor.putString(getString(R.string.a_pdescription), pDescription);
+            editor.commit();
         }
     }
 
@@ -167,7 +290,6 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-
 
             switch(position){
                 case 0:

@@ -162,6 +162,23 @@
 
     </string>
 
+    <!-- Strings for Admin Functions-->
+    <string name="a_artistname">android.content.SharedPreferences.a_artistname</string>
+    <string name="a_tag">android.content.SharedPreferences.a_tag</string>
+    <string name="a_bio">android.content.SharedPreferences.a_bio</string>
+    <string name="a_subbio">android.content.SharedPreferences.a_subbio</string>
+    <!--Work-->
+    <string name="a_workartist">android.content.SharedPreferences.a_workartist</string>
+    <string name="a_piecedate">android.content.SharedPreferences.a_piecedate</string>
+    <string name="a_title">android.content.SharedPreferences.a_title</string>
+    <string name="a_medium">android.content.SharedPreferences.a_medium</string>
+    <string name="a_collection">android.content.SharedPreferences.a_collection</string>
+    <string name="a_dimension">android.content.SharedPreferences.a_dimension</string>
+    <string name="a_date">android.content.SharedPreferences.a_date</string>
+    <string name="a_photo">android.content.SharedPreferences.a_photo</string>
+    <!--Process-->
+    <string name="a_ptitle">android.content.SharedPreferences.a_ptitle</string>
+    <string name="a_pdescription">android.content.SharedPreferences.a_pdescription</string>
     <!-- Strings for Login Functions -->
     <string name="email_sending">A reset email has been sent to the email address on file.</string>
     <string name="email_sent">A reset email has already been sent.</string>

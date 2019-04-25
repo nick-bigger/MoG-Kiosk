@@ -11,12 +11,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.mogkiosk.R;
 
 import static android.app.Activity.RESULT_OK;
+
 
 
 /**
@@ -28,6 +30,7 @@ import static android.app.Activity.RESULT_OK;
  * create an instance of this fragment.
  */
 public class WorkFragAdmin extends Fragment {
+    private OnWorkDataPass dataPasser;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -39,7 +42,16 @@ public class WorkFragAdmin extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private OnFragmentInteractionListener mListener;
+    private TextView artist;
+    private TextView piecedate;
+    private TextView title;
+    private TextView date;
+    private TextView collection;
+    private TextView medium;
+    private TextView dimensions;
+    private TextView photoBy;
+    private Button submit;
+
 
     public WorkFragAdmin() {
         // Required empty public constructor
@@ -78,6 +90,17 @@ public class WorkFragAdmin extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.frag_work_admin, container, false);
 
+        artist = rootView.findViewById(R.id.artist);
+        date = rootView.findViewById(R.id.label_date);
+        medium = rootView.findViewById(R.id.medium);
+        dimensions = rootView.findViewById(R.id.dimensions);
+        collection = rootView.findViewById(R.id.collection_info);
+
+        title = rootView.findViewById(R.id.title);
+        piecedate = rootView.findViewById(R.id.date);
+        submit = rootView.findViewById(R.id.submitBtn);
+        photoBy = rootView.findViewById(R.id.photo_credit);
+
         Button mainImageBtn = rootView.findViewById(R.id.browse_main_img);
         Button related1ImageBtn = rootView.findViewById(R.id.browse_main_img2);
         Button related2ImageBtn = rootView.findViewById(R.id.browse_main_img3);
@@ -115,14 +138,41 @@ public class WorkFragAdmin extends Fragment {
             }
         });
 
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //get text of variables
+                CharSequence artistInput = artist.getText();
+                CharSequence piecedateInput = piecedate.getText();
+                CharSequence mediumInput = medium.getText();
+                CharSequence dimensionsInput = dimensions.getText();
+                CharSequence collectionInput = collection.getText();
+                CharSequence titleInput = title.getText();
+                CharSequence dateInput = date.getText();
+                CharSequence photo = photoBy.getText();
+                //pass them to auxiliary method
+                onButtonPressed(artistInput, piecedateInput, titleInput, dateInput, collectionInput,
+                        dimensionsInput, mediumInput, photo);
+            }
+        });
+
+
+
+
         return rootView;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+    /**
+     * Auxiliary method that passed data to the interface method associated with the AdminActivity
+     * This is used so AdminActivity can access the data and pass it along
+     * @param name
+     * @param tag
+     * @param description
+     */
+    public void onButtonPressed(CharSequence artist, CharSequence piecedate, CharSequence title,
+                                CharSequence date, CharSequence collection, CharSequence dimensions, CharSequence medium, CharSequence photo) {
+        dataPasser.onWorkDataPass(artist, piecedate, title,
+                date, collection, dimensions, medium, photo);
     }
 
     private void loadImageFromGallery(View view) {
@@ -163,33 +213,27 @@ public class WorkFragAdmin extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
+        if (context instanceof ArtistFragAdmin.OnArtistDataPass) {
+            dataPasser = (WorkFragAdmin.OnWorkDataPass) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnDataPass interface");
         }
-//        else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+        dataPasser = null;
     }
 
     /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
+     * An interface that communicates with a method defined in the AdminActivity, the definition asks for arguments
+     * pertinent to the EditText layout variables in the ArtistLayout xml.
      */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+    public interface OnWorkDataPass {
+        //Interface method declaration to pass data to Admin
+        void onWorkDataPass(CharSequence artist, CharSequence piecedate, CharSequence title,
+                            CharSequence date, CharSequence collection, CharSequence dimensions, CharSequence medium, CharSequence photo);
     }
 }
