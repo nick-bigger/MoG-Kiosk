@@ -55,20 +55,53 @@ public class ChangePassActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                if (mNewUserTextView.getText().toString().length() < 5)
+                mNotLongEnoughPassTextView.setVisibility(View.INVISIBLE);
+                mNotLongEnoughUserTextView.setVisibility(View.INVISIBLE);
+                mPassDontMatchTextView.setVisibility(View.INVISIBLE);
+
+                boolean userLength = mNewUserTextView.getText().toString().length() < 5;
+                boolean passLength = mNewPassTextView.getText().toString().length() < 5;
+                boolean retypeGood = mRetypePassTextView.getText().toString().equals(mNewPassTextView);
+
+                if(userLength && passLength && !retypeGood)
+                {
+                    mNotLongEnoughUserTextView.setVisibility(View.VISIBLE);
+                    mNotLongEnoughPassTextView.setVisibility(View.VISIBLE);
+                    mPassDontMatchTextView.setVisibility(View.VISIBLE);
+                    System.out.println("Not Long enough user and password and does not match");
+                }
+                else if (userLength && passLength)
+                {
+                    mNotLongEnoughUserTextView.setVisibility(View.VISIBLE);
+                    mNotLongEnoughPassTextView.setVisibility(View.VISIBLE);
+                    System.out.println("Not Long enough username and pass");
+                }
+                else if(userLength && !retypeGood)
+                {
+                    mNotLongEnoughUserTextView.setVisibility(View.VISIBLE);
+                    mPassDontMatchTextView.setVisibility(View.VISIBLE);
+                    System.out.println("Not Long enough username and pass dont match");
+                }
+                else if(passLength && ! retypeGood)
+                {
+                    mNotLongEnoughPassTextView.setVisibility(View.VISIBLE);
+                    mPassDontMatchTextView.setVisibility(View.VISIBLE);
+                    System.out.println("Not Long enough password and does not match");
+
+                }
+                else if (userLength)
                 {
                     //Do a you need at least 5 character message
                     mNotLongEnoughUserTextView.setVisibility(View.VISIBLE);
                     System.out.println("Not Long enough username");
                 }
-
-                else if (mNewPassTextView.getText().toString().length() < 5)
+                else if (passLength)
                 {
                     //Do a you need at least 5 character message
                     mNotLongEnoughPassTextView.setVisibility(View.VISIBLE);
                     System.out.println("Not Long enough password");
                 }
-                else if (!mNewPassTextView.getText().toString().equals(mRetypePassTextView.getText().toString()))
+                else if (! retypeGood)
                 {
                     //Passwords do not match
                     mPassDontMatchTextView.setVisibility(View.VISIBLE);

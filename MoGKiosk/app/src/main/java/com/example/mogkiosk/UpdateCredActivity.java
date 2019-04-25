@@ -68,20 +68,27 @@ public class UpdateCredActivity extends AppCompatActivity {
         mSubmitUpdates.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                mNotLongEnoughPassTextView.setVisibility(View.INVISIBLE);
+//                mNotLongEnoughUserTextView.setVisibility(View.INVISIBLE);
+//                mPassDontMatchTextView.setVisibility(View.INVISIBLE);
+//                mNotSameUserTextView = setVisibility(View.INVISIBLE);
+//                mNotSamePassTextView = setVisibility(View.INVISIBLE);
+//                mNotSameEmailTextView = setVisibility(View.INVISIBLE);
+
                 boolean userLength = mUpdateUserTextView.getText().toString().length() < 5;
                 boolean passLength = mUpdatePassTextView.getText().toString().length() < 5;
                 boolean emailGood = isValidEmail(mUpdateEmailView.getText().toString());
 
-                if (!userLength && !passLength && !emailGood) {
+                if (userLength && passLength && !emailGood) {
                     mNotLongEnoughUpPassTextView.setVisibility(View.VISIBLE);
                     mNotLongEnoughUpUserTextView.setVisibility(View.VISIBLE);
                     mNotLongEnoughEmailTextView.setVisibility(View.VISIBLE);
                     System.out.println("Not Long enough anything or good email");
-                } else if (!userLength && !passLength) {
+                } else if (userLength && passLength) {
                     mNotLongEnoughUpPassTextView.setVisibility(View.VISIBLE);
                     mNotLongEnoughUpUserTextView.setVisibility(View.VISIBLE);
                     System.out.println("Not Long enough password or user");
-                } else if (!userLength && !emailGood) {
+                } else if (userLength && !emailGood) {
                     //Passwords do not match
                     mNotLongEnoughUpPassTextView.setVisibility(View.VISIBLE);
                     mNotLongEnoughEmailTextView.setVisibility(View.VISIBLE);
@@ -90,10 +97,10 @@ public class UpdateCredActivity extends AppCompatActivity {
                     mNotLongEnoughUpPassTextView.setVisibility(View.VISIBLE);
                     mNotLongEnoughEmailTextView.setVisibility(View.VISIBLE);
                     System.out.println("bad pass and bad email");
-                } else if (!userLength) {
+                } else if (userLength) {
                     mNotLongEnoughUpUserTextView.setVisibility(View.VISIBLE);
                     System.out.println("Bad user");
-                } else if (!passLength) {
+                } else if (passLength) {
                     mNotLongEnoughUpPassTextView.setVisibility(View.VISIBLE);
                     System.out.println("Bad pass");
                 } else if (!emailGood) {
