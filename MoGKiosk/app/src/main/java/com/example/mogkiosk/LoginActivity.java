@@ -88,8 +88,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view)
             {
                 try {
-                    if (manager.forgotPassword()) {
-                        open(view);
+                    if (manager.isSent()) {
+                        open(view, manager);
                     } else {
                         error(view);
                     }
@@ -180,7 +180,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void open(View view){
+    public void open(View view, final PrivateInfoManager manager){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("Would you like to reset your password?");
         alertDialogBuilder.setTitle("Reset Password");
@@ -188,6 +188,17 @@ public class LoginActivity extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface arg0, int arg1) {
+                                try {
+                                    manager.forgotPassword();
+                                } catch (NoSuchAlgorithmException e) {
+                                    System.out.println("Something went wrong while forgetting password with stuff");
+                                    e.printStackTrace();
+                                } catch (InvalidKeySpecException e) {
+                                    System.out.println("Something went wrong while forgetting password and the keys");
+                                    e.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
                                 Toast.makeText(LoginActivity.this,"A reset email has been sent.",Toast.LENGTH_LONG).show();
                             }
                         });

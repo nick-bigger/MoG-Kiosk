@@ -25,7 +25,7 @@ import javax.crypto.spec.PBEKeySpec;
  * This class allows for easy management of secret info file stored on internal storage.
  * Methods allow read, writing, and verification of file info.
  */
-class PrivateInfoManager
+public class PrivateInfoManager
 {
     private static final String PASS_HASH = "hash";
     private static final String SALT = "salt";
@@ -39,10 +39,13 @@ class PrivateInfoManager
     private static final int GOTOADMIN = 0;
     private static final int GOTOCHANGEPW = 1;
 
-    private static final int NOTHINGSAME = 0;
-    private static final int SAMEUSER  = 1;
-    private static final int SAMEPASS = 2;
-    private static final int SAMEEMAIL = 3;
+    private static final int EVERYTHINGSAME = 0;
+    private static final int NOTSAMEUSER  = 1;
+    private static final int NOTSAMEPASS = 2;
+    private static final int NOTSAMEEMAIL = 3;
+    private static final int NOTSAMEUSERPASS = 4;
+    private static final int NOTSAMEUSEREMAIL = 5;
+    private static final int NOTSAMEPASSEMAIL = 6;
 
 
     private static final String ERROR = "PrivateInfoManager";
@@ -600,6 +603,23 @@ class PrivateInfoManager
     }
 
     /**
+     * If a temporary hash does not exist, all temps will be generated and an email will be sent to email in info file
+     * containing new username and password.
+     * If a temp hash does exist, it means this process has already been executed and a message will be reported
+     * @return whether or not this process went through all the steps
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidKeySpecException
+     */
+    public boolean isSent() throws Exception {
+        if (isEmptyTempHash() && isEmptyTempSalt())
+        {
+            return true;
+        }
+        //indicates that there is already an email sent
+        return false;
+    }
+
+    /**
      * Change the hash and username
      * @param username username to be updated
      * @param password hash to be updated
@@ -625,14 +645,21 @@ class PrivateInfoManager
      */
     public int updateCredentials(String username, String newUsername, String password, String newPassword,  String email, String newEmail) throws InvalidKeySpecException, NoSuchAlgorithmException
     {
-        if (!getUsername().equals(username)) return SAMEUSER;
-        updateUsername(newUsername);
-        if (! getHash().equals(generatePasswordHash(password, false))) return SAMEPASS;
+        if (!getUsername().equals(username)) return NOTSAMEUSER;
+        if (! getHash().equals(generatePasswordHash(password, false))) return NOTSAMEPASS;
+        if (! getEmail().equals(email)) return NOTSAMEEMAIL;
+        //if not same user and not same pass
+        if (!getUsername().equals(username) && ! getHash().equals(generatePasswordHash(password, false))) return NOTSAMEUSERPASS;
+        //if not same user and not same email
+        if(!getUsername().equals(username) && !getEmail().equals(email)) return NOTSAMEUSEREMAIL;
+        //if not same password and not same email
+        if (! getEmail().equals(email) && ! getHash().equals(generatePasswordHash(password, false))) return NOTSAMEPASSEMAIL;
+
         updateHash(newPassword);
-        if (! getEmail().equals(email)) return SAMEEMAIL;
+        updateUsername(newUsername);
         updateEmail(newEmail);
 
-        return NOTHINGSAME;
+        return EVERYTHINGSAME;
     }
 
 

@@ -2,6 +2,7 @@ package com.example.mogkiosk.activities.main.fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -83,10 +84,28 @@ public class ProcessFrag extends Fragment {
         String videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.videoplayback;
         Uri uri = Uri.parse(videoPath);
         videoView.setVideoURI(uri);
-
         MediaController mediaController = new MediaController(getActivity());
         videoView.setMediaController(mediaController);
-        mediaController.setAnchorView(videoView);
+//        FrameLayout fl = rootView.findViewById(R.id.frameLayout4);
+//        mediaController.setAnchorView(fl);
+
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setOnVideoSizeChangedListener(new MediaPlayer.OnVideoSizeChangedListener() {
+                    @Override
+                    public void onVideoSizeChanged(MediaPlayer mp, int width, int height) {
+                        /*
+                         * add media controller
+                         */
+                        MediaController mediaController = new MediaController(getActivity());
+                        videoView.setMediaController(mediaController);
+                        mediaController.setAnchorView(videoView);
+                    }
+                });
+            }
+        });
+
 
         title = rootView.findViewById(R.id.video_title);
         description = rootView.findViewById(R.id.video_duration);

@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.mogkiosk.R;
+import com.example.mogkiosk.UpdateCredActivity;
+import com.example.mogkiosk.activities.changepass.ChangePassActivity;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -129,6 +131,22 @@ public class ArtistFragAdmin extends Fragment {
             @Override
             public void onClick(View view) {
                 loadImageFromGallery(view);
+            }
+        });
+
+        Button changePassBtn = rootView.findViewById(R.id.changePassBtn);
+        changePassBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), ChangePassActivity.class));
+            }
+        });
+
+        Button updateCredBtn = rootView.findViewById(R.id.updateCredBtn);
+        updateCredBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), UpdateCredActivity.class));
             }
         });
 

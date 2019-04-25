@@ -20,6 +20,8 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_change_pass" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_change_pass" />
 
 </android.support.design.widget.CoordinatorLayout>
