@@ -61,7 +61,7 @@ public class ChangePassActivity extends AppCompatActivity {
 
                 boolean userLength = mNewUserTextView.getText().toString().length() < 5;
                 boolean passLength = mNewPassTextView.getText().toString().length() < 5;
-                boolean retypeGood = mRetypePassTextView.getText().toString().equals(mNewPassTextView);
+                boolean retypeGood = mRetypePassTextView.getText().toString().equals(mNewPassTextView.getText().toString());
 
                 if(userLength && passLength && !retypeGood)
                 {

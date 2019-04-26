@@ -1,6 +1,7 @@
 package com.example.mogkiosk;
 
 import android.content.Context;
+import android.os.health.SystemHealthManager;
 import android.util.Log;
 
 import org.json.JSONObject;
@@ -46,6 +47,7 @@ public class PrivateInfoManager
     private static final int NOTSAMEUSERPASS = 4;
     private static final int NOTSAMEUSEREMAIL = 5;
     private static final int NOTSAMEPASSEMAIL = 6;
+    private static final int NOTHINGSAME = 7;
 
 
     private static final String ERROR = "PrivateInfoManager";
@@ -441,10 +443,14 @@ public class PrivateInfoManager
     {
         int iterations = 1000;
         char[] chars = password.toCharArray();
+        System.out.println("The password is \"" + password + "\"");
+
 
         byte[] salt;
         if (saltFlag)salt = getTempSalt();
         else salt = getSalt();
+        System.out.println("The salt is " + Arrays.toString(salt));
+
 
         PBEKeySpec spec = new PBEKeySpec(chars, salt, iterations, 64 * 8);
         SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
@@ -643,26 +649,39 @@ public class PrivateInfoManager
      * @throws InvalidKeySpecException
      * @throws NoSuchAlgorithmException
      */
-    public int updateCredentials(String username, String newUsername, String password, String newPassword,  String email, String newEmail) throws InvalidKeySpecException, NoSuchAlgorithmException
+    public int validateCredentials(String username, String password,  String email) throws InvalidKeySpecException, NoSuchAlgorithmException
     {
-        if (!getUsername().equals(username)) return NOTSAMEUSER;
-        if (! getHash().equals(generatePasswordHash(password, false))) return NOTSAMEPASS;
-        if (! getEmail().equals(email)) return NOTSAMEEMAIL;
-        //if not same user and not same pass
-        if (!getUsername().equals(username) && ! getHash().equals(generatePasswordHash(password, false))) return NOTSAMEUSERPASS;
-        //if not same user and not same email
-        if(!getUsername().equals(username) && !getEmail().equals(email)) return NOTSAMEUSEREMAIL;
-        //if not same password and not same email
-        if (! getEmail().equals(email) && ! getHash().equals(generatePasswordHash(password, false))) return NOTSAMEPASSEMAIL;
+        String oldUsername = getUsername();
+        String oldPassHash = getHash();
+        String oldEmail = getEmail();
 
-        updateHash(newPassword);
-        updateUsername(newUsername);
-        updateEmail(newEmail);
+        //empty password breaks the hash generator so just assigning to impossible password
+        if (password.equals("")) password = "a";
+        String newPassHash = generatePasswordHash(password, false);
+
+       //if nothing the same
+        if (! oldUsername.equals(username) && ! oldPassHash.equals(newPassHash) && ! oldEmail.equals(email)) return NOTHINGSAME;
+        //if not same user and not same pass
+        if (! oldUsername.equals(username) && !! oldPassHash.equals(newPassHash)) return NOTSAMEUSERPASS;
+        //if not same user and not same email
+        if(! oldUsername.equals(username) && ! oldEmail.equals(email)) return NOTSAMEUSEREMAIL;
+        //if not same password and not same email
+
+        if (! oldEmail.equals(email) && ! oldPassHash.equals(newPassHash)) return NOTSAMEPASSEMAIL;
+        //Single not same fields
+        if (! oldUsername.equals(username)) return NOTSAMEUSER;
+        if (! oldPassHash.equals(newPassHash)) return NOTSAMEPASS;
+        if (! oldEmail.equals(email)) return NOTSAMEEMAIL;
 
         return EVERYTHINGSAME;
     }
 
 
+    public void updateCredentials(String newUsername, String newPassword, String newEmail) throws InvalidKeySpecException, NoSuchAlgorithmException {
+        updateHash(newPassword);
+        updateUsername(newUsername);
+        updateEmail(newEmail);
+    }
 
     // More difficult than I was expecting
     public void sendEmail() {
