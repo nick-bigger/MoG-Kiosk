@@ -29,6 +29,7 @@
             android:layout_height="100dp"
             android:layout_marginStart="128dp"
             android:layout_marginLeft="128dp"
+            android:contentDescription="@string/logo_desc"
             android:src="@drawable/logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/change_pass_title"
@@ -59,9 +60,11 @@
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
             android:background="@drawable/edittext_round"
+            android:drawableStart="@drawable/ic_account_circle_24dp"
             android:drawableLeft="@drawable/ic_account_circle_24dp"
             android:drawablePadding="20dp"
             android:hint="New Username"
+            android:inputType="textShortMessage"
             android:paddingLeft="20dp"
             android:paddingTop="12dp"
             android:paddingRight="12dp"
@@ -78,13 +81,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
             android:background="@drawable/edittext_round"
             android:drawableLeft="@drawable/ic_lock_24dp"
             android:drawablePadding="20dp"
             android:hint="Retype New Password"
+            android:inputType="textPassword"
             android:paddingLeft="20dp"
             android:paddingTop="12dp"
             android:paddingRight="12dp"
@@ -92,7 +96,7 @@
             android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password" />
+            app:layout_constraintTop_toBottomOf="@+id/do_not_match" />
 
 
         <EditText
@@ -101,13 +105,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
             android:background="@drawable/edittext_round"
             android:drawableLeft="@drawable/ic_lock_24dp"
             android:drawablePadding="20dp"
             android:hint="New Password"
+            android:inputType="textPassword|textWebPassword"
             android:paddingLeft="20dp"
             android:paddingTop="12dp"
             android:paddingRight="12dp"
@@ -115,13 +120,15 @@
             android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/username" />
+            app:layout_constraintTop_toBottomOf="@+id/pass_length" />
 
         <Button
             android:id="@+id/submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
             android:background="@drawable/btn_normal"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
@@ -129,55 +136,39 @@
             android:textColor="@color/colorAccent"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@+id/retype_password"
-            app:layout_constraintTop_toBottomOf="@+id/warning_messages" />
+            app:layout_constraintTop_toBottomOf="@+id/retype_password" />
 
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/warning_messages"
+        <TextView
+            android:id="@+id/username_length"
+            android:layout_width="wrap_content"
+            android:layout_height="19dp"
+            android:layout_marginBottom="8dp"
+            android:text="Username must be at least 5 characters long."
+            android:textColor="@color/colorError"
+            app:layout_constraintBottom_toTopOf="@+id/username"
+            app:layout_constraintStart_toStartOf="@+id/username" />
+
+        <TextView
+            android:id="@+id/do_not_match"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/retype_password">
+            android:text="Passwords do not match!"
+            android:textColor="@color/colorError"
+            app:layout_anchor="@+id/include"
+            app:layout_anchorGravity="top|center"
+            app:layout_constraintStart_toStartOf="@+id/retype_password"
+            app:layout_constraintTop_toBottomOf="@+id/password" />
 
-            <TextView
-                android:id="@+id/do_not_match"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:text="Passwords do not match!"
-                app:layout_anchor="@+id/include"
-                app:layout_anchorGravity="top|center"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/username_length" />
-
-            <TextView
-                android:id="@+id/pass_length"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:text="Password must be at least 5 characters long."
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/username_length"
-                android:layout_width="wrap_content"
-                android:layout_height="19dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:text="Username must be at least 5 characters long."
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pass_length" />
-        </android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/pass_length"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Password must be at least 5 characters long."
+            android:textColor="@color/colorError"
+            app:layout_constraintStart_toStartOf="@+id/password"
+            app:layout_constraintTop_toBottomOf="@+id/username" />
 
         <TextView
             android:id="@+id/subTitle"
