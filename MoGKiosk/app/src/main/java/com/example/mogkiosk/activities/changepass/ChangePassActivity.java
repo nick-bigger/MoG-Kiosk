@@ -3,11 +3,11 @@ package com.example.mogkiosk.activities.changepass;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.mogkiosk.PrivateInfoManager;
@@ -18,9 +18,9 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 public class ChangePassActivity extends AppCompatActivity {
-    private TextInputEditText mNewPassTextView;
-    private TextInputEditText mRetypePassTextView;
-    private TextInputEditText mNewUserTextView;
+    private EditText mNewPassTextView;
+    private EditText mRetypePassTextView;
+    private EditText mNewUserTextView;
     private Button mSubmitChanges;
 
     private TextView mNotLongEnoughPassTextView;
