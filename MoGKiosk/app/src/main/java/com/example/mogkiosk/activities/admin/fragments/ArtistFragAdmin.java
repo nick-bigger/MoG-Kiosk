@@ -2,10 +2,13 @@ package com.example.mogkiosk.activities.admin.fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +40,7 @@ public class ArtistFragAdmin extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static int RESULT_LOAD_IMG = 1;
+    private SharedPreferences prefs;
 
 
     private EditText Name;
@@ -79,6 +83,7 @@ public class ArtistFragAdmin extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        prefs =  PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
     }
 
 
@@ -149,6 +154,21 @@ public class ArtistFragAdmin extends Fragment {
                 startActivity(new Intent(getActivity(), UpdateCredActivity.class));
             }
         });
+
+        String name = prefs.getString(getString(R.string.a_artistname), "");
+        String bio = prefs.getString(getString(R.string.a_bio), "");
+        String tag = prefs.getString(getString(R.string.a_tag), "");
+        String subbio = prefs.getString(getString(R.string.a_subbio), "");
+
+        TextInputLayout NameIL = rootView.findViewById(R.id.workNameInputLayout);
+        TextInputLayout TagIL = rootView.findViewById(R.id.taglineInputLayout);
+        TextInputLayout DescIL = rootView.findViewById(R.id.bioInputLayout);
+        TextInputLayout SubBioIL = rootView.findViewById(R.id.subBioInputLayout);
+
+        NameIL.setHint(name);
+        TagIL.setHint(tag);
+        DescIL.setHint(bio);
+        SubBioIL.setHint(subbio);
 
         return rootView;
     }

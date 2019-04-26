@@ -33,7 +33,7 @@
                 android:textColor="@color/colorAccent"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/video_title_input"
+                app:layout_constraintStart_toStartOf="@+id/workTitleInputLayout"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -51,7 +51,7 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/artist_name_title"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/date_input" />
+                app:layout_constraintTop_toBottomOf="@+id/workDateInputLayout" />
 
             <TextView
                 android:id="@+id/title_of_piece"
@@ -64,7 +64,7 @@
                 android:layout_marginRight="494dp"
                 android:layout_marginBottom="8dp"
                 android:text="Title of Piece:"
-                app:layout_constraintBottom_toTopOf="@+id/video_title_input"
+                app:layout_constraintBottom_toTopOf="@+id/workTitleInputLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +73,7 @@
                 app:layout_constraintVertical_chainStyle="spread_inside" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/video_title_input"
+                android:id="@+id/workTitleInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -113,10 +113,10 @@
                 android:layout_marginTop="16dp"
                 android:text="Date of Piece:"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/video_title_input" />
+                app:layout_constraintTop_toBottomOf="@+id/workTitleInputLayout" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/date_input"
+                android:id="@+id/workDateInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -158,14 +158,14 @@
                 android:layout_marginRight="500dp"
                 android:layout_marginBottom="36dp"
                 android:text="Artist Name:"
-                app:layout_constraintBottom_toTopOf="@+id/artist_input"
+                app:layout_constraintBottom_toTopOf="@+id/artistNameInputLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/_title" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/artist_input"
+                android:id="@+id/artistNameInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -208,10 +208,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/artist_input" />
+                app:layout_constraintTop_toBottomOf="@+id/artistNameInputLayout" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/label_date_input"
+                android:id="@+id/workLabelInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -255,10 +255,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/label_date_input" />
+                app:layout_constraintTop_toBottomOf="@+id/workLabelInputLayout" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/medium_input"
+                android:id="@+id/workMedInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -302,10 +302,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/medium_input" />
+                app:layout_constraintTop_toBottomOf="@+id/workMedInputLayout" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/dimensions_input"
+                android:id="@+id/workDimInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -350,10 +350,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dimensions_input" />
+                app:layout_constraintTop_toBottomOf="@+id/workDimInputLayout" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/collection_input"
+                android:id="@+id/workCollecInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -397,10 +397,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/collection_input" />
+                app:layout_constraintTop_toBottomOf="@+id/workCollecInputLayout" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/photo_credit_input"
+                android:id="@+id/photoCredInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -446,7 +446,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/photo_credit_input" />
+                app:layout_constraintTop_toBottomOf="@+id/photoCredInputLayout" />
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/description_input"
