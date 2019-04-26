@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/logoImageView"
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_marginStart="128dp"
@@ -69,7 +69,7 @@
             android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            app:layout_constraintTop_toBottomOf="@+id/logoImageView" />
 
 
         <EditText
@@ -121,8 +121,6 @@
             android:id="@+id/submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/btn_normal"
             android:paddingLeft="20dp"
@@ -131,7 +129,6 @@
             android:textColor="@color/colorAccent"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@+id/retype_password"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/warning_messages" />
 
         <android.support.constraint.ConstraintLayout

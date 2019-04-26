@@ -37,6 +37,9 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        setTitle("Settings");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_main);
 

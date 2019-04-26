@@ -2,8 +2,6 @@ package com.example.mogkiosk;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -11,11 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-
 import com.example.mogkiosk.activities.admin.AdminActivity;
-import com.example.mogkiosk.activities.changepass.ChangePassActivity;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
@@ -41,6 +35,9 @@ public class UpdateCredActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        setTitle("Update Credentials");
+
         final PrivateInfoManager manager = new PrivateInfoManager(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_cred);
