@@ -9,7 +9,7 @@
     tools:showIn="@layout/activity_change_pass">
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/input_panel"
+        android:id="@+id/old_input_panel"
         android:layout_width="467dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -38,7 +38,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/input_user_title"
+            android:id="@+id/old_user_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -53,7 +53,7 @@
             app:layout_constraintTop_toBottomOf="@+id/change_pass_title" />
 
         <TextView
-            android:id="@+id/input_pass_title"
+            android:id="@+id/old_pass_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -65,12 +65,12 @@
             android:textColor="@color/colorAccent"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/input_pass"
+            app:layout_constraintBottom_toTopOf="@+id/old_input_pass"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/input_user" />
+            app:layout_constraintTop_toBottomOf="@+id/old_input_user" />
 
         <TextView
-            android:id="@+id/input_retype_pass_title"
+            android:id="@+id/old_retype_pass_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -82,10 +82,10 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/input_pass" />
+            app:layout_constraintTop_toBottomOf="@+id/old_input_pass" />
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_retype_pass"
+            android:id="@+id/old_input_retype_pass"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -96,7 +96,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/input_retype_pass_title">
+            app:layout_constraintTop_toBottomOf="@+id/old_retype_pass_title">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/retype_password"
@@ -107,7 +107,7 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_user"
+            android:id="@+id/old_input_user"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -117,7 +117,7 @@
             android:layout_marginRight="128dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/input_user_title">
+            app:layout_constraintTop_toBottomOf="@+id/old_user_title">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/username"
@@ -128,7 +128,7 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/input_pass"
+            android:id="@+id/old_input_pass"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -139,7 +139,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/input_pass_title">
+            app:layout_constraintTop_toBottomOf="@+id/old_pass_title">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/password"
@@ -164,16 +164,16 @@
             android:textColor="@color/colorAccent"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/input_retype_pass"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
+            app:layout_constraintEnd_toEndOf="@+id/old_input_retype_pass"
+            app:layout_constraintTop_toBottomOf="@+id/warning_messages" />
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/constraintLayout4"
+            android:id="@+id/warning_messages"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/input_retype_pass_title"
-            app:layout_constraintTop_toBottomOf="@+id/input_retype_pass">
+            app:layout_constraintStart_toStartOf="@+id/old_retype_pass_title"
+            app:layout_constraintTop_toBottomOf="@+id/old_input_retype_pass">
 
             <TextView
                 android:id="@+id/do_not_match"
@@ -218,9 +218,9 @@
         android:layout_height="0dp"
         android:scaleType="centerCrop"
         android:src="@drawable/outside_museum"
-        app:layout_constraintBottom_toBottomOf="@+id/input_panel"
+        app:layout_constraintBottom_toBottomOf="@+id/old_input_panel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/input_panel" />
+        app:layout_constraintTop_toTopOf="@+id/old_input_panel" />
 
 
 </android.support.constraint.ConstraintLayout>
