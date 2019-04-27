@@ -2,6 +2,7 @@
     <string name="app_name">Museum of Glass</string>
     <string name="title_activity_settings">Settings</string>
     <string name="logo_desc">The Museum of Glass Logo</string>
+    <string name="btn_submit">Submit</string>
 
     <!-- String related to The Artist tab -->
 
@@ -183,84 +184,29 @@
     <string name="email_sending">A reset email has been sent to the email address on file.</string>
     <string name="email_sent">A reset email has already been sent.</string>
 
-    <!-- Strings for Change Password Page -->
+    <!-- Strings for Change Password and Update Cred Page -->
     <string name="change_test">YOU MADE IT!</string>
+    <string name="change_pwd_title">Change Password</string>
+    <string name="update_cred_title">Update Credentials</string>
+    <string name="change_pwd_sub_title">Please fill out your details below</string>
 
-    <!-- Strings related to Settings -->
+    <string name="username_err">Username must be at least 5 characters long.</string>
+    <string name="password_err">Password must be at least 5 characters long.</string>
+    <string name="email_err">Please enter a valid email.</string>
+    <string name="match_err">Passwords do not match!</string>
+    <string name="usr_mismatch">Username does not match old username.</string>
+    <string name="pwd_mismatch">Password does not match old password.</string>
+    <string name="ema_mismatch">Email does not match old email.</string>
 
-    <!-- Example General settings -->
-    <string name="pref_header_general">General</string>
+    <string name="new_usn">New Username</string>
+    <string name="new_pwd">New Password</string>
+    <string name="match_pwd">Retype New Password</string>
+    <string name="new_ema">New Email Address</string>
 
-    <string name="pref_title_social_recommendations">Enable social recommendations</string>
-    <string name="pref_description_social_recommendations">Recommendations for people to contact
-        based on your message history
-    </string>
+    <string name="old_usn">Old Username</string>
+    <string name="old_pwd">Old Password</string>
+    <string name="old_ema">Old Email Address</string>
 
-    <string name="pref_title_display_name">Display name</string>
-    <string name="pref_default_display_name">John Smith</string>
-
-    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
-    <string-array name="pref_example_list_titles">
-        <item>Always</item>
-        <item>When possible</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_example_list_values">
-        <item>1</item>
-        <item>0</item>
-        <item>-1</item>
-    </string-array>
-
-    <!-- Example settings for Data & Sync -->
-    <string name="pref_header_data_sync">Data &amp; sync</string>
-
-    <string name="pref_title_sync_frequency">Sync frequency</string>
-    <string-array name="pref_sync_frequency_titles">
-        <item>15 minutes</item>
-        <item>30 minutes</item>
-        <item>1 hour</item>
-        <item>3 hours</item>
-        <item>6 hours</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_sync_frequency_values">
-        <item>15</item>
-        <item>30</item>
-        <item>60</item>
-        <item>180</item>
-        <item>360</item>
-        <item>-1</item>
-    </string-array>
-
-    <string-array name="list_preference_entries">
-        <item>Entry 1</item>
-        <item>Entry 2</item>
-        <item>Entry 3</item>
-    </string-array>
-
-    <string-array name="list_preference_entry_values">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-
-    <string-array name="multi_select_list_preference_default_value" />
-
-    <string name="pref_title_system_sync_settings">System sync settings</string>
-
-    <!-- Example settings for Notifications -->
-    <string name="pref_header_notifications">Notifications</string>
-
-    <string name="pref_title_new_message_notifications">New message notifications</string>
-
-    <string name="pref_title_ringtone">Ringtone</string>
-    <string name="pref_ringtone_silent">Silent</string>
-
-    <string name="pref_title_vibrate">Vibrate</string>
-
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="mogAdminString">Museum of Glass Admin Center</string>
     <string name="title_activity_about">AboutActivity</string>
     <string name="title_activity_change_pass">ChangePassActivity</string>

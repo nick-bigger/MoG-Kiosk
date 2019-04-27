@@ -2,11 +2,11 @@ package com.example.mogkiosk;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.mogkiosk.activities.admin.AdminActivity;
@@ -16,13 +16,13 @@ import java.security.spec.InvalidKeySpecException;
 import java.util.regex.Pattern;
 
 public class UpdateCredActivity extends AppCompatActivity {
-    private TextInputEditText mUpdatePassTextView;
-    private TextInputEditText mUpdateEmailView;
-    private TextInputEditText mUpdateUserTextView;
+    private EditText mUpdatePassTextView;
+    private EditText mUpdateEmailView;
+    private EditText mUpdateUserTextView;
 
-    private TextInputEditText mOldPassTextView;
-    private TextInputEditText mOldEmailView;
-    private TextInputEditText mOldUserTextView;
+    private EditText mOldPassTextView;
+    private EditText mOldEmailView;
+    private EditText mOldUserTextView;
 
     private Button mSubmitUpdates;
 
