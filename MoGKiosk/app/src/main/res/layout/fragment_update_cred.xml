@@ -31,7 +31,7 @@
         android:text="@string/update_cred_title"
         android:textAllCaps="true"
         android:textColor="@color/textDark"
-        android:textSize="25sp"
+        android:textSize="@dimen/font_title_small"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/subTitle"
         app:layout_constraintStart_toStartOf="@+id/old_input_panel" />
@@ -115,6 +115,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/username_err"
             android:textColor="@color/colorError"
+            android:textSize="@dimen/font_small"
             app:layout_constraintStart_toStartOf="@+id/new_update_username"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -125,6 +126,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/password_err"
             android:textColor="@color/colorError"
+            android:textSize="@dimen/font_small"
             app:layout_constraintStart_toStartOf="@+id/new_update_password"
             app:layout_constraintTop_toBottomOf="@+id/new_update_username" />
 
@@ -135,6 +137,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/email_err"
             android:textColor="@color/colorError"
+            android:textSize="@dimen/font_small"
             app:layout_anchorGravity="top|center"
             app:layout_constraintStart_toStartOf="@+id/new_update_email"
             app:layout_constraintTop_toBottomOf="@+id/new_update_password" />
@@ -218,6 +221,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/ema_mismatch"
             android:textColor="@color/colorError"
+            android:textSize="@dimen/font_small"
             app:layout_anchorGravity="top|center"
             app:layout_constraintStart_toStartOf="@+id/old_update_email"
             app:layout_constraintTop_toBottomOf="@+id/old_update_password" />
@@ -230,7 +234,8 @@
             android:text="@string/pwd_mismatch"
             android:textColor="@color/colorError"
             app:layout_constraintStart_toStartOf="@+id/old_update_password"
-            app:layout_constraintTop_toBottomOf="@+id/old_update_username" />
+            app:layout_constraintTop_toBottomOf="@+id/old_update_username"
+            android:textSize="@dimen/font_small" />
 
         <TextView
             android:id="@+id/old_user_mismatch"
@@ -239,6 +244,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/usr_mismatch"
             android:textColor="@color/colorError"
+            android:textSize="@dimen/font_small"
             app:layout_constraintStart_toStartOf="@+id/old_update_username"
             app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
@@ -249,6 +255,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:text="@string/change_pwd_sub_title"
+        android:textSize="@dimen/font_small"
         app:layout_constraintBottom_toTopOf="@+id/old_input_panel"
         app:layout_constraintStart_toStartOf="@+id/update_cred_title" />
 

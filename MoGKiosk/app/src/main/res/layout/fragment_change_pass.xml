@@ -41,7 +41,7 @@
             android:text="@string/change_pwd_title"
             android:textAllCaps="true"
             android:textColor="@color/textDark"
-            android:textSize="25sp"
+            android:textSize="@dimen/font_title_small"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -133,6 +133,7 @@
             android:layout_marginBottom="8dp"
             android:text="@string/username_err"
             android:textColor="@color/colorError"
+            android:textSize="@dimen/font_small"
             app:layout_constraintBottom_toTopOf="@+id/username"
             app:layout_constraintStart_toStartOf="@+id/username" />
 
@@ -143,6 +144,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/match_err"
             android:textColor="@color/colorError"
+            android:textSize="@dimen/font_small"
             app:layout_anchorGravity="top|center"
             app:layout_constraintStart_toStartOf="@+id/retype_password"
             app:layout_constraintTop_toBottomOf="@+id/password" />
@@ -154,6 +156,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/password_err"
             android:textColor="@color/colorError"
+            android:textSize="@dimen/font_small"
             app:layout_constraintStart_toStartOf="@+id/password"
             app:layout_constraintTop_toBottomOf="@+id/username" />
 
@@ -164,6 +167,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/change_pwd_sub_title"
+            android:textSize="@dimen/font_small"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/change_pass_title" />
 
