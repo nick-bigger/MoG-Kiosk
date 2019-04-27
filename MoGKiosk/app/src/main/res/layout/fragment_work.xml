@@ -34,7 +34,7 @@
                 android:layout_marginRight="32dp"
                 android:layout_marginBottom="16dp"
 
-                android:contentDescription="@string/work_image_desc"
+                android:contentDescription="@string/work_img_desc"
                 android:src="@drawable/work_img"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/info_card"
@@ -120,7 +120,7 @@
                             android:layout_column="0"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/artist_table_title"
+                            android:text="@string/work_tableTitle_artist"
                             android:textColor="@color/textDark"
                             android:textSize="@dimen/font_body"
                             android:textStyle="bold" />
@@ -132,7 +132,7 @@
                             android:layout_column="1"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/artist_table_entry"
+                            android:text="@string/work_tableEntry_artist"
                             android:textColor="@color/textDark"
                             android:textSize="@dimen/font_body" />
 
@@ -153,7 +153,7 @@
                             android:layout_column="0"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/date_table_title"
+                            android:text="@string/work_tableTitle_date"
                             android:textColor="@color/textDark"
                             android:textSize="@dimen/font_body"
                             android:textStyle="bold" />
@@ -165,7 +165,7 @@
                             android:layout_column="1"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/date_table_entry"
+                            android:text="@string/work_tableEntry_date"
                             android:textColor="@color/textDark"
                             android:textSize="@dimen/font_body" />
 
@@ -185,7 +185,7 @@
                             android:layout_column="0"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/medium_table_title"
+                            android:text="@string/work_tableTitle_medium"
                             android:textColor="@color/textDark"
                             android:textSize="@dimen/font_body"
                             android:textStyle="bold" />
@@ -197,7 +197,7 @@
                             android:layout_column="1"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/medium_table_entry"
+                            android:text="@string/work_tableEntry_medium"
                             android:textColor="@color/textDark"
                             android:textSize="@dimen/font_body" />
 
@@ -217,7 +217,7 @@
                             android:layout_column="0"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/dimensions_table_title"
+                            android:text="@string/work_tableTitle_dims"
                             android:textColor="@color/textDark"
                             android:textSize="@dimen/font_body"
                             android:textStyle="bold" />
@@ -229,7 +229,7 @@
                             android:layout_column="1"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/dimensions_table_entry"
+                            android:text="@string/work_tableEntry_dims"
                             android:textColor="@color/textDark"
                             android:textSize="@dimen/font_body" />
 
@@ -247,7 +247,7 @@
                             android:layout_column="0"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/collection_table_title"
+                            android:text="@string/work_tableTitle_collection"
                             android:textColor="@color/textDark"
                             android:textSize="@dimen/font_body"
                             android:textStyle="bold" />
@@ -259,7 +259,7 @@
                             android:layout_column="1"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/collection_table_entry"
+                            android:text="@string/work_tableEntry_collection"
                             android:textColor="@color/textDark"
                             android:textSize="@dimen/font_body" />
 
@@ -277,7 +277,7 @@
                             android:layout_column="0"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/table_photo_credit_title"
+                            android:text="@string/work_tableTitle_credit"
                             android:textColor="@color/textDark"
                             android:textSize="@dimen/font_body"
                             android:textStyle="bold" />
@@ -289,7 +289,7 @@
                             android:layout_column="1"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/photo_credit_entry"
+                            android:text="@string/work_tableEntry_credit"
                             android:textColor="@color/textDark"
                             android:textSize="@dimen/font_body" />
 
@@ -377,7 +377,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:maxLines="1"
-                    android:text="@string/related_work_title"
+                    android:text="@string/artist_relatedWork1_title"
                     android:textAllCaps="true"
                     android:textColor="@color/colorAccent"
                     android:textSize="20sp"

@@ -164,12 +164,12 @@ public class LoginActivity extends AppCompatActivity {
             if (sendEmail == EMAIL_SENDING)
             {
                 icon.setImageResource(R.drawable.ic_success);
-                messText.setText(R.string.email_sending);
+                messText.setText(R.string.login_dialog_sending);
             }
             else if (sendEmail == EMAIL_ALREADY_SENT)
             {
                 icon.setImageResource(R.drawable.ic_error);
-                messText.setText(R.string.email_sent);
+                messText.setText(R.string.login_dialog_sent);
             }
 
             // Do all the stuff to initialize your custom view

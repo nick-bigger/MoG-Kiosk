@@ -15,11 +15,11 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".UpdateCredActivity"
-            android:label="@string/title_activity_update_cred"
+            android:label="@string/title_activity_updateCred"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".activities.changepass.ChangePassActivity"
-            android:label="@string/title_activity_change_pass"
+            android:label="@string/title_activity_changePwd"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.AboutActivity"

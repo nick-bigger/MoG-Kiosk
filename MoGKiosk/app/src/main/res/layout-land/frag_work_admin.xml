@@ -189,7 +189,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:ems="10"
-                    android:hint="@string/artist_table_entry"
+                    android:hint="@string/work_tableEntry_artist"
                     android:inputType="textShortMessage" />
 
             </android.support.design.widget.TextInputLayout>
@@ -236,7 +236,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:ems="10"
-                    android:hint="@string/date_table_entry"
+                    android:hint="@string/work_tableEntry_date"
                     android:inputType="textShortMessage" />
 
             </android.support.design.widget.TextInputLayout>
@@ -283,7 +283,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:ems="10"
-                    android:hint="@string/medium_table_entry"
+                    android:hint="@string/work_tableEntry_medium"
                     android:inputType="textShortMessage" />
 
             </android.support.design.widget.TextInputLayout>
@@ -330,7 +330,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:ems="10"
-                    android:hint="@string/dimensions_table_entry"
+                    android:hint="@string/work_tableEntry_dims"
                     android:inputType="textShortMessage" />
 
             </android.support.design.widget.TextInputLayout>
@@ -378,7 +378,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:ems="10"
-                    android:hint="@string/collection_table_entry"
+                    android:hint="@string/work_tableEntry_collection"
                     android:inputType="textShortMessage" />
 
             </android.support.design.widget.TextInputLayout>
@@ -425,7 +425,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:ems="10"
-                    android:hint="@string/photo_credit_entry"
+                    android:hint="@string/work_tableEntry_credit"
                     android:inputType="textShortMessage" />
 
             </android.support.design.widget.TextInputLayout>
