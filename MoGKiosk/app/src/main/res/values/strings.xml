@@ -1,11 +1,12 @@
 <resources>
+    <!-- global start -->
     <string name="app_name">Museum of Glass</string>
     <string name="title_activity_settings">Settings</string>
     <string name="logo_desc">The Museum of Glass Logo</string>
     <string name="btn_submit">Submit</string>
+    <!-- global end -->
 
-    <!-- String related to The Artist tab -->
-
+    <!-- the artist start -->
     <string name="artist_name">David Walters</string>
     <string name="artist_img_description">An image of the artist</string>
     <string name="artist_tagline">Blown Glass | American</string>
@@ -60,9 +61,9 @@
     <string name="related_work_1_title">The orange one</string>
     <string name="related_work_2_title">The purple one</string>
     <string name="related_work_3_title">The blue one</string>
+    <!-- the artist end -->
 
-    <!-- String related to The Work tab -->
-
+    <!-- the work start -->
     <string name="work_image_desc">An image of End of Day Chandelier</string>
     <string name="work_desc_title">About the work</string>
     <string name="work_desc">
@@ -96,22 +97,23 @@
     <string name="artist_table_entry">David Walters (American, born 1968)</string>
     <string name="date_table_entry">Made at the Museum in 2007</string>
     <string name="medium_table_entry">Blown glass and enamel paint</string>
-    <string name="dimensions_table_entry">29 x 9 x 8 in. (73.7 x 22.9 x 20.3 cm)
-</string>
+    <string name="dimensions_table_entry">29 x 9 x 8 in. (73.7 x 22.9 x 20.3 cm)</string>
     <string name="collection_table_title">COLLECTION</string>
     <string name="collection_table_entry">Collection of Museum of Glass, Tacoma, Washington,
         \ngift of the artist</string>
     <string name="table_photo_credit_title">PHOTO BY</string>
     <string name="photo_credit_entry">Russell Johnson</string>
+    <!-- the work end -->
 
-    <!-- String related to The Process tab -->
+    <!-- the process start -->
     <string name="video_title">David Walters in the Hot Shop</string>
     <string name="video_detail">1 Video, 1:50 min</string>
     <string name="video_next_text">Swipe for more</string>
     <string name="share_icon">Share Icon</string>
+    <!-- the process end -->
 
 
-    <!-- String related to login -->
+    <!-- login start -->
     <string name="admin_button">Admin Center</string>
     <string name="action_login">Log In</string>
     <string name="forgot_pwd">Forgot your password?</string>
@@ -120,9 +122,10 @@
     <string name="pwd_field">Password</string>
     <string name="admin">Admin</string>
     <string name="log_in">Log In</string>
+    <!-- login end -->
 
 
-    <!-- String related to About Page -->
+    <!-- about start -->
     <string name="about_title">About the Kiosk</string>
     <string name="about_text">
         This kiosk was designed by a team of four Computer Science
@@ -162,13 +165,16 @@
         \n
 
     </string>
+    <!-- about end -->
 
-    <!-- Strings for Admin Functions-->
+    <!-- admin functions start -->
     <string name="a_artistname">android.content.SharedPreferences.a_artistname</string>
     <string name="a_tag">android.content.SharedPreferences.a_tag</string>
     <string name="a_bio">android.content.SharedPreferences.a_bio</string>
     <string name="a_subbio">android.content.SharedPreferences.a_subbio</string>
-    <!--Work-->
+    <!-- admin functions end -->
+
+    <!-- work start -->
     <string name="a_workartist">android.content.SharedPreferences.a_workartist</string>
     <string name="a_piecedate">android.content.SharedPreferences.a_piecedate</string>
     <string name="a_title">android.content.SharedPreferences.a_title</string>
@@ -177,14 +183,19 @@
     <string name="a_dimension">android.content.SharedPreferences.a_dimension</string>
     <string name="a_date">android.content.SharedPreferences.a_date</string>
     <string name="a_photo">android.content.SharedPreferences.a_photo</string>
-    <!--Process-->
+    <!-- work end -->
+
+    <!-- process start -->
     <string name="a_ptitle">android.content.SharedPreferences.a_ptitle</string>
     <string name="a_pdescription">android.content.SharedPreferences.a_pdescription</string>
-    <!-- Strings for Login Functions -->
+    <!-- process end -->
+
+    <!-- login start -->
     <string name="email_sending">A reset email has been sent to the email address on file.</string>
     <string name="email_sent">A reset email has already been sent.</string>
+    <!-- login start -->
 
-    <!-- Strings for Change Password and Update Cred Page -->
+    <!-- change password and update cred start -->
     <string name="change_test">YOU MADE IT!</string>
     <string name="change_pwd_title">Change Password</string>
     <string name="update_cred_title">Update Credentials</string>
@@ -212,4 +223,5 @@
     <string name="title_activity_change_pass">ChangePassActivity</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_update_cred">UpdateCredActivity</string>
+    <!-- change password and update cred end -->
 </resources>
