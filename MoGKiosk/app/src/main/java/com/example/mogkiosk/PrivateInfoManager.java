@@ -53,7 +53,7 @@ public class PrivateInfoManager
     private static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     private static  final String[] WORDS = {"beautiful", "mango", "bizarre", "platypus", "jazz", "bluejayrox", "hydrogen", "squeakycelery", "purple"};
 
-    private Context context;
+    private final Context context;
     private JSONObject infoManager;
     private String legiblePass = "";
 

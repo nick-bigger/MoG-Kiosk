@@ -3,9 +3,7 @@
     android:shape="rectangle" android:padding="10dp"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:elevation="10dp"
-    android:background="@drawable/btn_bg_selector"
-    android:textColor="@drawable/btn_text_selector">
+    android:elevation="10dp">
     <!-- you can use any color you want I used here gray color-->
     <!-- background -->
     <!-- border -->

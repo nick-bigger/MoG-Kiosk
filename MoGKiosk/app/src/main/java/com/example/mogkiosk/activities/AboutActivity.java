@@ -21,7 +21,7 @@ public class AboutActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ImageView img = (ImageView) findViewById(R.id.dev_photo_3);
+        ImageView img = findViewById(R.id.dev_photo_3);
 
         img.setOnClickListener(new View.OnClickListener() {
             @Override

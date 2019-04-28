@@ -14,7 +14,6 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 import com.example.mogkiosk.R;
-import com.example.mogkiosk.activities.main.MainActivity;
 
 import java.util.ArrayList;
 
@@ -55,16 +54,15 @@ public class ArtistFrag extends Fragment {
     public ArtistFrag() {
         // Required empty public constructor
     }
-//
-//    /**
-//     * Use this factory method to create a new instance of
-//     * this fragment using the provided parameters.
-//     *
-//     * @return A new instance of fragment ArtistFrag.
-//     */
-//    // TODO: Rename and change types and number of parameters
-//    public ArtistFrag newInstance(String name, String bio, String tag) {
-//        ArtistFrag fragment = new ArtistFrag();
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @return A new instance of fragment ArtistFrag.
+     */
+    public ArtistFrag newInstance(String name, String bio, String tag) {
+        ArtistFrag fragment = new ArtistFrag();
 //        Bundle args = new Bundle();
 //        //put the values into the arguments of this AristFragment instance and associate them with its final values
 //        args.putString(NAME, name);
@@ -72,8 +70,8 @@ public class ArtistFrag extends Fragment {
 //        args.putString(BIO, tag);
 //        //set the arguments to the fragment and return
 //        fragment.setArguments(args);
-//        return fragment;
-//    }
+        return fragment;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
