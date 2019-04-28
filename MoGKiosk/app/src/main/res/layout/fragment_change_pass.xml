@@ -166,6 +166,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/details_subTitle"
+            android:textColor="@color/textMid"
             android:textSize="@dimen/font_small"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/change_pass_title" />
