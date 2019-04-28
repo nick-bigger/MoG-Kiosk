@@ -3,10 +3,11 @@
     android:shape="rectangle" android:padding="10dp"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:elevation="10dp" >
+    android:elevation="10dp"
+    android:background="@drawable/btn_bg_selector"
+    android:textColor="@drawable/btn_text_selector">
     <!-- you can use any color you want I used here gray color-->
     <!-- background -->
-    <solid android:color="@color/transparent" />
     <!-- border -->
     <stroke android:width="2dp" android:color="@color/colorAccent" />
     <!--<corners android:radius="25dp"/>-->

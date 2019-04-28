@@ -56,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 mBadLoginTextView.setVisibility(View.INVISIBLE);
 
                 try {
