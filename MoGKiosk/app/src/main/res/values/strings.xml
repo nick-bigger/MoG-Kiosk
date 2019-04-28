@@ -170,6 +170,11 @@
         \n
 
     </string>
+    <string name="about_mainImg_desc">A view of the Museum of Glass</string>
+    <string name="about_kaylaImg">Kayla Ramos, developer</string>
+    <string name="about_marwanImg">Marwan Johnstone, developer</string>
+    <string name="about_nickImg">Nick Bigger, developer</string>
+    <string name="about_ayseImg">Ayse Hunt, developer</string>
     <!-- about end -->
 
     <!-- artist admin start -->
