@@ -39,7 +39,7 @@ public class ArtistFragAdmin extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private static int RESULT_LOAD_IMG = 1;
+    private static final int RESULT_LOAD_IMG = 1;
     private SharedPreferences prefs;
 
 
@@ -47,12 +47,7 @@ public class ArtistFragAdmin extends Fragment {
     private EditText Tag;
     private EditText Description;
     private EditText SubBio;
-    private Button submit;
 
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public ArtistFragAdmin() {
         // Required empty public constructor
@@ -80,8 +75,9 @@ public class ArtistFragAdmin extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            // TODO: Rename and change types of parameters
+            String mParam1 = getArguments().getString(ARG_PARAM1);
+            String mParam2 = getArguments().getString(ARG_PARAM2);
         }
         prefs =  PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
     }
@@ -116,7 +112,7 @@ public class ArtistFragAdmin extends Fragment {
         Tag = rootView.findViewById(R.id.etTag);
         Description = rootView.findViewById(R.id.description);
         SubBio = rootView.findViewById(R.id.etSubBio);
-        submit = rootView.findViewById(R.id.submitBtn);
+        Button submit = rootView.findViewById(R.id.submitBtn);
         //set onclick method
         submit.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -24,8 +24,6 @@ public class UpdateCredActivity extends AppCompatActivity {
     private EditText mOldEmailView;
     private EditText mOldUserTextView;
 
-    private Button mSubmitUpdates;
-
     private TextView mNotLongEnoughUpPassTextView;
     private TextView mNotLongEnoughUpUserTextView;
     private TextView mNotGoodEnoughEmailTextView;
@@ -50,7 +48,7 @@ public class UpdateCredActivity extends AppCompatActivity {
         mOldPassTextView =findViewById(R.id.old_update_password);
         mOldEmailView =findViewById(R.id.old_update_email);
 
-        mSubmitUpdates = findViewById(R.id.submit_credentials);
+        Button mSubmitUpdates = findViewById(R.id.submit_credentials);
 
         mNotLongEnoughUpPassTextView = findViewById(R.id.pass_length3);
         mNotLongEnoughUpUserTextView = findViewById(R.id.username_length3);

@@ -47,8 +47,6 @@ public class ArtistFrag extends Fragment {
     private TextView subBioTextView;
     private SharedPreferences prefs;
 
-    private View v;
-
     private GridView imageGrid;
     private ArrayList<Bitmap> bitmapList;
 
@@ -91,7 +89,7 @@ public class ArtistFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        v = inflater.inflate(R.layout.fragment_artist, container, false);
+        View v = inflater.inflate(R.layout.fragment_artist, container, false);
 
         artistNameTextView = v.findViewById(R.id.artist_name);
         bioTextView = v.findViewById(R.id.artistFrag_bio);
@@ -164,7 +162,7 @@ public class ArtistFrag extends Fragment {
     /**
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnFragmentInteractionListener {
+    interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }

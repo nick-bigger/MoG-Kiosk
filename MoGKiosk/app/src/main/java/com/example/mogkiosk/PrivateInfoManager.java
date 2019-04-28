@@ -1,7 +1,6 @@
 package com.example.mogkiosk;
 
 import android.content.Context;
-import android.os.health.SystemHealthManager;
 import android.util.Log;
 
 import org.json.JSONObject;
@@ -595,17 +594,15 @@ public class PrivateInfoManager
      * @throws NoSuchAlgorithmException
      * @throws InvalidKeySpecException
      */
-    public boolean forgotPassword() throws Exception {
+    public void forgotPassword() throws Exception {
         if (isEmptyTempHash() && isEmptyTempSalt())
         {
             generateTemps();
             System.out.println("I generated Temps");
             sendEmail();
             System.out.println("I finished sending the email");
-            return true;
         }
         //indicates that there is already an email sent
-        return false;
     }
 
     /**
@@ -617,12 +614,8 @@ public class PrivateInfoManager
      * @throws InvalidKeySpecException
      */
     public boolean isSent() throws Exception {
-        if (isEmptyTempHash() && isEmptyTempSalt())
-        {
-            return true;
-        }
+        return isEmptyTempHash() && isEmptyTempSalt();
         //indicates that there is already an email sent
-        return false;
     }
 
     /**
@@ -662,7 +655,7 @@ public class PrivateInfoManager
        //if nothing the same
         if (! oldUsername.equals(username) && ! oldPassHash.equals(newPassHash) && ! oldEmail.equals(email)) return NOTHINGSAME;
         //if not same user and not same pass
-        if (! oldUsername.equals(username) && !! oldPassHash.equals(newPassHash)) return NOTSAMEUSERPASS;
+        if (! oldUsername.equals(username) && oldPassHash.equals(newPassHash)) return NOTSAMEUSERPASS;
         //if not same user and not same email
         if(! oldUsername.equals(username) && ! oldEmail.equals(email)) return NOTSAMEUSEREMAIL;
         //if not same password and not same email

@@ -54,10 +54,9 @@ public class Report
             //Creating a Message object to set the email content
             final MimeMessage msg = new MimeMessage(session);
             //Storing the comma seperated values to email addresses
-            String to = sendToEmail;
             /*Parsing the String with defualt delimiter as a comma by marking the boolean as true and storing the email
             addresses in an array of InternetAddress objects*/
-            InternetAddress[] address = InternetAddress.parse(to, true);
+            InternetAddress[] address = InternetAddress.parse(sendToEmail, true);
             //Setting the recepients from the address variable
             msg.setRecipients(Message.RecipientType.TO, address);
             //String timeStamp = new SimpleDateFormat("yyyymmdd_hh-mm-ss").format(new Date());

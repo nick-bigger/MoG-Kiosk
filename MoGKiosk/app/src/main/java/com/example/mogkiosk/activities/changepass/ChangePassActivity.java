@@ -21,7 +21,6 @@ public class ChangePassActivity extends AppCompatActivity {
     private EditText mNewPassTextView;
     private EditText mRetypePassTextView;
     private EditText mNewUserTextView;
-    private Button mSubmitChanges;
 
     private TextView mNotLongEnoughPassTextView;
     private TextView mNotLongEnoughUserTextView;
@@ -39,7 +38,7 @@ public class ChangePassActivity extends AppCompatActivity {
         mNewPassTextView = findViewById(R.id.password);
         mRetypePassTextView = findViewById(R.id.retype_password);
         mNewUserTextView = findViewById(R.id.username);
-        mSubmitChanges = findViewById(R.id.submit);
+        Button mSubmitChanges = findViewById(R.id.submit);
 
         mNotLongEnoughPassTextView = findViewById(R.id.pass_length);
         mNotLongEnoughUserTextView = findViewById(R.id.username_length);

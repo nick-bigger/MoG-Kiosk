@@ -29,9 +29,7 @@ import java.security.spec.InvalidKeySpecException;
 public class LoginActivity extends AppCompatActivity {
     private EditText mNameEditText; //use m for global variables because history
     private EditText mPassEditText;
-    private Button mLoginButton;
     private TextView mBadLoginTextView;
-    private TextView mForgotPassTextView;
     AlertDialog alertDialog;
     AlertDialog errorDialog;
 
@@ -46,9 +44,9 @@ public class LoginActivity extends AppCompatActivity {
         //assigning variables from layout
         mNameEditText = findViewById(R.id.title);
         mPassEditText = findViewById(R.id.etPassword);
-        mLoginButton = findViewById(R.id.btnLogin);
+        Button mLoginButton = findViewById(R.id.btnLogin);
         mBadLoginTextView = findViewById(R.id.incorrectLogin);
-        mForgotPassTextView = findViewById(R.id.forgotPass);
+        TextView mForgotPassTextView = findViewById(R.id.forgotPass);
 
         mBadLoginTextView.setVisibility(View.INVISIBLE);
 
@@ -148,10 +146,6 @@ public class LoginActivity extends AppCompatActivity {
         public static final String DIALOG_TYPE = "dialogType";
         public static final boolean EMAIL_SENDING = true;
         public static final boolean EMAIL_ALREADY_SENT = false;
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-        }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

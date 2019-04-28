@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 public class ImageAdapter extends BaseAdapter {
 
-    private Context context;
-    private ArrayList<Bitmap> bitmapList;
+    private final Context context;
+    private final ArrayList<Bitmap> bitmapList;
 
     public ImageAdapter(Context context, ArrayList<Bitmap> bitmapList) {
         this.context = context;

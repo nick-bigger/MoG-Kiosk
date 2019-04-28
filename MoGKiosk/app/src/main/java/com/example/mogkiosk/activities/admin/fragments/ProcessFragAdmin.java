@@ -32,16 +32,11 @@ public class ProcessFragAdmin extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private static int RESULT_LOAD_IMG = 1;
+    private static final int RESULT_LOAD_IMG = 1;
     private OnProcessDataPass dataPasser;
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-    private Button submit;
 
     private TextView processTitle;
     private TextView processDescription;
-    private OnFragmentInteractionListener mListener;
 
     public ProcessFragAdmin() {
         // Required empty public constructor
@@ -69,8 +64,9 @@ public class ProcessFragAdmin extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            // TODO: Rename and change types of parameters
+            String mParam1 = getArguments().getString(ARG_PARAM1);
+            String mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
@@ -97,7 +93,7 @@ public class ProcessFragAdmin extends Fragment {
         videoView.setMediaController(mediaController);
         mediaController.setAnchorView(videoView);
 
-        submit = rootView.findViewById(R.id.submitBtn);
+        Button submit = rootView.findViewById(R.id.submitBtn);
         processDescription = rootView.findViewById(R.id.description);
         processTitle = rootView.findViewById(R.id.title);
 
@@ -175,7 +171,7 @@ public class ProcessFragAdmin extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+        OnFragmentInteractionListener mListener = null;
     }
 
     /**

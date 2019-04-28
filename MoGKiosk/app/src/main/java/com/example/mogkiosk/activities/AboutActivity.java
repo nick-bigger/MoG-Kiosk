@@ -11,7 +11,7 @@ import com.example.mogkiosk.LoginActivity;
 import com.example.mogkiosk.R;
 
 public class AboutActivity extends AppCompatActivity {
-    static int numClicks = 0;
+    private static int numClicks = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

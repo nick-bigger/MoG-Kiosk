@@ -38,13 +38,9 @@ public class WorkFragAdmin extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private static int RESULT_LOAD_IMG = 1;
+    private static final int RESULT_LOAD_IMG = 1;
     private static int viewId;
     private SharedPreferences prefs;
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     private TextView artist;
     private TextView piecedate;
@@ -54,7 +50,6 @@ public class WorkFragAdmin extends Fragment {
     private TextView medium;
     private TextView dimensions;
     private TextView photoBy;
-    private Button submit;
 
 
     public WorkFragAdmin() {
@@ -83,8 +78,9 @@ public class WorkFragAdmin extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            // TODO: Rename and change types of parameters
+            String mParam1 = getArguments().getString(ARG_PARAM1);
+            String mParam2 = getArguments().getString(ARG_PARAM2);
         }
         prefs =  PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
     }
@@ -103,7 +99,7 @@ public class WorkFragAdmin extends Fragment {
 
         title = rootView.findViewById(R.id.title);
         piecedate = rootView.findViewById(R.id.date);
-        submit = rootView.findViewById(R.id.submitBtn);
+        Button submit = rootView.findViewById(R.id.submitBtn);
         photoBy = rootView.findViewById(R.id.photo_credit);
 
         Button mainImageBtn = rootView.findViewById(R.id.browse_main_img);
