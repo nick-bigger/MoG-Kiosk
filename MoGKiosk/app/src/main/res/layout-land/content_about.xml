@@ -3,6 +3,7 @@
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/background_light"
@@ -48,7 +49,8 @@
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/about_card"
@@ -59,6 +61,7 @@
                 android:layout_width="1dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="900dp"
+                android:layout_marginLeft="900dp"
                 android:layout_marginTop="16dp"
                 android:background="@android:color/darker_gray"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -71,9 +74,11 @@
                 android:id="@+id/side_panel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="884dp"
+                android:layout_marginLeft="884dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/text_panel"
+                app:layout_constraintStart_toStartOf="@+id/text_panel"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
@@ -128,7 +133,8 @@
                 android:id="@+id/text_panel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="300dp"
+                android:layout_marginEnd="400dp"
+                android:layout_marginRight="400dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -138,9 +144,10 @@
 
                 <TextView
                     android:id="@+id/about_title"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
                     android:layout_marginTop="32dp"
                     android:lineSpacingExtra="8dp"
                     android:padding="@dimen/appbar_padding_top"
