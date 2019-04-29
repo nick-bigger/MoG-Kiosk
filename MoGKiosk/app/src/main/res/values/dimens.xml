@@ -5,7 +5,7 @@
     <dimen name="appbar_padding_top">8dp</dimen>
 
     <dimen name="font_title">49sp</dimen>
-    <dimen name="font_subtitle">20sp</dimen>
+    <dimen name="font_subtitle">25sp</dimen>
     <dimen name="font_title_small">25sp</dimen>
     <dimen name="font_body">20sp</dimen>
     <dimen name="font_small">14sp</dimen>

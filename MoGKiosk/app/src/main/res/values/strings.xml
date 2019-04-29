@@ -35,8 +35,8 @@
         glass technique during a 1995 residency at the Creative Glass Center of
         America in Millville, NJ (where he had another residency in 2004), an
         intricate narrative style that distinguishes him from other glass artists.
-        \n
-        \n
+    </string>
+    <string name="artist_bio2">
         Walters begins by blowing a milky white glass—into serpentine vessels,
         distorted eggs at times festooned with hats, hyperbolic pitchers and vases,
         toy cars, and other fantastic shapes. They become the canvas for his
@@ -65,7 +65,11 @@
         \n
         \n
         \n
-        \n</string>
+        \n
+    </string>
+    <string name="artist_featuredQuote">
+        “A life spent making mistakes is not only more honorable, but more useful than a life spent doing nothing.”
+    </string>
 
     <string name="artist_img_desc">An image of the artist</string>
 
