@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = sharedPreferences.edit();
+
         // logic for hiding the status bar
 //        View decorView = getWindow().getDecorView();
 //        // Hide the status bar.

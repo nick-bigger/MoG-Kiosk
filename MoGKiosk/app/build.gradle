@@ -48,5 +48,5 @@ dependencies {
     implementation files('libs/mail.jar')
     implementation files('libs/additionnal.jar')
     implementation files('libs/activation.jar')
-    api 'com.google.apis:google-api-services-youtube:v3-rev211-1.25.0'
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
 }

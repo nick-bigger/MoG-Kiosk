@@ -2,19 +2,22 @@ package com.example.mogkiosk.activities.main.fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.MediaController;
 import android.widget.TextView;
-import android.widget.VideoView;
+import android.widget.Toast;
 
 import com.example.mogkiosk.R;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 
 
 /**
@@ -30,9 +33,7 @@ public class ProcessFrag extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private static final String API_TOKEN = "AIzaSyC4N2Q4nQxCv6Pm_wZt-QCNqgDq-fe27UI";
-
-    private VideoView videoView;
+    public String YOUTUBE_API_KEY = "AIzaSyC4N2Q4nQxCv6Pm_wZt-QCNqgDq-fe27UI";
 
     private SharedPreferences prefs;
 
@@ -71,40 +72,37 @@ public class ProcessFrag extends Fragment {
             String mParam2 = getArguments().getString(ARG_PARAM2);
         }
         prefs =  PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_process, container, false);
-        videoView = rootView.findViewById(R.id.videoView);
-        String videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.videoplayback;
-        Uri uri = Uri.parse(videoPath);
-        videoView.setVideoURI(uri);
-        MediaController mediaController = new MediaController(getActivity());
-        videoView.setMediaController(mediaController);
-//        FrameLayout fl = rootView.findViewById(R.id.frameLayout4);
-//        mediaController.setAnchorView(fl);
+        YouTubePlayerSupportFragment youTubePlayerFragment = YouTubePlayerSupportFragment.newInstance();
 
-        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        transaction.add(R.id.youtube_view, youTubePlayerFragment).commit();
+
+        youTubePlayerFragment.initialize(YOUTUBE_API_KEY, new YouTubePlayer.OnInitializedListener() {
+
             @Override
-            public void onPrepared(MediaPlayer mp) {
-                mp.setOnVideoSizeChangedListener(new MediaPlayer.OnVideoSizeChangedListener() {
-                    @Override
-                    public void onVideoSizeChanged(MediaPlayer mp, int width, int height) {
-                        /*
-                         * add media controller
-                         */
-                        MediaController mediaController = new MediaController(getActivity());
-                        videoView.setMediaController(mediaController);
-                        mediaController.setAnchorView(videoView);
-                    }
-                });
+            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
+                if (!wasRestored) {
+                    player.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
+                    player.loadVideo("X7mL8mcPiQ4");
+                    player.play();
+                }
+            }
+
+            @Override
+            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult error) {
+                String errorMessage = error.toString();
+                Toast.makeText(getActivity(), errorMessage, Toast.LENGTH_LONG).show();
+                Log.d("errorMessage:", errorMessage);
             }
         });
 
+        View rootView = inflater.inflate(R.layout.fragment_process, container, false);
 
         title = rootView.findViewById(R.id.video_title);
         description = rootView.findViewById(R.id.video_duration);
@@ -131,7 +129,7 @@ public class ProcessFrag extends Fragment {
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
-            videoView.start();
+//            videoView.start();
         }
     }
 
