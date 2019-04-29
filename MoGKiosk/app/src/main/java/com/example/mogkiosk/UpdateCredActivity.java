@@ -40,6 +40,8 @@ public class UpdateCredActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().hide();
+
         mUpdateUserTextView = findViewById(R.id.new_update_username);
         mUpdatePassTextView = findViewById(R.id.new_update_password);
         mUpdateEmailView = findViewById(R.id.new_update_email);

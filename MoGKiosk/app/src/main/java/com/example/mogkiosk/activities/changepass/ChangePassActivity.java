@@ -35,6 +35,8 @@ public class ChangePassActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().hide();
+
         mNewPassTextView = findViewById(R.id.password);
         mRetypePassTextView = findViewById(R.id.retype_password);
         mNewUserTextView = findViewById(R.id.username);
