@@ -41,16 +41,11 @@ public class WorkFrag extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     private OnFragmentInteractionListener mListener;
     private TextView workTitle;
     private TextView workDate;
     private TextView date;
     private TextView artistTitle;
-    private TextView workBio;
     private TextView mediumTitle;
     private TextView dimensions;
     private TextView collection;
@@ -63,40 +58,37 @@ public class WorkFrag extends Fragment {
     private ImageView art3;
 
     private SharedPreferences prefs;
-    private View v;
-
-    private GridView imageGrid;
-    private ArrayList<Bitmap> bitmapList;
 
     public WorkFrag() {
         // Required empty public constructor
     }
 
-//    /**
-//     * Use this factory method to create a new instance of
-//     * this fragment using the provided parameters.
-//     *
-//     * @param param1 Parameter 1.
-//     * @param param2 Parameter 2.
-//     * @return A new instance of fragment WorkFrag.
-//     */
-//    // TODO: Rename and change types and number of parameters
-//    public static WorkFrag newInstance(String param1, String param2) {
-//        WorkFrag fragment = new WorkFrag();
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment WorkFrag.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static WorkFrag newInstance(String param1, String param2) {
+        WorkFrag fragment = new WorkFrag();
 //        Bundle args = new Bundle();
 //        args.putString(ARG_PARAM1, param1);
 //        args.putString(ARG_PARAM2, param2);
 //        fragment.setArguments(args);
-//        return fragment;
-//    }
+        return fragment;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            // TODO: Rename and change types of parameters
+            String mParam1 = getArguments().getString(ARG_PARAM1);
+            String mParam2 = getArguments().getString(ARG_PARAM2);
         }
         prefs =  PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
 
@@ -107,28 +99,28 @@ public class WorkFrag extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        v = inflater.inflate(R.layout.fragment_work, container, false);
+        View v = inflater.inflate(R.layout.fragment_work, container, false);
 
-        this.imageGrid = v.findViewById(R.id.gridview);
-        this.bitmapList = new ArrayList<Bitmap>();
+        GridView imageGrid = v.findViewById(R.id.gridview);
+        ArrayList<Bitmap> bitmapList = new ArrayList<>();
 
         try {
-            this.bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
+            bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
                     R.drawable.related_work_1));
-            this.bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
+            bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
                     R.drawable.related_work_2));
-            this.bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
+            bitmapList.add(BitmapFactory.decodeResource(v.getResources(),
                     R.drawable.related_work_3));
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        this.imageGrid.setAdapter(new ImageAdapter(getActivity(), this.bitmapList));
+        imageGrid.setAdapter(new ImageAdapter(getActivity(), bitmapList));
 
         artistTitle = v.findViewById(R.id.artist_entry);
         workDate = v.findViewById(R.id.work_date);
         date = v.findViewById(R.id.date_entry);
-        workBio = v.findViewById(R.id.work_desc);
+        TextView workBio = v.findViewById(R.id.work_desc);
         workTitle = v.findViewById(R.id.work_title);
         collection = v.findViewById(R.id.collection_entry);
         mediumTitle = v.findViewById(R.id.medium_entry);
@@ -253,7 +245,7 @@ public class WorkFrag extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnFragmentInteractionListener {
+    interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }

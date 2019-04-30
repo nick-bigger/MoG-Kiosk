@@ -3,18 +3,21 @@ package com.example.mogkiosk.activities.admin.fragments;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.preference.PreferenceManager;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mogkiosk.R;
@@ -48,11 +51,9 @@ public class WorkFragAdmin extends Fragment {
     private static final int RESULT_LOAD_IMG1 = 2;
     private static final int RESULT_LOAD_IMG2 = 3;
     private static final int RESULT_LOAD_IMG3 = 4;
-    private static int viewId;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+
+    private SharedPreferences prefs;
 
     private TextView artist;
     private TextView piecedate;
@@ -62,8 +63,7 @@ public class WorkFragAdmin extends Fragment {
     private TextView medium;
     private TextView dimensions;
     private TextView photoBy;
-    private Button submit;
-
+    private int viewId;
 
     public WorkFragAdmin() {
         // Required empty public constructor
@@ -91,9 +91,11 @@ public class WorkFragAdmin extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            // TODO: Rename and change types of parameters
+            String mParam1 = getArguments().getString(ARG_PARAM1);
+            String mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        prefs =  PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
     }
 
     @Override
@@ -110,7 +112,7 @@ public class WorkFragAdmin extends Fragment {
 
         title = rootView.findViewById(R.id.title);
         piecedate = rootView.findViewById(R.id.date);
-        submit = rootView.findViewById(R.id.submitBtn);
+        Button submit = rootView.findViewById(R.id.submitBtn);
         photoBy = rootView.findViewById(R.id.photo_credit);
 
         Button mainImageBtn = rootView.findViewById(R.id.browse_main_img);
@@ -118,14 +120,7 @@ public class WorkFragAdmin extends Fragment {
         Button related2ImageBtn = rootView.findViewById(R.id.browse_main_img3);
         Button related3ImageBtn = rootView.findViewById(R.id.browse_main_img4);
 
-        CharSequence artistInput = artist.getText();
-        CharSequence piecedateInput = piecedate.getText();
-        CharSequence mediumInput = medium.getText();
-        CharSequence dimensionsInput = dimensions.getText();
-        CharSequence collectionInput = collection.getText();
-        CharSequence titleInput = title.getText();
-        CharSequence dateInput = date.getText();
-        CharSequence photo = photoBy.getText();
+
 
         mainImageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,6 +174,32 @@ public class WorkFragAdmin extends Fragment {
             }
         });
 
+        String title = prefs.getString(getString(R.string.a_title), "");
+        String tempDate = prefs.getString(getString(R.string.a_date), "");
+        String tempCollection = prefs.getString(getString(R.string.a_collection), "");
+        String medium = prefs.getString(getString(R.string.a_medium), "");
+        String artist = prefs.getString(getString(R.string.a_workartist), "");
+        String pieceDate = prefs.getString(getString(R.string.a_piecedate), "");
+        String dim= prefs.getString(getString(R.string.a_dimension),"");
+        String photo = prefs.getString(getString(R.string.a_photo), "");
+
+        TextInputLayout TitleIL = rootView.findViewById(R.id.workTitleInputLayout);
+        TextInputLayout DateIL = rootView.findViewById(R.id.workDateInputLayout);
+        TextInputLayout ArtistIL = rootView.findViewById(R.id.artistNameInputLayout);
+        TextInputLayout LocIL = rootView.findViewById(R.id.workLabelInputLayout);
+        TextInputLayout MedIL = rootView.findViewById(R.id.workMedInputLayout);
+        TextInputLayout DimIL = rootView.findViewById(R.id.workDimInputLayout);
+        TextInputLayout CollIL = rootView.findViewById(R.id.workCollecInputLayout);
+        TextInputLayout CredIL = rootView.findViewById(R.id.photoCredInputLayout);
+
+        TitleIL.setHint(title);
+        DateIL.setHint(tempDate);
+        ArtistIL.setHint(artist);
+        LocIL.setHint(pieceDate);
+        MedIL.setHint(medium);
+        DimIL.setHint(dim);
+        CollIL.setHint(tempCollection);
+        CredIL.setHint(photo);
 
 
 

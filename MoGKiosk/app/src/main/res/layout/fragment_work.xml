@@ -34,7 +34,7 @@
                 android:layout_marginRight="32dp"
                 android:layout_marginBottom="16dp"
 
-                android:contentDescription="@string/work_image_desc"
+                android:contentDescription="@string/work_img_desc"
                 android:src="@drawable/work_img"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/info_card"
@@ -57,7 +57,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <View
-                    android:id="@+id/view"
+                    android:id="@+id/divider"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@android:color/darker_gray"
@@ -71,12 +71,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="34dp"
-                    android:layout_marginRight="34dp"
                     android:text="@string/work_title"
                     android:textAppearance="@android:style/TextAppearance.Large.Inverse"
                     android:textColor="@color/textDark"
-                    android:textSize="49sp"
-                    android:textStyle="bold|italic"
+                    android:textSize="@dimen/font_title"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -86,7 +85,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/work_date"
-                    android:textSize="50sp"
+                    android:textSize="@dimen/font_title"
                     android:textStyle="italic"
                     app:fontFamily="sans-serif-light"
                     app:layout_constraintStart_toStartOf="parent"
@@ -121,9 +120,9 @@
                             android:layout_column="0"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/artist_table_title"
+                            android:text="@string/work_tableTitle_artist"
                             android:textColor="@color/textDark"
-                            android:textSize="18sp"
+                            android:textSize="@dimen/font_body"
                             android:textStyle="bold" />
 
                         <TextView
@@ -133,9 +132,9 @@
                             android:layout_column="1"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/artist_table_entry"
+                            android:text="@string/work_tableEntry_artist"
                             android:textColor="@color/textDark"
-                            android:textSize="18sp" />
+                            android:textSize="@dimen/font_body" />
 
                     </TableRow>
 
@@ -154,9 +153,9 @@
                             android:layout_column="0"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/date_table_title"
+                            android:text="@string/work_tableTitle_date"
                             android:textColor="@color/textDark"
-                            android:textSize="18sp"
+                            android:textSize="@dimen/font_body"
                             android:textStyle="bold" />
 
                         <TextView
@@ -166,9 +165,9 @@
                             android:layout_column="1"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/date_table_entry"
+                            android:text="@string/work_tableEntry_date"
                             android:textColor="@color/textDark"
-                            android:textSize="18sp" />
+                            android:textSize="@dimen/font_body" />
 
                     </TableRow>
 
@@ -186,9 +185,9 @@
                             android:layout_column="0"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/medium_table_title"
+                            android:text="@string/work_tableTitle_medium"
                             android:textColor="@color/textDark"
-                            android:textSize="18sp"
+                            android:textSize="@dimen/font_body"
                             android:textStyle="bold" />
 
                         <TextView
@@ -198,9 +197,9 @@
                             android:layout_column="1"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/medium_table_entry"
+                            android:text="@string/work_tableEntry_medium"
                             android:textColor="@color/textDark"
-                            android:textSize="18sp" />
+                            android:textSize="@dimen/font_body" />
 
                     </TableRow>
 
@@ -218,9 +217,9 @@
                             android:layout_column="0"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/dimensions_table_title"
+                            android:text="@string/work_tableTitle_dims"
                             android:textColor="@color/textDark"
-                            android:textSize="18sp"
+                            android:textSize="@dimen/font_body"
                             android:textStyle="bold" />
 
                         <TextView
@@ -230,9 +229,9 @@
                             android:layout_column="1"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/dimensions_table_entry"
+                            android:text="@string/work_tableEntry_dims"
                             android:textColor="@color/textDark"
-                            android:textSize="18sp" />
+                            android:textSize="@dimen/font_body" />
 
                     </TableRow>
 
@@ -248,9 +247,9 @@
                             android:layout_column="0"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/collection_table_title"
+                            android:text="@string/work_tableTitle_collection"
                             android:textColor="@color/textDark"
-                            android:textSize="18sp"
+                            android:textSize="@dimen/font_body"
                             android:textStyle="bold" />
 
                         <TextView
@@ -260,9 +259,9 @@
                             android:layout_column="1"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/collection_table_entry"
+                            android:text="@string/work_tableEntry_collection"
                             android:textColor="@color/textDark"
-                            android:textSize="18sp" />
+                            android:textSize="@dimen/font_body" />
 
                     </TableRow>
 
@@ -278,9 +277,9 @@
                             android:layout_column="0"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/table_photo_credit_title"
+                            android:text="@string/work_tableTitle_credit"
                             android:textColor="@color/textDark"
-                            android:textSize="18sp"
+                            android:textSize="@dimen/font_body"
                             android:textStyle="bold" />
 
                         <TextView
@@ -290,9 +289,9 @@
                             android:layout_column="1"
                             android:layout_margin="1dp"
                             android:gravity="center|start"
-                            android:text="@string/photo_credit_entry"
+                            android:text="@string/work_tableEntry_credit"
                             android:textColor="@color/textDark"
-                            android:textSize="18sp" />
+                            android:textSize="@dimen/font_body" />
 
                     </TableRow>
 
@@ -326,18 +325,27 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0">
 
+                <View
+                    android:id="@+id/divider4"
+                    android:layout_width="35dp"
+                    android:layout_height="4dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/colorAccent"
+                    app:layout_constraintStart_toStartOf="@+id/work_desc_title"
+                    app:layout_constraintTop_toBottomOf="@+id/work_desc_title" />
+
                 <TextView
                     android:id="@+id/work_desc_title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="24dp"
                     android:layout_marginTop="32dp"
                     android:maxLines="1"
+                    android:letterSpacing="0.08"
                     android:text="@string/work_desc_title"
                     android:textAllCaps="true"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="20sp"
+                    android:textColor="@color/textDark"
+                    android:textSize="@dimen/font_subtitle"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -346,20 +354,18 @@
                     android:id="@+id/work_desc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="24dp"
-                    android:layout_marginRight="24dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="32dp"
                     android:layout_marginBottom="32dp"
                     android:lineSpacingExtra="10dp"
                     android:text="@string/work_desc"
                     android:textColor="@color/textDark"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/font_body"
                     app:layout_constraintBottom_toBottomOf="@id/work_description"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/work_desc_title"
+                    app:layout_constraintStart_toStartOf="@+id/work_desc_title"
+                    app:layout_constraintTop_toBottomOf="@+id/divider4"
                     app:layout_constraintVertical_bias="0.0"
                     tools:text="@string/work_desc" />
 
@@ -380,17 +386,16 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginLeft="20dp"
                     android:maxLines="1"
-                    android:text="@string/related_work_title"
+                    android:text="@string/artist_relatedWork1_title"
                     android:textAllCaps="true"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="20sp"
+                    android:textColor="@color/textDark"
+                    android:textSize="@dimen/font_subtitle"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+                <GridView
                     android:id="@+id/gridview"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

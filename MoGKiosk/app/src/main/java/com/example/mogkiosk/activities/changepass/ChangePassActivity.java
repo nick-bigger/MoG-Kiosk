@@ -3,11 +3,11 @@ package com.example.mogkiosk.activities.changepass;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.mogkiosk.PrivateInfoManager;
@@ -18,10 +18,9 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 public class ChangePassActivity extends AppCompatActivity {
-    private TextInputEditText mNewPassTextView;
-    private TextInputEditText mRetypePassTextView;
-    private TextInputEditText mNewUserTextView;
-    private Button mSubmitChanges;
+    private EditText mNewPassTextView;
+    private EditText mRetypePassTextView;
+    private EditText mNewUserTextView;
 
     private TextView mNotLongEnoughPassTextView;
     private TextView mNotLongEnoughUserTextView;
@@ -30,18 +29,18 @@ public class ChangePassActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        setTitle("Change Password");
-
         final PrivateInfoManager manager = new PrivateInfoManager(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_pass);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().hide();
+
         mNewPassTextView = findViewById(R.id.password);
         mRetypePassTextView = findViewById(R.id.retype_password);
         mNewUserTextView = findViewById(R.id.username);
-        mSubmitChanges = findViewById(R.id.submit);
+        Button mSubmitChanges = findViewById(R.id.submit);
 
         mNotLongEnoughPassTextView = findViewById(R.id.pass_length);
         mNotLongEnoughUserTextView = findViewById(R.id.username_length);
@@ -61,7 +60,7 @@ public class ChangePassActivity extends AppCompatActivity {
 
                 boolean userLength = mNewUserTextView.getText().toString().length() < 5;
                 boolean passLength = mNewPassTextView.getText().toString().length() < 5;
-                boolean retypeGood = mRetypePassTextView.getText().toString().equals(mNewPassTextView);
+                boolean retypeGood = mRetypePassTextView.getText().toString().equals(mNewPassTextView.getText().toString());
 
                 if(userLength && passLength && !retypeGood)
                 {

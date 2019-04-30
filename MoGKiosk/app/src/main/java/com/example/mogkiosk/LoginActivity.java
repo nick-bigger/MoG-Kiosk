@@ -29,9 +29,7 @@ import java.security.spec.InvalidKeySpecException;
 public class LoginActivity extends AppCompatActivity {
     private EditText mNameEditText; //use m for global variables because history
     private EditText mPassEditText;
-    private Button mLoginButton;
     private TextView mBadLoginTextView;
-    private TextView mForgotPassTextView;
     AlertDialog alertDialog;
     AlertDialog errorDialog;
 
@@ -40,15 +38,17 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         final PrivateInfoManager manager = new PrivateInfoManager(this);
 
+        getSupportActionBar().hide();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_main);
 
         //assigning variables from layout
         mNameEditText = findViewById(R.id.title);
         mPassEditText = findViewById(R.id.etPassword);
-        mLoginButton = findViewById(R.id.btnLogin);
+        Button mLoginButton = findViewById(R.id.btnLogin);
         mBadLoginTextView = findViewById(R.id.incorrectLogin);
-        mForgotPassTextView = findViewById(R.id.forgotPass);
+        TextView mForgotPassTextView = findViewById(R.id.forgotPass);
 
         mBadLoginTextView.setVisibility(View.INVISIBLE);
 
@@ -56,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 mBadLoginTextView.setVisibility(View.INVISIBLE);
 
                 try {
@@ -147,10 +148,6 @@ public class LoginActivity extends AppCompatActivity {
         public static final String DIALOG_TYPE = "dialogType";
         public static final boolean EMAIL_SENDING = true;
         public static final boolean EMAIL_ALREADY_SENT = false;
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-        }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -164,12 +161,12 @@ public class LoginActivity extends AppCompatActivity {
             if (sendEmail == EMAIL_SENDING)
             {
                 icon.setImageResource(R.drawable.ic_success);
-                messText.setText(R.string.email_sending);
+                messText.setText(R.string.login_dialog_sending);
             }
             else if (sendEmail == EMAIL_ALREADY_SENT)
             {
                 icon.setImageResource(R.drawable.ic_error);
-                messText.setText(R.string.email_sent);
+                messText.setText(R.string.login_dialog_sent);
             }
 
             // Do all the stuff to initialize your custom view

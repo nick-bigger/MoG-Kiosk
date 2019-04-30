@@ -11,9 +11,10 @@
 
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:contentDescription="@string/logo_desc"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,77 +33,93 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/username_text_input_layout"
-            android:layout_width="312dp"
-            android:layout_height="58dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
+        <!--<android.support.design.widget.TextInputLayout-->
+            <!--android:id="@+id/username_text_input_layout"-->
+            <!--android:layout_width="312dp"-->
+            <!--android:layout_height="58dp"-->
+            <!--android:layout_marginStart="8dp"-->
+            <!--android:layout_marginLeft="8dp"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:layout_marginEnd="8dp"-->
+            <!--android:layout_marginRight="8dp"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/imageView">-->
+
+            <!--<EditText-->
+                <!--android:id="@+id/title"-->
+                <!--android:layout_width="300dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_marginStart="8dp"-->
+                <!--android:layout_marginLeft="8dp"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:layout_marginEnd="8dp"-->
+                <!--android:layout_marginRight="8dp"-->
+                <!--android:contentDescription="@string/name_field"-->
+                <!--android:ems="10"-->
+                <!--android:hint="@string/name_field"-->
+                <!--android:inputType="textPersonName"-->
+                <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/imageView"-->
+                <!--app:layout_constraintVertical_bias="0.135" />-->
+
+        <!--</android.support.design.widget.TextInputLayout>-->
+
+        <EditText
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:background="@drawable/edittext_round"
+            android:drawableStart="@drawable/ic_account_circle_24dp"
+            android:drawablePadding="20dp"
+            android:autofillHints="username"
+            android:hint="@string/login_input_usn"
+            android:inputType="textPersonName"
+            android:paddingTop="@dimen/et_ic_pad"
+            android:paddingBottom="@dimen/et_ic_pad"
+            android:paddingStart="@dimen/et_ic_pad"
+            android:paddingEnd="@dimen/et_ic_pad"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView">
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:layout_constraintVertical_bias="0.135" />
 
-            <EditText
-                android:id="@+id/title"
-                android:layout_width="300dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:contentDescription="@string/name_field"
-                android:ems="10"
-                android:hint="@string/name_field"
-                android:inputType="textPersonName"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView"
-                app:layout_constraintVertical_bias="0.135" />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/password_text_input_layout"
-            android:layout_width="312dp"
-            android:layout_height="58dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:background="@drawable/edittext_round"
+            android:drawableStart="@drawable/ic_lock_24dp"
+            android:drawablePadding="20dp"
+            android:autofillHints="password"
+            android:hint="@string/login_input_pwd"
+            android:inputType="textPassword"
+            android:paddingTop="@dimen/et_ic_pad"
+            android:paddingBottom="@dimen/et_ic_pad"
+            android:paddingStart="@dimen/et_ic_pad"
+            android:paddingEnd="@dimen/et_ic_pad"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/username_text_input_layout"
-            app:passwordToggleEnabled="true">
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            app:layout_constraintVertical_bias="0.146" />
 
-            <EditText
-                android:id="@+id/etPassword"
-                android:layout_width="300dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:contentDescription="@string/pwd_field"
-                android:ems="10"
-                android:hint="@string/pwd_field"
-                android:inputType="textPassword"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title"
-                app:layout_constraintVertical_bias="0.146" />
-
-        </android.support.design.widget.TextInputLayout>
 
         <Button
             android:id="@+id/btnLogin"
-            style="@style/Widget.AppCompat.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -110,14 +127,14 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:background="@drawable/btn_normal"
+            android:background="@drawable/btn_bg_selector"
             android:bottomLeftRadius="10dp"
             android:bottomRightRadius="10dp"
-            android:text="@string/action_login"
-            android:textColor="@color/colorAccent"
+            android:text="@string/login_btn"
+            android:textColor="@drawable/btn_text_selector"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password_text_input_layout" />
+            app:layout_constraintTop_toBottomOf="@+id/forgotPass" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -134,38 +151,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/logo" />
 
-        <!--<android.support.v7.widget.CardView-->
-        <!--android:id="@+id/cardView"-->
-        <!--android:layout_width="300dp"-->
-        <!--android:layout_height="50dp"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:layout_marginLeft="8dp"-->
-        <!--android:layout_marginTop="20dp"-->
-        <!--android:layout_marginEnd="8dp"-->
-        <!--android:layout_marginRight="8dp"-->
-        <!--app:cardBackgroundColor="@color/colorAccent"-->
-        <!--app:cardCornerRadius="25dp"-->
-        <!--app:cardElevation="10dp"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/etPassword">-->
-
-        <!--<RelativeLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent">-->
-
-        <!--<TextView-->
-        <!--android:id="@+id/textView2"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_centerInParent="true"-->
-        <!--android:text="@string/action_login"-->
-        <!--android:textColor="#fff"-->
-        <!--android:textSize="18sp" />-->
-        <!--</RelativeLayout>-->
-
-        <!--</android.support.v7.widget.CardView>-->
-
         <TextView
             android:id="@+id/forgotPass"
             android:layout_width="wrap_content"
@@ -175,12 +160,10 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/forgot_pwd"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="@string/login_forgotPwd"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+            app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
         <TextView
             android:id="@+id/incorrectLogin"
@@ -188,15 +171,16 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:text="@string/incorrect_entry"
+            android:text="@string/login_error_incorrect"
             android:textColor="@color/colorError"
             app:layout_constraintBottom_toTopOf="@+id/btnLogin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password_text_input_layout"
+            app:layout_constraintTop_toBottomOf="@+id/forgotPass"
             app:layout_constraintVertical_bias="0.0" />
 
     </android.support.constraint.ConstraintLayout>

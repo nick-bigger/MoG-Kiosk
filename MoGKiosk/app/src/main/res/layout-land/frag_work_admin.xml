@@ -31,9 +31,9 @@
                 android:text="Work Info:"
                 android:textAllCaps="true"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp"
+                android:textSize="@dimen/font_subtitle"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/video_title_input"
+                app:layout_constraintStart_toStartOf="@+id/workTitleInputLayout"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -41,30 +41,27 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:layout_marginLeft="12dp"
                 android:layout_marginTop="33dp"
                 android:layout_marginBottom="4dp"
                 android:text="Label Info and Work Description:"
                 android:textAllCaps="true"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp"
+                android:textSize="@dimen/font_subtitle"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/artist_name_title"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/date_input" />
+                app:layout_constraintTop_toBottomOf="@+id/workDateInputLayout" />
 
             <TextView
                 android:id="@+id/title_of_piece"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="494dp"
-                android:layout_marginRight="494dp"
                 android:layout_marginBottom="8dp"
                 android:text="Title of Piece:"
-                app:layout_constraintBottom_toTopOf="@+id/video_title_input"
+                app:layout_constraintBottom_toTopOf="@+id/workTitleInputLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +70,7 @@
                 app:layout_constraintVertical_chainStyle="spread_inside" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/video_title_input"
+                android:id="@+id/workTitleInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -109,14 +106,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
                 android:text="Date of Piece:"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/video_title_input" />
+                app:layout_constraintTop_toBottomOf="@+id/workTitleInputLayout" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/date_input"
+                android:id="@+id/workDateInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -143,7 +139,7 @@
                     android:layout_marginRight="8dp"
                     android:ems="10"
                     android:hint="@string/work_date"
-                    android:inputType="textShortMessage" />
+                    android:inputType="date" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -152,20 +148,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="500dp"
-                android:layout_marginRight="500dp"
                 android:layout_marginBottom="36dp"
                 android:text="Artist Name:"
-                app:layout_constraintBottom_toTopOf="@+id/artist_input"
+                app:layout_constraintBottom_toTopOf="@+id/artistNameInputLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/_title" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/artist_input"
+                android:id="@+id/artistNameInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -190,7 +184,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:ems="10"
-                    android:hint="@string/artist_table_entry"
+                    android:hint="@string/work_tableEntry_artist"
                     android:inputType="textShortMessage" />
 
             </android.support.design.widget.TextInputLayout>
@@ -200,18 +194,16 @@
                 android:layout_width="326dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="300dp"
-                android:layout_marginRight="300dp"
                 android:text="Date (from label, including location)"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/artist_input" />
+                app:layout_constraintTop_toBottomOf="@+id/artistNameInputLayout" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/label_date_input"
+                android:id="@+id/workLabelInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -237,7 +229,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:ems="10"
-                    android:hint="@string/date_table_entry"
+                    android:hint="@string/work_tableEntry_date"
                     android:inputType="textShortMessage" />
 
             </android.support.design.widget.TextInputLayout>
@@ -247,18 +239,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="500dp"
-                android:layout_marginRight="500dp"
                 android:text="Medium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/label_date_input" />
+                app:layout_constraintTop_toBottomOf="@+id/workLabelInputLayout" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/medium_input"
+                android:id="@+id/workMedInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -284,7 +274,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:ems="10"
-                    android:hint="@string/medium_table_entry"
+                    android:hint="@string/work_tableEntry_medium"
                     android:inputType="textShortMessage" />
 
             </android.support.design.widget.TextInputLayout>
@@ -294,18 +284,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="500dp"
-                android:layout_marginRight="500dp"
                 android:text="Dimensions"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/medium_input" />
+                app:layout_constraintTop_toBottomOf="@+id/workMedInputLayout" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/dimensions_input"
+                android:id="@+id/workDimInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -331,7 +319,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:ems="10"
-                    android:hint="@string/dimensions_table_entry"
+                    android:hint="@string/work_tableEntry_dims"
                     android:inputType="textShortMessage" />
 
             </android.support.design.widget.TextInputLayout>
@@ -342,18 +330,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="300dp"
-                android:layout_marginRight="300dp"
                 android:text="Collection information"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dimensions_input" />
+                app:layout_constraintTop_toBottomOf="@+id/workDimInputLayout" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/collection_input"
+                android:id="@+id/workCollecInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -379,7 +365,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:ems="10"
-                    android:hint="@string/collection_table_entry"
+                    android:hint="@string/work_tableEntry_collection"
                     android:inputType="textShortMessage" />
 
             </android.support.design.widget.TextInputLayout>
@@ -389,18 +375,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="300dp"
-                android:layout_marginRight="300dp"
                 android:text="Photo Credit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/collection_input" />
+                app:layout_constraintTop_toBottomOf="@+id/workCollecInputLayout" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/photo_credit_input"
+                android:id="@+id/photoCredInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -426,7 +410,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:ems="10"
-                    android:hint="@string/photo_credit_entry"
+                    android:hint="@string/work_tableEntry_credit"
                     android:inputType="textShortMessage" />
 
             </android.support.design.widget.TextInputLayout>
@@ -446,7 +430,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/photo_credit_input" />
+                app:layout_constraintTop_toBottomOf="@+id/photoCredInputLayout" />
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/description_input"
@@ -477,7 +461,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:ems="10"
-                    android:gravity="top|left"
+                    android:gravity="top|start"
                     android:hint="@string/work_desc"
                     android:inputType="textMultiLine" />
 
@@ -500,14 +484,13 @@
                 android:layout_width="169dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="64dp"
-                android:layout_marginLeft="64dp"
-                android:background="@drawable/btn_normal"
-                android:backgroundTint="@color/textDark"
                 android:contentDescription="Add an image"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="Browse Images"
-                android:textColor="@color/textDark"
+                android:textColor="@drawable/btn_text_selector"
+                android:background="@drawable/btn_bg_selector"
+                android:textSize="@dimen/font_btn"
                 app:layout_constraintBottom_toBottomOf="@+id/mainImage"
                 app:layout_constraintStart_toEndOf="@+id/mainImage"
                 app:layout_constraintTop_toTopOf="@+id/mainImage" />
@@ -517,13 +500,12 @@
                 android:layout_width="118dp"
                 android:layout_height="38dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/btn_normal"
-                android:backgroundTint="@color/textDark"
                 android:contentDescription="Add an image"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="Browse Images"
-                android:textColor="@color/textDark"
+                android:textColor="@drawable/btn_text_selector"
+                android:background="@drawable/btn_bg_selector"
                 app:layout_constraintEnd_toEndOf="@+id/related_work_1"
                 app:layout_constraintStart_toStartOf="@+id/related_work_1"
                 app:layout_constraintTop_toBottomOf="@+id/related_work_1" />
@@ -533,13 +515,12 @@
                 android:layout_width="118dp"
                 android:layout_height="38dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/btn_normal"
-                android:backgroundTint="@color/textDark"
                 android:contentDescription="Add an image"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="Browse Images"
-                android:textColor="@color/textDark"
+                android:textColor="@drawable/btn_text_selector"
+                android:background="@drawable/btn_bg_selector"
                 app:layout_constraintEnd_toEndOf="@+id/related_work_2"
                 app:layout_constraintStart_toStartOf="@+id/related_work_2"
                 app:layout_constraintTop_toBottomOf="@+id/related_work_2" />
@@ -549,13 +530,12 @@
                 android:layout_width="118dp"
                 android:layout_height="38dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/btn_normal"
-                android:backgroundTint="@color/textDark"
                 android:contentDescription="Add an image"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="Browse Images"
-                android:textColor="@color/textDark"
+                android:textColor="@drawable/btn_text_selector"
+                android:background="@drawable/btn_bg_selector"
                 app:layout_constraintEnd_toEndOf="@+id/related_work_3"
                 app:layout_constraintStart_toStartOf="@+id/related_work_3"
                 app:layout_constraintTop_toBottomOf="@+id/related_work_3" />
@@ -565,12 +545,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginTop="32dp"
                 android:text="Related Work Images:"
                 android:textAllCaps="true"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp"
+                android:textSize="@dimen/font_subtitle"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/mainImage" />
@@ -580,12 +559,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginTop="32dp"
                 android:text="Main Image:"
                 android:textAllCaps="true"
                 android:textColor="@color/colorAccent"
-                android:textSize="20sp"
+                android:textSize="@dimen/font_subtitle"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -595,10 +573,8 @@
                 android:layout_width="139dp"
                 android:layout_height="129dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="340dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
                 android:src="@android:drawable/ic_menu_camera"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -612,10 +588,8 @@
                 android:layout_width="139dp"
                 android:layout_height="129dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginLeft="32dp"
                 android:layout_marginTop="340dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
                 android:src="@android:drawable/ic_menu_camera"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -629,10 +603,8 @@
                 android:layout_width="139dp"
                 android:layout_height="129dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginLeft="32dp"
                 android:layout_marginTop="340dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
                 android:src="@android:drawable/ic_menu_camera"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -646,15 +618,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginTop="64dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:background="@drawable/btn_normal"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="Update"
-                android:textColor="@color/colorAccent"
+                android:text="@string/btn_update"
+                android:textColor="@drawable/btn_text_selector"
+                android:background="@drawable/btn_bg_selector"
+                android:textSize="@dimen/font_btn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/browse_main_img3" />
@@ -664,7 +635,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="Related Work 1 "
                 app:layout_constraintBottom_toTopOf="@+id/related_work_1"
@@ -675,7 +645,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="16dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="Related Work 2"
                 app:layout_constraintBottom_toTopOf="@+id/related_work_2"
@@ -686,7 +655,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="Related Work 3"
                 app:layout_constraintBottom_toTopOf="@+id/related_work_3"
@@ -697,7 +665,6 @@
                 android:layout_width="139dp"
                 android:layout_height="129dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="32dp"
                 android:src="@drawable/marwan"
                 app:layout_constraintStart_toStartOf="parent"

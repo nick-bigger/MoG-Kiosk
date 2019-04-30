@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:layout_height="match_parent" >
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/frameLayout"
@@ -18,51 +17,88 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/artistPanel"
             app:layout_constraintTop_toBottomOf="@+id/artistPanel"
             app:layout_constraintTop_toTopOf="parent">
 
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="35dp"
+                android:layout_height="4dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="@+id/artistFrag_bio_title"
+                app:layout_constraintTop_toBottomOf="@+id/artistFrag_bio_title" />
+
             <TextView
                 android:id="@+id/artistFrag_bio_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/artistFrag_bio_title"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:letterSpacing="0.08"
+                android:text="@string/artist_bio_title"
                 android:textAllCaps="true"
-                android:textColor="@color/colorAccent"
-                android:textSize="20sp"
+                android:textColor="@color/textDark"
+                android:textSize="@dimen/font_subtitle"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/artistFrag_bio_card"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/artistFrag_bio_card"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/artistFrag_bio_title">
+                app:layout_constraintStart_toStartOf="@+id/artistFrag_bio_title"
+                app:layout_constraintTop_toBottomOf="@+id/divider2">
 
                 <TextView
                     android:id="@+id/artistFrag_bio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="10dp"
-                    android:text="@string/artistFrag_bio"
+                    android:text="@string/artist_bio"
+                    android:textAlignment="textStart"
                     android:textColor="@color/textDark"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/font_body"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0" />
+
+                <TextView
+                    android:id="@+id/featQuote"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="32dp"
+                    android:text="@string/artist_featuredQuote"
+                    android:textColor="@color/textMid"
+                    android:textSize="30sp"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/artistFrag_bio" />
+
+                <TextView
+                    android:id="@+id/artistFrag_bio3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:lineSpacingExtra="10dp"
+                    android:text="@string/artist_bio2"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/textDark"
+                    android:textSize="@dimen/font_body"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/featQuote" />
 
             </android.support.constraint.ConstraintLayout>
 
@@ -80,7 +116,7 @@
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/image_wrapper"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -91,7 +127,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/artist_img_description"
+                    android:contentDescription="@string/artist_img_desc"
                     android:scaleType="centerCrop"
                     android:src="@drawable/david_walters"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -103,13 +139,11 @@
             </android.support.constraint.ConstraintLayout>
 
             <View
-                android:id="@+id/view2"
+                android:id="@+id/divider"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
                 android:layout_marginEnd="25dp"
-                android:layout_marginRight="25dp"
                 android:background="@android:color/darker_gray"
                 app:layout_constraintBottom_toTopOf="@+id/artist_subbio"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -121,14 +155,12 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="64dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
                 android:lineSpacingExtra="10dp"
-                android:text="@string/artist_subbio"
+                android:text="@string/artist_subBio"
                 android:textColor="@color/textDark"
-                android:textSize="20sp"
+                android:textSize="@dimen/font_body"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/artist_tagline" />
@@ -138,13 +170,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/artist_name"
                 android:textAppearance="@android:style/TextAppearance.Medium.Inverse"
                 android:textColor="@color/textDark"
-                android:textSize="49sp"
-                android:textStyle="bold|italic"
+                android:textSize="@dimen/font_title"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/image_wrapper" />
 
@@ -153,10 +184,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:text="@string/artist_tagline"
-                android:textColor="@color/colorPrimaryLight"
-                android:textSize="25sp"
+                android:background="@drawable/shape_chip"
+                android:text="@string/artist_tag"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/artist_name"

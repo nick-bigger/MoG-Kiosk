@@ -8,7 +8,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -37,15 +36,7 @@ public class MainActivity extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
-    private ArtistFrag a_frag;
-    private WorkFrag w_frag;
-    private ProcessFrag p_frag;
-    private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
-    private ViewPager mViewPager;
 
     /**
      * Initializes and creates the sections adapter, sets the content view on activity creation
@@ -62,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = sharedPreferences.edit();
         // logic for hiding the status bar
 //        View decorView = getWindow().getDecorView();
@@ -83,7 +74,10 @@ public class MainActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         // Set up the ViewPager with the sections adapter.
-        mViewPager = findViewById(R.id.container);
+        /**
+         * The {@link ViewPager} that will host the section contents.
+         */
+        ViewPager mViewPager = findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
         //
         mViewPager.setOffscreenPageLimit(3);
@@ -100,9 +94,9 @@ public class MainActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
 
-        a_frag = (ArtistFrag) mSectionsPagerAdapter.getItem(0);
-        w_frag = (WorkFrag) mSectionsPagerAdapter.getItem(1);
-        p_frag = (ProcessFrag) mSectionsPagerAdapter.getItem(2);
+        ArtistFrag a_frag = (ArtistFrag) mSectionsPagerAdapter.getItem(0);
+        WorkFrag w_frag = (WorkFrag) mSectionsPagerAdapter.getItem(1);
+        ProcessFrag p_frag = (ProcessFrag) mSectionsPagerAdapter.getItem(2);
 
         //Get transferred data from admin
         Bundle extras = getIntent().getExtras();
@@ -280,11 +274,11 @@ public class MainActivity extends AppCompatActivity {
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
      */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+    class SectionsPagerAdapter extends FragmentPagerAdapter {
         Fragment artistFragment = new ArtistFrag();
         Fragment workFrag = new WorkFrag();
         Fragment processFrag = new ProcessFrag();
-        public SectionsPagerAdapter(FragmentManager fm) {
+        SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
@@ -303,7 +297,7 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
 
-        public void setItem(Fragment frag, int position) {
+        void setItem(Fragment frag, int position) {
             switch(position) {
                 case 0:
                     artistFragment = frag;
