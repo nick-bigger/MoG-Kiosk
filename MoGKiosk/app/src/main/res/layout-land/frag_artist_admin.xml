@@ -19,6 +19,24 @@
             android:layout_height="match_parent"
             app:layout_constraintStart_toStartOf="parent">
 
+            <View
+                android:id="@+id/divider6"
+                android:layout_width="@dimen/divider_small"
+                android:layout_height="4dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="@+id/artist_admin_artistInfo"
+                app:layout_constraintTop_toBottomOf="@+id/artist_admin_artistInfo" />
+
+            <View
+                android:id="@+id/divider8"
+                android:layout_width="@dimen/divider_small"
+                android:layout_height="4dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="@+id/artist_admin_imageText"
+                app:layout_constraintTop_toBottomOf="@+id/artist_admin_imageText" />
+
             <Button
                 android:id="@+id/changePassBtn"
                 android:layout_width="wrap_content"
@@ -59,11 +77,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_bg_selector"
+                android:drawableStart="@drawable/ic_photo_library_24dp"
+                android:drawablePadding="10dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="@string/btn_upload"
                 android:textColor="@drawable/btn_text_selector"
-                android:background="@drawable/btn_bg_selector"
                 android:textSize="@dimen/font_btn"
                 app:layout_constraintBottom_toBottomOf="@+id/currentImage"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -76,19 +96,20 @@
                 android:layout_height="200dp"
                 android:layout_marginStart="64dp"
                 android:layout_marginTop="16dp"
-                android:src="@drawable/david_walters"
                 android:contentDescription="@string/artistAdmin_currImg_desc"
+                android:src="@drawable/david_walters"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/artist_admin_imageText" />
+                app:layout_constraintTop_toBottomOf="@+id/divider8" />
 
             <TextView
                 android:id="@+id/artist_admin_imageText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:letterSpacing="0.08"
                 android:text="@string/artistAdmin_currImg_title"
                 android:textAllCaps="true"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/textDark"
                 android:textSize="@dimen/font_subtitle"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/taglineInputLayout"
@@ -104,7 +125,7 @@
                 android:labelFor="@+id/title"
                 android:text="@string/artistAdmin_addName_label"
                 app:layout_constraintStart_toStartOf="@+id/workNameInputLayout"
-                app:layout_constraintTop_toBottomOf="@+id/artist_admin_artistInfo" />
+                app:layout_constraintTop_toBottomOf="@+id/divider6" />
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/workNameInputLayout"
@@ -190,9 +211,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:letterSpacing="0.08"
                 android:text="@string/artistAdmin_info_title"
                 android:textAllCaps="true"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/textDark"
                 android:textSize="@dimen/font_subtitle"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/workNameInputLayout"
@@ -206,6 +228,15 @@
             android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/leftPane">
+
+            <View
+                android:id="@+id/divider7"
+                android:layout_width="@dimen/divider_small"
+                android:layout_height="4dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="@+id/artist_admin_bioInfo"
+                app:layout_constraintTop_toBottomOf="@+id/artist_admin_bioInfo" />
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/bioInputLayout"
@@ -313,7 +344,8 @@
                 android:layout_marginTop="32dp"
                 android:text="@string/artistAdmin_bio_title"
                 android:textAllCaps="true"
-                android:textColor="@color/colorAccent"
+                android:letterSpacing="0.08"
+                android:textColor="@color/textDark"
                 android:textSize="@dimen/font_subtitle"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/bioInputLayout"
@@ -327,7 +359,7 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/artistAdmin_addBio_label"
                 app:layout_constraintStart_toStartOf="@+id/bioInputLayout"
-                app:layout_constraintTop_toBottomOf="@+id/artist_admin_bioInfo" />
+                app:layout_constraintTop_toBottomOf="@+id/divider7" />
 
             <TextView
                 android:id="@+id/artistSubBioDesc"
