@@ -2,7 +2,7 @@
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nestedScrollView"
+    android:id="@+id/ConstraintLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
@@ -15,7 +15,7 @@
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/left_panel"
-            android:layout_width="385dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/right_panel"
@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:letterSpacing="@dimen/letterSpacing_subtitle"
-                android:text="Work Info:"
+                android:text="@string/workAdmin_workInfo_title"
                 android:textAllCaps="true"
                 android:textColor="@color/textDark"
                 android:textSize="@dimen/font_subtitle"
@@ -63,7 +63,7 @@
                 android:layout_marginTop="33dp"
                 android:layout_marginBottom="4dp"
                 android:letterSpacing="@dimen/letterSpacing_subtitle"
-                android:text="Label Info and Work Description:"
+                android:text="@string/workAdmin_labelInfo_title"
                 android:textAllCaps="true"
                 android:textColor="@color/textDark"
                 android:textSize="@dimen/font_subtitle"
@@ -78,9 +78,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="494dp"
                 android:layout_marginBottom="8dp"
-                android:text="Title of Piece:"
+                android:text="@string/workAdmin_pieceTitle_label"
                 app:layout_constraintBottom_toTopOf="@+id/workTitleInputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider1"
                 app:layout_constraintVertical_bias="1.0"
@@ -112,6 +115,7 @@
                     android:layout_marginTop="44dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
+                    android:autofillHints="title"
                     android:ems="10"
                     android:hint="@string/work_title"
                     android:inputType="textPersonName" />
@@ -123,9 +127,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
-                android:text="Date of Piece:"
+                android:text="@string/workAdmin_pieceYear_label"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/workTitleInputLayout" />
 
@@ -155,9 +158,10 @@
                     android:layout_marginTop="48dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
+                    android:autofillHints="date"
                     android:ems="10"
                     android:hint="@string/work_date"
-                    android:inputType="textShortMessage" />
+                    android:inputType="date" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -168,7 +172,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="36dp"
-                android:text="Artist Name:"
+                android:text="@string/workAdmin_infoName_label"
                 app:layout_constraintBottom_toTopOf="@+id/artistNameInputLayout"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider2" />
@@ -198,6 +202,7 @@
                     android:layout_marginTop="48dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
+                    android:autofillHints="artist"
                     android:ems="10"
                     android:hint="@string/work_tableEntry_artist"
                     android:inputType="textShortMessage" />
@@ -211,7 +216,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="300dp"
-                android:text="Date (from label, including location)"
+                android:text="@string/workAdmin_infoDate_label"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -243,9 +248,10 @@
                     android:layout_marginTop="48dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
+                    android:autofillHints="date"
                     android:ems="10"
                     android:hint="@string/work_tableEntry_date"
-                    android:inputType="textShortMessage" />
+                    android:inputType="date|textShortMessage" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -254,11 +260,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="500dp"
-                android:layout_marginRight="500dp"
-                android:text="Medium"
+                android:text="@string/workAdmin_infoMedium_label"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -290,6 +294,7 @@
                     android:layout_marginTop="48dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
+                    android:autofillHints="medium"
                     android:ems="10"
                     android:hint="@string/work_tableEntry_medium"
                     android:inputType="textShortMessage" />
@@ -301,11 +306,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="500dp"
-                android:layout_marginRight="500dp"
-                android:text="Dimensions"
+                android:text="@string/workAdmin_infoDimen_label"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -337,6 +340,7 @@
                     android:layout_marginTop="48dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
+                    android:autofillHints="dimensions"
                     android:ems="10"
                     android:hint="@string/work_tableEntry_dims"
                     android:inputType="textShortMessage" />
@@ -350,10 +354,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="300dp"
-                android:text="Collection information"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                android:text="@string/workAdmin_infoCollect_label"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/workDimInputLayout" />
 
@@ -383,6 +384,7 @@
                     android:layout_marginTop="48dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
+                    android:autofillHints="collection"
                     android:ems="10"
                     android:hint="@string/work_tableEntry_collection"
                     android:inputType="textShortMessage" />
@@ -395,10 +397,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="300dp"
-                android:text="Photo Credit"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                android:text="@string/workAdmin_infoCredit_label"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/workCollecInputLayout" />
 
@@ -428,6 +427,7 @@
                     android:layout_marginTop="48dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
+                    android:autofillHints="photo_credit"
                     android:ems="10"
                     android:hint="@string/work_tableEntry_credit"
                     android:inputType="textShortMessage" />
@@ -440,12 +440,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="300dp"
                 android:layout_marginBottom="16dp"
-                android:text="Description of the Work"
+                android:text="@string/workAdmin_infoDesc_label"
                 app:layout_constraintBottom_toTopOf="@+id/description_input"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/photoCredInputLayout" />
 
@@ -477,8 +474,9 @@
                     android:layout_marginTop="56dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
+                    android:autofillHints="description"
                     android:ems="10"
-                    android:gravity="top|left"
+                    android:gravity="top|start"
                     android:hint="@string/work_desc"
                     android:inputType="textMultiLine" />
 
@@ -495,6 +493,7 @@
             app:layout_constraintStart_toEndOf="@+id/left_panel"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0">
+
 
             <View
                 android:id="@+id/divider4"
@@ -516,31 +515,32 @@
 
             <Button
                 android:id="@+id/browse_main_img"
-                android:layout_width="169dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="64dp"
-                android:contentDescription="Add an image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_bg_selector"
+                android:drawableStart="@drawable/ic_photo_library_24dp"
+                android:drawablePadding="10dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="Browse Images"
+                android:text="@string/btn_upload"
                 android:textColor="@drawable/btn_text_selector"
-                android:background="@drawable/btn_bg_selector"
                 android:textSize="@dimen/font_btn"
-                app:layout_constraintBottom_toBottomOf="@+id/mainImage"
-                app:layout_constraintStart_toEndOf="@+id/mainImage"
-                app:layout_constraintTop_toTopOf="@+id/mainImage" />
+                app:layout_constraintEnd_toEndOf="@+id/mainImage"
+                app:layout_constraintStart_toStartOf="@+id/mainImage"
+                app:layout_constraintTop_toBottomOf="@+id/mainImage" />
 
             <Button
                 android:id="@+id/browse_main_img2"
                 android:layout_width="118dp"
                 android:layout_height="38dp"
                 android:layout_marginTop="8dp"
-                android:contentDescription="Add an image"
+                android:background="@drawable/btn_bg_selector"
+                android:contentDescription="@string/workAdmin_addImg_desc"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="Browse Images"
+                android:text="@string/btn_upload"
                 android:textColor="@drawable/btn_text_selector"
-                android:background="@drawable/btn_bg_selector"
                 app:layout_constraintEnd_toEndOf="@+id/related_work_1"
                 app:layout_constraintStart_toStartOf="@+id/related_work_1"
                 app:layout_constraintTop_toBottomOf="@+id/related_work_1" />
@@ -550,12 +550,12 @@
                 android:layout_width="118dp"
                 android:layout_height="38dp"
                 android:layout_marginTop="8dp"
-                android:contentDescription="Add an image"
+                android:background="@drawable/btn_bg_selector"
+                android:contentDescription="@string/workAdmin_addImg_desc"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="Browse Images"
+                android:text="@string/btn_upload"
                 android:textColor="@drawable/btn_text_selector"
-                android:background="@drawable/btn_bg_selector"
                 app:layout_constraintEnd_toEndOf="@+id/related_work_2"
                 app:layout_constraintStart_toStartOf="@+id/related_work_2"
                 app:layout_constraintTop_toBottomOf="@+id/related_work_2" />
@@ -565,12 +565,12 @@
                 android:layout_width="118dp"
                 android:layout_height="38dp"
                 android:layout_marginTop="8dp"
-                android:contentDescription="Add an image"
+                android:background="@drawable/btn_bg_selector"
+                android:contentDescription="@string/workAdmin_addImg_desc"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="Browse Images"
+                android:text="@string/btn_upload"
                 android:textColor="@drawable/btn_text_selector"
-                android:background="@drawable/btn_bg_selector"
                 app:layout_constraintEnd_toEndOf="@+id/related_work_3"
                 app:layout_constraintStart_toStartOf="@+id/related_work_3"
                 app:layout_constraintTop_toBottomOf="@+id/related_work_3" />
@@ -582,13 +582,13 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
                 android:letterSpacing="@dimen/letterSpacing_subtitle"
-                android:text="Related Work Images:"
+                android:text="@string/workAdmin_relatedWork_title"
                 android:textAllCaps="true"
                 android:textColor="@color/textDark"
                 android:textSize="@dimen/font_subtitle"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mainImage" />
+                app:layout_constraintTop_toBottomOf="@+id/browse_main_img" />
 
             <TextView
                 android:id="@+id/main_img_title"
@@ -597,7 +597,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
                 android:letterSpacing="@dimen/letterSpacing_subtitle"
-                android:text="Main Image:"
+                android:text="@string/workAdmin_mainImg_title"
                 android:textAllCaps="true"
                 android:textColor="@color/textDark"
                 android:textSize="@dimen/font_subtitle"
@@ -609,12 +609,10 @@
                 android:id="@+id/related_work_1"
                 android:layout_width="139dp"
                 android:layout_height="129dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/workAdmin_relatedWork1_desc"
                 android:src="@android:drawable/ic_menu_camera"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/related_work_1_title"
                 app:srcCompat="@drawable/marwan"
@@ -622,14 +620,14 @@
 
             <ImageView
                 android:id="@+id/related_work_2"
-                android:layout_width="139dp"
+                android:layout_width="0dp"
                 android:layout_height="129dp"
-                android:layout_marginStart="32dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
+                android:contentDescription="@string/workAdmin_relatedWork2_desc"
                 android:src="@android:drawable/ic_menu_camera"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/related_work_1"
                 app:layout_constraintTop_toBottomOf="@+id/related_work_2_title"
                 app:srcCompat="@drawable/marwan"
@@ -639,14 +637,12 @@
                 android:id="@+id/related_work_3"
                 android:layout_width="139dp"
                 android:layout_height="129dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginTop="32dp"
+                android:contentDescription="@string/workAdmin_relatedWork3_desc"
                 android:src="@android:drawable/ic_menu_camera"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/related_work_2"
-                app:layout_constraintTop_toBottomOf="@+id/related_work_3_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/browse_main_img2"
                 app:srcCompat="@drawable/marwan"
                 tools:srcCompat="@drawable/marwan" />
 
@@ -657,15 +653,15 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="64dp"
                 android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_bg_selector"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="@string/btn_update"
                 android:textColor="@drawable/btn_text_selector"
-                android:background="@drawable/btn_bg_selector"
                 android:textSize="@dimen/font_btn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/browse_main_img3" />
+                app:layout_constraintTop_toBottomOf="@+id/browse_main_img4" />
 
             <TextView
                 android:id="@+id/related_work_1_title"
@@ -673,7 +669,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="Related Work 1 "
+                android:text="@string/workAdmin_relatedWork1_desc"
                 app:layout_constraintStart_toStartOf="@+id/related_work_1"
                 app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
@@ -683,7 +679,7 @@
                 android:layout_height="16dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="Related Work 2"
+                android:text="@string/workAdmin_relatedWork2_desc"
                 app:layout_constraintStart_toStartOf="@+id/related_work_2"
                 app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
@@ -693,7 +689,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="Related Work 3"
+                android:text="@string/workAdmin_relatedWork3_desc"
                 app:layout_constraintStart_toStartOf="@+id/related_work_3"
                 app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
@@ -703,7 +699,10 @@
                 android:layout_height="129dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="@string/workAdmin_mainImg_desc"
                 android:src="@drawable/marwan"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider3" />
 

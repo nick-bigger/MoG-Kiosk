@@ -124,14 +124,6 @@ public class ProcessFragAdmin extends Fragment {
         return rootView;
     }
 
-    private void loadImageFromGallery(View view) {
-        // Create intent to Open Image applications like Gallery, Google Photos
-        Intent galleryIntent = new Intent(Intent.ACTION_PICK,
-                android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
-        // Start the Intent
-        startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
-    }
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -155,9 +147,8 @@ public class ProcessFragAdmin extends Fragment {
     /**
      * Auxiliary method that passed data to the interface method associated with the AdminActivity
      * This is used so AdminActivity can access the data and pass it along
-     * @param name
-     * @param tag
-     * @param description
+     * @param processTitle
+     * @param processDescription
      */
     public void onButtonPressed(CharSequence processTitle, CharSequence processDescription) {
         dataPasser.onProcessDataPass(processTitle, processDescription);
@@ -177,7 +168,6 @@ public class ProcessFragAdmin extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        OnFragmentInteractionListener mListener = null;
     }
 
     /**

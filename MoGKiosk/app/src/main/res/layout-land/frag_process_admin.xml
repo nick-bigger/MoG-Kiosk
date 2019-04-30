@@ -1,247 +1,244 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nestedScrollView"
+    android:id="@+id/ConstraintLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".activities.admin.fragments.ProcessFragAdmin">
 
     <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:id="@+id/panel_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/panel_right"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/panel_right"
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="@dimen/divider_small"
+            android:layout_height="4dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintStart_toStartOf="@+id/process_title"
+            app:layout_constraintTop_toBottomOf="@+id/process_title" />
+
+        <TextView
+            android:id="@+id/process_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/panel_left"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <View
-                android:id="@+id/divider2"
-                android:layout_width="@dimen/divider_small"
-                android:layout_height="4dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/colorAccent"
-                app:layout_constraintStart_toStartOf="@+id/upload_title"
-                app:layout_constraintTop_toBottomOf="@+id/upload_title" />
-
-            <TextView
-                android:id="@+id/upload_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:letterSpacing="@dimen/letterSpacing_subtitle"
-                android:text="@string/processAdmin_videoUpload_title"
-                android:textAllCaps="true"
-                android:textColor="@color/textDark"
-                android:textSize="@dimen/font_subtitle"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/submitBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/btn_bg_selector"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:text="@string/btn_update"
-                android:textColor="@drawable/btn_text_selector"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/frameLayout4" />
-
-            <RelativeLayout
-                android:id="@+id/frameLayout4"
-                android:layout_width="0dp"
-                android:layout_height="400dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="32dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider2">
-
-                <FrameLayout
-                    android:id="@+id/youtube_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:visibility="visible" />
-
-            </RelativeLayout>
-
-        </android.support.constraint.ConstraintLayout>
-
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/panel_left"
-            android:layout_width="547dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toStartOf="@+id/panel_right"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:letterSpacing="@dimen/letterSpacing_subtitle"
+            android:text="@string/processAdmin_videoInfo_title"
+            android:textAllCaps="true"
+            android:textColor="@color/textDark"
+            android:textSize="@dimen/font_subtitle"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <View
-                android:id="@+id/divider1"
-                android:layout_width="@dimen/divider_small"
-                android:layout_height="4dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/colorAccent"
-                app:layout_constraintStart_toStartOf="@+id/process_title"
-                app:layout_constraintTop_toBottomOf="@+id/process_title" />
+        <TextView
+            android:id="@+id/video_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/processAdmin_videoTitle_subtitle"
+            app:layout_constraintBottom_toTopOf="@+id/workTitleInputLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider1" />
 
-            <TextView
-                android:id="@+id/process_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:letterSpacing="@dimen/letterSpacing_subtitle"
-                android:text="@string/processAdmin_videoInfo_title"
-                android:textAllCaps="true"
-                android:textColor="@color/textDark"
-                android:textSize="@dimen/font_subtitle"
-                android:textStyle="bold"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/workTitleInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            app:counterEnabled="true"
+            app:counterMaxLength="30"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/video_title">
+
+            <EditText
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:autofillHints="title"
+                android:ems="10"
+                android:hint="@string/process_video_title"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.13"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/video_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/processAdmin_videoTitle_subtitle"
-                app:layout_constraintBottom_toTopOf="@+id/workTitleInputLayout"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider1" />
+        </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/workTitleInputLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
+        <TextView
+            android:id="@+id/video_description_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/processAdmin_videoDesc_subtitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/workTitleInputLayout" />
+
+        <TextView
+            android:id="@+id/video_description_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/processAdmin_videoId_subtitle"
+            app:layout_constraintStart_toStartOf="@+id/descInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/descInputLayout" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/descInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/video_description_title">
+
+            <EditText
+                android:id="@+id/description"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                app:counterEnabled="true"
-                app:counterMaxLength="30"
+                android:autofillHints="description"
+                android:ems="10"
+                android:gravity="top|start"
+                android:hint="@string/process_video_detail"
+                android:inputType="textMultiLine"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/video_title">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.496" />
+        </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/title"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:autofillHints="title"
-                    android:ems="10"
-                    android:hint="@string/process_video_title"
-                    android:inputType="textPersonName"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.13"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/youtubeIdLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/video_description_title2">
 
-            </android.support.design.widget.TextInputLayout>
-
-            <TextView
-                android:id="@+id/video_description_title"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/youtubeId"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:text="@string/processAdmin_videoDesc_subtitle"
+                android:autofillHints="description"
+                android:ems="10"
+                android:gravity="top|start"
+                android:hint="@string/processAdmin_videoId"
+                android:inputType="textMultiLine"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/workTitleInputLayout" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.496" />
+        </android.support.design.widget.TextInputLayout>
 
-            <TextView
-                android:id="@+id/video_description_title2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/processAdmin_videoId_subtitle"
-                app:layout_constraintStart_toStartOf="@+id/descInputLayout"
-                app:layout_constraintTop_toBottomOf="@+id/descInputLayout" />
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/descInputLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                app:counterEnabled="true"
-                app:counterMaxLength="15"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/video_description_title">
-
-                <EditText
-                    android:id="@+id/description"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:autofillHints="description"
-                    android:ems="10"
-                    android:gravity="top|start"
-                    android:hint="@string/process_video_detail"
-                    android:inputType="textMultiLine"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.496" />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/youtubeIdLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                app:counterEnabled="true"
-                app:counterMaxLength="15"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/video_description_title2">
-
-                <EditText
-                    android:id="@+id/youtubeId"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:autofillHints="description"
-                    android:ems="10"
-                    android:gravity="top|start"
-                    android:hint="@string/processAdmin_videoId"
-                    android:inputType="textMultiLine"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.496" />
-            </android.support.design.widget.TextInputLayout>
-
-        </android.support.constraint.ConstraintLayout>
     </android.support.constraint.ConstraintLayout>
 
-</android.support.v4.widget.NestedScrollView>
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/panel_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/panel_left"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="@dimen/divider_small"
+            android:layout_height="4dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintStart_toStartOf="@+id/upload_title"
+            app:layout_constraintTop_toBottomOf="@+id/upload_title" />
+
+        <TextView
+            android:id="@+id/upload_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:letterSpacing="@dimen/letterSpacing_subtitle"
+            android:text="@string/processAdmin_videoUpload_title"
+            android:textAllCaps="true"
+            android:textColor="@color/textDark"
+            android:textSize="@dimen/font_subtitle"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/submitBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/btn_bg_selector"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="@string/btn_update"
+            android:textColor="@drawable/btn_text_selector"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout4" />
+
+        <RelativeLayout
+            android:id="@+id/frameLayout4"
+            android:layout_width="0dp"
+            android:layout_height="400dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider2">
+
+            <FrameLayout
+                android:id="@+id/youtube_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                android:visibility="visible" />
+
+        </RelativeLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>
