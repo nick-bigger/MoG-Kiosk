@@ -12,6 +12,7 @@
     <dimen name="font_btn">14sp</dimen>
 
     <dimen name="divider_small">35dp</dimen>
+    <dimen name="letterSpacing_subtitle">0.08</dimen>
 
     <!-- Edit text dimens -->
     <dimen name="et_ic_pad">12dp</dimen>

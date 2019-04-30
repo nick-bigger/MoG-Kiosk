@@ -340,8 +340,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="32dp"
+                    android:letterSpacing="@dimen/letterSpacing_subtitle"
                     android:maxLines="1"
-                    android:letterSpacing="0.08"
                     android:text="@string/work_desc_title"
                     android:textAllCaps="true"
                     android:textColor="@color/textDark"
@@ -381,11 +381,21 @@
                 app:layout_constraintStart_toStartOf="@+id/work_description"
                 app:layout_constraintTop_toBottomOf="@+id/work_description">
 
+                <View
+                    android:id="@+id/divider10"
+                    android:layout_width="35dp"
+                    android:layout_height="4dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/colorAccent"
+                    app:layout_constraintStart_toStartOf="@+id/related_work_title"
+                    app:layout_constraintTop_toBottomOf="@+id/related_work_title" />
+
                 <TextView
                     android:id="@+id/related_work_title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
+                    android:letterSpacing="@dimen/letterSpacing_subtitle"
                     android:maxLines="1"
                     android:text="@string/artist_relatedWork1_title"
                     android:textAllCaps="true"
@@ -400,10 +410,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
                     android:columnWidth="500dp"
                     android:gravity="center"
                     android:horizontalSpacing="5dp"
@@ -414,7 +422,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/related_work_title"
+                    app:layout_constraintTop_toBottomOf="@+id/divider10"
                     app:layout_constraintVertical_bias="0.0" />
 
             </android.support.constraint.ConstraintLayout>

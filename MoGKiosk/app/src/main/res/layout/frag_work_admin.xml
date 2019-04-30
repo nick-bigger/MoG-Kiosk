@@ -23,14 +23,33 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0">
 
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="@dimen/divider_small"
+                android:layout_height="4dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="@+id/_title"
+                app:layout_constraintTop_toBottomOf="@+id/_title" />
+
+            <View
+                android:id="@+id/divider1"
+                android:layout_width="@dimen/divider_small"
+                android:layout_height="4dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="@+id/work_info_title"
+                app:layout_constraintTop_toBottomOf="@+id/work_info_title" />
+
             <TextView
                 android:id="@+id/work_info_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:letterSpacing="@dimen/letterSpacing_subtitle"
                 android:text="Work Info:"
                 android:textAllCaps="true"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/textDark"
                 android:textSize="@dimen/font_subtitle"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/workTitleInputLayout"
@@ -43,9 +62,10 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="33dp"
                 android:layout_marginBottom="4dp"
+                android:letterSpacing="@dimen/letterSpacing_subtitle"
                 android:text="Label Info and Work Description:"
                 android:textAllCaps="true"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/textDark"
                 android:textSize="@dimen/font_subtitle"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/artist_name_title"
@@ -57,17 +77,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="494dp"
-                android:layout_marginRight="494dp"
                 android:layout_marginBottom="8dp"
                 android:text="Title of Piece:"
                 app:layout_constraintBottom_toTopOf="@+id/workTitleInputLayout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/work_info_title"
+                app:layout_constraintTop_toBottomOf="@+id/divider1"
                 app:layout_constraintVertical_bias="1.0"
                 app:layout_constraintVertical_chainStyle="spread_inside" />
 
@@ -151,17 +166,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="500dp"
-                android:layout_marginRight="500dp"
                 android:layout_marginBottom="36dp"
                 android:text="Artist Name:"
                 app:layout_constraintBottom_toTopOf="@+id/artistNameInputLayout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/_title" />
+                app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/artistNameInputLayout"
@@ -486,6 +496,24 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0">
 
+            <View
+                android:id="@+id/divider4"
+                android:layout_width="@dimen/divider_small"
+                android:layout_height="4dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="@+id/related_img_title"
+                app:layout_constraintTop_toBottomOf="@+id/related_img_title" />
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="@dimen/divider_small"
+                android:layout_height="4dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="@+id/main_img_title"
+                app:layout_constraintTop_toBottomOf="@+id/main_img_title" />
+
             <Button
                 android:id="@+id/browse_main_img"
                 android:layout_width="169dp"
@@ -553,9 +581,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
+                android:letterSpacing="@dimen/letterSpacing_subtitle"
                 android:text="Related Work Images:"
                 android:textAllCaps="true"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/textDark"
                 android:textSize="@dimen/font_subtitle"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -567,9 +596,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
+                android:letterSpacing="@dimen/letterSpacing_subtitle"
                 android:text="Main Image:"
                 android:textAllCaps="true"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/textDark"
                 android:textSize="@dimen/font_subtitle"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -580,15 +610,13 @@
                 android:layout_width="139dp"
                 android:layout_height="129dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="340dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
                 android:src="@android:drawable/ic_menu_camera"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/related_work_1_title"
                 app:srcCompat="@drawable/marwan"
                 tools:srcCompat="@drawable/marwan" />
 
@@ -597,15 +625,13 @@
                 android:layout_width="139dp"
                 android:layout_height="129dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginLeft="32dp"
-                android:layout_marginTop="340dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
                 android:src="@android:drawable/ic_menu_camera"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/related_work_1"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/related_work_2_title"
                 app:srcCompat="@drawable/marwan"
                 tools:srcCompat="@drawable/marwan" />
 
@@ -614,15 +640,13 @@
                 android:layout_width="139dp"
                 android:layout_height="129dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginLeft="32dp"
-                android:layout_marginTop="340dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
                 android:src="@android:drawable/ic_menu_camera"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/related_work_2"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/related_work_3_title"
                 app:srcCompat="@drawable/marwan"
                 tools:srcCompat="@drawable/marwan" />
 
@@ -648,44 +672,40 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="16dp"
                 android:text="Related Work 1 "
-                app:layout_constraintBottom_toTopOf="@+id/related_work_1"
-                app:layout_constraintStart_toStartOf="@+id/related_work_1" />
+                app:layout_constraintStart_toStartOf="@+id/related_work_1"
+                app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
             <TextView
                 android:id="@+id/related_work_2_title"
                 android:layout_width="wrap_content"
                 android:layout_height="16dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="16dp"
                 android:text="Related Work 2"
-                app:layout_constraintBottom_toTopOf="@+id/related_work_2"
-                app:layout_constraintStart_toStartOf="@+id/related_work_2" />
+                app:layout_constraintStart_toStartOf="@+id/related_work_2"
+                app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
             <TextView
                 android:id="@+id/related_work_3_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="16dp"
                 android:text="Related Work 3"
-                app:layout_constraintBottom_toTopOf="@+id/related_work_3"
-                app:layout_constraintStart_toStartOf="@+id/related_work_3" />
+                app:layout_constraintStart_toStartOf="@+id/related_work_3"
+                app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
             <ImageView
                 android:id="@+id/mainImage"
                 android:layout_width="139dp"
                 android:layout_height="129dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:src="@drawable/marwan"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/main_img_title" />
+                app:layout_constraintTop_toBottomOf="@+id/divider3" />
 
         </android.support.constraint.ConstraintLayout>
 
