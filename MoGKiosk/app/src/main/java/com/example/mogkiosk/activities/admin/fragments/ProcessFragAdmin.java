@@ -93,8 +93,7 @@ public class ProcessFragAdmin extends Fragment {
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
                 if (!wasRestored) {
                     player.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
-                    player.loadVideo("X7mL8mcPiQ4");
-                    player.pause();
+                    player.cueVideo("X7mL8mcPiQ4");
                 }
             }
 

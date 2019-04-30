@@ -38,7 +38,6 @@ public class ProcessFrag extends Fragment {
     private SharedPreferences prefs;
 
     private TextView title;
-    private TextView description;
     private OnFragmentInteractionListener mListener;
 
     public ProcessFrag() {
@@ -89,8 +88,7 @@ public class ProcessFrag extends Fragment {
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
                 if (!wasRestored) {
                     player.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
-                    player.loadVideo("X7mL8mcPiQ4");
-                    player.pause();
+                    player.cueVideo("X7mL8mcPiQ4");
                 }
             }
 
@@ -105,7 +103,6 @@ public class ProcessFrag extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_process, container, false);
 
         title = rootView.findViewById(R.id.video_title);
-        description = rootView.findViewById(R.id.video_duration);
         // Inflate the layout for this fragment
         return rootView;
     }
@@ -119,17 +116,6 @@ public class ProcessFrag extends Fragment {
             if(processTitle != null && !processTitle.isEmpty()) {
                 title.setText(processTitle);
             }
-
-            if(processDescription != null && !processDescription.isEmpty()) {
-                description.setText(processDescription);
-            }
-        }
-    }
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-//            videoView.start();
         }
     }
 
