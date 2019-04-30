@@ -213,6 +213,15 @@
     <!-- process admin start -->
     <string name="a_ptitle">android.content.SharedPreferences.a_ptitle</string>
     <string name="a_pdescription">android.content.SharedPreferences.a_pdescription</string>
+
+    <string name="processAdmin_videoUpload_title">Video Preview:</string>
+    <string name="processAdmin_videoInfo_title">Video Info:</string>
+
+    <string name="processAdmin_videoTitle_subtitle">Video Title</string>
+    <string name="processAdmin_videoDesc_subtitle">Video Description</string>
+    <string name="processAdmin_videoId_subtitle">YouTube ID</string>
+
+    <string name="processAdmin_videoId">X7mL8mcPiQ4</string>
     <!-- process admin end -->
 
     <!-- login start -->
