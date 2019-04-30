@@ -1,11 +1,13 @@
 package com.example.mogkiosk.activities.admin.fragments;
 
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +18,12 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.mogkiosk.R;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Objects;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -30,12 +38,16 @@ import static android.app.Activity.RESULT_OK;
  * create an instance of this fragment.
  */
 public class WorkFragAdmin extends Fragment {
+
     private OnWorkDataPass dataPasser;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static int RESULT_LOAD_IMG = 1;
+    private static final int RESULT_LOAD_IMG1 = 2;
+    private static final int RESULT_LOAD_IMG2 = 3;
+    private static final int RESULT_LOAD_IMG3 = 4;
     private static int viewId;
 
     // TODO: Rename and change types of parameters
@@ -106,11 +118,22 @@ public class WorkFragAdmin extends Fragment {
         Button related2ImageBtn = rootView.findViewById(R.id.browse_main_img3);
         Button related3ImageBtn = rootView.findViewById(R.id.browse_main_img4);
 
+        CharSequence artistInput = artist.getText();
+        CharSequence piecedateInput = piecedate.getText();
+        CharSequence mediumInput = medium.getText();
+        CharSequence dimensionsInput = dimensions.getText();
+        CharSequence collectionInput = collection.getText();
+        CharSequence titleInput = title.getText();
+        CharSequence dateInput = date.getText();
+        CharSequence photo = photoBy.getText();
+
         mainImageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                viewId = R.id.mainImage;
-                loadImageFromGallery(view);
+
+                    viewId = R.id.mainImage;
+                    loadImageFromGalleryMain(view);
+
             }
         });
 
@@ -118,7 +141,7 @@ public class WorkFragAdmin extends Fragment {
             @Override
             public void onClick(View view) {
                 viewId = R.id.related_work_1;
-                loadImageFromGallery(view);
+                loadFirstImage(view);
             }
         });
 
@@ -126,7 +149,7 @@ public class WorkFragAdmin extends Fragment {
             @Override
             public void onClick(View view) {
                 viewId = R.id.related_work_2;
-                loadImageFromGallery(view);
+                loadSecondImage(view);
             }
         });
 
@@ -134,7 +157,7 @@ public class WorkFragAdmin extends Fragment {
             @Override
             public void onClick(View view) {
                 viewId = R.id.related_work_3;
-                loadImageFromGallery(view);
+                loadThirdImage(view);
             }
         });
 
@@ -175,12 +198,38 @@ public class WorkFragAdmin extends Fragment {
                 date, collection, dimensions, medium, photo);
     }
 
-    private void loadImageFromGallery(View view) {
+    private void loadImageFromGalleryMain(View view) {
         // Create intent to Open Image applications like Gallery, Google Photos
         Intent galleryIntent = new Intent(Intent.ACTION_PICK,
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         // Start the Intent
         startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
+    }
+
+    private void loadFirstImage(View view) {
+        // Create intent to Open Image applications like Gallery, Google Photos
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        // Start the Intent
+        startActivityForResult(galleryIntent, RESULT_LOAD_IMG1);
+    }
+
+
+    private void loadSecondImage(View view) {
+        // Create intent to Open Image applications like Gallery, Google Photos
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        // Start the Intent
+        startActivityForResult(galleryIntent, RESULT_LOAD_IMG2);
+    }
+
+
+    private void loadThirdImage(View view) {
+        // Create intent to Open Image applications like Gallery, Google Photos
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        // Start the Intent
+        startActivityForResult(galleryIntent, RESULT_LOAD_IMG3);
     }
 
     @Override
@@ -191,14 +240,50 @@ public class WorkFragAdmin extends Fragment {
             if (requestCode == RESULT_LOAD_IMG && resultCode == RESULT_OK
                     && null != data) {
                 // Get the Image from data
-
                 Uri selectedImage = data.getData();
-                Bitmap bitmap = BitmapFactory.decodeStream(getActivity().getApplicationContext().getContentResolver().openInputStream(selectedImage));
+                Bitmap bitmap =  MediaStore.Images.Media.getBitmap(Objects.requireNonNull(this.getContext()).getContentResolver(), selectedImage);
+                Bitmap placeholder = BitmapFactory.decodeStream(getActivity().getApplicationContext().getContentResolver().openInputStream(selectedImage));
 
-                ImageView imgView = getView().findViewById(viewId);
                 // Set the Image in ImageView after decoding the String
-                imgView.setImageBitmap(bitmap);
+                ImageView imgView = getView().findViewById(R.id.mainImage);
+                imgView.setImageBitmap(placeholder);
+                //null bit
+                saveToInternalStorage(bitmap, "main.png");
+            } else if (requestCode == RESULT_LOAD_IMG1 && resultCode == RESULT_OK) {
+                // Get the Image from data
+                Uri selectedImage = data.getData();
+                Bitmap bitmap =  MediaStore.Images.Media.getBitmap(Objects.requireNonNull(this.getContext()).getContentResolver(), selectedImage);
+                Bitmap placeholder = BitmapFactory.decodeStream(getActivity().getApplicationContext().getContentResolver().openInputStream(selectedImage));
 
+                // Set the Image in ImageView after decoding the String
+                ImageView imgView = getView().findViewById(R.id.related_work_1);
+                imgView.setImageBitmap(placeholder);
+                //null bit
+                saveToInternalStorage(bitmap, "art1.png");
+            } else if(requestCode == RESULT_LOAD_IMG2 && resultCode == RESULT_OK) {
+                // Get the Image from data
+                assert data != null;
+                Uri selectedImage = data.getData();
+                Bitmap bitmap =  MediaStore.Images.Media.getBitmap(Objects.requireNonNull(this.getContext()).getContentResolver(), selectedImage);
+                Bitmap placeholder = BitmapFactory.decodeStream(getActivity().getApplicationContext().getContentResolver().openInputStream(selectedImage));
+
+                // Set the Image in ImageView after decoding the String
+                ImageView imgView = Objects.requireNonNull(getView()).findViewById(R.id.related_work_2);
+                imgView.setImageBitmap(placeholder);
+                //null bit
+                saveToInternalStorage(bitmap, "art2.png");
+            } else if(requestCode == RESULT_LOAD_IMG3 && resultCode == RESULT_OK) {
+                // Get the Image from data
+                assert data != null;
+                Uri selectedImage = data.getData();
+                Bitmap bitmap =  MediaStore.Images.Media.getBitmap(Objects.requireNonNull(this.getContext()).getContentResolver(), selectedImage);
+                Bitmap placeholder = BitmapFactory.decodeStream(getActivity().getApplicationContext().getContentResolver().openInputStream(selectedImage));
+
+                // Set the Image in ImageView after decoding the String
+                ImageView imgView = Objects.requireNonNull(getView()).findViewById(R.id.related_work_3);
+                imgView.setImageBitmap(placeholder);
+                //null bit
+                saveToInternalStorage(bitmap, "art3.png");
             } else {
                 Toast.makeText(getActivity(), "You haven't picked Image",
                         Toast.LENGTH_LONG).show();
@@ -209,6 +294,31 @@ public class WorkFragAdmin extends Fragment {
         }
 
     }
+
+    private String saveToInternalStorage(Bitmap bitmapImage, String pathName){
+        ContextWrapper cw = new ContextWrapper(getContext());
+        // path to /data/data/yourapp/app_data/imageDir
+        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+        // Create imageDir
+        File mypath= new File(directory, pathName);
+
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(mypath);
+            // Use the compress method on the BitMap object to write image to the OutputStream
+            bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return directory.getAbsolutePath();
+    }
+
 
     @Override
     public void onAttach(Context context) {

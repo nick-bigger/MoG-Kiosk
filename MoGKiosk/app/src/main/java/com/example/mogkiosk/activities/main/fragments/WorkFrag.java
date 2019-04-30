@@ -1,9 +1,12 @@
 package com.example.mogkiosk.activities.main.fragments;
 
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -12,11 +15,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mogkiosk.R;
 import com.example.mogkiosk.adapters.ImageAdapter;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 
@@ -49,6 +56,11 @@ public class WorkFrag extends Fragment {
     private TextView collection;
     private TextView photoBy;
     private TextView workDescription;
+
+    private ImageView mainImage;
+    private ImageView art1;
+    private ImageView art2;
+    private ImageView art3;
 
     private SharedPreferences prefs;
     private View v;
@@ -122,6 +134,7 @@ public class WorkFrag extends Fragment {
         mediumTitle = v.findViewById(R.id.medium_entry);
         dimensions = v.findViewById(R.id.dimensions_entry);
         photoBy = v.findViewById(R.id.photo_credit_entry);
+        mainImage = v.findViewById(R.id.work_image);
 
 
 
@@ -176,7 +189,33 @@ public class WorkFrag extends Fragment {
                 photoBy.setText(photo);
             }
 
+
+            ContextWrapper cw = new ContextWrapper(getContext());
+            // path to /data/data/yourapp/app_data/imageDir
+            File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+            loadImageFromStorage(directory.getAbsolutePath(), "main.png");
+
         }
+
+
+    }
+
+    private void loadImageFromStorage(String path, String imageName)
+    {
+        if(imageName == "main.png") {
+
+            try {
+                File f=new File(path, "main.png");
+                Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
+                Drawable d = new BitmapDrawable(getResources(), b);
+                mainImage.setImageDrawable(d);
+            }
+            catch (FileNotFoundException e)
+            {
+                e.printStackTrace();
+            }
+        }
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
