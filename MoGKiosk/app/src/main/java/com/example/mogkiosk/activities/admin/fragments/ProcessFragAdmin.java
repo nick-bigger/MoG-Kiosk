@@ -5,16 +5,19 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.VideoView;
 
 import com.example.mogkiosk.R;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -33,6 +36,8 @@ public class ProcessFragAdmin extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final int RESULT_LOAD_IMG = 1;
+    private static final String YOUTUBE_API_KEY = "AIzaSyC4N2Q4nQxCv6Pm_wZt-QCNqgDq-fe27UI";
+
     private OnProcessDataPass dataPasser;
 
     private TextView processTitle;
@@ -76,22 +81,29 @@ public class ProcessFragAdmin extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.frag_process_admin, container, false);
 
-        Button uploadImageBtn = rootView.findViewById(R.id.browse_main_img5);
-        uploadImageBtn.setOnClickListener(new View.OnClickListener() {
+        // set up youtube view
+        YouTubePlayerSupportFragment youTubePlayerFragment = YouTubePlayerSupportFragment.newInstance();
+
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        transaction.add(R.id.youtube_view, youTubePlayerFragment).commit();
+
+        youTubePlayerFragment.initialize(YOUTUBE_API_KEY, new YouTubePlayer.OnInitializedListener() {
+
             @Override
-            public void onClick(View view) {
-                loadImageFromGallery(view);
+            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
+                if (!wasRestored) {
+                    player.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
+                    player.cueVideo("X7mL8mcPiQ4");
+                }
+            }
+
+            @Override
+            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult error) {
+                String errorMessage = error.toString();
+                Toast.makeText(getActivity(), errorMessage, Toast.LENGTH_LONG).show();
+                Log.d("errorMessage:", errorMessage);
             }
         });
-
-        VideoView videoView = rootView.findViewById(R.id.videoView2);
-        String videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.videoplayback;
-        Uri uri = Uri.parse(videoPath);
-        videoView.setVideoURI(uri);
-
-        MediaController mediaController = new MediaController(getActivity());
-        videoView.setMediaController(mediaController);
-        mediaController.setAnchorView(videoView);
 
         Button submit = rootView.findViewById(R.id.submitBtn);
         processDescription = rootView.findViewById(R.id.description);
@@ -112,14 +124,6 @@ public class ProcessFragAdmin extends Fragment {
         return rootView;
     }
 
-    private void loadImageFromGallery(View view) {
-        // Create intent to Open Image applications like Gallery, Google Photos
-        Intent galleryIntent = new Intent(Intent.ACTION_PICK,
-                android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
-        // Start the Intent
-        startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
-    }
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -128,12 +132,6 @@ public class ProcessFragAdmin extends Fragment {
             if (requestCode == RESULT_LOAD_IMG && resultCode == RESULT_OK
                     && null != data) {
                 // Get the Image from data
-
-                Uri selectedVideo = data.getData();
-
-                VideoView vidView = getView().findViewById(R.id.videoView2);
-                // Set the Image in ImageView after decoding the String
-                vidView.setVideoURI(selectedVideo);
 
             } else {
                 Toast.makeText(getActivity(), "No Image Chosen",
@@ -149,9 +147,8 @@ public class ProcessFragAdmin extends Fragment {
     /**
      * Auxiliary method that passed data to the interface method associated with the AdminActivity
      * This is used so AdminActivity can access the data and pass it along
-     * @param name
-     * @param tag
-     * @param description
+     * @param processTitle
+     * @param processDescription
      */
     public void onButtonPressed(CharSequence processTitle, CharSequence processDescription) {
         dataPasser.onProcessDataPass(processTitle, processDescription);
@@ -171,7 +168,6 @@ public class ProcessFragAdmin extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        OnFragmentInteractionListener mListener = null;
     }
 
     /**

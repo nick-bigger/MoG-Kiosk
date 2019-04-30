@@ -208,11 +208,43 @@
     <string name="a_dimension">android.content.SharedPreferences.a_dimension</string>
     <string name="a_date">android.content.SharedPreferences.a_date</string>
     <string name="a_photo">android.content.SharedPreferences.a_photo</string>
+
+    <string name="workAdmin_workInfo_title">Work Info:</string>
+    <string name="workAdmin_labelInfo_title">Label Info and Work Description:</string>
+    <string name="workAdmin_mainImg_title">Main Image:</string>
+    <string name="workAdmin_relatedWork_title">Related Work Images:</string>
+
+    <string name="workAdmin_pieceTitle_label">Title of Piece</string>
+    <string name="workAdmin_pieceYear_label">Year of Piece</string>
+
+    <string name="workAdmin_infoName_label">Artist Name</string>
+    <string name="workAdmin_infoDate_label">Date (from label, including location)</string>
+    <string name="workAdmin_infoMedium_label">Medium</string>
+    <string name="workAdmin_infoDimen_label">Dimensions</string>
+    <string name="workAdmin_infoCollect_label">Collection</string>
+    <string name="workAdmin_infoCredit_label">Photo Credit</string>
+    <string name="workAdmin_infoDesc_label">Description of the Work</string>
+
+    <string name="workAdmin_addImg_desc">Upload an image</string>
+    <string name="workAdmin_mainImg_desc">The main image for the work page</string>
+    <string name="workAdmin_relatedWork1_desc">Related Work 1</string>
+    <string name="workAdmin_relatedWork2_desc">Related Work 2</string>
+    <string name="workAdmin_relatedWork3_desc">Related Work 3</string>
+
     <!-- work admin end -->
 
     <!-- process admin start -->
     <string name="a_ptitle">android.content.SharedPreferences.a_ptitle</string>
     <string name="a_pdescription">android.content.SharedPreferences.a_pdescription</string>
+
+    <string name="processAdmin_videoUpload_title">Video Preview:</string>
+    <string name="processAdmin_videoInfo_title">Video Info:</string>
+
+    <string name="processAdmin_videoTitle_subtitle">Video Title</string>
+    <string name="processAdmin_videoDesc_subtitle">Video Description</string>
+    <string name="processAdmin_videoId_subtitle">YouTube ID</string>
+
+    <string name="processAdmin_videoId">X7mL8mcPiQ4</string>
     <!-- process admin end -->
 
     <!-- login start -->
@@ -253,4 +285,10 @@
     <!-- change password start -->
     <string name="changePwd_error_match">Passwords do not match!</string>
     <!-- change password end -->
+
+    <!-- youtube start -->
+    <string name="player_error">Error initializing YouTube player: %s</string>
+    <string name="seek_to">Jump To</string>
+    <string name="seek_to_hint">Seconds</string>
+    <!-- youtube end -->
 </resources>
