@@ -38,40 +38,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/artist_admin_imageText" />
 
             <Button
-                android:id="@+id/changePassBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="8dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:text="@string/title_activity_changePwd"
-                android:textColor="@drawable/btn_text_selector"
-                android:background="@drawable/btn_bg_selector"
-                android:textSize="@dimen/font_btn"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/currentImage" />
-
-            <Button
-                android:id="@+id/updateCredBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:text="@string/title_activity_updateCred"
-                android:textColor="@drawable/btn_text_selector"
-                android:background="@drawable/btn_bg_selector"
-                android:textSize="@dimen/font_btn"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/changePassBtn" />
-
-            <Button
                 android:id="@+id/etImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
