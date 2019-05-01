@@ -24,8 +24,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.mogkiosk.R;
-import com.example.mogkiosk.UpdateCredActivity;
-import com.example.mogkiosk.activities.changepass.ChangePassActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -152,22 +150,6 @@ public class ArtistFragAdmin extends Fragment {
             }
         });
 
-        Button changePassBtn = rootView.findViewById(R.id.changePassBtn);
-        changePassBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), ChangePassActivity.class));
-            }
-        });
-
-        Button updateCredBtn = rootView.findViewById(R.id.updateCredBtn);
-        updateCredBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), UpdateCredActivity.class));
-            }
-        });
-
         String name = prefs.getString(getString(R.string.a_artistname), "");
         String bio = prefs.getString(getString(R.string.a_bio), "");
         String tag = prefs.getString(getString(R.string.a_tag), "");
@@ -255,7 +237,7 @@ public class ArtistFragAdmin extends Fragment {
      * @param tag
      * @param description
      */
-    public void onButtonPressed(CharSequence name, CharSequence tag, CharSequence description, CharSequence subbio) {
+    private void onButtonPressed(CharSequence name, CharSequence tag, CharSequence description, CharSequence subbio) {
         dataPasser.onArtistDataPass(name, tag, description, subbio);
     }
 

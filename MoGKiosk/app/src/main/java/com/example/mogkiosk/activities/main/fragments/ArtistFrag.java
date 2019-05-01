@@ -26,7 +26,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 
-
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -38,25 +37,14 @@ import java.util.ArrayList;
 public class ArtistFrag extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String NAME = "NAME";
-    private static final String BIO = "BIO";
-    private static final String TAG = "TAG";
-    private static final String SUBBIO = "SUBBIO";
 
     // TODO: Rename and change types of parameters
-    private String name;
-    private String tag;
-    private String description;
-    private String subbio;
     private TextView artistNameTextView;
     private TextView tagLineTextView;
     private TextView bioTextView;
     private TextView subBioTextView;
     private ImageView profilePic;
     private SharedPreferences prefs;
-
-    private GridView imageGrid;
-    private ArrayList<Bitmap> bitmapList;
 
     private OnFragmentInteractionListener mListener;
 
@@ -162,13 +150,6 @@ public class ArtistFrag extends Fragment {
             e.printStackTrace();
         }
 
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed (Uri uri){
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
     }
 
     @Override

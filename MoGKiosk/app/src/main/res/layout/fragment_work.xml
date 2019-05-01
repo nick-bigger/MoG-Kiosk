@@ -6,7 +6,6 @@
     android:layout_height="match_parent">
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
@@ -57,7 +56,6 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <View
-                    android:id="@+id/divider"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@android:color/darker_gray"
@@ -107,14 +105,12 @@
 
 
                     <TableRow
-                        android:id="@+id/artist_row"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_margin="1dp"
                         android:layout_weight="1">
 
                         <TextView
-                            android:id="@+id/artist_title"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_column="0"
@@ -140,14 +136,12 @@
 
 
                     <TableRow
-                        android:id="@+id/date_row"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_margin="1dp"
                         android:layout_weight="1">
 
                         <TextView
-                            android:id="@+id/date_title"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_column="0"
@@ -172,7 +166,6 @@
                     </TableRow>
 
                     <TableRow
-                        android:id="@+id/medium_row"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_margin="1dp"
@@ -204,7 +197,6 @@
                     </TableRow>
 
                     <TableRow
-                        android:id="@+id/dimensions_row"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_margin="1dp"
@@ -236,7 +228,6 @@
                     </TableRow>
 
                     <TableRow
-                        android:id="@+id/collection_row"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
@@ -266,12 +257,10 @@
                     </TableRow>
 
                     <TableRow
-                        android:id="@+id/photo_credit_row"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
                         <TextView
-                            android:id="@+id/photo_title"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_column="0"
@@ -340,8 +329,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="32dp"
+                    android:letterSpacing="@dimen/letterSpacing_subtitle"
                     android:maxLines="1"
-                    android:letterSpacing="0.08"
                     android:text="@string/work_desc_title"
                     android:textAllCaps="true"
                     android:textColor="@color/textDark"
@@ -372,7 +361,6 @@
             </android.support.constraint.ConstraintLayout>
 
             <android.support.constraint.ConstraintLayout
-                android:id="@+id/related_work"
                 android:layout_width="0dp"
                 android:layout_height="311dp"
                 android:layout_marginBottom="8dp"
@@ -381,11 +369,21 @@
                 app:layout_constraintStart_toStartOf="@+id/work_description"
                 app:layout_constraintTop_toBottomOf="@+id/work_description">
 
+                <View
+                    android:id="@+id/divider10"
+                    android:layout_width="35dp"
+                    android:layout_height="4dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/colorAccent"
+                    app:layout_constraintStart_toStartOf="@+id/related_work_title"
+                    app:layout_constraintTop_toBottomOf="@+id/related_work_title" />
+
                 <TextView
                     android:id="@+id/related_work_title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
+                    android:letterSpacing="@dimen/letterSpacing_subtitle"
                     android:maxLines="1"
                     android:text="@string/artist_relatedWork1_title"
                     android:textAllCaps="true"
@@ -400,10 +398,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
                     android:columnWidth="500dp"
                     android:gravity="center"
                     android:horizontalSpacing="5dp"
@@ -414,7 +410,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/related_work_title"
+                    app:layout_constraintTop_toBottomOf="@+id/divider10"
                     app:layout_constraintVertical_bias="0.0" />
 
             </android.support.constraint.ConstraintLayout>

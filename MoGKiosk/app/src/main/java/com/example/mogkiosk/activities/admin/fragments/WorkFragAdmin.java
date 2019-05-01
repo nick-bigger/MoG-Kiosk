@@ -209,12 +209,17 @@ public class WorkFragAdmin extends Fragment {
     /**
      * Auxiliary method that passed data to the interface method associated with the AdminActivity
      * This is used so AdminActivity can access the data and pass it along
-     * @param name
-     * @param tag
-     * @param description
+     * @param artist
+     * @param piecedate
+     * @param title
+     * @param date
+     * @param collection
+     * @param dimensions
+     * @param medium
+     * @param photo
      */
-    public void onButtonPressed(CharSequence artist, CharSequence piecedate, CharSequence title,
-                                CharSequence date, CharSequence collection, CharSequence dimensions, CharSequence medium, CharSequence photo) {
+    private void onButtonPressed(CharSequence artist, CharSequence piecedate, CharSequence title,
+                                 CharSequence date, CharSequence collection, CharSequence dimensions, CharSequence medium, CharSequence photo) {
         dataPasser.onWorkDataPass(artist, piecedate, title,
                 date, collection, dimensions, medium, photo);
     }
@@ -356,6 +361,21 @@ public class WorkFragAdmin extends Fragment {
     public void onDetach() {
         super.onDetach();
         dataPasser = null;
+    }
+
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     * <p>
+     * See the Android Training lesson <a href=
+     * "http://developer.android.com/training/basics/fragments/communicating.html"
+     * >Communicating with Other Fragments</a> for more information.
+     */
+    public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        void onFragmentInteraction(Uri uri);
     }
 
     /**
