@@ -8,7 +8,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -37,7 +36,6 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         /**

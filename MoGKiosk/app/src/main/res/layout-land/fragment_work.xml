@@ -6,7 +6,6 @@
     android:layout_height="match_parent">
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
@@ -57,7 +56,6 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <View
-                    android:id="@+id/divider"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@android:color/darker_gray"
@@ -107,14 +105,12 @@
 
 
                     <TableRow
-                        android:id="@+id/artist_row"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_margin="1dp"
                         android:layout_weight="1">
 
                         <TextView
-                            android:id="@+id/artist_title"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_column="0"
@@ -140,14 +136,12 @@
 
 
                     <TableRow
-                        android:id="@+id/date_row"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_margin="1dp"
                         android:layout_weight="1">
 
                         <TextView
-                            android:id="@+id/date_title"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_column="0"
@@ -172,7 +166,6 @@
                     </TableRow>
 
                     <TableRow
-                        android:id="@+id/medium_row"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_margin="1dp"
@@ -204,7 +197,6 @@
                     </TableRow>
 
                     <TableRow
-                        android:id="@+id/dimensions_row"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_margin="1dp"
@@ -236,7 +228,6 @@
                     </TableRow>
 
                     <TableRow
-                        android:id="@+id/collection_row"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
@@ -266,12 +257,10 @@
                     </TableRow>
 
                     <TableRow
-                        android:id="@+id/photo_credit_row"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
                         <TextView
-                            android:id="@+id/photo_title"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_column="0"
@@ -372,7 +361,6 @@
             </android.support.constraint.ConstraintLayout>
 
             <android.support.constraint.ConstraintLayout
-                android:id="@+id/related_work"
                 android:layout_width="0dp"
                 android:layout_height="311dp"
                 android:layout_marginBottom="8dp"

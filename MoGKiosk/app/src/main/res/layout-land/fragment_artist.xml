@@ -6,14 +6,12 @@
     android:layout_height="match_parent" >
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
         tools:context=".activities.main.fragments.ArtistFrag">
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/bioPanel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -47,7 +45,6 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <android.support.constraint.ConstraintLayout
-                android:id="@+id/artistFrag_bio_card"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -88,7 +85,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/artistFrag_bio" />
 
                 <TextView
-                    android:id="@+id/artistFrag_bio3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
@@ -124,7 +120,6 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:id="@+id/artist_headshot"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
@@ -140,7 +135,6 @@
             </android.support.constraint.ConstraintLayout>
 
             <View
-                android:id="@+id/divider"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginStart="10dp"

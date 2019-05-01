@@ -38,7 +38,6 @@ public class ProcessFrag extends Fragment {
     private SharedPreferences prefs;
 
     private TextView title;
-    private OnFragmentInteractionListener mListener;
 
     public ProcessFrag() {
         // Required empty public constructor
@@ -123,18 +122,11 @@ public class ProcessFrag extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
         }
 //        else {
 //            throw new RuntimeException(context.toString()
 //                    + " must implement OnFragmentInteractionListener");
 //        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
     }
 
     /**
@@ -147,7 +139,7 @@ public class ProcessFrag extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnFragmentInteractionListener {
+    private interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }

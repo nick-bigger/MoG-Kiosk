@@ -30,8 +30,8 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mNameEditText; //use m for global variables because history
     private EditText mPassEditText;
     private TextView mBadLoginTextView;
-    AlertDialog alertDialog;
-    AlertDialog errorDialog;
+    private AlertDialog alertDialog;
+    private AlertDialog errorDialog;
 
 
     @Override
@@ -90,9 +90,9 @@ public class LoginActivity extends AppCompatActivity {
             {
                 try {
                     if (manager.isSent()) {
-                        open(view, manager);
+                        open(manager);
                     } else {
-                        error(view);
+                        error();
                     }
                 } catch (NoSuchAlgorithmException e) {
                     System.out.println("Something went wrong while forgetting password with stuff");
@@ -145,9 +145,9 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public static class MyCustomDialogFragment extends DialogFragment {
-        public static final String DIALOG_TYPE = "dialogType";
-        public static final boolean EMAIL_SENDING = true;
-        public static final boolean EMAIL_ALREADY_SENT = false;
+        static final String DIALOG_TYPE = "dialogType";
+        static final boolean EMAIL_SENDING = true;
+        static final boolean EMAIL_ALREADY_SENT = false;
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -177,7 +177,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void open(View view, final PrivateInfoManager manager){
+    private void open(final PrivateInfoManager manager) throws Exception  {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("Would you like to reset your password?");
         alertDialogBuilder.setTitle("Reset Password");
@@ -211,7 +211,7 @@ public class LoginActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    public void error(View view){
+    private void error() throws Exception {
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("An email has already been sent.");
         alertDialogBuilder.setTitle("Error");

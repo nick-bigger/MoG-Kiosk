@@ -150,7 +150,7 @@ public class ProcessFragAdmin extends Fragment {
      * @param processTitle
      * @param processDescription
      */
-    public void onButtonPressed(CharSequence processTitle, CharSequence processDescription) {
+    private void onButtonPressed(CharSequence processTitle, CharSequence processDescription) {
         dataPasser.onProcessDataPass(processTitle, processDescription);
     }
 
@@ -163,11 +163,6 @@ public class ProcessFragAdmin extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnDataPass interface");
         }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
     }
 
     /**

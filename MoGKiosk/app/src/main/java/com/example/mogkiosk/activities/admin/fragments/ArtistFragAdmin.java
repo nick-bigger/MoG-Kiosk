@@ -193,7 +193,7 @@ public class ArtistFragAdmin extends Fragment {
      * @param tag
      * @param description
      */
-    public void onButtonPressed(CharSequence name, CharSequence tag, CharSequence description, CharSequence subbio) {
+    private void onButtonPressed(CharSequence name, CharSequence tag, CharSequence description, CharSequence subbio) {
         dataPasser.onArtistDataPass(name, tag, description, subbio);
     }
 

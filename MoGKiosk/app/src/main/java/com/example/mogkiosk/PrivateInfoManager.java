@@ -610,10 +610,8 @@ public class PrivateInfoManager
      * containing new username and password.
      * If a temp hash does exist, it means this process has already been executed and a message will be reported
      * @return whether or not this process went through all the steps
-     * @throws NoSuchAlgorithmException
-     * @throws InvalidKeySpecException
      */
-    public boolean isSent() throws Exception {
+    public boolean isSent() {
         return isEmptyTempHash() && isEmptyTempSalt();
         //indicates that there is already an email sent
     }

@@ -2,7 +2,6 @@ package com.example.mogkiosk.activities.main.fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -10,12 +9,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 import android.widget.TextView;
 
 import com.example.mogkiosk.R;
-
-import java.util.ArrayList;
 
 
 
@@ -30,24 +26,13 @@ import java.util.ArrayList;
 public class ArtistFrag extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String NAME = "NAME";
-    private static final String BIO = "BIO";
-    private static final String TAG = "TAG";
-    private static final String SUBBIO = "SUBBIO";
 
     // TODO: Rename and change types of parameters
-    private String name;
-    private String tag;
-    private String description;
-    private String subbio;
     private TextView artistNameTextView;
     private TextView tagLineTextView;
     private TextView bioTextView;
     private TextView subBioTextView;
     private SharedPreferences prefs;
-
-    private GridView imageGrid;
-    private ArrayList<Bitmap> bitmapList;
 
     private OnFragmentInteractionListener mListener;
 
@@ -128,13 +113,6 @@ public class ArtistFrag extends Fragment {
                 subBioTextView.setText(subbio);
             }
 
-        }
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed (Uri uri){
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
         }
     }
 
