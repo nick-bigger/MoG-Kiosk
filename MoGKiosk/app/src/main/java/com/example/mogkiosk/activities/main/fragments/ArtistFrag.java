@@ -1,7 +1,12 @@
 package com.example.mogkiosk.activities.main.fragments;
 
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -9,10 +14,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mogkiosk.R;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 
 /**
@@ -32,6 +43,7 @@ public class ArtistFrag extends Fragment {
     private TextView tagLineTextView;
     private TextView bioTextView;
     private TextView subBioTextView;
+    private ImageView profilePic;
     private SharedPreferences prefs;
 
     private OnFragmentInteractionListener mListener;
@@ -64,6 +76,7 @@ public class ArtistFrag extends Fragment {
         setRetainInstance(true);
         prefs =  PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
 
+
     }
 
 
@@ -78,6 +91,8 @@ public class ArtistFrag extends Fragment {
         bioTextView = v.findViewById(R.id.artistFrag_bio);
         subBioTextView = v.findViewById(R.id.artist_subbio);
         tagLineTextView = v.findViewById(R.id.artist_tagline);
+        profilePic = v.findViewById(R.id.artist_headshot);
+        profilePic.setAdjustViewBounds(true);
 
 
 
@@ -113,7 +128,28 @@ public class ArtistFrag extends Fragment {
                 subBioTextView.setText(subbio);
             }
 
+            ContextWrapper cw = new ContextWrapper(getContext());
+            // path to /data/data/yourapp/app_data/imageDir
+            File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+            loadImageFromStorage(directory.getAbsolutePath());
+
         }
+    }
+
+    private void loadImageFromStorage(String path)
+    {
+
+        try {
+            File f=new File(path, "profile.jpg");
+            Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
+            Drawable d = new BitmapDrawable(getResources(), b);
+            profilePic.setImageDrawable(d);
+        }
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
