@@ -122,11 +122,14 @@
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/image_wrapper"
-                android:layout_width="300dp"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:minHeight="400dp"
                 app:layout_constraintBottom_toBottomOf="@+id/artist_subbio"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="0.5">
 
                 <ImageView
                     android:id="@+id/artist_headshot"
