@@ -635,12 +635,12 @@
                 android:id="@+id/related_work_3"
                 android:layout_width="139dp"
                 android:layout_height="129dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="8dp"
                 android:contentDescription="@string/workAdmin_relatedWork3_desc"
                 android:src="@android:drawable/ic_menu_camera"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/browse_main_img2"
+                app:layout_constraintTop_toBottomOf="@+id/related_work_3_title"
                 app:srcCompat="@drawable/marwan"
                 tools:srcCompat="@drawable/marwan" />
 
@@ -665,9 +665,10 @@
                 android:id="@+id/related_work_1_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
                 android:text="@string/workAdmin_relatedWork1_desc"
+                app:layout_constraintEnd_toEndOf="@+id/related_work_1"
                 app:layout_constraintStart_toStartOf="@+id/related_work_1"
                 app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
@@ -675,9 +676,10 @@
                 android:id="@+id/related_work_2_title"
                 android:layout_width="wrap_content"
                 android:layout_height="16dp"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
                 android:text="@string/workAdmin_relatedWork2_desc"
+                app:layout_constraintEnd_toEndOf="@+id/related_work_2"
                 app:layout_constraintStart_toStartOf="@+id/related_work_2"
                 app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
@@ -685,11 +687,11 @@
                 android:id="@+id/related_work_3_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/workAdmin_relatedWork3_desc"
+                app:layout_constraintEnd_toEndOf="@+id/related_work_3"
                 app:layout_constraintStart_toStartOf="@+id/related_work_3"
-                app:layout_constraintTop_toBottomOf="@+id/divider4" />
+                app:layout_constraintTop_toBottomOf="@+id/browse_main_img2" />
 
             <ImageView
                 android:id="@+id/mainImage"
