@@ -358,8 +358,8 @@
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="0dp"
-                android:layout_height="311dp"
-                android:layout_marginBottom="8dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/work_description"
                 app:layout_constraintStart_toStartOf="@+id/work_description"
@@ -379,6 +379,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
+                    android:layout_marginTop="32dp"
                     android:letterSpacing="@dimen/letterSpacing_subtitle"
                     android:maxLines="1"
                     android:text="@string/artist_relatedWork1_title"

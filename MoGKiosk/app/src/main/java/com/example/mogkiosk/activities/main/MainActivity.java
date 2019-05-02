@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = sharedPreferences.edit();
+        editor.apply();
 
         // Remember that you should never show the action bar if the
         // status bar is hidden, so hide that too if necessary.

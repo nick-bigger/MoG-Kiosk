@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -26,9 +26,9 @@
                 android:id="@+id/image_wrapper"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:maxWidth="550dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
+                android:maxWidth="550dp"
                 app:layout_constraintBottom_toBottomOf="@+id/info_card"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -234,6 +234,7 @@
                     </TableRow>
 
                     <TableRow
+                        android:id="@+id/collection_row"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
@@ -251,7 +252,7 @@
 
                         <TextView
                             android:id="@+id/collection_entry"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_column="1"
                             android:layout_margin="1dp"
@@ -366,7 +367,7 @@
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="0dp"
-                android:layout_height="311dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/work_description"
@@ -387,7 +388,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="104dp"
+                    android:layout_marginTop="32dp"
                     android:letterSpacing="@dimen/letterSpacing_subtitle"
                     android:maxLines="1"
                     android:text="@string/artist_relatedWork1_title"
@@ -405,6 +406,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
                     android:columnWidth="500dp"
                     android:gravity="center"
                     android:horizontalSpacing="5dp"

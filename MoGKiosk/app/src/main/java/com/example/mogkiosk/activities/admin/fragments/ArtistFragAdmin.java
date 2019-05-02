@@ -3,16 +3,13 @@ package com.example.mogkiosk.activities.admin.fragments;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.preference.PreferenceManager;
+import android.provider.MediaStore;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -58,8 +55,6 @@ public class ArtistFragAdmin extends Fragment {
     private EditText Description;
     private EditText SubBio;
     private ImageView imgView;
-    private Button submit;
-
 
 
     public ArtistFragAdmin() {
@@ -126,7 +121,7 @@ public class ArtistFragAdmin extends Fragment {
         Description = rootView.findViewById(R.id.description);
         SubBio = rootView.findViewById(R.id.etSubBio);
         imgView = rootView.findViewById(R.id.currentImage);
-        submit = rootView.findViewById(R.id.submitBtn);
+        Button submit1 = rootView.findViewById(R.id.submitBtn);
         Button submit = rootView.findViewById(R.id.submitBtn);
         //set onclick method
         submit.setOnClickListener(new View.OnClickListener() {

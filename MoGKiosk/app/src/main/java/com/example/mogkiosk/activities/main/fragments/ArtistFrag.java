@@ -14,7 +14,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,7 +22,6 @@ import com.example.mogkiosk.R;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 
 
 /**
@@ -45,8 +43,6 @@ public class ArtistFrag extends Fragment {
     private TextView subBioTextView;
     private ImageView profilePic;
     private SharedPreferences prefs;
-
-    private OnFragmentInteractionListener mListener;
 
     public ArtistFrag() {
         // Required empty public constructor
@@ -156,7 +152,6 @@ public class ArtistFrag extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
         }
 //        } else {
 //            throw new RuntimeException(context.toString()
@@ -167,7 +162,6 @@ public class ArtistFrag extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
     }
 
 
