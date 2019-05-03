@@ -2,14 +2,12 @@
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ConstraintLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".activities.admin.fragments.WorkFragAdmin">
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayout3"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -59,54 +57,36 @@
                 android:id="@+id/_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="33dp"
-                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="32dp"
                 android:letterSpacing="@dimen/letterSpacing_subtitle"
                 android:text="@string/workAdmin_labelInfo_title"
                 android:textAllCaps="true"
                 android:textColor="@color/textDark"
                 android:textSize="@dimen/font_subtitle"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/artist_name_title"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/workDateInputLayout" />
-
-            <TextView
-                android:id="@+id/title_of_piece"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="494dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/workAdmin_pieceTitle_label"
-                app:layout_constraintBottom_toTopOf="@+id/workTitleInputLayout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider1"
-                app:layout_constraintVertical_bias="1.0"
-                app:layout_constraintVertical_chainStyle="spread_inside" />
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/workTitleInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
                 app:counterEnabled="true"
                 app:counterMaxLength="15"
+                app:helperText="@string/workAdmin_pieceTitle_label"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title_of_piece">
+                app:layout_constraintTop_toBottomOf="@+id/divider1">
 
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:id="@+id/title"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -122,34 +102,23 @@
 
             </android.support.design.widget.TextInputLayout>
 
-            <TextView
-                android:id="@+id/title_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/workAdmin_pieceYear_label"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/workTitleInputLayout" />
-
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/workDateInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
                 app:counterEnabled="true"
                 app:counterMaxLength="30"
+                app:helperText="@string/workAdmin_pieceYear_label"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title_date">
+                app:layout_constraintTop_toBottomOf="@+id/workTitleInputLayout">
 
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:id="@+id/date"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -165,35 +134,23 @@
 
             </android.support.design.widget.TextInputLayout>
 
-            <TextView
-                android:id="@+id/artist_name_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="36dp"
-                android:text="@string/workAdmin_infoName_label"
-                app:layout_constraintBottom_toTopOf="@+id/artistNameInputLayout"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider2" />
-
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/artistNameInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
                 app:counterEnabled="true"
                 app:counterMaxLength="30"
+                app:helperText="@string/workAdmin_infoName_label"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/artist_name_title">
+                app:layout_constraintTop_toBottomOf="@+id/divider2">
 
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:id="@+id/artist"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -209,37 +166,23 @@
 
             </android.support.design.widget.TextInputLayout>
 
-            <TextView
-                android:id="@+id/label_date_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="300dp"
-                android:text="@string/workAdmin_infoDate_label"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/artistNameInputLayout" />
-
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/workLabelInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
                 app:counterEnabled="true"
                 app:counterMaxLength="30"
+                app:helperText="@string/workAdmin_infoDate_label"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/label_date_title">
+                app:layout_constraintTop_toBottomOf="@+id/artistNameInputLayout">
 
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:id="@+id/label_date"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -255,37 +198,23 @@
 
             </android.support.design.widget.TextInputLayout>
 
-            <TextView
-                android:id="@+id/medium_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="500dp"
-                android:text="@string/workAdmin_infoMedium_label"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/workLabelInputLayout" />
-
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/workMedInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
                 app:counterEnabled="true"
                 app:counterMaxLength="30"
+                app:helperText="@string/workAdmin_infoMedium_label"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/medium_title">
+                app:layout_constraintTop_toBottomOf="@+id/workLabelInputLayout">
 
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:id="@+id/medium"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -301,37 +230,23 @@
 
             </android.support.design.widget.TextInputLayout>
 
-            <TextView
-                android:id="@+id/dimensions_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="500dp"
-                android:text="@string/workAdmin_infoDimen_label"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/workMedInputLayout" />
-
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/workDimInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
                 app:counterEnabled="true"
                 app:counterMaxLength="30"
+                app:helperText="@string/workAdmin_infoDimen_label"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dimensions_title">
+                app:layout_constraintTop_toBottomOf="@+id/workMedInputLayout">
 
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:id="@+id/dimensions"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -348,34 +263,23 @@
             </android.support.design.widget.TextInputLayout>
 
 
-            <TextView
-                android:id="@+id/collection_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/workAdmin_infoCollect_label"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/workDimInputLayout" />
-
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/workCollecInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
                 app:counterEnabled="true"
                 app:counterMaxLength="30"
+                app:helperText="@string/workAdmin_infoCollect_label"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/collection_title">
+                app:layout_constraintTop_toBottomOf="@+id/workDimInputLayout">
 
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:id="@+id/collection_info"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -391,34 +295,23 @@
 
             </android.support.design.widget.TextInputLayout>
 
-            <TextView
-                android:id="@+id/photo_credit_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/workAdmin_infoCredit_label"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/workCollecInputLayout" />
-
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/photoCredInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
                 app:counterEnabled="true"
                 app:counterMaxLength="30"
+                app:helperText="@string/workAdmin_infoCredit_label"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/photo_credit_title">
+                app:layout_constraintTop_toBottomOf="@+id/workCollecInputLayout">
 
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:id="@+id/photo_credit"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -434,38 +327,25 @@
 
             </android.support.design.widget.TextInputLayout>
 
-            <TextView
-                android:id="@+id/description_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="@string/workAdmin_infoDesc_label"
-                app:layout_constraintBottom_toTopOf="@+id/description_input"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/photoCredInputLayout" />
-
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/description_input"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
                 android:layout_marginBottom="60dp"
                 app:counterEnabled="true"
                 app:counterMaxLength="250"
+                app:helperText="@string/workAdmin_infoDesc_label"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.066"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/description_title">
+                app:layout_constraintTop_toBottomOf="@+id/photoCredInputLayout">
 
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:id="@+id/description"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -495,6 +375,43 @@
             app:layout_constraintVertical_bias="0.0">
 
 
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraintLayout2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="22dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider3">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/browse_main_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true"
+                    android:src="@drawable/ic_add_a_photo_24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/mainImage"
+                    android:layout_width="0dp"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/artistAdmin_currImg_desc"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/david_walters"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
             <View
                 android:id="@+id/divider4"
                 android:layout_width="@dimen/divider_small"
@@ -514,27 +431,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/main_img_title" />
 
             <Button
-                android:id="@+id/browse_main_img"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/btn_bg_selector"
-                android:drawableStart="@drawable/ic_photo_library_24dp"
-                android:drawablePadding="10dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:text="@string/btn_upload"
-                android:textColor="@drawable/btn_text_selector"
-                android:textSize="@dimen/font_btn"
-                app:layout_constraintEnd_toEndOf="@+id/mainImage"
-                app:layout_constraintStart_toStartOf="@+id/mainImage"
-                app:layout_constraintTop_toBottomOf="@+id/mainImage" />
-
-            <Button
                 android:id="@+id/browse_main_img2"
-                android:layout_width="118dp"
-                android:layout_height="38dp"
-                android:layout_marginTop="8dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/btn_bg_selector"
                 android:contentDescription="@string/workAdmin_addImg_desc"
                 android:paddingLeft="20dp"
@@ -547,9 +446,8 @@
 
             <Button
                 android:id="@+id/browse_main_img3"
-                android:layout_width="118dp"
-                android:layout_height="38dp"
-                android:layout_marginTop="8dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/btn_bg_selector"
                 android:contentDescription="@string/workAdmin_addImg_desc"
                 android:paddingLeft="20dp"
@@ -562,9 +460,8 @@
 
             <Button
                 android:id="@+id/browse_main_img4"
-                android:layout_width="118dp"
-                android:layout_height="38dp"
-                android:layout_marginTop="8dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/btn_bg_selector"
                 android:contentDescription="@string/workAdmin_addImg_desc"
                 android:paddingLeft="20dp"
@@ -588,7 +485,7 @@
                 android:textSize="@dimen/font_subtitle"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/browse_main_img" />
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
             <TextView
                 android:id="@+id/main_img_title"
@@ -607,11 +504,12 @@
 
             <ImageView
                 android:id="@+id/related_work_1"
-                android:layout_width="139dp"
+                android:layout_width="110dp"
                 android:layout_height="129dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:contentDescription="@string/workAdmin_relatedWork1_desc"
+                android:scaleType="centerCrop"
                 android:src="@android:drawable/ic_menu_camera"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/related_work_1_title"
@@ -620,14 +518,15 @@
 
             <ImageView
                 android:id="@+id/related_work_2"
-                android:layout_width="0dp"
+                android:layout_width="110dp"
                 android:layout_height="129dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:contentDescription="@string/workAdmin_relatedWork2_desc"
+                android:scaleType="centerCrop"
                 android:src="@android:drawable/ic_menu_camera"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/related_work_3"
                 app:layout_constraintStart_toEndOf="@+id/related_work_1"
                 app:layout_constraintTop_toBottomOf="@+id/related_work_2_title"
                 app:srcCompat="@drawable/marwan"
@@ -635,14 +534,14 @@
 
             <ImageView
                 android:id="@+id/related_work_3"
-                android:layout_width="139dp"
+                android:layout_width="110dp"
                 android:layout_height="129dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
                 android:contentDescription="@string/workAdmin_relatedWork3_desc"
+                android:scaleType="centerCrop"
                 android:src="@android:drawable/ic_menu_camera"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/browse_main_img2"
+                app:layout_constraintTop_toTopOf="@+id/related_work_2"
                 app:srcCompat="@drawable/marwan"
                 tools:srcCompat="@drawable/marwan" />
 
@@ -656,7 +555,7 @@
                 android:background="@drawable/btn_bg_selector"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="@string/btn_update"
+                android:text="@string/btn_save"
                 android:textColor="@drawable/btn_text_selector"
                 android:textSize="@dimen/font_btn"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -667,9 +566,10 @@
                 android:id="@+id/related_work_1_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
                 android:text="@string/workAdmin_relatedWork1_desc"
+                app:layout_constraintEnd_toEndOf="@+id/related_work_1"
                 app:layout_constraintStart_toStartOf="@+id/related_work_1"
                 app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
@@ -677,9 +577,10 @@
                 android:id="@+id/related_work_2_title"
                 android:layout_width="wrap_content"
                 android:layout_height="16dp"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
                 android:text="@string/workAdmin_relatedWork2_desc"
+                app:layout_constraintEnd_toEndOf="@+id/related_work_2"
                 app:layout_constraintStart_toStartOf="@+id/related_work_2"
                 app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
@@ -687,24 +588,11 @@
                 android:id="@+id/related_work_3_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 android:text="@string/workAdmin_relatedWork3_desc"
-                app:layout_constraintStart_toStartOf="@+id/related_work_3"
-                app:layout_constraintTop_toBottomOf="@+id/divider4" />
-
-            <ImageView
-                android:id="@+id/mainImage"
-                android:layout_width="139dp"
-                android:layout_height="129dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:contentDescription="@string/workAdmin_mainImg_desc"
-                android:src="@drawable/marwan"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider3" />
+                app:layout_constraintBottom_toTopOf="@+id/related_work_3"
+                app:layout_constraintEnd_toEndOf="@+id/related_work_3"
+                app:layout_constraintStart_toStartOf="@+id/related_work_3" />
 
         </android.support.constraint.ConstraintLayout>
 

@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -13,7 +15,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.mogkiosk.activities.admin.AdminActivity;
 import com.example.mogkiosk.activities.changepass.ChangePassActivity;
@@ -29,9 +30,11 @@ import java.security.spec.InvalidKeySpecException;
 public class LoginActivity extends AppCompatActivity {
     private EditText mNameEditText; //use m for global variables because history
     private EditText mPassEditText;
-    private TextView mBadLoginTextView;
-    AlertDialog alertDialog;
-    AlertDialog errorDialog;
+    private AlertDialog alertDialog;
+    private AlertDialog errorDialog;
+
+    private TextInputLayout usrInput;
+    private TextInputLayout passInput;
 
 
     @Override
@@ -53,22 +56,21 @@ public class LoginActivity extends AppCompatActivity {
         mNameEditText = findViewById(R.id.title);
         mPassEditText = findViewById(R.id.etPassword);
         Button mLoginButton = findViewById(R.id.btnLogin);
-        mBadLoginTextView = findViewById(R.id.incorrectLogin);
         TextView mForgotPassTextView = findViewById(R.id.forgotPass);
 
-        mBadLoginTextView.setVisibility(View.INVISIBLE);
+        usrInput = findViewById(R.id.usernameInputLayout);
+        passInput = findViewById(R.id.passwordInputLayout);
 
         //setting the login button to validate
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                mBadLoginTextView.setVisibility(View.INVISIBLE);
-
                 try {
                     switch (manager.validateLogin(mNameEditText.getText().toString(), mPassEditText.getText().toString())) {
                         case -1:
-                            mBadLoginTextView.setVisibility(View.VISIBLE);
+                            usrInput.setError("Incorrect username or password");
+                            passInput.setError("Incorrect username or password");
                             System.out.println("This should lead to the error message");
                             break;
                         case 0:
@@ -96,9 +98,9 @@ public class LoginActivity extends AppCompatActivity {
             {
                 try {
                     if (manager.isSent()) {
-                        open(view, manager);
+                        open(manager);
                     } else {
-                        error(view);
+                        error();
                     }
                 } catch (NoSuchAlgorithmException e) {
                     System.out.println("Something went wrong while forgetting password with stuff");
@@ -151,9 +153,9 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public static class MyCustomDialogFragment extends DialogFragment {
-        public static final String DIALOG_TYPE = "dialogType";
-        public static final boolean EMAIL_SENDING = true;
-        public static final boolean EMAIL_ALREADY_SENT = false;
+        static final String DIALOG_TYPE = "dialogType";
+        static final boolean EMAIL_SENDING = true;
+        static final boolean EMAIL_ALREADY_SENT = false;
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -183,7 +185,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void open(View view, final PrivateInfoManager manager){
+    private void open(final PrivateInfoManager manager) throws Exception  {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("Would you like to reset your password?");
         alertDialogBuilder.setTitle("Reset Password");
@@ -202,7 +204,7 @@ public class LoginActivity extends AppCompatActivity {
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
-                                Toast.makeText(LoginActivity.this,"A reset email has been sent.",Toast.LENGTH_LONG).show();
+                                Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content),"A reset email has been sent.",Snackbar.LENGTH_LONG).show();
                             }
                         });
 
@@ -217,7 +219,7 @@ public class LoginActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    public void error(View view){
+    private void error() throws Exception {
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("An email has already been sent.");
         alertDialogBuilder.setTitle("Error");

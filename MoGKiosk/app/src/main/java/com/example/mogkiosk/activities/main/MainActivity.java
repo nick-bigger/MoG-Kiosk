@@ -48,19 +48,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setLogo(R.mipmap.ic_launcher_round);
         setSupportActionBar(toolbar);
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = sharedPreferences.edit();
-
-        // Remember that you should never show the action bar if the
-        // status bar is hidden, so hide that too if necessary.
-//        ActionBar actionBar = getSupportActionBar();
-//        actionBar.hide();
-      
+        editor.apply();
     }
 
     /**
@@ -317,11 +312,11 @@ public class MainActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "The Artist";
+                    return "Artist";
                 case 1:
-                    return "The Work";
+                    return "Work";
                 case 2:
-                    return "The Process";
+                    return "Process";
             }
             return null;
         }

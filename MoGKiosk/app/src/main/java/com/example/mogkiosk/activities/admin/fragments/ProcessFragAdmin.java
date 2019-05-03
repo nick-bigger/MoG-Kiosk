@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
@@ -93,14 +94,14 @@ public class ProcessFragAdmin extends Fragment {
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
                 if (!wasRestored) {
                     player.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
-                    player.cueVideo("X7mL8mcPiQ4");
+                    player.cueVideo("_zX5Uki421c");
                 }
             }
 
             @Override
             public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult error) {
                 String errorMessage = error.toString();
-                Toast.makeText(getActivity(), errorMessage, Toast.LENGTH_LONG).show();
+                Snackbar.make(getActivity().getWindow().getDecorView().findViewById(android.R.id.content), errorMessage, Toast.LENGTH_LONG).show();
                 Log.d("errorMessage:", errorMessage);
             }
         });
@@ -150,7 +151,7 @@ public class ProcessFragAdmin extends Fragment {
      * @param processTitle
      * @param processDescription
      */
-    public void onButtonPressed(CharSequence processTitle, CharSequence processDescription) {
+    private void onButtonPressed(CharSequence processTitle, CharSequence processDescription) {
         dataPasser.onProcessDataPass(processTitle, processDescription);
     }
 
@@ -163,11 +164,6 @@ public class ProcessFragAdmin extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnDataPass interface");
         }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
     }
 
     /**

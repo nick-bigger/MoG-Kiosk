@@ -1,15 +1,17 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="colorError">@color/colorAccent</item>
     </style>
 
     <style name="AppTheme.DarkBackground">
-        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:background">#333333</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -25,6 +27,19 @@
     <!-- Create system theme for dialog boxes. This overrides a couple attributes-->
     <style name="MessageBackground" parent="Base.Theme.AppCompat.Dialog">
         <item name="android:windowBackground">@color/transparent</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense" override="true">
+        <item name="boxStrokeColor">@color/textMid</item>
+        <item name="boxStrokeWidth">20dp</item>
+        <item name="boxCornerRadiusTopStart">20dp</item>
+        <item name="boxCornerRadiusBottomStart">20dp</item>
+        <item name="boxCornerRadiusTopEnd">20dp</item>
+        <item name="boxCornerRadiusBottomEnd">20dp</item>
+    </style>
+
+    <style name="TextAppearence.TextInputLayout.Dark" parent="@android:style/TextAppearance">
+        <item name="android:textColor">#666666</item>
     </style>
 
 </resources>

@@ -1,6 +1,7 @@
 package com.example.mogkiosk.activities.admin.fragments;
 
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -8,6 +9,8 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.provider.MediaStore;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -19,6 +22,12 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.mogkiosk.R;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Objects;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -32,6 +41,7 @@ import static android.app.Activity.RESULT_OK;
  * create an instance of this fragment.
  */
 public class ArtistFragAdmin extends Fragment {
+    private static final int REQUEST_CODE_CHOOSE = 1;
     private OnArtistDataPass dataPasser;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -45,6 +55,7 @@ public class ArtistFragAdmin extends Fragment {
     private EditText Tag;
     private EditText Description;
     private EditText SubBio;
+    private ImageView imgView;
 
 
     public ArtistFragAdmin() {
@@ -110,6 +121,8 @@ public class ArtistFragAdmin extends Fragment {
         Tag = rootView.findViewById(R.id.etTag);
         Description = rootView.findViewById(R.id.description);
         SubBio = rootView.findViewById(R.id.etSubBio);
+        imgView = rootView.findViewById(R.id.mainImage);
+        Button submit1 = rootView.findViewById(R.id.submitBtn);
         Button submit = rootView.findViewById(R.id.submitBtn);
         //set onclick method
         submit.setOnClickListener(new View.OnClickListener() {
@@ -125,7 +138,7 @@ public class ArtistFragAdmin extends Fragment {
             }
         });
 
-        Button uploadImageBtn = rootView.findViewById(R.id.etImage);
+        FloatingActionButton uploadImageBtn = rootView.findViewById(R.id.browse_main_img);
         uploadImageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -167,14 +180,16 @@ public class ArtistFragAdmin extends Fragment {
             if (requestCode == RESULT_LOAD_IMG && resultCode == RESULT_OK
                     && null != data) {
                 // Get the Image from data
-
                 Uri selectedImage = data.getData();
-                Bitmap bitmap = BitmapFactory.decodeStream(getActivity().getApplicationContext().getContentResolver().openInputStream(selectedImage));
+                //Bitmap bitmap = BitmapFactory.decodeStream(getActivity().getApplicationContext().getContentResolver().openInputStream(selectedImage));
+                Bitmap bitmap =  MediaStore.Images.Media.getBitmap(Objects.requireNonNull(this.getContext()).getContentResolver(), selectedImage);
+                ByteArrayOutputStream out = new ByteArrayOutputStream();
+                Bitmap dummy = BitmapFactory.decodeStream(getActivity().getApplicationContext().getContentResolver().openInputStream(selectedImage));
 
-                ImageView imgView = getView().findViewById(R.id.currentImage);
                 // Set the Image in ImageView after decoding the String
-                imgView.setImageBitmap(bitmap);
-
+                imgView.setImageBitmap(dummy);
+                //null bit
+                saveToInternalStorage(bitmap);
             } else {
                 Toast.makeText(getActivity(), "You haven't picked Image",
                         Toast.LENGTH_LONG).show();
@@ -186,6 +201,31 @@ public class ArtistFragAdmin extends Fragment {
 
     }
 
+    private String saveToInternalStorage(Bitmap bitmapImage){
+        ContextWrapper cw = new ContextWrapper(getContext());
+        // path to /data/data/yourapp/app_data/imageDir
+        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+        // Create imageDir
+        File mypath= new File(directory,"profile.jpg");
+
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(mypath);
+            // Use the compress method on the BitMap object to write image to the OutputStream
+            bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return directory.getAbsolutePath();
+    }
+
+
     /**
      * Auxiliary method that passed data to the interface method associated with the AdminActivity
      * This is used so AdminActivity can access the data and pass it along
@@ -193,7 +233,7 @@ public class ArtistFragAdmin extends Fragment {
      * @param tag
      * @param description
      */
-    public void onButtonPressed(CharSequence name, CharSequence tag, CharSequence description, CharSequence subbio) {
+    private void onButtonPressed(CharSequence name, CharSequence tag, CharSequence description, CharSequence subbio) {
         dataPasser.onArtistDataPass(name, tag, description, subbio);
     }
 

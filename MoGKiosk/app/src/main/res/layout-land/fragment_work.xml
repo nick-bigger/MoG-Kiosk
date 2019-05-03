@@ -3,10 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
@@ -23,41 +22,46 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0">
 
-            <ImageView
-                android:id="@+id/work_image"
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/image_wrapper"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginLeft="32dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginRight="32dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="32dp"
+                android:maxWidth="550dp"
+                app:layout_constraintBottom_toBottomOf="@+id/info_card"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                android:contentDescription="@string/work_img_desc"
-                android:src="@drawable/work_img"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/info_card"
-                app:layout_constraintStart_toStartOf="@id/infoPanel"
-                app:layout_constraintTop_toTopOf="@id/infoPanel" />
+                <ImageView
+                    android:id="@+id/work_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginBottom="-1dp"
+                    android:contentDescription="@string/work_img_desc"
+                    android:maxWidth="300dp"
+                    android:src="@drawable/work_img"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/info_card"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginLeft="32dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="32dp"
-                android:layout_marginRight="32dp"
                 android:layout_marginBottom="32dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/work_image"
+                app:layout_constraintStart_toEndOf="@+id/image_wrapper"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <View
-                    android:id="@+id/divider"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@android:color/darker_gray"
@@ -97,7 +101,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
-                    android:layout_marginBottom="1dp"
+                    android:layout_marginBottom="32dp"
                     android:gravity="center"
                     android:stretchColumns="0,1,2"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -107,14 +111,12 @@
 
 
                     <TableRow
-                        android:id="@+id/artist_row"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_margin="1dp"
                         android:layout_weight="1">
 
                         <TextView
-                            android:id="@+id/artist_title"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_column="0"
@@ -140,14 +142,12 @@
 
 
                     <TableRow
-                        android:id="@+id/date_row"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_margin="1dp"
                         android:layout_weight="1">
 
                         <TextView
-                            android:id="@+id/date_title"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_column="0"
@@ -172,7 +172,6 @@
                     </TableRow>
 
                     <TableRow
-                        android:id="@+id/medium_row"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_margin="1dp"
@@ -204,7 +203,6 @@
                     </TableRow>
 
                     <TableRow
-                        android:id="@+id/dimensions_row"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_margin="1dp"
@@ -254,7 +252,7 @@
 
                         <TextView
                             android:id="@+id/collection_entry"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_column="1"
                             android:layout_margin="1dp"
@@ -266,12 +264,10 @@
                     </TableRow>
 
                     <TableRow
-                        android:id="@+id/photo_credit_row"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
                         <TextView
-                            android:id="@+id/photo_title"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_column="0"
@@ -307,9 +303,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.556">
+            app:layout_constraintStart_toStartOf="parent">
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/work_description"
@@ -372,9 +366,8 @@
             </android.support.constraint.ConstraintLayout>
 
             <android.support.constraint.ConstraintLayout
-                android:id="@+id/related_work"
                 android:layout_width="0dp"
-                android:layout_height="311dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/work_description"
@@ -395,7 +388,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="104dp"
+                    android:layout_marginTop="32dp"
                     android:letterSpacing="@dimen/letterSpacing_subtitle"
                     android:maxLines="1"
                     android:text="@string/artist_relatedWork1_title"
@@ -413,6 +406,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
                     android:columnWidth="500dp"
                     android:gravity="center"
                     android:horizontalSpacing="5dp"

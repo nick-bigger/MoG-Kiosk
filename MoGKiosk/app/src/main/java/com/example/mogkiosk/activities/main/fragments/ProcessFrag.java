@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
@@ -38,7 +39,6 @@ public class ProcessFrag extends Fragment {
     private SharedPreferences prefs;
 
     private TextView title;
-    private OnFragmentInteractionListener mListener;
 
     public ProcessFrag() {
         // Required empty public constructor
@@ -88,14 +88,14 @@ public class ProcessFrag extends Fragment {
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
                 if (!wasRestored) {
                     player.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
-                    player.cueVideo("X7mL8mcPiQ4");
+                    player.cueVideo("_zX5Uki421c");
                 }
             }
 
             @Override
             public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult error) {
                 String errorMessage = error.toString();
-                Toast.makeText(getActivity(), errorMessage, Toast.LENGTH_LONG).show();
+                Snackbar.make(getActivity().getWindow().getDecorView().findViewById(android.R.id.content), errorMessage, Toast.LENGTH_LONG).show();
                 Log.d("errorMessage:", errorMessage);
             }
         });
@@ -123,18 +123,11 @@ public class ProcessFrag extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
         }
 //        else {
 //            throw new RuntimeException(context.toString()
 //                    + " must implement OnFragmentInteractionListener");
 //        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
     }
 
     /**
@@ -147,7 +140,7 @@ public class ProcessFrag extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnFragmentInteractionListener {
+    private interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }

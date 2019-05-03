@@ -1,8 +1,12 @@
 package com.example.mogkiosk.activities.main.fragments;
 
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -10,13 +14,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mogkiosk.R;
 
-import java.util.ArrayList;
-
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 
 /**
@@ -30,26 +35,14 @@ import java.util.ArrayList;
 public class ArtistFrag extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String NAME = "NAME";
-    private static final String BIO = "BIO";
-    private static final String TAG = "TAG";
-    private static final String SUBBIO = "SUBBIO";
 
     // TODO: Rename and change types of parameters
-    private String name;
-    private String tag;
-    private String description;
-    private String subbio;
     private TextView artistNameTextView;
     private TextView tagLineTextView;
     private TextView bioTextView;
     private TextView subBioTextView;
+    private ImageView profilePic;
     private SharedPreferences prefs;
-
-    private GridView imageGrid;
-    private ArrayList<Bitmap> bitmapList;
-
-    private OnFragmentInteractionListener mListener;
 
     public ArtistFrag() {
         // Required empty public constructor
@@ -79,6 +72,7 @@ public class ArtistFrag extends Fragment {
         setRetainInstance(true);
         prefs =  PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
 
+
     }
 
 
@@ -93,6 +87,8 @@ public class ArtistFrag extends Fragment {
         bioTextView = v.findViewById(R.id.artistFrag_bio);
         subBioTextView = v.findViewById(R.id.artist_subbio);
         tagLineTextView = v.findViewById(R.id.artist_tagline);
+        profilePic = v.findViewById(R.id.artist_headshot);
+        profilePic.setAdjustViewBounds(true);
 
 
 
@@ -128,21 +124,34 @@ public class ArtistFrag extends Fragment {
                 subBioTextView.setText(subbio);
             }
 
+            ContextWrapper cw = new ContextWrapper(getContext());
+            // path to /data/data/yourapp/app_data/imageDir
+            File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+            loadImageFromStorage(directory.getAbsolutePath());
+
         }
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed (Uri uri){
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+    private void loadImageFromStorage(String path)
+    {
+
+        try {
+            File f=new File(path, "profile.jpg");
+            Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
+            Drawable d = new BitmapDrawable(getResources(), b);
+            profilePic.setImageDrawable(d);
         }
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
         }
 //        } else {
 //            throw new RuntimeException(context.toString()
@@ -153,7 +162,6 @@ public class ArtistFrag extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
     }
 
 

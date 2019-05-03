@@ -1,6 +1,7 @@
 package com.example.mogkiosk.activities.admin;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.mogkiosk.CreateAccountActivity;
 import com.example.mogkiosk.R;
 import com.example.mogkiosk.UpdateCredActivity;
 import com.example.mogkiosk.activities.admin.fragments.ArtistFragAdmin;
@@ -38,6 +40,8 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
         setContentView(R.layout.admin_main);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         /**
@@ -56,6 +60,7 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = findViewById(R.id.tabs);
+        tabLayout.setTabTextColors(Color.parseColor("#3b3a3c"),Color.parseColor("#3b3a3c"));
         tabLayout.setupWithViewPager(mViewPager);
 
     }
@@ -165,11 +170,11 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "The Artist";
+                    return "Artist";
                 case 1:
-                    return "The Work";
+                    return "Work";
                 case 2:
-                    return "The Process";
+                    return "Process";
             }
             return null;
         }
@@ -196,6 +201,10 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
             case R.id.action_updateCred:
                 Intent intent2 = new Intent(this, UpdateCredActivity.class);
                 this.startActivity(intent2);
+                return true;
+            case R.id.action_createAccount:
+                Intent intent3 = new Intent(this, CreateAccountActivity.class);
+                this.startActivity(intent3);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
