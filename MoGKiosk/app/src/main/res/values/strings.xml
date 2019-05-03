@@ -14,6 +14,7 @@
     <string name="btn_submit">Submit</string>
     <string name="btn_upload">Upload File</string>
     <string name="btn_update">Update</string>
+    <string name="btn_save">Save</string>
     <!-- buttons end -->
 
     <!-- the artist start -->
@@ -187,7 +188,7 @@
     <string name="artistAdmin_currImg_title">Current Image:</string>
 
     <string name="artistAdmin_addName_label">Add a name for the artist</string>
-    <string name="artistAdmin_addTag_label">"Add a tag line for the artist (e.g Medium | Nationality)"</string>
+    <string name="artistAdmin_addTag_label">e.g Medium | Nationality</string>
     <string name="artistAdmin_addBio_label">The main bio for the artist</string>
     <string name="artistAdmin_addSubBio_label">A smaller blurb about the artist</string>
 

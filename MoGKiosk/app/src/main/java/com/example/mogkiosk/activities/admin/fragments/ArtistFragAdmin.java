@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -137,7 +138,7 @@ public class ArtistFragAdmin extends Fragment {
             }
         });
 
-        Button uploadImageBtn = rootView.findViewById(R.id.etImage);
+        FloatingActionButton uploadImageBtn = rootView.findViewById(R.id.etImage);
         uploadImageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
