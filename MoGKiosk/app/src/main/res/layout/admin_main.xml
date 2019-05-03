@@ -24,7 +24,7 @@
             app:subtitleTextColor="@color/textMid"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:logo="@mipmap/ic_launcher_round"
+            app:logo="@drawable/ic_logo"
             app:title="@string/title_activity_settings"
             app:titleMarginStart="18dp">
 
