@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
@@ -100,7 +101,7 @@ public class ProcessFragAdmin extends Fragment {
             @Override
             public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult error) {
                 String errorMessage = error.toString();
-                Toast.makeText(getActivity(), errorMessage, Toast.LENGTH_LONG).show();
+                Snackbar.make(getActivity().getWindow().getDecorView().findViewById(android.R.id.content), errorMessage, Toast.LENGTH_LONG).show();
                 Log.d("errorMessage:", errorMessage);
             }
         });
