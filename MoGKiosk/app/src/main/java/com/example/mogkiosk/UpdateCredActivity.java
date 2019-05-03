@@ -19,17 +19,17 @@ public class UpdateCredActivity extends AppCompatActivity {
     private EditText mUpdatePassTextView;
     private EditText mUpdateEmailView;
     private EditText mUpdateUserTextView;
+    private EditText mRetypedPassView; //NEW ENTRY
 
     private EditText mOldPassTextView;
-    private EditText mOldEmailView;
     private EditText mOldUserTextView;
 
     private TextView mNotLongEnoughUpPassTextView;
     private TextView mNotLongEnoughUpUserTextView;
     private TextView mNotGoodEnoughEmailTextView;
+    private TextView mRetypedPassNotSameTextView;
     private TextView mNotSameUserTextView;
     private TextView mNotSamePassTextView;
-    private TextView mNotSameEmailTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class UpdateCredActivity extends AppCompatActivity {
 
         mOldUserTextView =findViewById(R.id.old_update_username);
         mOldPassTextView =findViewById(R.id.old_update_password);
-        mOldEmailView =findViewById(R.id.old_update_email);
+        //mRetypedPassView =findViewById(R.id.old_update_email); // NEW ENTRY
 
         Button mSubmitUpdates = findViewById(R.id.submit_credentials);
 
@@ -57,14 +57,14 @@ public class UpdateCredActivity extends AppCompatActivity {
         mNotGoodEnoughEmailTextView = findViewById(R.id.do_not_match3);
         mNotSameUserTextView = findViewById(R.id.old_user_mismatch);
         mNotSamePassTextView = findViewById(R.id.old_pass_mismatch);
-        mNotSameEmailTextView = findViewById(R.id.old_email_mismatch);
+        //mRetypedPassNotSameTextView = findViewById(R.id.old_email_mismatch); // NEW MESSAGE
 
         mNotLongEnoughUpPassTextView.setVisibility(View.INVISIBLE);
         mNotLongEnoughUpUserTextView.setVisibility(View.INVISIBLE);
         mNotGoodEnoughEmailTextView.setVisibility(View.INVISIBLE);
         mNotSameUserTextView.setVisibility(View.INVISIBLE);
         mNotSamePassTextView.setVisibility(View.INVISIBLE);
-        mNotSameEmailTextView.setVisibility(View.INVISIBLE);
+        //mRetypedPassNotSameTextView.setVisibility(View.INVISIBLE); //NEW MESSAGE
 
         mSubmitUpdates.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,11 +74,12 @@ public class UpdateCredActivity extends AppCompatActivity {
                 mNotGoodEnoughEmailTextView.setVisibility(View.INVISIBLE);
                 mNotSameUserTextView.setVisibility(View.INVISIBLE);
                 mNotSamePassTextView.setVisibility(View.INVISIBLE);
-                mNotSameEmailTextView.setVisibility(View.INVISIBLE);
+                //mRetypedPassNotSameTextView.setVisibility(View.INVISIBLE); // NEW MESSAGE
 
                 boolean userLength = mUpdateUserTextView.getText().toString().length() < 5;
                 boolean passLength = mUpdatePassTextView.getText().toString().length() < 5;
                 boolean emailGood = isValidEmail(mUpdateEmailView.getText().toString());
+                boolean passMatch = mUpdatePassTextView.toString().equals(mRetypedPassView.toString());
 
                 boolean messagesShowing = true;
                 if (userLength && passLength && !emailGood) {
@@ -91,7 +92,8 @@ public class UpdateCredActivity extends AppCompatActivity {
                     mNotLongEnoughUpUserTextView.setVisibility(View.VISIBLE);
                     System.out.println("Not Long enough password or user");
                 } else if (userLength && !emailGood) {
-                    //Passwords do not match
+                    //Passwords do not match?
+                    if(!passMatch) mRetypedPassNotSameTextView.setVisibility(View.VISIBLE);
                     mNotLongEnoughUpPassTextView.setVisibility(View.VISIBLE);
                     mNotGoodEnoughEmailTextView.setVisibility(View.VISIBLE);
                     System.out.println("bad user and bad email");
@@ -100,12 +102,14 @@ public class UpdateCredActivity extends AppCompatActivity {
                     mNotGoodEnoughEmailTextView.setVisibility(View.VISIBLE);
                     System.out.println("bad pass and bad email");
                 } else if (userLength) {
+                    if(!passMatch) mRetypedPassNotSameTextView.setVisibility(View.VISIBLE);
                     mNotLongEnoughUpUserTextView.setVisibility(View.VISIBLE);
                     System.out.println("Bad user");
                 } else if (passLength) {
                     mNotLongEnoughUpPassTextView.setVisibility(View.VISIBLE);
                     System.out.println("Bad pass");
                 } else if(!emailGood) {
+                    if(!passMatch) mRetypedPassNotSameTextView.setVisibility(View.VISIBLE);
                     mNotGoodEnoughEmailTextView.setVisibility(View.VISIBLE);
                     System.out.println("Bad email");
                 }
@@ -113,8 +117,7 @@ public class UpdateCredActivity extends AppCompatActivity {
                 //Update credentials
                 try {
                     switch (manager.validateCredentials(mOldUserTextView.getText().toString(),
-                            mOldPassTextView.getText().toString(),
-                            mOldEmailView.getText().toString()))
+                            mOldPassTextView.getText().toString()))
                     {
                         case 0:
                             if(! messagesShowing)
@@ -135,29 +138,10 @@ public class UpdateCredActivity extends AppCompatActivity {
                             System.out.println("NotSame pass");
                             break;
                         case 3:
-                            mNotSameEmailTextView.setVisibility(View.VISIBLE);
-                            System.out.println("NotSame email");
-                            break;
-                        case 4:
                             mNotSameUserTextView.setVisibility(View.VISIBLE);
                             mNotSamePassTextView.setVisibility(View.VISIBLE);
                             System.out.println("NotSame user and pass");
                             break;
-                        case 5:
-                            mNotSameUserTextView.setVisibility(View.VISIBLE);
-                            mNotSameEmailTextView.setVisibility(View.VISIBLE);
-                            System.out.println("NotSame user and email");
-                            break;
-                        case 6:
-                            mNotSamePassTextView.setVisibility(View.VISIBLE);
-                            mNotSameEmailTextView.setVisibility(View.VISIBLE);
-                            System.out.println("NotSame pass and email");
-                            break;
-                        case 7:
-                            mNotSameUserTextView.setVisibility(View.VISIBLE);
-                            mNotSamePassTextView.setVisibility(View.VISIBLE);
-                            mNotSameEmailTextView.setVisibility(View.VISIBLE);
-                            System.out.println("NotSame anything");
                     }
                 } catch (InvalidKeySpecException e) {
                     e.printStackTrace();
