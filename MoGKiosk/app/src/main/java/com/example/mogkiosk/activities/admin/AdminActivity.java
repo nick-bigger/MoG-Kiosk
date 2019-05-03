@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.mogkiosk.CreateAccountActivity;
 import com.example.mogkiosk.R;
 import com.example.mogkiosk.UpdateCredActivity;
 import com.example.mogkiosk.activities.admin.fragments.ArtistFragAdmin;
@@ -200,6 +201,10 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
             case R.id.action_updateCred:
                 Intent intent2 = new Intent(this, UpdateCredActivity.class);
                 this.startActivity(intent2);
+                return true;
+            case R.id.action_createAccount:
+                Intent intent3 = new Intent(this, CreateAccountActivity.class);
+                this.startActivity(intent3);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

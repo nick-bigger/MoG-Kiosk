@@ -9,6 +9,7 @@
     <string name="title_activity_changePwd">Change Password</string>
     <string name="title_activity_updateCred">Update Login</string>
     <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_createAccount">Create Account</string>
     <!-- page titles end -->
 
     <!-- buttons start -->
@@ -283,6 +284,9 @@
 
     <!-- change password start -->
     <string name="changePwd_error_match">Passwords do not match!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- change password end -->
 
     <!-- youtube start -->
