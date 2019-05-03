@@ -121,7 +121,7 @@ public class ArtistFragAdmin extends Fragment {
         Tag = rootView.findViewById(R.id.etTag);
         Description = rootView.findViewById(R.id.description);
         SubBio = rootView.findViewById(R.id.etSubBio);
-        imgView = rootView.findViewById(R.id.currentImage);
+        imgView = rootView.findViewById(R.id.mainImage);
         Button submit1 = rootView.findViewById(R.id.submitBtn);
         Button submit = rootView.findViewById(R.id.submitBtn);
         //set onclick method
@@ -138,7 +138,7 @@ public class ArtistFragAdmin extends Fragment {
             }
         });
 
-        FloatingActionButton uploadImageBtn = rootView.findViewById(R.id.etImage);
+        FloatingActionButton uploadImageBtn = rootView.findViewById(R.id.browse_main_img);
         uploadImageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

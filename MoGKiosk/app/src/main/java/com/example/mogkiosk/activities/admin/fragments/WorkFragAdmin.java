@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -114,7 +115,7 @@ public class WorkFragAdmin extends Fragment {
         Button submit = rootView.findViewById(R.id.submitBtn);
         photoBy = rootView.findViewById(R.id.photo_credit);
 
-        Button mainImageBtn = rootView.findViewById(R.id.browse_main_img);
+        FloatingActionButton mainImageBtn = rootView.findViewById(R.id.browse_main_img);
         Button related1ImageBtn = rootView.findViewById(R.id.browse_main_img2);
         Button related2ImageBtn = rootView.findViewById(R.id.browse_main_img3);
         Button related3ImageBtn = rootView.findViewById(R.id.browse_main_img4);
