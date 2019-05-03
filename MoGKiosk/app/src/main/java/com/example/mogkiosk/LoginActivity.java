@@ -37,6 +37,12 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         final PrivateInfoManager manager = new PrivateInfoManager(this);
+        if (manager.createAccount)
+        {
+            // Go to create account activity and call this as a public method
+           // Intent intentCreate = new Intent(LoginActivity.this, CreateAccountActivty.class); // GO TO CREAT ACCOUNT AND CALL WRITEINITALINFO()
+           // startActivity(intentCreate);
+        }
 
         getSupportActionBar().hide();
 

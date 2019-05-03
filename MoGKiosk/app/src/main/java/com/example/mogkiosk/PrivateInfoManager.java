@@ -27,6 +27,7 @@ import javax.crypto.spec.PBEKeySpec;
  */
 public class PrivateInfoManager
 {
+    public boolean createAccount = false;
     private static final String PASS_HASH = "hash";
     private static final String SALT = "salt";
     private static final String TEMP_HASH = "tempHash";
@@ -106,6 +107,7 @@ public class PrivateInfoManager
             //System.out.println(fc.toString());
             //Make file a jsonobject
             infoManager = new JSONObject(fc.toString());
+            createAccount = true;
         }
         catch (FileNotFoundException f)
         {
@@ -113,7 +115,6 @@ public class PrivateInfoManager
             File file = new File(context.getFilesDir(), "pw.pw");
             file.createNewFile();
             readJSONfromFile(context);
-            writeInitialInfo();
         }
         catch (Exception e) {Log.d(ERROR, e.toString());}
     }
@@ -123,18 +124,17 @@ public class PrivateInfoManager
      * @throws NoSuchAlgorithmException
      * @throws InvalidKeySpecException
      */
-    private void writeInitialInfo() throws NoSuchAlgorithmException, InvalidKeySpecException
+    private void writeInitialInfo(String username, String password, String email) throws NoSuchAlgorithmException, InvalidKeySpecException
     {
-        // Initial username glassAdmin
-        // Initial password glassiscool
-        addKVpair(USERNAME, "glassAdmin");
+        //Initial info grabbed from create account
+        addKVpair(USERNAME, username);
         addKVpair(TEMP_USERNAME, "");
         addKVpair(SALT, "");
         updateSalt();
         addKVpair(TEMP_SALT, "");
-        addKVpair(PASS_HASH, generatePasswordHash("glassiscool", false));
+        addKVpair(PASS_HASH, generatePasswordHash(password, false));
         addKVpair(TEMP_HASH, "");
-        addKVpair(EMAIL, "upsmogkioskautomatic@gmail.com");
+        addKVpair(EMAIL, email);
         // printContents();
     }
 
