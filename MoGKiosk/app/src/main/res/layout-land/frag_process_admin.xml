@@ -9,7 +9,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/panel_left"
-        android:layout_width="0dp"
+        android:layout_width="500dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/panel_right"
@@ -40,34 +40,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/video_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/processAdmin_videoTitle_subtitle"
-            app:layout_constraintBottom_toTopOf="@+id/workTitleInputLayout"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider1" />
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/workTitleInputLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             app:counterEnabled="true"
             app:counterMaxLength="30"
+            app:helperText="@string/processAdmin_videoTitle_subtitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/video_title">
+            app:layout_constraintTop_toBottomOf="@+id/divider1">
 
             <EditText
                 android:id="@+id/title"
@@ -84,39 +71,20 @@
 
         </android.support.design.widget.TextInputLayout>
 
-        <TextView
-            android:id="@+id/video_description_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/processAdmin_videoDesc_subtitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/workTitleInputLayout" />
-
-        <TextView
-            android:id="@+id/video_description_title2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/processAdmin_videoId_subtitle"
-            app:layout_constraintStart_toStartOf="@+id/descInputLayout"
-            app:layout_constraintTop_toBottomOf="@+id/descInputLayout" />
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/descInputLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
             app:counterEnabled="true"
             app:counterMaxLength="15"
+            app:helperText="@string/processAdmin_videoDesc_subtitle"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/video_description_title">
+            app:layout_constraintTop_toBottomOf="@+id/workTitleInputLayout">
 
             <EditText
                 android:id="@+id/description"
@@ -139,12 +107,15 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
             app:counterEnabled="true"
             app:counterMaxLength="15"
+            app:helperText="@string/processAdmin_videoId_subtitle"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/video_description_title2">
+            app:layout_constraintTop_toBottomOf="@+id/descInputLayout">
 
             <EditText
                 android:layout_width="match_parent"
@@ -201,12 +172,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/btn_bg_selector"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:text="@string/btn_update"
+            android:text="@string/btn_save"
             android:textColor="@drawable/btn_text_selector"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
