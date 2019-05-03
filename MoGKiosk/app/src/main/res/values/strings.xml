@@ -258,8 +258,9 @@
     <!-- change password and update cred start -->
     <string name="details_subTitle">Please fill out your details below</string>
 
-    <string name="error_usn">Username must be at least 5 characters long.</string>
-    <string name="error_pwd">Password must be at least 5 characters long.</string>
+    <string name="error_usn">*Username is less than 5 characters long</string>
+    <string name="error_pwd">*Password is less than 5 characters long.</string>
+    <string name="error_rePwd">*Passwords do not match</string>
 
     <string name="input_new_usn">New Username</string>
     <string name="input_new_pwd">New Password</string>
@@ -268,10 +269,10 @@
     <!-- change password and update cred end -->
 
     <!-- update credentials start -->
-    <string name="updateCred_error_email">Please enter a valid email.</string>
-    <string name="updateCred_error_usnMismatch">Username does not match old username.</string>
-    <string name="updateCred_error_pwdMismatch">Password does not match old password.</string>
-    <string name="updateCred_error_emailMismatch">Email does not match old email.</string>
+    <string name="updateCred_error_email">*Please enter a valid email</string>
+    <string name="updateCred_error_usnMismatch">*Username does not match old username</string>
+    <string name="updateCred_error_pwdMismatch">*Password does not match old password</string>
+    <string name="updateCred_error_emailMismatch">*Email does not match old email</string>
 
     <string name="updateCred_input_old_usn">Old Username</string>
     <string name="updateCred_input_old_pwd">Old Password</string>
