@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -29,9 +30,11 @@ import java.security.spec.InvalidKeySpecException;
 public class LoginActivity extends AppCompatActivity {
     private EditText mNameEditText; //use m for global variables because history
     private EditText mPassEditText;
-    private TextView mBadLoginTextView;
     private AlertDialog alertDialog;
     private AlertDialog errorDialog;
+
+    private TextInputLayout usrInput;
+    private TextInputLayout passInput;
 
 
     @Override
@@ -47,22 +50,21 @@ public class LoginActivity extends AppCompatActivity {
         mNameEditText = findViewById(R.id.title);
         mPassEditText = findViewById(R.id.etPassword);
         Button mLoginButton = findViewById(R.id.btnLogin);
-        mBadLoginTextView = findViewById(R.id.incorrectLogin);
         TextView mForgotPassTextView = findViewById(R.id.forgotPass);
 
-        mBadLoginTextView.setVisibility(View.INVISIBLE);
+        usrInput = findViewById(R.id.usernameInputLayout);
+        passInput = findViewById(R.id.passwordInputLayout);
 
         //setting the login button to validate
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                mBadLoginTextView.setVisibility(View.INVISIBLE);
-
                 try {
                     switch (manager.validateLogin(mNameEditText.getText().toString(), mPassEditText.getText().toString())) {
                         case -1:
-                            mBadLoginTextView.setVisibility(View.VISIBLE);
+                            usrInput.setError("Incorrect username or password");
+                            passInput.setError("Incorrect username or password");
                             System.out.println("This should lead to the error message");
                             break;
                         case 0:

@@ -2,7 +2,6 @@
 package com.example.mogkiosk.activities.changepass;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -26,8 +25,6 @@ public class ChangePassActivity extends AppCompatActivity {
     private TextInputLayout usrInput;
     private TextInputLayout passInput;
     private TextInputLayout rePassInput;
-
-    private Drawable lockIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
