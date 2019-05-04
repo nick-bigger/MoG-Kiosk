@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -19,7 +20,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.ProgressBar;
 
 import com.example.mogkiosk.R;
 
@@ -179,6 +180,11 @@ public class ArtistFragAdmin extends Fragment {
             // When an Image is picked
             if (requestCode == RESULT_LOAD_IMG && resultCode == RESULT_OK
                     && null != data) {
+
+                ProgressBar pb = getActivity().findViewById(R.id.progressBar);
+                pb.clearAnimation();
+                pb.setVisibility(View.INVISIBLE);
+
                 // Get the Image from data
                 Uri selectedImage = data.getData();
                 //Bitmap bitmap = BitmapFactory.decodeStream(getActivity().getApplicationContext().getContentResolver().openInputStream(selectedImage));
@@ -189,13 +195,16 @@ public class ArtistFragAdmin extends Fragment {
                 // Set the Image in ImageView after decoding the String
                 imgView.setImageBitmap(dummy);
                 //null bit
+
                 saveToInternalStorage(bitmap);
+//
+//                pb.clearAnimation();
+//                pb.setVisibility(View.INVISIBLE);
             } else {
-                Toast.makeText(getActivity(), "You haven't picked Image",
-                        Toast.LENGTH_LONG).show();
+                Snackbar.make(getActivity().getWindow().getDecorView().findViewById(android.R.id.content), "You haven't picked Image", Snackbar.LENGTH_LONG).show();
             }
         } catch (Exception e) {
-            Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_LONG)
+            Snackbar.make(getActivity().getWindow().getDecorView().findViewById(android.R.id.content), "Something went wrong", Snackbar.LENGTH_LONG)
                     .show();
         }
 
