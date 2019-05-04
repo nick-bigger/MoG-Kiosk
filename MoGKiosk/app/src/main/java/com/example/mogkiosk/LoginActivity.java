@@ -8,6 +8,8 @@ import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private TextInputLayout usrInput;
     private TextInputLayout passInput;
+    private Button mLoginButton;
 
 
     @Override
@@ -49,11 +52,14 @@ public class LoginActivity extends AppCompatActivity {
         //assigning variables from layout
         mNameEditText = findViewById(R.id.title);
         mPassEditText = findViewById(R.id.etPassword);
-        Button mLoginButton = findViewById(R.id.btnLogin);
+        mLoginButton = findViewById(R.id.btnLogin);
         TextView mForgotPassTextView = findViewById(R.id.forgotPass);
 
         usrInput = findViewById(R.id.usernameInputLayout);
         passInput = findViewById(R.id.passwordInputLayout);
+
+        mNameEditText.addTextChangedListener(watcher);
+        mPassEditText.addTextChangedListener(watcher);
 
         //setting the login button to validate
         mLoginButton.setOnClickListener(new View.OnClickListener() {
@@ -122,6 +128,23 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    private final TextWatcher watcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after)
+        { }
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count)
+        {}
+        @Override
+        public void afterTextChanged(Editable s) {
+            if (mNameEditText.getText().toString().length() == 0 || mPassEditText.getText().toString().length() == 0) {
+                mLoginButton.setEnabled(false);
+            } else {
+                mLoginButton.setEnabled(true);
+            }
+        }
+    };
 
     @Override
     protected void onResume() {
