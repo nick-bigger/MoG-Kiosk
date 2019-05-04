@@ -103,7 +103,7 @@
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/artistPanel"
-            android:layout_width="525dp"
+            android:layout_width="500dp"
             android:layout_height="0dp"
             android:layout_gravity="center"
             android:background="@color/colorBackground"
@@ -116,7 +116,7 @@
                 android:id="@+id/image_wrapper"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:maxHeight="400dp"
+                android:maxHeight="300dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
