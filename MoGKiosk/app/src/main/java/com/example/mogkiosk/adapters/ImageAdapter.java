@@ -8,12 +8,19 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import com.example.mogkiosk.R;
+
 import java.util.ArrayList;
 
 public class ImageAdapter extends BaseAdapter {
 
     private final Context context;
     private final ArrayList<Bitmap> bitmapList;
+
+    public ImageAdapter(Context context) {
+        this.context = context;
+        bitmapList = null;
+    }
 
     public ImageAdapter(Context context, ArrayList<Bitmap> bitmapList) {
         this.context = context;
@@ -45,5 +52,11 @@ public class ImageAdapter extends BaseAdapter {
         imageView.setImageBitmap(this.bitmapList.get(position));
         return imageView;
     }
+
+    public Integer[] mThumbIds = {
+            R.drawable.related_work_1,
+            R.drawable.related_work_2,
+            R.drawable.related_work_3
+    };
 
 }

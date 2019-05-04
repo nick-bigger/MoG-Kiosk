@@ -47,6 +47,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SingleViewActivity"
+            android:label="imageView"
+            android:theme="@style/AppTheme.DarkBackground">
+        </activity>
     </application>
 
 </manifest>
