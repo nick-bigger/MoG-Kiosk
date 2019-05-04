@@ -11,6 +11,8 @@
     <color name="textLight">#FFFFFF</color>
     <color name="transparent">#0000</color>
 
+    <color name="divider">#D1D1D1</color>
+
     <color name="colorError">#EB982B</color>
     <color name="colorSuccess">#00C42F</color>
     <!--<color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#F2F2F2</color>-->

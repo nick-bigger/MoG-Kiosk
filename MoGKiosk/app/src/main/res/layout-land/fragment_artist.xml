@@ -107,6 +107,7 @@
             android:layout_height="0dp"
             android:layout_gravity="center"
             android:background="@color/colorBackground"
+            android:elevation="5dp"
             android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -137,11 +138,10 @@
             </android.support.constraint.ConstraintLayout>
 
             <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="25dp"
-                android:background="@android:color/darker_gray"
+                android:id="@+id/middle_divider"
+                style="@style/Divider"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
                 app:layout_constraintBottom_toTopOf="@+id/artist_subbio"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -151,10 +151,10 @@
                 android:id="@+id/artist_subbio"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="64dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="64dp"
                 android:lineSpacingExtra="10dp"
                 android:text="@string/artist_subBio"
                 android:textColor="@color/textDark"
