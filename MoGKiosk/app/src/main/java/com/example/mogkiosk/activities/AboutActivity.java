@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import com.example.mogkiosk.LoginActivity;
 import com.example.mogkiosk.R;
 
+import java.util.Vector;
+
 public class AboutActivity extends AppCompatActivity {
     private static int numClicks = 0;
 
@@ -22,6 +24,7 @@ public class AboutActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ImageView img = findViewById(R.id.dev_photo_3);
 
+
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,6 +35,10 @@ public class AboutActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
+
+
+
 
 }
