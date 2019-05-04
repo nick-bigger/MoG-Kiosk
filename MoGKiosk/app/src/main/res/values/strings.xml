@@ -262,8 +262,9 @@
     <string name="details_subTitle">Please fill out your details below</string>
 
     <string name="error_usn">*Username is less than 5 characters long</string>
-    <string name="error_pwd">*Password is less than 5 characters long.</string>
+    <string name="error_pwd">*Password is less than 5 characters long</string>
     <string name="error_rePwd">*Passwords do not match</string>
+    <string name="error_ema">Email is invalid</string>
 
     <string name="input_new_usn">New Username</string>
     <string name="input_new_pwd">New Password</string>

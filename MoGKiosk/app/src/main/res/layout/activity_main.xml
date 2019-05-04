@@ -36,8 +36,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabTextColor="@color/textMid"
-            app:tabSelectedTextColor="@color/colorAccent"
-            app:tabMinWidth="200dp"
+            app:tabSelectedTextColor="@color/textDark"
+            app:tabIndicatorHeight="30dp"
+            app:tabIndicatorFullWidth="true"
+            app:tabIndicatorColor="@color/textDark"
+            app:tabIndicator="@drawable/tab_selector"
+            app:tabIndicatorGravity="center"
             app:tabGravity="fill"
             app:tabMode="fixed" />
 
