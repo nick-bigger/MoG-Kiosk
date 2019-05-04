@@ -11,15 +11,17 @@
         android:id="@+id/submit_credentials"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/btn_bg_selector"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:text="@string/btn_submit"
         android:textColor="@drawable/btn_text_selector"
-        android:background="@drawable/btn_bg_selector"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/new_input_panel"
+        app:layout_constraintStart_toStartOf="@+id/old_input_panel"
         app:layout_constraintTop_toBottomOf="@+id/new_input_panel" />
 
     <TextView

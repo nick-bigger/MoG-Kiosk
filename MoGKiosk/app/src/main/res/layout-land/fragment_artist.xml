@@ -174,7 +174,6 @@
                 android:textAppearance="@android:style/TextAppearance.Medium.Inverse"
                 android:textColor="@color/textDark"
                 android:textSize="@dimen/font_title"
-                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/image_wrapper" />
 

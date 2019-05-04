@@ -65,6 +65,8 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginEnd="24dp"
                     app:layout_constraintBottom_toTopOf="@+id/infoTable"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/work_date" />
 
                 <TextView
@@ -77,7 +79,6 @@
                     android:textAppearance="@android:style/TextAppearance.Large.Inverse"
                     android:textColor="@color/textDark"
                     android:textSize="@dimen/font_title"
-                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -87,7 +88,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/work_date"
-                    android:textSize="@dimen/font_title"
+                    android:textSize="35sp"
                     android:textStyle="italic"
                     app:fontFamily="sans-serif-light"
                     app:layout_constraintStart_toStartOf="parent"

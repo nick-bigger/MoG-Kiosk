@@ -15,5 +15,5 @@
 
     <color name="colorError">#EB982B</color>
     <color name="colorSuccess">#00C42F</color>
-    <!--<color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#F2F2F2</color>-->
+    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#BABABA</color>
 </resources>

@@ -155,6 +155,7 @@
             android:textColor="@drawable/btn_text_selector"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@+id/new_update_email2"
+            app:layout_constraintStart_toStartOf="@+id/new_update_email2"
             app:layout_constraintTop_toBottomOf="@+id/new_update_email2" />
 
         <TextView
