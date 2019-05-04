@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -35,8 +34,8 @@ public class LoginActivity extends AppCompatActivity {
     private AlertDialog alertDialog;
     private AlertDialog errorDialog;
 
-    private TextInputLayout usrInput;
-    private TextInputLayout passInput;
+    private TextView errorText;
+
     private Button mLoginButton;
 
 
@@ -54,9 +53,8 @@ public class LoginActivity extends AppCompatActivity {
         mPassEditText = findViewById(R.id.etPassword);
         mLoginButton = findViewById(R.id.btnLogin);
         TextView mForgotPassTextView = findViewById(R.id.forgotPass);
-
-        usrInput = findViewById(R.id.usernameInputLayout);
-        passInput = findViewById(R.id.passwordInputLayout);
+        errorText = findViewById(R.id.errorText);
+        errorText.setVisibility(View.INVISIBLE);
 
         mNameEditText.addTextChangedListener(watcher);
         mPassEditText.addTextChangedListener(watcher);
@@ -66,11 +64,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                errorText.setVisibility(View.INVISIBLE);
+
                 try {
                     switch (manager.validateLogin(mNameEditText.getText().toString(), mPassEditText.getText().toString())) {
                         case -1:
-                            usrInput.setError("Incorrect username or password");
-                            passInput.setError("Incorrect username or password");
+                            errorText.setVisibility(View.VISIBLE);
                             System.out.println("This should lead to the error message");
                             break;
                         case 0:
