@@ -107,13 +107,13 @@ public class PrivateInfoManager
             //System.out.println(fc.toString());
             //Make file a jsonobject
             infoManager = new JSONObject(fc.toString());
-            createAccount = true;
         }
         catch (FileNotFoundException f)
         {
             System.out.println("IN EXCEPTION");
             File file = new File(context.getFilesDir(), "pw.pw");
             file.createNewFile();
+            createAccount = true;
             readJSONfromFile(context);
         }
         catch (Exception e) {Log.d(ERROR, e.toString());}
@@ -124,7 +124,7 @@ public class PrivateInfoManager
      * @throws NoSuchAlgorithmException
      * @throws InvalidKeySpecException
      */
-    private void writeInitialInfo(String username, String password, String email) throws NoSuchAlgorithmException, InvalidKeySpecException
+    public void writeInitialInfo(String username, String password, String email) throws NoSuchAlgorithmException, InvalidKeySpecException
     {
         //Initial info grabbed from create account
         addKVpair(USERNAME, username);

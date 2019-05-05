@@ -43,8 +43,8 @@ public class LoginActivity extends AppCompatActivity {
         if (manager.createAccount)
         {
             // Go to create account activity and call this as a public method
-           // Intent intentCreate = new Intent(LoginActivity.this, CreateAccountActivty.class); // GO TO CREAT ACCOUNT AND CALL WRITEINITALINFO()
-           // startActivity(intentCreate);
+            Intent intentCreate = new Intent(LoginActivity.this, CreateAccountActivity.class);
+            startActivity(intentCreate);
         }
 
         getSupportActionBar().hide();

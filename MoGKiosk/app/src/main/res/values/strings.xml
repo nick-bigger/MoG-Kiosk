@@ -231,7 +231,7 @@
     <string name="workAdmin_relatedWork3_desc">Related Work 3</string>
 
     <!-- work admin end -->
-
+    <string name="error_ema">Email is invalid</string>
     <!-- process admin start -->
     <string name="a_ptitle">android.content.SharedPreferences.a_ptitle</string>
     <string name="a_pdescription">android.content.SharedPreferences.a_pdescription</string>
