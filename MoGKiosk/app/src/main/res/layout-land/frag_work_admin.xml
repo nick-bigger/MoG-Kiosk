@@ -599,6 +599,7 @@
                 android:layout_marginTop="64dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/btn_bg_selector"
+                android:elevation="4dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="@string/btn_save"
