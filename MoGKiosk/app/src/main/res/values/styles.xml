@@ -38,14 +38,11 @@
     <style name="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense" override="true">
         <item name="boxStrokeColor">#BABABA</item>
         <item name="boxStrokeWidth">20dp</item>
-        <item name="boxCornerRadiusTopStart">20dp</item>
-        <item name="boxCornerRadiusBottomStart">20dp</item>
-        <item name="boxCornerRadiusTopEnd">20dp</item>
-        <item name="boxCornerRadiusBottomEnd">20dp</item>
     </style>
 
     <style name="TextAppearence.TextInputLayout.Dark" parent="@android:style/TextAppearance">
         <item name="android:textColor">#666666</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
 </resources>

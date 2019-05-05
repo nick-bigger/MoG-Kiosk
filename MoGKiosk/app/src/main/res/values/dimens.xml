@@ -14,6 +14,9 @@
     <dimen name="divider_small">35dp</dimen>
     <dimen name="letterSpacing_subtitle">0.08</dimen>
 
+    <!-- btn dimens -->
+    <dimen name="btn_height">40dp</dimen>
+
     <!-- Edit text dimens -->
     <dimen name="et_ic_pad">12dp</dimen>
 </resources>

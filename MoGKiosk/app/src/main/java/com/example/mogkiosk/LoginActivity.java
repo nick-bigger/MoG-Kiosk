@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,12 +50,9 @@ public class LoginActivity extends AppCompatActivity {
         mNameEditText = findViewById(R.id.title);
         mPassEditText = findViewById(R.id.etPassword);
         mLoginButton = findViewById(R.id.btnLogin);
-        TextView mForgotPassTextView = findViewById(R.id.forgotPass);
+        Button mForgotPass= findViewById(R.id.forgotPassBtn);
         errorText = findViewById(R.id.errorText);
         errorText.setVisibility(View.INVISIBLE);
-
-        mNameEditText.addTextChangedListener(watcher);
-        mPassEditText.addTextChangedListener(watcher);
 
         //setting the login button to validate
         mLoginButton.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        mForgotPassTextView.setOnClickListener(new View.OnClickListener()
+        mForgotPass.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
@@ -127,23 +122,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
-    private final TextWatcher watcher = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after)
-        { }
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count)
-        {}
-        @Override
-        public void afterTextChanged(Editable s) {
-            if (mNameEditText.getText().toString().length() == 0 || mPassEditText.getText().toString().length() == 0) {
-                mLoginButton.setEnabled(false);
-            } else {
-                mLoginButton.setEnabled(true);
-            }
-        }
-    };
 
     @Override
     protected void onResume() {
