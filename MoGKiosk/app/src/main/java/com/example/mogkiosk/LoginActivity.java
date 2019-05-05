@@ -59,7 +59,11 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                errorText.setVisibility(View.INVISIBLE);
+                if (mNameEditText.getText().toString().length() == 0 || mPassEditText.getText().toString().length() == 0) {
+                    errorText.setVisibility(View.VISIBLE);
+                } else {
+                    errorText.setVisibility(View.INVISIBLE);
+                }
 
                 try {
                     switch (manager.validateLogin(mNameEditText.getText().toString(), mPassEditText.getText().toString())) {

@@ -4,16 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".activities.changepass.fragments.ChangePassActivityFragment"
     tools:showIn="@layout/activity_change_pass">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/old_input_panel"
-        android:layout_width="467dp"
-        android:layout_height="500dp"
+        android:layout_width="420dp"
+        android:layout_height="450dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/card_edge"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +26,7 @@
             android:id="@+id/logoImageView"
             android:layout_width="0dp"
             android:layout_height="100dp"
-            android:layout_marginStart="128dp"
+            android:layout_marginStart="16dp"
             android:contentDescription="@string/logo_desc"
             android:src="@drawable/logo"
             app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +37,7 @@
             android:id="@+id/change_pass_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/title_activity_changePwd"
             android:textAllCaps="true"
@@ -158,19 +160,17 @@
             android:textColor="@drawable/btn_text_selector"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@+id/retypePassInputLayout"
-            app:layout_constraintStart_toStartOf="@+id/retypePassInputLayout"
             app:layout_constraintTop_toBottomOf="@+id/retypePassInputLayout" />
 
         <TextView
             android:id="@+id/subTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/details_subTitle"
             android:textColor="@color/textMid"
             android:textSize="@dimen/font_small"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/change_pass_title"
             app:layout_constraintTop_toBottomOf="@+id/change_pass_title" />
 
     </android.support.constraint.ConstraintLayout>

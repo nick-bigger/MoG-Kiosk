@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,10 +31,8 @@ public class ChangePassActivity extends AppCompatActivity {
         final PrivateInfoManager manager = new PrivateInfoManager(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_pass);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        getSupportActionBar().hide();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mNewPassTextView = findViewById(R.id.password);
         mRetypePassTextView = findViewById(R.id.retype_password);

@@ -17,19 +17,23 @@
         <activity
             android:name=".CreateAccountActivity"
             android:label="@string/title_activity_createAccount"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".activities.admin.AdminActivity"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".UpdateCredActivity"
             android:label="@string/title_activity_updateCred"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".activities.admin.AdminActivity"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".activities.changepass.ChangePassActivity"
             android:label="@string/title_activity_changePwd"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".activities.admin.AdminActivity"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".activities.AboutActivity"
             android:label="@string/title_activity_about"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".activities.main.MainActivity"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".LoginActivity"
             android:label="Login" />

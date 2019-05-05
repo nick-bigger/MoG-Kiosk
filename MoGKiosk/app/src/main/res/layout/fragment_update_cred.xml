@@ -4,262 +4,265 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".UpdateCredActivityFragment"
     tools:showIn="@layout/activity_update_cred">
 
-    <Button
-        android:id="@+id/submit_credentials"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/btn_height"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/btn_bg_selector"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:text="@string/btn_submit"
-        android:textColor="@drawable/btn_text_selector"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/new_input_panel"
-        app:layout_constraintStart_toStartOf="@+id/old_input_panel"
-        app:layout_constraintTop_toBottomOf="@+id/new_input_panel" />
-
-    <TextView
-        android:id="@+id/update_cred_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/title_activity_updateCred"
-        android:textAllCaps="true"
-        android:textColor="@color/textDark"
-        android:textSize="@dimen/font_title_small"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/subTitle"
-        app:layout_constraintStart_toStartOf="@+id/old_input_panel" />
-
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/new_input_panel"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="128dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/old_input_panel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toEndOf="@+id/old_input_panel">
-
-        <EditText
-            android:id="@+id/new_update_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:autofillHints="email"
-            android:background="@drawable/edittext_round"
-            android:drawableStart="@drawable/ic_mail_24dp"
-            android:drawablePadding="20dp"
-            android:hint="@string/input_new_email"
-            android:inputType="textEmailAddress"
-            android:padding="@dimen/et_ic_pad"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/do_not_match3" />
-
-        <EditText
-            android:id="@+id/new_update_username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:autofillHints="username"
-            android:background="@drawable/edittext_round"
-            android:drawableStart="@drawable/ic_account_circle_24dp"
-            android:drawablePadding="20dp"
-            android:hint="@string/input_new_usn"
-            android:inputType="textShortMessage"
-            android:padding="@dimen/et_ic_pad"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/username_length3" />
-
-        <EditText
-            android:id="@+id/new_update_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:autofillHints="password"
-            android:background="@drawable/edittext_round"
-            android:drawableStart="@drawable/ic_lock_24dp"
-            android:drawablePadding="20dp"
-            android:hint="@string/input_new_pwd"
-            android:inputType="textPassword"
-            android:padding="@dimen/et_ic_pad"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pass_length3" />
-
-        <TextView
-            android:id="@+id/username_length3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/error_usn"
-            android:textColor="@color/colorError"
-            android:textSize="@dimen/font_small"
-            app:layout_constraintStart_toStartOf="@+id/new_update_username"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/pass_length3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/error_pwd"
-            android:textColor="@color/colorError"
-            android:textSize="@dimen/font_small"
-            app:layout_constraintStart_toStartOf="@+id/new_update_password"
-            app:layout_constraintTop_toBottomOf="@+id/new_update_username" />
-
-        <TextView
-            android:id="@+id/do_not_match3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/updateCred_error_email"
-            android:textColor="@color/colorError"
-            android:textSize="@dimen/font_small"
-            app:layout_anchorGravity="top|center"
-            app:layout_constraintStart_toStartOf="@+id/new_update_email"
-            app:layout_constraintTop_toBottomOf="@+id/new_update_password" />
-
-    </android.support.constraint.ConstraintLayout>
-
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/old_input_panel"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:visibility="visible"
+        android:layout_width="800dp"
+        android:layout_height="500dp"
+        android:background="@drawable/card_edge"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/new_input_panel"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/old_update_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:autofillHints="email"
-            android:background="@drawable/edittext_round"
-            android:drawableStart="@drawable/ic_mail_24dp"
-            android:drawablePadding="20dp"
-            android:hint="@string/updateCred_input_old_email"
-            android:inputType="textEmailAddress"
-            android:padding="@dimen/et_ic_pad"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/old_email_mismatch" />
-
-        <EditText
-            android:id="@+id/old_update_username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:autofillHints="username"
-            android:background="@drawable/edittext_round"
-            android:drawableStart="@drawable/ic_account_circle_24dp"
-            android:drawablePadding="20dp"
-            android:hint="@string/updateCred_input_old_usn"
-            android:inputType="textShortMessage"
-            android:padding="@dimen/et_ic_pad"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/old_user_mismatch" />
-
-        <EditText
-            android:id="@+id/old_update_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:autofillHints="password"
-            android:background="@drawable/edittext_round"
-            android:drawableStart="@drawable/ic_lock_24dp"
-            android:drawablePadding="20dp"
-            android:hint="@string/updateCred_input_old_pwd"
-            android:inputType="textPassword"
-            android:padding="@dimen/et_ic_pad"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/old_pass_mismatch" />
-
         <TextView
-            android:id="@+id/old_email_mismatch"
+            android:id="@+id/subTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/updateCred_error_emailMismatch"
-            android:textColor="@color/colorError"
+            android:text="@string/details_subTitle"
             android:textSize="@dimen/font_small"
-            app:layout_anchorGravity="top|center"
-            app:layout_constraintStart_toStartOf="@+id/old_update_email"
-            app:layout_constraintTop_toBottomOf="@+id/old_update_password" />
+            app:layout_constraintStart_toStartOf="@+id/update_cred_title"
+            app:layout_constraintTop_toBottomOf="@+id/update_cred_title" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/old_input_panel"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/subTitle">
+
+            <EditText
+                android:id="@+id/old_update_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:autofillHints="email"
+                android:background="@drawable/edittext_round"
+                android:drawableStart="@drawable/ic_mail_24dp"
+                android:drawablePadding="20dp"
+                android:hint="@string/updateCred_input_old_email"
+                android:inputType="textEmailAddress"
+                android:padding="@dimen/et_ic_pad"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/old_email_mismatch" />
+
+            <EditText
+                android:id="@+id/old_update_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:autofillHints="username"
+                android:background="@drawable/edittext_round"
+                android:drawableStart="@drawable/ic_account_circle_24dp"
+                android:drawablePadding="20dp"
+                android:hint="@string/updateCred_input_old_usn"
+                android:inputType="textShortMessage"
+                android:padding="@dimen/et_ic_pad"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/old_user_mismatch" />
+
+            <EditText
+                android:id="@+id/old_update_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:autofillHints="password"
+                android:background="@drawable/edittext_round"
+                android:drawableStart="@drawable/ic_lock_24dp"
+                android:drawablePadding="20dp"
+                android:hint="@string/updateCred_input_old_pwd"
+                android:inputType="textPassword"
+                android:padding="@dimen/et_ic_pad"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/old_pass_mismatch" />
+
+            <TextView
+                android:id="@+id/old_email_mismatch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/updateCred_error_emailMismatch"
+                android:textColor="@color/colorError"
+                android:textSize="@dimen/font_small"
+                app:layout_anchorGravity="top|center"
+                app:layout_constraintStart_toStartOf="@+id/old_update_email"
+                app:layout_constraintTop_toBottomOf="@+id/old_update_password" />
+
+            <TextView
+                android:id="@+id/old_pass_mismatch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/updateCred_error_pwdMismatch"
+                android:textColor="@color/colorError"
+                android:textSize="@dimen/font_small"
+                app:layout_constraintStart_toStartOf="@+id/old_update_password"
+                app:layout_constraintTop_toBottomOf="@+id/old_update_username" />
+
+            <TextView
+                android:id="@+id/old_user_mismatch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/updateCred_error_usnMismatch"
+                android:textColor="@color/colorError"
+                android:textSize="@dimen/font_small"
+                app:layout_constraintStart_toStartOf="@+id/old_update_username"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+        <Button
+            android:id="@+id/submit_credentials"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/btn_bg_selector"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="@string/btn_submit"
+            android:textColor="@drawable/btn_text_selector"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/new_input_panel"
+            app:layout_constraintTop_toBottomOf="@+id/new_input_panel" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/new_input_panel"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/old_input_panel">
+
+            <EditText
+                android:id="@+id/new_update_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:autofillHints="email"
+                android:background="@drawable/edittext_round"
+                android:drawableStart="@drawable/ic_mail_24dp"
+                android:drawablePadding="20dp"
+                android:hint="@string/input_new_email"
+                android:inputType="textEmailAddress"
+                android:padding="@dimen/et_ic_pad"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/do_not_match3" />
+
+            <EditText
+                android:id="@+id/new_update_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:autofillHints="username"
+                android:background="@drawable/edittext_round"
+                android:drawableStart="@drawable/ic_account_circle_24dp"
+                android:drawablePadding="20dp"
+                android:hint="@string/input_new_usn"
+                android:inputType="textShortMessage"
+                android:padding="@dimen/et_ic_pad"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/username_length3" />
+
+            <EditText
+                android:id="@+id/new_update_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:autofillHints="password"
+                android:background="@drawable/edittext_round"
+                android:drawableStart="@drawable/ic_lock_24dp"
+                android:drawablePadding="20dp"
+                android:hint="@string/input_new_pwd"
+                android:inputType="textPassword"
+                android:padding="@dimen/et_ic_pad"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pass_length3" />
+
+            <TextView
+                android:id="@+id/username_length3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/error_usn"
+                android:textColor="@color/colorError"
+                android:textSize="@dimen/font_small"
+                app:layout_constraintStart_toStartOf="@+id/new_update_username"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/pass_length3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/error_pwd"
+                android:textColor="@color/colorError"
+                android:textSize="@dimen/font_small"
+                app:layout_constraintStart_toStartOf="@+id/new_update_password"
+                app:layout_constraintTop_toBottomOf="@+id/new_update_username" />
+
+            <TextView
+                android:id="@+id/do_not_match3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/updateCred_error_email"
+                android:textColor="@color/colorError"
+                android:textSize="@dimen/font_small"
+                app:layout_anchorGravity="top|center"
+                app:layout_constraintStart_toStartOf="@+id/new_update_email"
+                app:layout_constraintTop_toBottomOf="@+id/new_update_password" />
+
+        </android.support.constraint.ConstraintLayout>
 
         <TextView
-            android:id="@+id/old_pass_mismatch"
+            android:id="@+id/update_cred_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/updateCred_error_pwdMismatch"
-            android:textColor="@color/colorError"
-            app:layout_constraintStart_toStartOf="@+id/old_update_password"
-            app:layout_constraintTop_toBottomOf="@+id/old_update_username"
-            android:textSize="@dimen/font_small" />
-
-        <TextView
-            android:id="@+id/old_user_mismatch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/updateCred_error_usnMismatch"
-            android:textColor="@color/colorError"
-            android:textSize="@dimen/font_small"
-            app:layout_constraintStart_toStartOf="@+id/old_update_username"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/title_activity_updateCred"
+            android:textAllCaps="true"
+            android:textColor="@color/textDark"
+            android:textSize="@dimen/font_title_small"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/subTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="@string/details_subTitle"
-        android:textSize="@dimen/font_small"
-        app:layout_constraintBottom_toTopOf="@+id/old_input_panel"
-        app:layout_constraintStart_toStartOf="@+id/update_cred_title" />
 
 
 </android.support.constraint.ConstraintLayout>

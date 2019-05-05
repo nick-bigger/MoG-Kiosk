@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".CreateAccountActivityFragment"
     tools:showIn="@layout/activity_create_account">
 
@@ -11,9 +12,8 @@
         android:id="@+id/old_input_panel"
         android:layout_width="467dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:background="@drawable/card_edge"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,15 +37,15 @@
             android:id="@+id/create_account_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:text="Create Account"
             android:textAllCaps="true"
             android:textColor="@color/textDark"
             android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="Create Account" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/logoImageView"
@@ -148,14 +148,15 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/btn_height"
             android:layout_marginTop="32dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/btn_bg_selector"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:text="@string/btn_submit"
             android:textColor="@drawable/btn_text_selector"
             android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/new_update_email2"
-            app:layout_constraintStart_toStartOf="@+id/new_update_email2"
             app:layout_constraintTop_toBottomOf="@+id/new_update_email2" />
 
         <TextView
@@ -199,12 +200,11 @@
             android:id="@+id/subTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/details_subTitle"
             android:textColor="@color/textMid"
             android:textSize="@dimen/font_small"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/create_account_title"
             app:layout_constraintTop_toBottomOf="@id/create_account_title" />
 
     </android.support.constraint.ConstraintLayout>

@@ -3,7 +3,6 @@ package com.example.mogkiosk;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,10 +36,8 @@ public class UpdateCredActivity extends AppCompatActivity {
         final PrivateInfoManager manager = new PrivateInfoManager(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_cred);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        getSupportActionBar().hide();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mUpdateUserTextView = findViewById(R.id.new_update_username);
         mUpdatePassTextView = findViewById(R.id.new_update_password);
