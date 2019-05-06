@@ -62,7 +62,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints="username"
-                android:background="@drawable/edittext_round"
                 android:drawableStart="@drawable/ic_account_circle_24dp"
                 android:drawablePadding="20dp"
                 android:inputType="textPersonName"

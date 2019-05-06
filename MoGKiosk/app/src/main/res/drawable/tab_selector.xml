@@ -10,5 +10,5 @@
         android:layout_height="24dp" />
     <stroke android:width="5px" android:color="@color/textDark" />
 
-    <corners android:radius="30dp" />
+    <corners android:radius="0dp" />
 </shape>
