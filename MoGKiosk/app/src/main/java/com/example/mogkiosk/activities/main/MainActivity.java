@@ -48,7 +48,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("");
         setSupportActionBar(toolbar);
+
+//        setUpToolbar(findViewById(R.id.container));
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -76,12 +79,13 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-        for(int i=0; i < tabLayout.getTabCount()-1; i++) {
-            View tab = ((ViewGroup) tabLayout.getChildAt(0)).getChildAt(i);
-            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) tab.getLayoutParams();
-            p.setMargins(0, 0, 200, 0);
-            tab.requestLayout();
-        }
+        // change tab spacing
+//        for(int i=0; i < tabLayout.getTabCount()-1; i++) {
+//            View tab = ((ViewGroup) tabLayout.getChildAt(0)).getChildAt(i);
+//            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) tab.getLayoutParams();
+//            p.setMargins(0, 0, 200, 0);
+//            tab.requestLayout();
+//        }
     }
 
     /**
@@ -363,4 +367,14 @@ public class MainActivity extends AppCompatActivity {
             return rootView;
         }
     }
+
+//    private void setUpToolbar(View view) {
+//        Toolbar toolbar = view.findViewById(R.id.toolbar);
+//        AppCompatActivity activity = (AppCompatActivity) getActivity();
+//        if (activity != null) {
+//            activity.setSupportActionBar(toolbar);
+//        }
+//
+//        toolbar.setNavigationOnClickListener(new NavigationIconClickListener(getContext(), view.findViewById(R.id.product_grid)));
+//    }
 }

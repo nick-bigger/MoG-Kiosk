@@ -29,21 +29,24 @@
             app:title="@string/app_name"
             app:titleMarginStart="18dp">
 
-        </android.support.v7.widget.Toolbar>
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                app:tabTextColor="@color/textMid"
+                app:tabSelectedTextColor="@color/textDark"
+                app:tabRippleColor="@color/transparent"
+                app:tabIndicatorHeight="30dp"
+                app:tabMaxWidth="90dp"
+                app:tabIndicatorFullWidth="true"
+                app:tabIndicatorColor="@color/textDark"
+                app:tabIndicator="@drawable/tab_selector"
+                app:tabIndicatorGravity="center"
+                app:tabGravity="center"
+                app:tabMode="scrollable" />
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:tabTextColor="@color/textMid"
-            app:tabSelectedTextColor="@color/textDark"
-            app:tabIndicatorHeight="30dp"
-            app:tabIndicatorFullWidth="true"
-            app:tabIndicatorColor="@color/textDark"
-            app:tabIndicator="@drawable/tab_selector"
-            app:tabIndicatorGravity="center"
-            app:tabGravity="fill"
-            app:tabMode="fixed" />
+        </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 

@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mogkiosk.activities.admin.AdminActivity;
@@ -94,10 +93,19 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
+//                if (manager.isSent()) {
+////                        open(manager);
+////                    showMessage(true);
+//                } else {
+//                    showMessage(false);
+////                        error();
+//                }
                 try {
                     if (manager.isSent()) {
                         open(manager);
+//                        showMessage(true);
                     } else {
+//                        showMessage(false);
                         error();
                     }
                 } catch (NoSuchAlgorithmException e) {
@@ -109,20 +117,6 @@ public class LoginActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-//                try
-//                {
-//                    showMessage(manager.forgotPassword());
-//
-//                } catch (NoSuchAlgorithmException e) {
-//                    System.out.println("Something went wrong while forgetting password with stuff");
-//                    e.printStackTrace();
-//                } catch (InvalidKeySpecException e) {
-//                    System.out.println("Something went wrong while forgetting password and the keys");
-//                    e.printStackTrace();
-//                }
-//                if forgotPassword(): message saying sending email
-//                else message saying email already sent
-
             }
         });
     }
@@ -160,24 +154,29 @@ public class LoginActivity extends AppCompatActivity {
             View v = inflater.inflate(R.layout.email_status_layout, container, false);
 
             //Determine message, icon, and icon color
-            ImageView icon = v.findViewById(R.id.iconImage);
+//            ImageView icon = v.findViewById(R.id.iconImage);
             TextView messText = v.findViewById(R.id.messageTextView);
 
             boolean sendEmail = getArguments().getBoolean(DIALOG_TYPE);
             if (sendEmail == EMAIL_SENDING)
             {
-                icon.setImageResource(R.drawable.ic_success);
+//                icon.setImageResource(R.drawable.ic_success);
                 messText.setText(R.string.login_dialog_sending);
             }
             else if (sendEmail == EMAIL_ALREADY_SENT)
             {
-                icon.setImageResource(R.drawable.ic_error);
+//                icon.setImageResource(R.drawable.ic_error);
                 messText.setText(R.string.login_dialog_sent);
             }
 
-            // Do all the stuff to initialize your custom view
-            //setting image and text stuff
-            //This is where Nick changes all the things =)
+            Button dismissBtn = v.findViewById(R.id.dismissBtn);
+
+            dismissBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getDialog().dismiss();
+                }
+            });
 
             return v;
         }

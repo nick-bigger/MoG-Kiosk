@@ -1,7 +1,6 @@
 package com.example.mogkiosk.activities.admin;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -12,8 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.mogkiosk.CreateAccountActivity;
 import com.example.mogkiosk.R;
@@ -62,15 +59,15 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = findViewById(R.id.tabs);
-        tabLayout.setTabTextColors(Color.parseColor("#3b3a3c"),Color.parseColor("#3b3a3c"));
         tabLayout.setupWithViewPager(mViewPager);
 
-        for(int i=0; i < tabLayout.getTabCount()-1; i++) {
-            View tab = ((ViewGroup) tabLayout.getChildAt(0)).getChildAt(i);
-            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) tab.getLayoutParams();
-            p.setMargins(0, 0, 200, 0);
-            tab.requestLayout();
-        }
+        // change tab spacing
+//        for(int i=0; i < tabLayout.getTabCount()-1; i++) {
+//            View tab = ((ViewGroup) tabLayout.getChildAt(0)).getChildAt(i);
+//            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) tab.getLayoutParams();
+//            p.setMargins(0, 0, 200, 0);
+//            tab.requestLayout();
+//        }
     }
 
     /**
