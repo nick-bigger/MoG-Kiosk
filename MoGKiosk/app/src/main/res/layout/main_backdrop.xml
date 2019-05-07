@@ -2,33 +2,27 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
     <Button
-        android:id="@+id/loginBtn"
+        android:id="@+id/homeBtn"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:textColor="@color/textDark"
+        android:textColor="@color/colorSecondary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btn_login" />
+        android:text="@string/btn_home" />
 
     <Button
         android:id="@+id/aboutBtn"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:textColor="@color/textDark"
+        android:textColor="@color/colorSecondary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_about" />
 
-    <View
-        android:layout_width="56dp"
-        android:layout_height="1dp"
-        android:layout_margin="16dp"
-        android:background="@color/textDark" />
-
     <Button
-        android:id="@+id/homeBtn"
+        android:id="@+id/loginBtn"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:textColor="@color/textDark"
+        android:textColor="@color/colorSecondary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btn_home" />
+        android:text="@string/btn_login" />
 
 </merge>

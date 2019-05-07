@@ -3,8 +3,8 @@ package com.example.mogkiosk;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.mogkiosk.adapters.ImageAdapter;
@@ -25,7 +25,7 @@ public class SingleViewActivity extends Activity {
         ImageView imageView = findViewById(R.id.SingleView);
         imageView.setImageResource(imageAdapter.mThumbIds[position]);
 
-        FloatingActionButton close = findViewById(R.id.closeBtn);
+        Button close = findViewById(R.id.closeBtn);
 
         close.setOnClickListener(new View.OnClickListener() {
             @Override

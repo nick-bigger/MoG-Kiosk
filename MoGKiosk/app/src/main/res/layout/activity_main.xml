@@ -22,7 +22,6 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/appbar_padding_top"
         app:elevation="0dp"
         android:theme="@style/AppTheme.AppBarOverlay">
 
@@ -30,6 +29,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="8dp"
             android:layout_weight="1"
             android:background="?attr/colorPrimary"
             android:elevation="0dp"
@@ -47,12 +47,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 app:tabTextColor="@color/textMid"
-                app:tabSelectedTextColor="@color/textDark"
+                app:tabSelectedTextColor="@color/colorSecondary"
                 app:tabRippleColor="@color/transparent"
                 app:tabIndicatorHeight="30dp"
                 app:tabMaxWidth="90dp"
                 app:tabIndicatorFullWidth="true"
-                app:tabIndicatorColor="@color/textDark"
+                app:tabIndicatorColor="@color/colorSecondary"
                 app:tabIndicator="@drawable/tab_selector"
                 app:tabIndicatorGravity="center"
                 app:tabGravity="center"
