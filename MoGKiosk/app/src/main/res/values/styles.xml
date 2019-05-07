@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light">
@@ -16,7 +16,7 @@
         <item name="android:background">?android:attr/listDivider</item>
     </style>
 
-    <style name="AppTheme.DarkBackground">
+    <style name="AppTheme.DarkBackground" parent="AppTheme">
         <item name="android:background">#333333</item>
     </style>
 

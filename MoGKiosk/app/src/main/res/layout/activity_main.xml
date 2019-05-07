@@ -7,10 +7,23 @@
     android:fitsSystemWindows="true"
     tools:context=".activities.main.MainActivity">
 
+    <LinearLayout
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="100dp"
+        android:paddingBottom="100dp" >
+
+        <include layout="@layout/main_backdrop" />
+    </LinearLayout>
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/appbar_padding_top"
+        app:elevation="0dp"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
@@ -25,7 +38,6 @@
             app:subtitleTextColor="@color/textMid"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:logo="@drawable/ic_logo"
             app:title="@string/app_name"
             app:titleMarginStart="18dp">
 
@@ -51,9 +63,11 @@
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/container"
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:elevation="8dp"
+        android:background="@color/colorPrimary"
         app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior" />
 
 

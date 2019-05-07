@@ -9,16 +9,17 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.Button;
 
 import com.example.mogkiosk.CreateAccountActivity;
+import com.example.mogkiosk.NavigationIconClickListener;
 import com.example.mogkiosk.R;
 import com.example.mogkiosk.UpdateCredActivity;
 import com.example.mogkiosk.activities.admin.fragments.ArtistFragAdmin;
 import com.example.mogkiosk.activities.admin.fragments.ProcessFragAdmin;
 import com.example.mogkiosk.activities.admin.fragments.WorkFragAdmin;
-import com.example.mogkiosk.activities.changepass.ChangePassActivity;
 import com.example.mogkiosk.activities.main.MainActivity;
 
 /**
@@ -33,13 +34,12 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        setTitle("Settings");
+        setTitle("");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setUpToolbar();
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -55,11 +55,47 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
 
         // Set up the ViewPager with the sections adapter.
         // The {@link ViewPager} that will host the section contents.
-        ViewPager mViewPager = findViewById(R.id.container);
+        ViewPager mViewPager = findViewById(R.id.viewPager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+
+        Button homeBtn = findViewById(R.id.homeBtn);
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AdminActivity.this, MainActivity.class));
+            }
+        });
+
+//        Button changePassBtn = findViewById(R.id.changePassBtn);
+//
+//        changePassBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(AdminActivity.this, ChangePassActivity.class));
+//            }
+//        });
+
+        Button updateCredBtn = findViewById(R.id.updateCredBtn);
+
+        updateCredBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AdminActivity.this, UpdateCredActivity.class));
+            }
+        });
+
+        Button createAccBtn = findViewById(R.id.createAccBtn);
+
+        createAccBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AdminActivity.this, CreateAccountActivity.class));
+            }
+        });
 
         // change tab spacing
 //        for(int i=0; i < tabLayout.getTabCount()-1; i++) {
@@ -185,38 +221,17 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_admin, menu);
-        return true;
+    private void setUpToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("");
+        toolbar.setNavigationIcon(getDrawable(R.drawable.ic_logo_black));
+        setSupportActionBar(toolbar);
+
+        toolbar.setNavigationOnClickListener(new NavigationIconClickListener(
+                this,
+                findViewById(R.id.viewPager),
+                new AccelerateDecelerateInterpolator()));
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId()) {
-
-            case R.id.action_changePass:
-                Intent intent1 = new Intent(this, ChangePassActivity.class);
-                this.startActivity(intent1); //intended to quit MainActivity (I'm doing this in hopes that it resets the main page when admin submits)
-                return true;
-            case R.id.action_updateCred:
-                Intent intent2 = new Intent(this, UpdateCredActivity.class);
-                this.startActivity(intent2);
-                return true;
-            case R.id.action_createAccount:
-                Intent intent3 = new Intent(this, CreateAccountActivity.class);
-                this.startActivity(intent3);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-
 
 }
 

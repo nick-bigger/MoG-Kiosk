@@ -19,6 +19,12 @@
     <string name="btn_save">Save</string>
     <!-- buttons end -->
 
+    <!-- backdrop start -->
+    <string name="btn_home">Home</string>
+    <string name="btn_about">About the Kiosk</string>
+    <string name="btn_login">Login</string>
+    <!-- backdrop end -->
+
     <!-- the artist start -->
     <string name="artist_name">David Walters</string>
     <string name="artist_tag">Blown Glass | American</string>

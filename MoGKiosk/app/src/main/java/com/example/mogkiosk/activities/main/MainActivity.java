@@ -12,13 +12,14 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.mogkiosk.LoginActivity;
+import com.example.mogkiosk.NavigationIconClickListener;
 import com.example.mogkiosk.R;
 import com.example.mogkiosk.activities.AboutActivity;
 import com.example.mogkiosk.activities.main.fragments.ArtistFrag;
@@ -47,11 +48,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("");
-        setSupportActionBar(toolbar);
-
-//        setUpToolbar(findViewById(R.id.container));
+        setUpToolbar();
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -59,6 +56,33 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = sharedPreferences.edit();
         editor.apply();
+
+        Button homeBtn = findViewById(R.id.homeBtn);
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, MainActivity.class));
+            }
+        });
+
+        Button aboutBtn = findViewById(R.id.aboutBtn);
+
+        aboutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, AboutActivity.class));
+            }
+        });
+
+        Button loginBtn = findViewById(R.id.loginBtn);
+
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            }
+        });
     }
 
     /**
@@ -71,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         /**
          * The {@link ViewPager} that will host the section contents.
          */
-        ViewPager mViewPager = findViewById(R.id.container);
+        ViewPager mViewPager = findViewById(R.id.viewPager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
         //
         mViewPager.setOffscreenPageLimit(3);
@@ -244,33 +268,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId()) {
-
-            case R.id.action_settings:
-                Intent intent1 = new Intent(this, LoginActivity.class);
-                this.startActivity(intent1); //intended to quit MainActivity (I'm doing this in hopes that it resets the main page when admin submits)
-                return true;
-            case R.id.action_about:
-                Intent intent2 = new Intent(this, AboutActivity.class);
-                this.startActivity(intent2);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -368,13 +365,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-//    private void setUpToolbar(View view) {
-//        Toolbar toolbar = view.findViewById(R.id.toolbar);
-//        AppCompatActivity activity = (AppCompatActivity) getActivity();
-//        if (activity != null) {
-//            activity.setSupportActionBar(toolbar);
-//        }
-//
-//        toolbar.setNavigationOnClickListener(new NavigationIconClickListener(getContext(), view.findViewById(R.id.product_grid)));
-//    }
+    private void setUpToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("");
+        toolbar.setNavigationIcon(getDrawable(R.drawable.ic_logo));
+        setSupportActionBar(toolbar);
+
+        toolbar.setNavigationOnClickListener(new NavigationIconClickListener(
+                this,
+                findViewById(R.id.viewPager),
+                new AccelerateDecelerateInterpolator()));
+    }
 }

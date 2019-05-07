@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Button
+        android:id="@+id/createAccBtn"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:textColor="@color/textDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_activity_createAccount" />
+
+    <!--<Button-->
+        <!--android:id="@+id/changePassBtn"-->
+        <!--style="@style/Widget.AppCompat.Button.Borderless.Colored"-->
+        <!--android:textColor="@color/textDark"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/title_activity_changePwd" />-->
+
+    <Button
+        android:id="@+id/updateCredBtn"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:textColor="@color/textDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_activity_updateCred" />
+
+    <View
+        android:layout_width="56dp"
+        android:layout_height="1dp"
+        android:layout_margin="16dp"
+        android:background="@color/textDark" />
+
+    <Button
+        android:id="@+id/homeBtn"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:textColor="@color/textDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_home" />
+
+</merge>

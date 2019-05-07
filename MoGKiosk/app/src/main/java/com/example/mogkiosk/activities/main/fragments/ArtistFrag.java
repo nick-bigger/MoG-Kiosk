@@ -90,8 +90,6 @@ public class ArtistFrag extends Fragment {
         profilePic = v.findViewById(R.id.artist_headshot);
         profilePic.setAdjustViewBounds(true);
 
-
-
         return v;
     }
 
