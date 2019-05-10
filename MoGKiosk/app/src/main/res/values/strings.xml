@@ -274,6 +274,10 @@
     <string name="error_rePwd">*Passwords do not match</string>
     <string name="error_ema">Email is invalid</string>
 
+    <string name="error_old_usn">Username does not match old username</string>
+    <string name="error_old_pwd">Password does not match old password</string>
+    <string name="error_old_ema">Email does not match old email</string>
+
     <string name="input_new_usn">New Username</string>
     <string name="input_new_pwd">New Password</string>
     <string name="input_retype_pwd">Retype New Password</string>
@@ -289,9 +293,6 @@
 
     <!-- update credentials start -->
     <string name="updateCred_error_email">*Please enter a valid email</string>
-    <string name="updateCred_error_usnMismatch">*Username does not match old username</string>
-    <string name="updateCred_error_pwdMismatch">*Password does not match old password</string>
-    <string name="updateCred_error_emailMismatch">*Email does not match old email</string>
 
     <string name="updateCred_input_old_usn">Old Username</string>
     <string name="updateCred_input_old_pwd">Old Password</string>

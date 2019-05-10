@@ -10,7 +10,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
@@ -57,6 +56,7 @@ public class ArtistFragAdmin extends Fragment {
     private EditText Description;
     private EditText SubBio;
     private ImageView imgView;
+    private ProgressBar pb;
 
 
     public ArtistFragAdmin() {
@@ -139,7 +139,7 @@ public class ArtistFragAdmin extends Fragment {
             }
         });
 
-        FloatingActionButton uploadImageBtn = rootView.findViewById(R.id.browse_main_img);
+        Button uploadImageBtn = rootView.findViewById(R.id.browse_main_img);
         uploadImageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -169,6 +169,12 @@ public class ArtistFragAdmin extends Fragment {
         // Create intent to Open Image applications like Gallery, Google Photos
         Intent galleryIntent = new Intent(Intent.ACTION_PICK,
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+        pb = getActivity().findViewById(R.id.progressBar);
+        pb.clearAnimation();
+        pb.setVisibility(View.VISIBLE);
+        pb.setIndeterminate(true);
+
         // Start the Intent
         startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
     }
@@ -180,10 +186,6 @@ public class ArtistFragAdmin extends Fragment {
             // When an Image is picked
             if (requestCode == RESULT_LOAD_IMG && resultCode == RESULT_OK
                     && null != data) {
-
-                ProgressBar pb = getActivity().findViewById(R.id.progressBar);
-                pb.clearAnimation();
-                pb.setVisibility(View.INVISIBLE);
 
                 // Get the Image from data
                 Uri selectedImage = data.getData();
@@ -198,10 +200,10 @@ public class ArtistFragAdmin extends Fragment {
 
                 saveToInternalStorage(bitmap);
 //
-//                pb.clearAnimation();
-//                pb.setVisibility(View.INVISIBLE);
+                pb.clearAnimation();
+                pb.setVisibility(View.INVISIBLE);
             } else {
-                Snackbar.make(getActivity().getWindow().getDecorView().findViewById(android.R.id.content), "You haven't picked Image", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(getActivity().getWindow().getDecorView().findViewById(android.R.id.content), "No image chosen", Snackbar.LENGTH_LONG).show();
             }
         } catch (Exception e) {
             Snackbar.make(getActivity().getWindow().getDecorView().findViewById(android.R.id.content), "Something went wrong", Snackbar.LENGTH_LONG)

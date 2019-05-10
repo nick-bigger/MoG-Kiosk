@@ -40,7 +40,7 @@ public class ChangePassActivity extends AppCompatActivity {
 
         usrInput = findViewById(R.id.usernameInputLayout);
         passInput = findViewById(R.id.passInputLayout);
-        rePassInput = findViewById(R.id.retypePassInputLayout);
+        rePassInput = findViewById(R.id.newRePassInputLayout);
 
         Button mSubmitChanges = findViewById(R.id.submit);
 

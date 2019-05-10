@@ -27,6 +27,7 @@ import javax.crypto.spec.PBEKeySpec;
  */
 public class PrivateInfoManager
 {
+    public boolean createAccount = false;
     private static final String PASS_HASH = "hash";
     private static final String SALT = "salt";
     private static final String TEMP_HASH = "tempHash";
@@ -42,11 +43,7 @@ public class PrivateInfoManager
     private static final int EVERYTHINGSAME = 0;
     private static final int NOTSAMEUSER  = 1;
     private static final int NOTSAMEPASS = 2;
-    private static final int NOTSAMEEMAIL = 3;
-    private static final int NOTSAMEUSERPASS = 4;
-    private static final int NOTSAMEUSEREMAIL = 5;
-    private static final int NOTSAMEPASSEMAIL = 6;
-    private static final int NOTHINGSAME = 7;
+    private static final int NEITHERSAME = 3;
 
 
     private static final String ERROR = "PrivateInfoManager";
@@ -116,8 +113,8 @@ public class PrivateInfoManager
             System.out.println("IN EXCEPTION");
             File file = new File(context.getFilesDir(), "pw.pw");
             file.createNewFile();
+            createAccount = true;
             readJSONfromFile(context);
-            writeInitialInfo();
         }
         catch (Exception e) {Log.d(ERROR, e.toString());}
     }
@@ -127,18 +124,17 @@ public class PrivateInfoManager
      * @throws NoSuchAlgorithmException
      * @throws InvalidKeySpecException
      */
-    private void writeInitialInfo() throws NoSuchAlgorithmException, InvalidKeySpecException
+    public void writeInitialInfo(String username, String password, String email) throws NoSuchAlgorithmException, InvalidKeySpecException
     {
-        // Initial username glassAdmin
-        // Initial password glassiscool
-        addKVpair(USERNAME, "glassAdmin");
+        //Initial info grabbed from create account
+        addKVpair(USERNAME, username);
         addKVpair(TEMP_USERNAME, "");
         addKVpair(SALT, "");
         updateSalt();
         addKVpair(TEMP_SALT, "");
-        addKVpair(PASS_HASH, generatePasswordHash("glassiscool", false));
+        addKVpair(PASS_HASH, generatePasswordHash(password, false));
         addKVpair(TEMP_HASH, "");
-        addKVpair(EMAIL, "upsmogkioskautomatic@gmail.com");
+        addKVpair(EMAIL, email);
         // printContents();
     }
 
@@ -146,7 +142,7 @@ public class PrivateInfoManager
      * Get the hash from the info file
      * @return the hash or null upon exception
      */
-     private String getHash()
+    private String getHash()
     {
         String hash;
 
@@ -519,7 +515,7 @@ public class PrivateInfoManager
      * Print the contents of the JSON file
      * TESTING PURPOSES ONLY
      */
-     void printContents()
+    void printContents()
     {
         try {System.out.println(infoManager.toString(4));}
         catch (Exception e) { Log.d(ERROR, e.toString());}
@@ -635,34 +631,25 @@ public class PrivateInfoManager
      * Update the username, password, and email
      * @param username username to be updated
      * @param password password to be updated
-     * @param email email ot be updated
      * @return whether or not credentials could be updated
      * @throws InvalidKeySpecException
      * @throws NoSuchAlgorithmException
      */
-    public int validateCredentials(String username, String password,  String email) throws InvalidKeySpecException, NoSuchAlgorithmException
+    public int validateCredentials(String username, String password) throws InvalidKeySpecException, NoSuchAlgorithmException
     {
         String oldUsername = getUsername();
         String oldPassHash = getHash();
-        String oldEmail = getEmail();
 
         //empty password breaks the hash generator so just assigning to impossible password
         if (password.equals("")) password = "a";
         String newPassHash = generatePasswordHash(password, false);
 
-       //if nothing the same
-        if (! oldUsername.equals(username) && ! oldPassHash.equals(newPassHash) && ! oldEmail.equals(email)) return NOTHINGSAME;
-        //if not same user and not same pass
-        if (! oldUsername.equals(username) && oldPassHash.equals(newPassHash)) return NOTSAMEUSERPASS;
-        //if not same user and not same email
-        if(! oldUsername.equals(username) && ! oldEmail.equals(email)) return NOTSAMEUSEREMAIL;
-        //if not same password and not same email
+        //if neither the same
+        if (! oldUsername.equals(username) && ! oldPassHash.equals(newPassHash)) return NEITHERSAME;
 
-        if (! oldEmail.equals(email) && ! oldPassHash.equals(newPassHash)) return NOTSAMEPASSEMAIL;
         //Single not same fields
         if (! oldUsername.equals(username)) return NOTSAMEUSER;
         if (! oldPassHash.equals(newPassHash)) return NOTSAMEPASS;
-        if (! oldEmail.equals(email)) return NOTSAMEEMAIL;
 
         return EVERYTHINGSAME;
     }

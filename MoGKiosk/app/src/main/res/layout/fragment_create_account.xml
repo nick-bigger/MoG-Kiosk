@@ -12,7 +12,6 @@
         android:id="@+id/old_input_panel"
         android:layout_width="467dp"
         android:layout_height="500dp"
-        android:layout_marginTop="8dp"
         android:background="@drawable/card_edge"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -170,15 +169,15 @@
             android:id="@+id/submit"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/btn_height"
-            android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp"
             android:background="@drawable/btn_bg_selector"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:text="@string/btn_submit"
             android:textColor="@drawable/btn_text_selector"
             android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@+id/emailInputLayout"
-            app:layout_constraintTop_toBottomOf="@+id/emailInputLayout" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/emailInputLayout" />
 
         <TextView
             android:id="@+id/subTitle"

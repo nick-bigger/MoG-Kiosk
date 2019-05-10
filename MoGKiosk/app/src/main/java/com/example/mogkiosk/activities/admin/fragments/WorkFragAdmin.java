@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -19,7 +20,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.mogkiosk.R;
 
@@ -311,11 +311,10 @@ public class WorkFragAdmin extends Fragment {
                 //null bit
                 saveToInternalStorage(bitmap, "art3.png");
             } else {
-                Toast.makeText(getActivity(), "You haven't picked Image",
-                        Toast.LENGTH_LONG).show();
+                Snackbar.make(getActivity().getWindow().getDecorView().findViewById(android.R.id.content), "No image chosen", Snackbar.LENGTH_LONG).show();
             }
         } catch (Exception e) {
-            Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_LONG)
+            Snackbar.make(getActivity().getWindow().getDecorView().findViewById(android.R.id.content), "Something went wrong", Snackbar.LENGTH_LONG)
                     .show();
         }
 
