@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -25,6 +27,8 @@ import com.example.mogkiosk.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Objects;
@@ -162,8 +166,31 @@ public class ArtistFragAdmin extends Fragment {
         DescIL.setHint(bio);
         SubBioIL.setHint(subbio);
 
+        ContextWrapper cw = new ContextWrapper(getContext());
+        // path to /data/data/yourapp/app_data/imageDir
+        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+        loadImageFromStorage(directory.getAbsolutePath());
+
         return rootView;
     }
+
+
+    private void loadImageFromStorage(String path)
+    {
+
+        try {
+            File f=new File(path, "profile.jpg");
+            Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
+            Drawable d = new BitmapDrawable(getResources(), b);
+            imgView.setImageDrawable(d);
+        }
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+
+    }
+
 
     private void loadImageFromGallery(View view) {
         // Create intent to Open Image applications like Gallery, Google Photos
