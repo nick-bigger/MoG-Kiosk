@@ -43,7 +43,6 @@
         android:text="@string/process_video_title"
         android:textColor="@color/textLight"
         android:textSize="@dimen/font_title"
-        android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

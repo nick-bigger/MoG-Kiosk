@@ -3,7 +3,6 @@ package com.example.mogkiosk.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -18,9 +17,12 @@ public class AboutActivity extends AppCompatActivity {
         numClicks = 0;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
         ImageView img = findViewById(R.id.dev_photo_3);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         img.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +34,10 @@ public class AboutActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
+
+
+
 
 }

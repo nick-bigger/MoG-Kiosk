@@ -15,40 +15,39 @@
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/leftPane"
-            android:layout_width="600dp"
+            android:layout_width="500dp"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <android.support.constraint.ConstraintLayout
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="92dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="84dp"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout4"
+                app:layout_constraintEnd_toEndOf="@+id/constraintLayout4"
+                app:layout_constraintStart_toStartOf="@+id/constraintLayout4" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraintLayout4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="52dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="42dp"
                 android:layout_marginBottom="32dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider8">
 
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/browse_main_img"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:clickable="true"
-                    android:src="@drawable/ic_add_a_photo_24dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
                 <ImageView
                     android:id="@+id/mainImage"
                     android:layout_width="0dp"
                     android:layout_height="300dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
                     android:contentDescription="@string/artistAdmin_currImg_desc"
                     android:scaleType="centerCrop"
                     android:src="@drawable/david_walters"
@@ -56,6 +55,18 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/browse_main_img"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/colorAccent"
+                    android:text="@string/btn_update"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
             </android.support.constraint.ConstraintLayout>
 
             <View
@@ -93,7 +104,7 @@
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/workNameInputLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -127,7 +138,7 @@
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/taglineInputLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -176,9 +187,12 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="@+id/leftPane"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/leftPane">
+            app:layout_constraintStart_toEndOf="@+id/leftPane"
+            app:layout_constraintTop_toTopOf="parent">
 
             <View
                 android:id="@+id/divider7"
@@ -191,7 +205,7 @@
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/bioInputLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -233,7 +247,7 @@
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/subBioInputLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -272,12 +286,13 @@
             <Button
                 android:id="@+id/submitBtn"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/btn_height"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/btn_outline"
+                android:elevation="4dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="@string/btn_save"

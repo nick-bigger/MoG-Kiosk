@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
-import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -19,12 +21,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.ProgressBar;
 
 import com.example.mogkiosk.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Objects;
@@ -56,6 +60,7 @@ public class ArtistFragAdmin extends Fragment {
     private EditText Description;
     private EditText SubBio;
     private ImageView imgView;
+    private ProgressBar pb;
 
 
     public ArtistFragAdmin() {
@@ -138,7 +143,7 @@ public class ArtistFragAdmin extends Fragment {
             }
         });
 
-        FloatingActionButton uploadImageBtn = rootView.findViewById(R.id.browse_main_img);
+        Button uploadImageBtn = rootView.findViewById(R.id.browse_main_img);
         uploadImageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -161,13 +166,42 @@ public class ArtistFragAdmin extends Fragment {
         DescIL.setHint(bio);
         SubBioIL.setHint(subbio);
 
+        ContextWrapper cw = new ContextWrapper(getContext());
+        // path to /data/data/yourapp/app_data/imageDir
+        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+        loadImageFromStorage(directory.getAbsolutePath());
+
         return rootView;
     }
+
+
+    private void loadImageFromStorage(String path)
+    {
+
+        try {
+            File f=new File(path, "profile.jpg");
+            Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
+            Drawable d = new BitmapDrawable(getResources(), b);
+            imgView.setImageDrawable(d);
+        }
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+
+    }
+
 
     private void loadImageFromGallery(View view) {
         // Create intent to Open Image applications like Gallery, Google Photos
         Intent galleryIntent = new Intent(Intent.ACTION_PICK,
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+        pb = getActivity().findViewById(R.id.progressBar);
+        pb.clearAnimation();
+        pb.setVisibility(View.VISIBLE);
+        pb.setIndeterminate(true);
+
         // Start the Intent
         startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
     }
@@ -179,6 +213,7 @@ public class ArtistFragAdmin extends Fragment {
             // When an Image is picked
             if (requestCode == RESULT_LOAD_IMG && resultCode == RESULT_OK
                     && null != data) {
+
                 // Get the Image from data
                 Uri selectedImage = data.getData();
                 //Bitmap bitmap = BitmapFactory.decodeStream(getActivity().getApplicationContext().getContentResolver().openInputStream(selectedImage));
@@ -189,13 +224,16 @@ public class ArtistFragAdmin extends Fragment {
                 // Set the Image in ImageView after decoding the String
                 imgView.setImageBitmap(dummy);
                 //null bit
+
                 saveToInternalStorage(bitmap);
+//
+                pb.clearAnimation();
+                pb.setVisibility(View.INVISIBLE);
             } else {
-                Toast.makeText(getActivity(), "You haven't picked Image",
-                        Toast.LENGTH_LONG).show();
+                Snackbar.make(getActivity().getWindow().getDecorView().findViewById(android.R.id.content), "No image chosen", Snackbar.LENGTH_LONG).show();
             }
         } catch (Exception e) {
-            Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_LONG)
+            Snackbar.make(getActivity().getWindow().getDecorView().findViewById(android.R.id.content), "Something went wrong", Snackbar.LENGTH_LONG)
                     .show();
         }
 

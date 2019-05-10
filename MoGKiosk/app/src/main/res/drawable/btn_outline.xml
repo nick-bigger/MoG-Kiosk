@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle" android:padding="10dp"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    android:elevation="10dp">
-    <!-- you can use any color you want I used here gray color-->
-    <!-- background -->
-    <!-- border -->
-    <stroke android:width="2dp" android:color="@color/colorAccent" />
-    <!--<corners android:radius="25dp"/>-->
-</shape>
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:color="@color/colorAccentDark">
+    <item android:id="@android:id/mask">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/colorPrimaryDark" />
+        </shape>
+    </item>
+
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <stroke android:width="2dp" android:color="@color/colorAccent" />
+            <!--<corners android:radius="25dp"/>-->
+        </shape>
+    </item>
+</ripple>

@@ -142,7 +142,7 @@ public class PrivateInfoManager
      * Get the hash from the info file
      * @return the hash or null upon exception
      */
-     private String getHash()
+    private String getHash()
     {
         String hash;
 
@@ -515,7 +515,7 @@ public class PrivateInfoManager
      * Print the contents of the JSON file
      * TESTING PURPOSES ONLY
      */
-     void printContents()
+    void printContents()
     {
         try {System.out.println(infoManager.toString(4));}
         catch (Exception e) { Log.d(ERROR, e.toString());}
@@ -644,7 +644,6 @@ public class PrivateInfoManager
         if (password.equals("")) password = "a";
         String newPassHash = generatePasswordHash(password, false);
 
-       //if neither the same
         if (! oldUsername.equals(username) && ! oldPassHash.equals(newPassHash)) return NEITHERSAME;
 
         //Single not same fields

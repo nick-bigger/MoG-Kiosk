@@ -19,6 +19,12 @@
     <string name="btn_save">Save</string>
     <!-- buttons end -->
 
+    <!-- backdrop start -->
+    <string name="btn_home">Home</string>
+    <string name="btn_about">About the Kiosk</string>
+    <string name="btn_login">Login</string>
+    <!-- backdrop end -->
+
     <!-- the artist start -->
     <string name="artist_name">David Walters</string>
     <string name="artist_tag">Blown Glass | American</string>
@@ -231,7 +237,7 @@
     <string name="workAdmin_relatedWork3_desc">Related Work 3</string>
 
     <!-- work admin end -->
-    <string name="error_ema">Email is invalid</string>
+
     <!-- process admin start -->
     <string name="a_ptitle">android.content.SharedPreferences.a_ptitle</string>
     <string name="a_pdescription">android.content.SharedPreferences.a_pdescription</string>
@@ -248,22 +254,29 @@
 
     <!-- login start -->
     <string name="login_btn">Log In</string>
-    <string name="login_forgotPwd">Forgot your password?</string>
+    <string name="login_forgotPwd">Forgot password?</string>
 
-    <string name="login_error_incorrect">Incorrect username or password</string>
+    <string name="login_error_incorrect">Incorrect username or password.</string>
     <string name="login_input_usn">Username</string>
-    <string name="login_input_pwd">Password</string>
+    <string name="login_input_pwd">Enter your password</string>
 
     <string name="login_dialog_sending">A reset email has been sent to the email address on file.</string>
     <string name="login_dialog_sent">A reset email has already been sent.</string>
+
+    <string name="login_bg">Dale Chihuly\'s Union Station Chandelier</string>
     <!-- login start -->
 
     <!-- change password and update cred start -->
     <string name="details_subTitle">Please fill out your details below</string>
 
     <string name="error_usn">*Username is less than 5 characters long</string>
-    <string name="error_pwd">*Password is less than 5 characters long.</string>
+    <string name="error_pwd">*Password is less than 5 characters long</string>
     <string name="error_rePwd">*Passwords do not match</string>
+    <string name="error_ema">Email is invalid</string>
+
+    <string name="error_old_usn">Username does not match old username</string>
+    <string name="error_old_pwd">Password does not match old password</string>
+    <string name="error_old_ema">Email does not match old email</string>
 
     <string name="input_new_usn">New Username</string>
     <string name="input_new_pwd">New Password</string>
@@ -271,11 +284,15 @@
     <string name="input_new_email">New Email Address</string>
     <!-- change password and update cred end -->
 
+    <!-- create account start -->
+    <string name="createAcc_input_usn">Username</string>
+    <string name="createAcc_input_pass">Enter your password</string>
+    <string name="createAcc_input_repass">Retype password</string>
+    <string name="createAcc_input_email">Email</string>
+    <!-- create account end -->
+
     <!-- update credentials start -->
     <string name="updateCred_error_email">*Please enter a valid email</string>
-    <string name="updateCred_error_usnMismatch">*Username does not match old username</string>
-    <string name="updateCred_error_pwdMismatch">*Password does not match old password</string>
-    <string name="updateCred_error_emailMismatch">*Email does not match old email</string>
 
     <string name="updateCred_input_old_usn">Old Username</string>
     <string name="updateCred_input_old_pwd">Old Password</string>
@@ -285,10 +302,6 @@
     <!-- change password start -->
     <string name="changePwd_error_match">Passwords do not match!</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="changePwd_helper_username">*Must have at least 5 characters</string>
     <!-- change password end -->
-
-    <!-- youtube start -->
-    <!-- youtube end -->
 </resources>

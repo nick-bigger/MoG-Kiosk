@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:fitsSystemWindows="true"
     tools:context=".activities.admin.fragments.ProcessFragAdmin">
 
@@ -11,10 +11,12 @@
         android:id="@+id/panel_left"
         android:layout_width="500dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@id/panel_right"
         app:layout_constraintEnd_toStartOf="@+id/panel_right"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <View
             android:id="@+id/divider1"
@@ -42,7 +44,7 @@
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/workTitleInputLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -73,7 +75,7 @@
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/descInputLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -104,7 +106,7 @@
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/youtubeIdLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -137,11 +139,13 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/panel_right"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/panel_left"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <View
             android:id="@+id/divider2"
@@ -156,7 +160,7 @@
             android:id="@+id/upload_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:letterSpacing="@dimen/letterSpacing_subtitle"
             android:text="@string/processAdmin_videoUpload_title"
@@ -170,26 +174,24 @@
         <Button
             android:id="@+id/submitBtn"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
+            android:layout_height="@dimen/btn_height"
             android:background="@drawable/btn_bg_selector"
+            android:elevation="4dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:text="@string/btn_save"
             android:textColor="@drawable/btn_text_selector"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/frameLayout4"
+            app:layout_constraintStart_toStartOf="@+id/frameLayout4"
             app:layout_constraintTop_toBottomOf="@+id/frameLayout4" />
 
         <RelativeLayout
             android:id="@+id/frameLayout4"
             android:layout_width="0dp"
             android:layout_height="400dp"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="48dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginEnd="48dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider2">

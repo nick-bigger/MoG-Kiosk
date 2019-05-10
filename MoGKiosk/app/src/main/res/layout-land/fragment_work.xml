@@ -16,11 +16,9 @@
             android:id="@+id/infoPanel"
             android:layout_width="match_parent"
             android:layout_height="638dp"
-            app:layout_constraintBottom_toTopOf="@id/descriptionPanel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0">
+            app:layout_constraintTop_toTopOf="parent">
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/image_wrapper"
@@ -62,12 +60,14 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@android:color/darker_gray"
+                    android:id="@+id/middle_divider"
+                    style="@style/Divider"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
                     app:layout_constraintBottom_toTopOf="@+id/infoTable"
-                    app:layout_constraintTop_toBottomOf="@+id/work_date"
-                    tools:layout_editor_absoluteX="10dp" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/work_date" />
 
                 <TextView
                     android:id="@+id/work_title"
@@ -79,7 +79,6 @@
                     android:textAppearance="@android:style/TextAppearance.Large.Inverse"
                     android:textColor="@color/textDark"
                     android:textSize="@dimen/font_title"
-                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -89,7 +88,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/work_date"
-                    android:textSize="@dimen/font_title"
+                    android:textSize="35sp"
                     android:textStyle="italic"
                     app:fontFamily="sans-serif-light"
                     app:layout_constraintStart_toStartOf="parent"
@@ -301,23 +300,19 @@
             android:id="@+id/descriptionPanel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/infoPanel">
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/work_description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginLeft="32dp"
                 android:layout_marginEnd="32dp"
-                android:layout_marginRight="32dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <View
                     android:id="@+id/divider5"
@@ -348,7 +343,7 @@
                     android:id="@+id/work_desc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="32dp"
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="32dp"
                     android:layout_marginBottom="32dp"
@@ -365,62 +360,63 @@
 
             </android.support.constraint.ConstraintLayout>
 
-            <android.support.constraint.ConstraintLayout
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionPanel">
+
+            <View
+                android:id="@+id/divider9"
+                android:layout_width="35dp"
+                android:layout_height="4dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="@+id/related_work_title"
+                app:layout_constraintTop_toBottomOf="@+id/related_work_title" />
+
+            <TextView
+                android:id="@+id/related_work_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:letterSpacing="@dimen/letterSpacing_subtitle"
+                android:maxLines="1"
+                android:text="@string/artist_relatedWork1_title"
+                android:textAllCaps="true"
+                android:textColor="@color/textDark"
+                android:textSize="@dimen/font_subtitle"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <GridView
+                android:id="@+id/gridview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="64dp"
+                android:layout_marginBottom="16dp"
+                android:animateLayoutChanges="false"
+                android:columnWidth="500dp"
+                android:gravity="center"
+                android:horizontalSpacing="5dp"
+                android:numColumns="3"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/work_description"
-                app:layout_constraintStart_toStartOf="@+id/work_description"
-                app:layout_constraintTop_toBottomOf="@+id/work_description">
-
-                <View
-                    android:id="@+id/divider9"
-                    android:layout_width="35dp"
-                    android:layout_height="4dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@color/colorAccent"
-                    app:layout_constraintStart_toStartOf="@+id/related_work_title"
-                    app:layout_constraintTop_toBottomOf="@+id/related_work_title" />
-
-                <TextView
-                    android:id="@+id/related_work_title"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="32dp"
-                    android:letterSpacing="@dimen/letterSpacing_subtitle"
-                    android:maxLines="1"
-                    android:text="@string/artist_relatedWork1_title"
-                    android:textAllCaps="true"
-                    android:textColor="@color/textDark"
-                    android:textSize="@dimen/font_subtitle"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <GridView
-                    android:id="@+id/gridview"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:columnWidth="500dp"
-                    android:gravity="center"
-                    android:horizontalSpacing="5dp"
-                    android:numColumns="3"
-                    android:stretchMode="columnWidth"
-                    android:verticalSpacing="5dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/divider9"
-                    app:layout_constraintVertical_bias="0.0" />
-
-            </android.support.constraint.ConstraintLayout>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider9"
+                app:layout_constraintVertical_bias="0.0" />
 
         </android.support.constraint.ConstraintLayout>
     </android.support.constraint.ConstraintLayout>

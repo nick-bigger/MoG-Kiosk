@@ -3,12 +3,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+
 import com.example.mogkiosk.activities.admin.AdminActivity;
+
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.regex.Pattern;
@@ -19,22 +19,23 @@ public class UpdateCredActivity extends AppCompatActivity {
     private EditText mRetypedPassView; //NEW ENTRY
     private EditText mOldPassTextView;
     private EditText mOldUserTextView;
-    private TextView mNotSameUserTextView;
-    private TextView mNotSamePassTextView;
-    private TextInputLayout usrInput;
-    private TextInputLayout passInput;
-    private TextInputLayout rePassInput;
-    private TextInputLayout emailInput;
+
+    private TextInputLayout newUsrInput;
+    private TextInputLayout newPassInput;
+    private TextInputLayout newRePassInput;
+    private TextInputLayout newEmailInput;
+
+    private TextInputLayout oldUsrInput;
+    private TextInputLayout oldPassInput;
+    private TextInputLayout oldEmailInput;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         final PrivateInfoManager manager = new PrivateInfoManager(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_cred);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().hide();
 
-        mUpdateUserTextView = findViewById(R.id.new_update_user);
+
+        mUpdateUserTextView = findViewById(R.id.new_update_username);
         mUpdatePassTextView = findViewById(R.id.new_update_password);
         mUpdateEmailView = findViewById(R.id.new_update_email);
         mOldUserTextView =findViewById(R.id.old_update_username);
@@ -42,51 +43,51 @@ public class UpdateCredActivity extends AppCompatActivity {
         mRetypedPassView =findViewById(R.id.retype_password);
 
         Button mSubmitUpdates = findViewById(R.id.submit_credentials);
-        mNotSameUserTextView = findViewById(R.id.old_user_mismatch);
-        mNotSamePassTextView = findViewById(R.id.old_pass_mismatch);
-        usrInput = findViewById(R.id.newUsernameInputLayout);
-        passInput = findViewById(R.id.passInputLayout);
-        rePassInput = findViewById(R.id.retypePassInputLayout);
-        emailInput = findViewById(R.id.newEmailInputLayout);
-        mNotSameUserTextView.setVisibility(View.INVISIBLE);
-        mNotSamePassTextView.setVisibility(View.INVISIBLE);
+
+        newUsrInput = findViewById(R.id.newUsernameInput);
+        newPassInput = findViewById(R.id.newPasswordInput);
+        newRePassInput = findViewById(R.id.newRePassInputLayout);
+        newEmailInput = findViewById(R.id.newEmailInput);
+
+        oldUsrInput = findViewById(R.id.oldUsernameInput);
+        oldPassInput = findViewById(R.id.oldPasswordInput);
+        oldEmailInput = findViewById(R.id.oldEmailInput);
+
         mSubmitUpdates.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mNotSameUserTextView.setVisibility(View.INVISIBLE);
-                mNotSamePassTextView.setVisibility(View.INVISIBLE);
                 boolean userLength = mUpdateUserTextView.getText().toString().length() < 5;
                 boolean passLength = mUpdatePassTextView.getText().toString().length() < 5;
                 boolean emailGood = isValidEmail(mUpdateEmailView.getText().toString());
                 boolean passMatch = mUpdatePassTextView.toString().equals(mRetypedPassView.toString());
                 boolean messagesShowing = true;
                 if (userLength) {
-                    usrInput.setError(getString(R.string.error_usn));
-                    usrInput.setHint("Invalid Username");
+                    newUsrInput.setError(getString(R.string.error_usn));
+                    newUsrInput.setHint("Invalid Username");
                 } else {
-                    usrInput.setError(null);
-                    usrInput.setHint("New Username");
+                    newUsrInput.setError(null);
+                    newUsrInput.setHint("New Username");
                 }
                 if (passLength) {
-                    passInput.setError(getString(R.string.error_pwd));
-                    passInput.setHint("Invalid Password");
+                    newPassInput.setError(getString(R.string.error_pwd));
+                    newPassInput.setHint("Invalid Password");
                 } else {
-                    passInput.setError(null);
-                    passInput.setHint("New Password");
+                    newPassInput.setError(null);
+                    newPassInput.setHint("New Password");
                     if (!passMatch) {
-                        rePassInput.setError(getString(R.string.error_rePwd));
-                        rePassInput.setHint("Password Mismatch");
+                        newRePassInput.setError(getString(R.string.error_rePwd));
+                        newRePassInput.setHint("Password Mismatch");
                     } else {
-                        rePassInput.setError(null);
-                        rePassInput.setHint("Retype Password");
+                        newRePassInput.setError(null);
+                        newRePassInput.setHint("Retype Password");
                     }
                 }
                 if (!emailGood) {
-                    emailInput.setError(getString(R.string.error_ema));
-                    emailInput.setHint("Invalid Email");
+                    newEmailInput.setError(getString(R.string.error_ema));
+                    newEmailInput.setHint("Invalid Email");
                 } else {
-                    emailInput.setError(null);
-                    emailInput.setHint("New Email Address");
+                    newEmailInput.setError(null);
+                    newEmailInput.setHint("New Email Address");
                 }
                 if (!userLength && !passLength && emailGood) {
                     messagesShowing = false;
@@ -107,16 +108,16 @@ public class UpdateCredActivity extends AppCompatActivity {
                             }
                             break;
                         case 1:
-                            mNotSameUserTextView.setVisibility(View.VISIBLE);
+                            oldUsrInput.setError(getString(R.string.error_old_usn));
                             System.out.println("NotSame user");
                             break;
                         case 2:
-                            mNotSamePassTextView.setVisibility(View.VISIBLE);
+                            oldPassInput.setError(getString(R.string.error_old_pwd));
                             System.out.println("NotSame pass");
                             break;
                         case 3:
-                            mNotSameUserTextView.setVisibility(View.VISIBLE);
-                            mNotSamePassTextView.setVisibility(View.VISIBLE);
+                            oldUsrInput.setError(getString(R.string.error_old_usn));
+                            oldPassInput.setError(getString(R.string.error_old_pwd));
                             System.out.println("NotSame user and pass");
                             break;
                     }

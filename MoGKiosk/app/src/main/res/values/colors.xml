@@ -3,7 +3,10 @@
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#cccccc</color>
 
+    <color name="colorSecondary">#363636</color>
+
     <color name="colorAccent">#D24227</color>
+    <color name="colorAccentDark">#990000</color>
     <color name="colorBackground">#FFFFFF</color>
 
     <color name="textDark">#3b3a3c</color>
@@ -11,7 +14,10 @@
     <color name="textLight">#FFFFFF</color>
     <color name="transparent">#0000</color>
 
-    <color name="colorError">#EB982B</color>
+    <color name="divider">#D1D1D1</color>
+
+    <color name="colorError">#EF5344</color>
     <color name="colorSuccess">#00C42F</color>
-    <!--<color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#F2F2F2</color>-->
+    <color name="colorWhite">#FFFBFA</color>
+    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#BABABA</color>
 </resources>

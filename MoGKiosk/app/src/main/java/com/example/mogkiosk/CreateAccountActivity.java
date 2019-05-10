@@ -1,24 +1,22 @@
 package com.example.mogkiosk;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-
-import com.example.mogkiosk.activities.admin.AdminActivity;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.regex.Pattern;
 
 public class CreateAccountActivity extends AppCompatActivity {
-    private TextView mValidEmailMessageTextView;
-    private TextView mNotMAtchingPassTextView;
-    private TextView mPassNotLongEnoughTextView;
-    private TextView mUsernameNotLongEnoughTextView;
+    private TextInputLayout usrInput;
+    private TextInputLayout passInput;
+    private TextInputLayout rePassInput;
+    private TextInputLayout emaInput;
 
     private EditText mUsernameEditText;
     private EditText mPasswordEditText;
@@ -36,30 +34,20 @@ public class CreateAccountActivity extends AppCompatActivity {
 
         mSubmitButton = findViewById(R.id.submit);
 
-        mValidEmailMessageTextView = findViewById(R.id.do_not_match2);
-        mNotMAtchingPassTextView = findViewById(R.id.do_not_match);
-        mPassNotLongEnoughTextView = findViewById(R.id.pass_length);
-        mUsernameNotLongEnoughTextView = findViewById(R.id.username_length);
-
         mUsernameEditText = findViewById(R.id.username);
         mPasswordEditText = findViewById(R.id.password);
         mRetypedPasswordEditText = findViewById(R.id.retype_password);
         mEmailEditText = findViewById(R.id.new_update_email2);
 
-        mValidEmailMessageTextView.setVisibility(View.INVISIBLE);
-        mNotMAtchingPassTextView.setVisibility(View.INVISIBLE);
-        mPassNotLongEnoughTextView.setVisibility(View.INVISIBLE);
-        mUsernameNotLongEnoughTextView.setVisibility(View.INVISIBLE);
+        usrInput = findViewById(R.id.usernameInputLayout);
+        passInput = findViewById(R.id.passInputLayout);
+        rePassInput = findViewById(R.id.repassInputLayout);
+        emaInput = findViewById(R.id.emailInputLayout);
 
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
-                mValidEmailMessageTextView.setVisibility(View.INVISIBLE);
-                mNotMAtchingPassTextView.setVisibility(View.INVISIBLE);
-                mPassNotLongEnoughTextView.setVisibility(View.INVISIBLE);
-                mUsernameNotLongEnoughTextView.setVisibility(View.INVISIBLE);
-
                 boolean userLengthBad = mUsernameEditText.getText().toString().length() < 5;
                 boolean passLengthBad = mPasswordEditText.getText().toString().length() < 5;
                 boolean validEmail = isValidEmail(mEmailEditText.getText().toString());
@@ -67,50 +55,50 @@ public class CreateAccountActivity extends AppCompatActivity {
 
                 if(userLengthBad && passLengthBad && !validEmail)
                 {
-                    mValidEmailMessageTextView.setVisibility(View.VISIBLE);
-                    mPassNotLongEnoughTextView.setVisibility(View.VISIBLE);
-                    mUsernameNotLongEnoughTextView.setVisibility(View.VISIBLE);
+                    usrInput.setError(getString(R.string.error_usn));
+                    passInput.setError(getString(R.string.error_pwd));
+                    emaInput.setError(getString(R.string.error_ema));
                     System.out.println("Bad everything");
                 }
                 else if (userLengthBad && passLengthBad)
                 {
-                    mPassNotLongEnoughTextView.setVisibility(View.VISIBLE);
-                    mUsernameNotLongEnoughTextView.setVisibility(View.VISIBLE);
+                    usrInput.setError(getString(R.string.error_usn));
+                    passInput.setError(getString(R.string.error_pwd));
                     System.out.println("Bad user and pass");
                 }
                 else if(userLengthBad && !validEmail)
                 {
-                    if(!passMatch) mNotMAtchingPassTextView.setVisibility(View.VISIBLE);
-                    mUsernameNotLongEnoughTextView.setVisibility(View.VISIBLE);
-                    mValidEmailMessageTextView.setVisibility(View.VISIBLE);
+                    if(!passMatch) rePassInput.setError(getString(R.string.error_rePwd));
+                    usrInput.setError(getString(R.string.error_usn));
+                    emaInput.setError(getString(R.string.error_ema));
                     System.out.println("Bad user and email");
                 }
                 else if(passLengthBad && !validEmail)
                 {
-                    mValidEmailMessageTextView.setVisibility(View.VISIBLE);
-                    mPassNotLongEnoughTextView.setVisibility(View.VISIBLE);
+                    passInput.setError(getString(R.string.error_pwd));
+                    emaInput.setError(getString(R.string.error_ema));
                     System.out.println("Bad pass and email");
                 }
                 else if(userLengthBad)
                 {
-                    if(!passMatch) mNotMAtchingPassTextView.setVisibility(View.VISIBLE);
-                    mUsernameNotLongEnoughTextView.setVisibility(View.VISIBLE);
+                    if(!passMatch) rePassInput.setError(getString(R.string.error_rePwd));
+                    usrInput.setError(getString(R.string.error_usn));
                     System.out.println("Bad user");
                 }
                 else if(passLengthBad)
                 {
-                    mPassNotLongEnoughTextView.setVisibility(View.VISIBLE);
+                    passInput.setError(getString(R.string.error_pwd));
                     System.out.println("Bad pass");
                 }
                 else if(!validEmail)
                 {
-                    if(!passMatch) mNotMAtchingPassTextView.setVisibility(View.VISIBLE);
-                    mValidEmailMessageTextView.setVisibility(View.VISIBLE);
+                    if(!passMatch) rePassInput.setError(getString(R.string.error_rePwd));
+                    emaInput.setError(getString(R.string.error_ema));
                     System.out.println("Bad email");
                 }
                 else if(!passMatch)
                 {
-                    mNotMAtchingPassTextView.setVisibility(View.VISIBLE);
+                    passInput.setError(getString(R.string.error_pwd));
                     System.out.println("Bad match");
                 }
                 else

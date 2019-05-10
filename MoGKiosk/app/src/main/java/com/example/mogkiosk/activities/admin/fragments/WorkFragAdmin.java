@@ -6,11 +6,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -19,11 +22,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.mogkiosk.R;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Objects;
@@ -63,6 +67,7 @@ public class WorkFragAdmin extends Fragment {
     private TextView medium;
     private TextView dimensions;
     private TextView photoBy;
+    private ImageView mainImage;
     private int viewId;
 
     public WorkFragAdmin() {
@@ -109,7 +114,7 @@ public class WorkFragAdmin extends Fragment {
         medium = rootView.findViewById(R.id.medium);
         dimensions = rootView.findViewById(R.id.dimensions);
         collection = rootView.findViewById(R.id.collection_info);
-
+        mainImage = rootView.findViewById(R.id.mainImage);
         title = rootView.findViewById(R.id.title);
         piecedate = rootView.findViewById(R.id.date);
         Button submit = rootView.findViewById(R.id.submitBtn);
@@ -202,9 +207,33 @@ public class WorkFragAdmin extends Fragment {
         CredIL.setHint(photo);
 
 
+        ContextWrapper cw = new ContextWrapper(getContext());
+        // path to /data/data/yourapp/app_data/imageDir
+        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+        loadImageFromStorage(directory.getAbsolutePath(), "main.png");
+
 
         return rootView;
     }
+
+    private void loadImageFromStorage(String path, String imageName)
+    {
+        if(imageName == "main.png") {
+
+            try {
+                File f=new File(path, "main.png");
+                Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
+                Drawable d = new BitmapDrawable(getResources(), b);
+                mainImage.setImageDrawable(d);
+            }
+            catch (FileNotFoundException e)
+            {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
 
     /**
      * Auxiliary method that passed data to the interface method associated with the AdminActivity
@@ -311,11 +340,10 @@ public class WorkFragAdmin extends Fragment {
                 //null bit
                 saveToInternalStorage(bitmap, "art3.png");
             } else {
-                Toast.makeText(getActivity(), "You haven't picked Image",
-                        Toast.LENGTH_LONG).show();
+                Snackbar.make(getActivity().getWindow().getDecorView().findViewById(android.R.id.content), "No image chosen", Snackbar.LENGTH_LONG).show();
             }
         } catch (Exception e) {
-            Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_LONG)
+            Snackbar.make(getActivity().getWindow().getDecorView().findViewById(android.R.id.content), "Something went wrong", Snackbar.LENGTH_LONG)
                     .show();
         }
 

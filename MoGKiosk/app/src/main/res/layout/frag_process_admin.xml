@@ -104,7 +104,7 @@
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/workTitleInputLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -135,7 +135,7 @@
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/descInputLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -164,7 +164,7 @@
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/youtubeIdLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -193,7 +193,7 @@
             <Button
                 android:id="@+id/submitBtn"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/btn_height"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
                 android:background="@drawable/btn_bg_selector"

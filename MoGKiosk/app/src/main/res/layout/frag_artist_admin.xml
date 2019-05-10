@@ -94,14 +94,14 @@
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/workNameInputLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                app:helperText="@string/artistAdmin_addName_label"
                 app:counterEnabled="true"
                 app:counterMaxLength="30"
+                app:helperText="@string/artistAdmin_addName_label"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider6">
 
@@ -126,7 +126,7 @@
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/taglineInputLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -192,14 +192,12 @@
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/bioInputLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
                 android:layout_height="300dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
                 app:counterEnabled="true"
                 app:counterMaxLength="250"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -235,14 +233,12 @@
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/subBioInputLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
                 app:counterEnabled="true"
                 app:counterMaxLength="100"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -275,7 +271,7 @@
             <Button
                 android:id="@+id/submitBtn"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/btn_height"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="8dp"
