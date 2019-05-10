@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -24,6 +26,8 @@ import android.widget.TextView;
 import com.example.mogkiosk.R;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Objects;
@@ -63,6 +67,7 @@ public class WorkFragAdmin extends Fragment {
     private TextView medium;
     private TextView dimensions;
     private TextView photoBy;
+    private ImageView mainImage;
     private int viewId;
 
     public WorkFragAdmin() {
@@ -109,7 +114,7 @@ public class WorkFragAdmin extends Fragment {
         medium = rootView.findViewById(R.id.medium);
         dimensions = rootView.findViewById(R.id.dimensions);
         collection = rootView.findViewById(R.id.collection_info);
-
+        mainImage = rootView.findViewById(R.id.mainImage);
         title = rootView.findViewById(R.id.title);
         piecedate = rootView.findViewById(R.id.date);
         Button submit = rootView.findViewById(R.id.submitBtn);
@@ -202,9 +207,33 @@ public class WorkFragAdmin extends Fragment {
         CredIL.setHint(photo);
 
 
+        ContextWrapper cw = new ContextWrapper(getContext());
+        // path to /data/data/yourapp/app_data/imageDir
+        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+        loadImageFromStorage(directory.getAbsolutePath(), "main.png");
+
 
         return rootView;
     }
+
+    private void loadImageFromStorage(String path, String imageName)
+    {
+        if(imageName == "main.png") {
+
+            try {
+                File f=new File(path, "main.png");
+                Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
+                Drawable d = new BitmapDrawable(getResources(), b);
+                mainImage.setImageDrawable(d);
+            }
+            catch (FileNotFoundException e)
+            {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
 
     /**
      * Auxiliary method that passed data to the interface method associated with the AdminActivity
