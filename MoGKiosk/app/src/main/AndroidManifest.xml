@@ -33,10 +33,12 @@
             android:name=".activities.AboutActivity"
             android:label="@string/title_activity_about"
             android:parentActivityName=".activities.main.MainActivity"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme.ActionBar.Transparent" />
         <activity
             android:name=".LoginActivity"
-            android:label="Login" />
+            android:label="Login"
+            android:parentActivityName=".activities.main.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".activities.admin.AdminActivity"
             android:label="@string/title_activity_settings"

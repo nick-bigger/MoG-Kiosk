@@ -22,6 +22,7 @@ public class AboutActivity extends AppCompatActivity {
         ImageView img = findViewById(R.id.dev_photo_3);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("");
 
 
         img.setOnClickListener(new View.OnClickListener() {

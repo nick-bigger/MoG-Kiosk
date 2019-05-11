@@ -40,7 +40,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         final PrivateInfoManager manager = new PrivateInfoManager(this);
 
-        getSupportActionBar().hide();
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setTitle("");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_main);
