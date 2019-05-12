@@ -37,35 +37,6 @@
             app:layout_constraintTop_toBottomOf="@+id/subTitle">
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/oldEmailInput"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:hint="@string/updateCred_input_old_email"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/oldPasswordInput">
-
-                <EditText
-                    android:id="@+id/old_update_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:autofillHints="email"
-                    android:background="@drawable/edittext_round"
-                    android:drawableStart="@drawable/ic_mail_24dp"
-                    android:drawablePadding="20dp"
-                    android:inputType="textEmailAddress"
-                    android:padding="@dimen/et_ic_pad"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_editor_absoluteY="200dp" />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
                 android:id="@+id/oldUsernameInput"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
