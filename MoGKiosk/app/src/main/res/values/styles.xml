@@ -13,6 +13,7 @@
     <style name="AppTheme.ActionBar.Transparent" parent="AppTheme">
         <item name="colorPrimary">@android:color/transparent</item>
         <item name="colorPrimaryDark">#26FFFFFF</item>
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
 
     <style name="Divider">
@@ -47,6 +48,7 @@
         <item name="boxCornerRadiusBottomEnd">0dp</item>
         <item name="boxCornerRadiusTopStart">0dp</item>
         <item name="boxCornerRadiusTopEnd">0dp</item>
+        <item name="hintTextAppearance">@style/TextAppearence.TextInputLayout.Dark</item>
     </style>
 
     <style name="TextAppearence.TextInputLayout.Dark" parent="@android:style/TextAppearance">
