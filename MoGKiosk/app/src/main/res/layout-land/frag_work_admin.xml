@@ -388,23 +388,22 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider3">
 
-                <android.support.design.widget.FloatingActionButton
+                <Button
                     android:id="@+id/browse_main_img"
-                    android:layout_width="wrap_content"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:clickable="true"
-                    android:src="@drawable/ic_add_a_photo_24dp"
+                    android:alpha="0.8"
+                    android:background="@color/colorSecondary"
+                    android:text="@string/btn_update"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/mainImage"
                     android:layout_width="0dp"
                     android:layout_height="300dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
                     android:contentDescription="@string/artistAdmin_currImg_desc"
                     android:scaleType="centerCrop"
                     android:src="@drawable/david_walters"
