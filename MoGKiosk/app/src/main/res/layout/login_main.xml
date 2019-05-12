@@ -24,6 +24,7 @@
         android:id="@+id/login_card"
         android:layout_width="375dp"
         android:layout_height="400dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

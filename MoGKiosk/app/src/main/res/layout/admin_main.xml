@@ -34,6 +34,8 @@
             android:background="?attr/colorPrimary"
             android:elevation="0dp"
             android:theme="@style/AppTheme"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             app:titleTextColor="@color/textDark"
             app:subtitleTextColor="@color/textMid"
             app:layout_scrollFlags="scroll|enterAlways"
