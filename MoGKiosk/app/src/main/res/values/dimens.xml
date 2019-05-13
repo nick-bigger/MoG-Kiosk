@@ -4,13 +4,12 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
 
-    <dimen name="font_title">48sp</dimen>
+    <dimen name="font_h1">48sp</dimen>
     <dimen name="font_h2">34sp</dimen>
-    <dimen name="font_subtitle">24sp</dimen>
-    <dimen name="font_title_small">24sp</dimen>
+    <dimen name="font_h3">24sp</dimen>
     <dimen name="font_body">18sp</dimen>
-    <dimen name="font_small">14sp</dimen>
     <dimen name="font_btn">14sp</dimen>
+    <dimen name="font_caption">14sp</dimen>
 
     <dimen name="divider_small">35dp</dimen>
     <dimen name="letterSpacing_subtitle">0.08</dimen>

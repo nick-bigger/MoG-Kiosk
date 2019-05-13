@@ -48,7 +48,7 @@
                 android:text="@string/workAdmin_workInfo_title"
                 android:textAllCaps="true"
                 android:textColor="@color/textDark"
-                android:textSize="@dimen/font_subtitle"
+                android:textSize="@dimen/font_h3"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/workTitleInputLayout"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -64,7 +64,7 @@
                 android:text="@string/workAdmin_labelInfo_title"
                 android:textAllCaps="true"
                 android:textColor="@color/textDark"
-                android:textSize="@dimen/font_subtitle"
+                android:textSize="@dimen/font_h3"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -482,7 +482,7 @@
                 android:text="@string/workAdmin_relatedWork_title"
                 android:textAllCaps="true"
                 android:textColor="@color/textDark"
-                android:textSize="@dimen/font_subtitle"
+                android:textSize="@dimen/font_h3"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
@@ -497,7 +497,7 @@
                 android:text="@string/workAdmin_mainImg_title"
                 android:textAllCaps="true"
                 android:textColor="@color/textDark"
-                android:textSize="@dimen/font_subtitle"
+                android:textSize="@dimen/font_h3"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

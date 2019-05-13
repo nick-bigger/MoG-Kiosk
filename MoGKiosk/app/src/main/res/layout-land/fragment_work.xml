@@ -78,7 +78,7 @@
                     android:text="@string/work_title"
                     android:textAppearance="@android:style/TextAppearance.Large.Inverse"
                     android:textColor="@color/textDark"
-                    android:textSize="@dimen/font_title"
+                    android:textSize="@dimen/font_h1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -334,7 +334,7 @@
                     android:text="@string/work_desc_title"
                     android:textAllCaps="true"
                     android:textColor="@color/textDark"
-                    android:textSize="@dimen/font_subtitle"
+                    android:textSize="@dimen/font_h3"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -391,7 +391,7 @@
                 android:text="@string/artist_relatedWork1_title"
                 android:textAllCaps="true"
                 android:textColor="@color/textDark"
-                android:textSize="@dimen/font_subtitle"
+                android:textSize="@dimen/font_h3"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

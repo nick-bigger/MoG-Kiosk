@@ -86,7 +86,7 @@
                 android:text="@string/artistAdmin_currImg_title"
                 android:textAllCaps="true"
                 android:textColor="@color/textDark"
-                android:textSize="@dimen/font_subtitle"
+                android:textSize="@dimen/font_h3"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/workNameInputLayout"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -164,7 +164,7 @@
                 android:text="@string/artistAdmin_info_title"
                 android:textAllCaps="true"
                 android:textColor="@color/textDark"
-                android:textSize="@dimen/font_subtitle"
+                android:textSize="@dimen/font_h3"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/workNameInputLayout"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -296,7 +296,7 @@
                 android:text="@string/artistAdmin_bio_title"
                 android:textAllCaps="true"
                 android:textColor="@color/textDark"
-                android:textSize="@dimen/font_subtitle"
+                android:textSize="@dimen/font_h3"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/bioInputLayout"
                 app:layout_constraintTop_toTopOf="parent" />
