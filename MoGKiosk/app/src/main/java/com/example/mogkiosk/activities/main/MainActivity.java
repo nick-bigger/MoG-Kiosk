@@ -375,5 +375,8 @@ public class MainActivity extends AppCompatActivity {
                 this,
                 findViewById(R.id.viewPager),
                 new AccelerateDecelerateInterpolator()));
+
+//                AppBarLayout.LayoutParams params = (AppBarLayout.LayoutParams) toolbar.getLayoutParams();
+//                params.setScrollFlags(0);  // clear all scroll flags
     }
 }
