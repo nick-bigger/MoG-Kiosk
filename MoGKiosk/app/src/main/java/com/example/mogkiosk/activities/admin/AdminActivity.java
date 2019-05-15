@@ -161,13 +161,15 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
     }
 
     @Override
-    public void onProcessDataPass(CharSequence processTitle, CharSequence processDescription) {
+    public void onProcessDataPass(CharSequence processTitle, CharSequence processDescription, CharSequence youtubeLink) {
         Intent intent = new Intent(AdminActivity.this, MainActivity.class);
         //converting
         String pTitle = processTitle.toString();
         String pDescription = processDescription.toString();
+        String pYoutubeLink = youtubeLink.toString();
         intent.putExtra("processTitle", pTitle);
         intent.putExtra("processDescription", pDescription);
+        intent.putExtra("processYoutube", pYoutubeLink);
         //start
         this.startActivity(intent);
     }

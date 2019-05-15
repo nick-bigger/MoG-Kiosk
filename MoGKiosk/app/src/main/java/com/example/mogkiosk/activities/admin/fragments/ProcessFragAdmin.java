@@ -2,9 +2,12 @@ package com.example.mogkiosk.activities.admin.fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
@@ -38,11 +41,14 @@ public class ProcessFragAdmin extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private static final int RESULT_LOAD_IMG = 1;
     private static final String YOUTUBE_API_KEY = "AIzaSyC4N2Q4nQxCv6Pm_wZt-QCNqgDq-fe27UI";
+    private SharedPreferences prefs;
 
     private OnProcessDataPass dataPasser;
 
     private TextView processTitle;
     private TextView processDescription;
+    private TextView youtubeID;
+    private FragmentTransaction transaction;
 
     public ProcessFragAdmin() {
         // Required empty public constructor
@@ -74,6 +80,7 @@ public class ProcessFragAdmin extends Fragment {
             String mParam1 = getArguments().getString(ARG_PARAM1);
             String mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        prefs =  PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
     }
 
     @Override
@@ -83,18 +90,19 @@ public class ProcessFragAdmin extends Fragment {
         View rootView = inflater.inflate(R.layout.frag_process_admin, container, false);
 
         // set up youtube view
+        final String youtubeLink = prefs.getString(getString(R.string.a_pyoutube), "");
+
         YouTubePlayerSupportFragment youTubePlayerFragment = YouTubePlayerSupportFragment.newInstance();
-
-        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        transaction = getChildFragmentManager().beginTransaction();
         transaction.add(R.id.youtube_view, youTubePlayerFragment).commit();
-
         youTubePlayerFragment.initialize(YOUTUBE_API_KEY, new YouTubePlayer.OnInitializedListener() {
 
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
                 if (!wasRestored) {
                     player.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
-                    player.cueVideo("_zX5Uki421c");
+                    //player.cueVideo("_zX5Uki421c");
+                    player.cueVideo(youtubeLink);
                 }
             }
 
@@ -106,10 +114,12 @@ public class ProcessFragAdmin extends Fragment {
             }
         });
 
+
+
         Button submit = rootView.findViewById(R.id.submitBtn);
         processDescription = rootView.findViewById(R.id.description);
         processTitle = rootView.findViewById(R.id.title);
-
+        youtubeID = rootView.findViewById(R.id.youtubeEdit);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,12 +127,44 @@ public class ProcessFragAdmin extends Fragment {
                 //get text of variables
                 CharSequence title = processTitle.getText();
                 CharSequence description = processDescription.getText();
+                CharSequence youtubeLink = youtubeID.getText();
                 //pass them to auxiliary method
-                onButtonPressed(title, description);
+                onButtonPressed(title, description, youtubeLink);
             }
         });
 
         return rootView;
+    }
+
+    public void onResume() {
+        super.onResume();
+        final String youtubeLink = prefs.getString(getString(R.string.a_pyoutube), "");
+
+        YouTubePlayerSupportFragment youTubePlayerFragment = YouTubePlayerSupportFragment.newInstance();
+        transaction.replace(R.id.youtube_view, youTubePlayerFragment);
+
+        if(!youtubeLink.isEmpty()) {
+            youTubePlayerFragment.initialize(YOUTUBE_API_KEY, new YouTubePlayer.OnInitializedListener() {
+
+                @Override
+                public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
+                    if (!wasRestored) {
+                        player.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
+                        //player.cueVideo("_zX5Uki421c");
+                        player.cueVideo(youtubeLink);
+                    }
+                }
+
+                @Override
+                public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult error) {
+                    String errorMessage = error.toString();
+                    Snackbar.make(getActivity().getWindow().getDecorView().findViewById(android.R.id.content), errorMessage, Toast.LENGTH_LONG).show();
+                    Log.d("errorMessage:", errorMessage);
+                }
+            });
+
+        }
+
     }
 
     @Override
@@ -151,8 +193,8 @@ public class ProcessFragAdmin extends Fragment {
      * @param processTitle
      * @param processDescription
      */
-    private void onButtonPressed(CharSequence processTitle, CharSequence processDescription) {
-        dataPasser.onProcessDataPass(processTitle, processDescription);
+    private void onButtonPressed(CharSequence processTitle, CharSequence processDescription, CharSequence youtubeLink) {
+        dataPasser.onProcessDataPass(processTitle, processDescription, youtubeLink);
     }
 
     @Override
@@ -182,6 +224,6 @@ public class ProcessFragAdmin extends Fragment {
     }
 
     public interface OnProcessDataPass {
-        void onProcessDataPass(CharSequence processTitle, CharSequence processDescription);
+        void onProcessDataPass(CharSequence title, CharSequence processTitle, CharSequence processDescription);
     }
 }
