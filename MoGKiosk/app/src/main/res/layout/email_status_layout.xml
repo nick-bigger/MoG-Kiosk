@@ -5,7 +5,6 @@
     style="@style/AppTheme"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#80FFFFFF"
     android:theme="@style/AppTheme">
 
     <android.support.constraint.ConstraintLayout

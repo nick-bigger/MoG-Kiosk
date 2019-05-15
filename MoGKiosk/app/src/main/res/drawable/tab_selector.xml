@@ -5,9 +5,6 @@
     android:alpha="0.8" >
 
     <solid android:color="@color/transparent"/>
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="24dp" />
     <stroke android:width="5px" android:color="@color/colorSecondary" />
 
     <corners android:radius="0dp" />

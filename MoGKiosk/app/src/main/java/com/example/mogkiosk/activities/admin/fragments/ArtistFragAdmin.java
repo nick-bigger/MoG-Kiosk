@@ -127,7 +127,6 @@ public class ArtistFragAdmin extends Fragment {
         Description = rootView.findViewById(R.id.description);
         SubBio = rootView.findViewById(R.id.etSubBio);
         imgView = rootView.findViewById(R.id.mainImage);
-        Button submit1 = rootView.findViewById(R.id.submitBtn);
         Button submit = rootView.findViewById(R.id.submitBtn);
         //set onclick method
         submit.setOnClickListener(new View.OnClickListener() {
