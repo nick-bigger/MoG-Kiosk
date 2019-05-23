@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.example.mogkiosk.R;
@@ -55,6 +56,7 @@ public class WorkFrag extends Fragment {
     private TextView photoBy;
     private TextView workDescription;
 
+    private GridView imageGrid;
     private ImageView mainImage;
     private ImageView art1;
     private ImageView art2;
@@ -104,7 +106,7 @@ public class WorkFrag extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_work, container, false);
 
-        GridView imageGrid = v.findViewById(R.id.gridview);
+        imageGrid = v.findViewById(R.id.gridview);
         ArrayList<Bitmap> bitmapList = new ArrayList<>();
 
         try {
@@ -201,10 +203,64 @@ public class WorkFrag extends Fragment {
             File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
             loadImageFromStorage(directory.getAbsolutePath(), "main.png");
 
+            //create arraylist
+            ArrayList<Bitmap> bitmapArrayList = new ArrayList<>();
+            bitmapArrayList.clear();
+            //pull images from storage and add them to a the bitmap arryalist
+            loadImagesFromStorage(directory.getAbsolutePath(), "art1.png", bitmapArrayList);
+            loadImagesFromStorage(directory.getAbsolutePath(), "art2.png", bitmapArrayList);
+            loadImagesFromStorage(directory.getAbsolutePath(), "art3.png", bitmapArrayList);
+            imageGrid.setAdapter(new ImageAdapter(getActivity(), bitmapArrayList));
+
+
         }
 
 
     }
+
+    private void loadImagesFromStorage(String path, String imageName, ArrayList<Bitmap> bitmapArrayList)
+    {
+        if(imageName == "art1.png") {
+
+            try {
+                File f=new File(path, "art1.png");
+                Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
+                Drawable d = new BitmapDrawable(getResources(), b);
+                bitmapArrayList.add(0, b);
+            }
+            catch (FileNotFoundException e)
+            {
+                e.printStackTrace();
+            }
+        } else if(imageName == "art2.png") {
+            try {
+                File f=new File(path, "art2.png");
+                Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
+                Drawable d = new BitmapDrawable(getResources(), b);
+                bitmapArrayList.add(1, b);
+            }
+            catch (FileNotFoundException e)
+            {
+                e.printStackTrace();
+            }
+
+        } else if (imageName == "art3.png") {
+            try {
+                File f=new File(path, "art3.png");
+                Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
+                Drawable d = new BitmapDrawable(getResources(), b);
+                bitmapArrayList.add(2, b);
+            }
+            catch (FileNotFoundException e)
+            {
+                e.printStackTrace();
+            }
+
+        }
+
+    }
+
+
 
     private void loadImageFromStorage(String path, String imageName)
     {
