@@ -34,6 +34,8 @@
             android:background="?attr/colorPrimary"
             android:elevation="0dp"
             android:theme="@style/AppTheme"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             app:titleTextColor="@color/textDark"
             app:subtitleTextColor="@color/textMid"
             app:layout_scrollFlags="scroll|enterAlways"
@@ -62,7 +64,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.view.ViewPager
+    <com.example.mogkiosk.ViewPagerCustomDuration
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

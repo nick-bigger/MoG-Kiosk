@@ -147,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
             //get process data from the bundle
             String processTitle = extras.getString("processTitle");
             String processDescription = extras.getString("processDescription");
+            String processYoutube = extras.getString("processYoutube");
             // Using bundle
             //  update artist
             Bundle artistData = new Bundle();
@@ -168,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
             Bundle processData = new Bundle();
             processData.putString("PTITLE", processTitle);
             processData.putString("PDESCRIPTION", processDescription);
+            processData.putString("PYOUTUBE", processYoutube);
             //set arguments and update adapter
             a_frag.setArguments(artistData);
             w_frag.setArguments(workData);
@@ -176,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
             mSectionsPagerAdapter.setItem(a_frag, 0);
             mSectionsPagerAdapter.setItem(w_frag, 1);
             mSectionsPagerAdapter.setItem(p_frag, 2);
-        }
+         }
     }
 
     private void updateSharedPreferences(Bundle extras) {
@@ -197,6 +199,7 @@ public class MainActivity extends AppCompatActivity {
         //get arguments from process
         String pTitle = extras.getString("processTitle");
         String pDescription = extras.getString("processDescription");
+        String pYoutube = extras.getString("processYoutube");
 
         if(name != null && !name.isEmpty()) {
             editor.putString(getString(R.string.a_artistname), name);
@@ -264,6 +267,12 @@ public class MainActivity extends AppCompatActivity {
 
         if(pDescription != null && !pDescription.isEmpty()) {
             editor.putString(getString(R.string.a_pdescription), pDescription);
+            editor.commit();
+        }
+
+
+        if(pYoutube != null && !pYoutube.isEmpty()) {
+            editor.putString(getString(R.string.a_pyoutube), pYoutube);
             editor.commit();
         }
     }
@@ -375,5 +384,8 @@ public class MainActivity extends AppCompatActivity {
                 this,
                 findViewById(R.id.viewPager),
                 new AccelerateDecelerateInterpolator()));
+
+//                AppBarLayout.LayoutParams params = (AppBarLayout.LayoutParams) toolbar.getLayoutParams();
+//                params.setScrollFlags(0);  // clear all scroll flags
     }
 }

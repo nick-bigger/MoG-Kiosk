@@ -127,7 +127,6 @@ public class ArtistFragAdmin extends Fragment {
         Description = rootView.findViewById(R.id.description);
         SubBio = rootView.findViewById(R.id.etSubBio);
         imgView = rootView.findViewById(R.id.mainImage);
-        Button submit1 = rootView.findViewById(R.id.submitBtn);
         Button submit = rootView.findViewById(R.id.submitBtn);
         //set onclick method
         submit.setOnClickListener(new View.OnClickListener() {
@@ -230,9 +229,11 @@ public class ArtistFragAdmin extends Fragment {
                 pb.clearAnimation();
                 pb.setVisibility(View.INVISIBLE);
             } else {
+                pb.setVisibility(View.INVISIBLE);
                 Snackbar.make(getActivity().getWindow().getDecorView().findViewById(android.R.id.content), "No image chosen", Snackbar.LENGTH_LONG).show();
             }
         } catch (Exception e) {
+            pb.setVisibility(View.INVISIBLE);
             Snackbar.make(getActivity().getWindow().getDecorView().findViewById(android.R.id.content), "Something went wrong", Snackbar.LENGTH_LONG)
                     .show();
         }

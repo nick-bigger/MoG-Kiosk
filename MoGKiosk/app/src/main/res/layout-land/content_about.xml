@@ -10,13 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="450dp"
         android:fitsSystemWindows="true"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:theme="@style/ThemeOverlay.AppCompat.Light">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
+            app:contentScrim="@android:color/white"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
@@ -136,7 +136,7 @@
                     android:lineSpacingExtra="8dp"
                     android:padding="@dimen/appbar_padding_top"
                     android:text="@string/about_title"
-                    android:textSize="40sp"
+                    android:textSize="@dimen/font_h2"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -151,7 +151,7 @@
                     android:lineSpacingExtra="8dp"
                     android:padding="@dimen/activity_horizontal_margin"
                     android:text="@string/about_text"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/font_body"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

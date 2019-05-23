@@ -59,13 +59,14 @@
                 <Button
                     android:id="@+id/browse_main_img"
                     style="@style/Widget.AppCompat.Button.Colored"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:background="@color/colorAccent"
+                    android:alpha="0.8"
+                    android:background="@color/colorSecondary"
                     android:text="@string/btn_update"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/mainImage" />
 
             </android.support.constraint.ConstraintLayout>
 
@@ -96,7 +97,7 @@
                 android:text="@string/artistAdmin_currImg_title"
                 android:textAllCaps="true"
                 android:textColor="@color/textDark"
-                android:textSize="@dimen/font_subtitle"
+                android:textSize="@dimen/font_h3"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/taglineInputLayout"
                 app:layout_constraintTop_toBottomOf="@+id/taglineInputLayout" />
@@ -178,7 +179,7 @@
                 android:text="@string/artistAdmin_info_title"
                 android:textAllCaps="true"
                 android:textColor="@color/textDark"
-                android:textSize="@dimen/font_subtitle"
+                android:textSize="@dimen/font_h3"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/workNameInputLayout"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -312,7 +313,7 @@
                 android:text="@string/artistAdmin_bio_title"
                 android:textAllCaps="true"
                 android:textColor="@color/textDark"
-                android:textSize="@dimen/font_subtitle"
+                android:textSize="@dimen/font_h3"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/bioInputLayout"
                 app:layout_constraintTop_toTopOf="parent" />

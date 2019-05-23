@@ -4,11 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@android:color/white"
-    android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context=".LoginActivity">
-
 
     <ImageView
         android:id="@+id/bg"
@@ -16,6 +13,7 @@
         android:layout_height="match_parent"
         android:contentDescription="@string/login_bg"
         android:scaleType="centerCrop"
+        android:fitsSystemWindows="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,6 +24,7 @@
         android:id="@+id/login_card"
         android:layout_width="375dp"
         android:layout_height="400dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

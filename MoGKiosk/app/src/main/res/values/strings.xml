@@ -43,8 +43,8 @@
         glass technique during a 1995 residency at the Creative Glass Center of
         America in Millville, NJ (where he had another residency in 2004), an
         intricate narrative style that distinguishes him from other glass artists.
-    </string>
-    <string name="artist_bio2">
+        \n
+        \n
         Walters begins by blowing a milky white glass—into serpentine vessels,
         distorted eggs at times festooned with hats, hyperbolic pitchers and vases,
         toy cars, and other fantastic shapes. They become the canvas for his
@@ -241,6 +241,7 @@
     <!-- process admin start -->
     <string name="a_ptitle">android.content.SharedPreferences.a_ptitle</string>
     <string name="a_pdescription">android.content.SharedPreferences.a_pdescription</string>
+    <string name="a_pyoutube">android.content.SharedPreferences.a_youtube</string>
 
     <string name="processAdmin_videoUpload_title">Video Preview:</string>
     <string name="processAdmin_videoInfo_title">Video Info:</string>

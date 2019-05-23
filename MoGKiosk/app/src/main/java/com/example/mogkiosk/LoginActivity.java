@@ -46,7 +46,8 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intentCreate);
         }
 
-        getSupportActionBar().hide();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_main);

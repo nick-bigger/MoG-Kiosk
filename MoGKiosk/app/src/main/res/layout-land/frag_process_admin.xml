@@ -37,7 +37,7 @@
             android:text="@string/processAdmin_videoInfo_title"
             android:textAllCaps="true"
             android:textColor="@color/textDark"
-            android:textSize="@dimen/font_subtitle"
+            android:textSize="@dimen/font_h3"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -120,13 +120,14 @@
             app:layout_constraintTop_toBottomOf="@+id/descInputLayout">
 
             <android.support.design.widget.TextInputEditText
+                android:id="@+id/youtubeEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints="description"
                 android:ems="10"
                 android:gravity="top|start"
                 android:hint="@string/processAdmin_videoId"
-                android:inputType="textMultiLine"
+                android:inputType="textShortMessage"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -166,7 +167,7 @@
             android:text="@string/processAdmin_videoUpload_title"
             android:textAllCaps="true"
             android:textColor="@color/textDark"
-            android:textSize="@dimen/font_subtitle"
+            android:textSize="@dimen/font_h3"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

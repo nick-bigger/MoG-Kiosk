@@ -27,7 +27,6 @@ public class UpdateCredActivity extends AppCompatActivity {
 
     private TextInputLayout oldUsrInput;
     private TextInputLayout oldPassInput;
-    private TextInputLayout oldEmailInput;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         final PrivateInfoManager manager = new PrivateInfoManager(this);
@@ -51,7 +50,6 @@ public class UpdateCredActivity extends AppCompatActivity {
 
         oldUsrInput = findViewById(R.id.oldUsernameInput);
         oldPassInput = findViewById(R.id.oldPasswordInput);
-        oldEmailInput = findViewById(R.id.oldEmailInput);
 
         mSubmitUpdates.setOnClickListener(new View.OnClickListener() {
             @Override

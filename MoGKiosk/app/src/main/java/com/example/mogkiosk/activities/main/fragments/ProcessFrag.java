@@ -35,7 +35,9 @@ public class ProcessFrag extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final String YOUTUBE_API_KEY = "AIzaSyC4N2Q4nQxCv6Pm_wZt-QCNqgDq-fe27UI";
-
+    private String processYoutube;
+    private  YouTubePlayerSupportFragment youTubePlayerFragment;
+    private FragmentTransaction transaction;
     private SharedPreferences prefs;
 
     private TextView title;
@@ -71,16 +73,17 @@ public class ProcessFrag extends Fragment {
             String mParam2 = getArguments().getString(ARG_PARAM2);
         }
         prefs =  PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+        processYoutube = prefs.getString(getString(R.string.a_pyoutube), "");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        YouTubePlayerSupportFragment youTubePlayerFragment = YouTubePlayerSupportFragment.newInstance();
-
-        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        //set youtube api
+        transaction = getChildFragmentManager().beginTransaction();
+        youTubePlayerFragment = YouTubePlayerSupportFragment.newInstance();
         transaction.add(R.id.youtube_view, youTubePlayerFragment).commit();
+        processYoutube = prefs.getString(getString(R.string.a_pyoutube), "");
 
         youTubePlayerFragment.initialize(YOUTUBE_API_KEY, new YouTubePlayer.OnInitializedListener() {
 
@@ -88,7 +91,8 @@ public class ProcessFrag extends Fragment {
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
                 if (!wasRestored) {
                     player.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
-                    player.cueVideo("_zX5Uki421c");
+                    //player.cueVideo("_zX5Uki421c");
+                    player.cueVideo(processYoutube);
                 }
             }
 
@@ -113,8 +117,32 @@ public class ProcessFrag extends Fragment {
         if(extras != null) {
             String processTitle = prefs.getString(getString(R.string.a_ptitle), "");
             String processDescription = prefs.getString(getString(R.string.a_pdescription), "");
+            processYoutube = prefs.getString(getString(R.string.a_pyoutube), "");
+            //String youtubeLink = prefs.getStr
             if(processTitle != null && !processTitle.isEmpty()) {
+                //set the text of the process title
                 title.setText(processTitle);
+
+            } else if(!processYoutube.isEmpty()) {
+                transaction.replace(R.id.youtube_view, youTubePlayerFragment);
+                youTubePlayerFragment.initialize(YOUTUBE_API_KEY, new YouTubePlayer.OnInitializedListener() {
+
+                    @Override
+                    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
+                        if (!wasRestored) {
+                            player.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
+                            //player.cueVideo("_zX5Uki421c");
+                            player.cueVideo(processYoutube);
+                        }
+                    }
+
+                    @Override
+                    public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult error) {
+                        String errorMessage = error.toString();
+                        Snackbar.make(getActivity().getWindow().getDecorView().findViewById(android.R.id.content), errorMessage, Toast.LENGTH_LONG).show();
+                        Log.d("errorMessage:", errorMessage);
+                    }
+                });
             }
         }
     }
