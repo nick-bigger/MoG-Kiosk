@@ -2,7 +2,6 @@ package com.example.mogkiosk.activities.main.fragments;
 
 import android.content.Context;
 import android.content.ContextWrapper;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,13 +14,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mogkiosk.R;
-import com.example.mogkiosk.SingleViewActivity;
 import com.example.mogkiosk.adapters.ImageAdapter;
 
 import java.io.File;
@@ -120,16 +117,16 @@ public class WorkFrag extends Fragment {
 
         imageGrid.setAdapter(new ImageAdapter(getActivity(), bitmapList));
 
-        imageGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent,
-                                    View v, int position, long id){
-                // Send intent to SingleViewActivity
-                Intent i = new Intent(getContext(), SingleViewActivity.class);
-                // Pass image index
-                i.putExtra("id", position);
-                startActivity(i);
-            }
-        });
+//        imageGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            public void onItemClick(AdapterView<?> parent,
+//                                    View v, int position, long id){
+//                // Send intent to SingleViewActivity
+//                Intent i = new Intent(getContext(), SingleViewActivity.class);
+//                // Pass image index
+//                i.putExtra("id", position);
+//                startActivity(i);
+//            }
+//        });
 
         artistTitle = v.findViewById(R.id.artist_entry);
         workDate = v.findViewById(R.id.work_date);
