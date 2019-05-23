@@ -9,13 +9,13 @@
         android:layout_height="wrap_content"
         android:text="@string/btn_home" />
 
-    <Button
-        android:id="@+id/createAccBtn"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:textColor="@color/colorSecondary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_activity_createAccount" />
+    <!--<Button-->
+        <!--android:id="@+id/createAccBtn"-->
+        <!--style="@style/Widget.AppCompat.Button.Borderless.Colored"-->
+        <!--android:textColor="@color/colorSecondary"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/title_activity_createAccount" />-->
 
     <!--<Button-->
         <!--android:id="@+id/changePassBtn"-->

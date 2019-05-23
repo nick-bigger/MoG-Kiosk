@@ -88,26 +88,11 @@
     <!-- the work start -->
     <string name="work_img_desc">An image of End of Day Chandelier</string>
     <string name="work_desc">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Pellentesque libero massa, pellentesque id placerat nec,
-        consequat luctus tortor. Morbi congue scelerisque odio
-        eu varius. In placerat pretium odio tristique congue.
-        Mauris elementum magna ornare diam dictum, eget vehicula
-        lacus suscipit. Sed sed lacus congue, pulvinar augue a,
-        bibendum massa. Nullam porttitor posuere tempus. Cras
-        turpis massa, rutrum eget eros a, lacinia accumsan odio.
-        Integer convallis tristique sollicitudin. Integer ut
-        auctor nisl, ac pretium enim.
-        \n
-        \n
-        Duis id mi aliquet, pulvinar diam consectetur, efficitur
-        sapien. Maecenas ac posuere massa, in bibendum nunc.
-        Pellentesque ornare congue odie eget aliquam. Quisque
-        dictum, ligula quis pretium sagittis, mauris magna
-        feugiat velit, vel mattis purus metus a orci. Phasellus
-        iaculis ligula turpis, et tempus orci euismod vitae.
-        Vivamus maximus eu lectus eu ullamcorper. Curabitur ut
-        lacus vel mi aliquet consequat at ac turpis.
+        Although this piece was made in the Museum’s Hot Shop, its narrative came to life after
+        artist David Walters added the enamel illustrations in his studio. For the artist, each
+        white vessel is like a canvas, onto which Walters paints intricate narratives, often
+        inspired by fairytales and fables, but with a modern day twist that frequently
+        shares a cautionary tale.
     </string>
 
     <string name="work_desc_title">About the work</string>

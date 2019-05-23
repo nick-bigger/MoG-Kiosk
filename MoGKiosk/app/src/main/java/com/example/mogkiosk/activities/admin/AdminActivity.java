@@ -87,15 +87,15 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
                 startActivity(new Intent(AdminActivity.this, UpdateCredActivity.class));
             }
         });
-
-        Button createAccBtn = findViewById(R.id.createAccBtn);
-
-        createAccBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(AdminActivity.this, CreateAccountActivity.class));
-            }
-        });
+//
+//        Button createAccBtn = findViewById(R.id.createAccBtn);
+//
+//        createAccBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(AdminActivity.this, CreateAccountActivity.class));
+//            }
+//        });
 
         // change tab spacing
 //        for(int i=0; i < tabLayout.getTabCount()-1; i++) {

@@ -17,12 +17,12 @@
         android:layout_height="wrap_content"
         android:text="@string/btn_about" />
 
-    <Button
-        android:id="@+id/loginBtn"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:textColor="@color/colorSecondary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_login" />
+    <!--<Button-->
+        <!--android:id="@+id/loginBtn"-->
+        <!--style="@style/Widget.AppCompat.Button.Borderless.Colored"-->
+        <!--android:textColor="@color/colorSecondary"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/btn_login" />-->
 
 </merge>
