@@ -50,7 +50,7 @@ public class WorkFrag extends Fragment {
     private TextView dimensions;
     private TextView collection;
     private TextView photoBy;
-    private TextView workDescription;
+    private TextView workDesc;
 
     private GridView imageGrid;
     private ImageView mainImage;
@@ -139,6 +139,7 @@ public class WorkFrag extends Fragment {
         dimensions = v.findViewById(R.id.dimensions_entry);
         photoBy = v.findViewById(R.id.photo_credit_entry);
         mainImage = v.findViewById(R.id.work_image);
+        workDesc = v.findViewById(R.id.work_desc);
 
 
 
@@ -158,6 +159,7 @@ public class WorkFrag extends Fragment {
             String pieceDate = prefs.getString(getString(R.string.a_piecedate), "");
             String dim= prefs.getString(getString(R.string.a_dimension),"");
             String photo = prefs.getString(getString(R.string.a_photo), "");
+            String workdesc = prefs.getString(getString(R.string.a_workdesc), "");
 
             // this string name is null
             if (title != null && !title.isEmpty()) {
@@ -191,6 +193,10 @@ public class WorkFrag extends Fragment {
 
             if(photo != null && !photo.isEmpty()) {
                 photoBy.setText(photo);
+            }
+
+            if(workdesc != null && !workdesc.isEmpty()) {
+                workDesc.setText(workdesc);
             }
 
 

@@ -199,6 +199,7 @@
     <string name="a_dimension">android.content.SharedPreferences.a_dimension</string>
     <string name="a_date">android.content.SharedPreferences.a_date</string>
     <string name="a_photo">android.content.SharedPreferences.a_photo</string>
+    <string name="a_workdesc">android.content.SharedPreferences.a_workdesc</string>
 
     <string name="workAdmin_workInfo_title">Work Info:</string>
     <string name="workAdmin_labelInfo_title">Label Info and Work Description:</string>

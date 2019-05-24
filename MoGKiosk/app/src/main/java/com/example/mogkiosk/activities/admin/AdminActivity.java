@@ -136,7 +136,7 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
 
     @Override
     public void onWorkDataPass(CharSequence artist, CharSequence piecedate, CharSequence title, CharSequence date,
-                               CharSequence collection, CharSequence dimensions, CharSequence medium, CharSequence photo) {
+                               CharSequence collection, CharSequence dimensions, CharSequence medium, CharSequence photo, CharSequence workdesc) {
         Intent intent = new Intent(AdminActivity.this, MainActivity.class);
         //converting to string
         String a = artist.toString();
@@ -147,6 +147,7 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
         String dim = dimensions.toString();
         String m = medium.toString();
         String ph = photo.toString();
+        String wdesc = workdesc.toString();
         intent.putExtra("artist", a);
         intent.putExtra("piecedate", p);
         intent.putExtra("title", t);
@@ -155,6 +156,7 @@ public class AdminActivity extends AppCompatActivity implements ArtistFragAdmin.
         intent.putExtra("dimensions", dim);
         intent.putExtra("medium", m);
         intent.putExtra("photo", ph);
+        intent.putExtra("workdesc", wdesc);
         //start
         this.startActivity(intent);
 

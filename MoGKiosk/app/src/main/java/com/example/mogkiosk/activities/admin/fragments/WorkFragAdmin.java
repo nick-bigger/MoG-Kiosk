@@ -66,6 +66,7 @@ public class WorkFragAdmin extends Fragment {
     private TextView medium;
     private TextView dimensions;
     private TextView photoBy;
+    private TextView workdesc;
     private ImageView mainImage;
     private int viewId;
 
@@ -118,6 +119,7 @@ public class WorkFragAdmin extends Fragment {
         piecedate = rootView.findViewById(R.id.date);
         Button submit = rootView.findViewById(R.id.submitBtn);
         photoBy = rootView.findViewById(R.id.photo_credit);
+        workdesc = rootView.findViewById(R.id.description);
 
         Button mainImageBtn = rootView.findViewById(R.id.browse_main_img);
         Button related1ImageBtn = rootView.findViewById(R.id.browse_main_img2);
@@ -172,9 +174,10 @@ public class WorkFragAdmin extends Fragment {
                 CharSequence titleInput = title.getText();
                 CharSequence dateInput = date.getText();
                 CharSequence photo = photoBy.getText();
+                CharSequence workdescInput = workdesc.getText();
                 //pass them to auxiliary method
                 onButtonPressed(artistInput, piecedateInput, titleInput, dateInput, collectionInput,
-                        dimensionsInput, mediumInput, photo);
+                        dimensionsInput, mediumInput, photo, workdescInput);
             }
         });
 
@@ -186,6 +189,7 @@ public class WorkFragAdmin extends Fragment {
         String pieceDate = prefs.getString(getString(R.string.a_piecedate), "");
         String dim= prefs.getString(getString(R.string.a_dimension),"");
         String photo = prefs.getString(getString(R.string.a_photo), "");
+        String tempWorkDesc = prefs.getString(getString(R.string.a_workdesc), "");
 
         TextInputLayout TitleIL = rootView.findViewById(R.id.workTitleInputLayout);
         TextInputLayout DateIL = rootView.findViewById(R.id.workDateInputLayout);
@@ -195,6 +199,8 @@ public class WorkFragAdmin extends Fragment {
         TextInputLayout DimIL = rootView.findViewById(R.id.workDimInputLayout);
         TextInputLayout CollIL = rootView.findViewById(R.id.workCollecInputLayout);
         TextInputLayout CredIL = rootView.findViewById(R.id.photoCredInputLayout);
+        TextInputLayout WorkDescIL = rootView.findViewById(R.id.description_input);
+
 
         TitleIL.setHint(title);
         LocIL.setHint(tempDate);
@@ -204,6 +210,7 @@ public class WorkFragAdmin extends Fragment {
         DimIL.setHint(dim);
         CollIL.setHint(tempCollection);
         CredIL.setHint(photo);
+        WorkDescIL.setHint(tempWorkDesc);
 
 
         ContextWrapper cw = new ContextWrapper(getContext());
@@ -245,11 +252,12 @@ public class WorkFragAdmin extends Fragment {
      * @param dimensions
      * @param medium
      * @param photo
+     * @param workdesc
      */
     private void onButtonPressed(CharSequence artist, CharSequence piecedate, CharSequence title,
-                                 CharSequence date, CharSequence collection, CharSequence dimensions, CharSequence medium, CharSequence photo) {
+                                 CharSequence date, CharSequence collection, CharSequence dimensions, CharSequence medium, CharSequence photo, CharSequence workdesc) {
         dataPasser.onWorkDataPass(artist, piecedate, title,
-                date, collection, dimensions, medium, photo);
+                date, collection, dimensions, medium, photo, workdesc);
     }
 
     private void loadImageFromGalleryMain(View view) {
@@ -412,6 +420,6 @@ public class WorkFragAdmin extends Fragment {
     public interface OnWorkDataPass {
         //Interface method declaration to pass data to Admin
         void onWorkDataPass(CharSequence artist, CharSequence piecedate, CharSequence title,
-                            CharSequence date, CharSequence collection, CharSequence dimensions, CharSequence medium, CharSequence photo);
+                            CharSequence date, CharSequence collection, CharSequence dimensions, CharSequence medium, CharSequence photo, CharSequence workdesc);
     }
 }

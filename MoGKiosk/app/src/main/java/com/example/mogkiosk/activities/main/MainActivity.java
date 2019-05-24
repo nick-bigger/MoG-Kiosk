@@ -144,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
             String collection = extras.getString("collection");
             String date = extras.getString("date");
             String photo = extras.getString("photo");
+            String workdesc = extras.getString("workdesc");
             //get process data from the bundle
             String processTitle = extras.getString("processTitle");
             String processDescription = extras.getString("processDescription");
@@ -165,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
             workData.putString("COLLECTION", collection);
             workData.putString("DATE", date);
             workData.putString("PHOTOBY", photo);
+            workData.putString("WORKDESC", workdesc);
             //update process
             Bundle processData = new Bundle();
             processData.putString("PTITLE", processTitle);
@@ -196,6 +198,7 @@ public class MainActivity extends AppCompatActivity {
         String collection = extras.getString("collection");
         String date = extras.getString("date");
         String photo = extras.getString("photo");
+        String workdesc = extras.getString("workdesc");
         //get arguments from process
         String pTitle = extras.getString("processTitle");
         String pDescription = extras.getString("processDescription");
@@ -260,6 +263,12 @@ public class MainActivity extends AppCompatActivity {
             editor.putString(getString(R.string.a_photo), photo);
             editor.commit();
         }
+
+        if(workdesc != null && !workdesc.isEmpty()) {
+            editor.putString(getString(R.string.a_workdesc), workdesc);
+            editor.commit();
+        }
+
         if(pTitle != null && !pTitle.isEmpty()) {
             editor.putString(getString(R.string.a_ptitle), pTitle);
             editor.commit();
