@@ -92,6 +92,15 @@ public class ProcessFragAdmin extends Fragment {
         // set up youtube view
         final String youtubeLink = prefs.getString(getString(R.string.a_pyoutube), "");
 
+        String title = prefs.getString(getString(R.string.a_ptitle), "");
+        String id = prefs.getString(getString(R.string.a_pyoutube), "");
+
+        TextInputLayout VidTitle = rootView.findViewById(R.id.workTitleInputLayout);
+        TextInputLayout YTId = rootView.findViewById(R.id.youtubeIdLayout);
+
+        VidTitle.setHint(title);
+        YTId.setHint(id);
+
         YouTubePlayerSupportFragment youTubePlayerFragment = YouTubePlayerSupportFragment.newInstance();
         transaction = getChildFragmentManager().beginTransaction();
         transaction.add(R.id.youtube_view, youTubePlayerFragment).commit();
@@ -117,7 +126,6 @@ public class ProcessFragAdmin extends Fragment {
 
 
         Button submit = rootView.findViewById(R.id.submitBtn);
-        processDescription = rootView.findViewById(R.id.description);
         processTitle = rootView.findViewById(R.id.title);
         youtubeID = rootView.findViewById(R.id.youtubeEdit);
 
@@ -126,10 +134,9 @@ public class ProcessFragAdmin extends Fragment {
             public void onClick(View v) {
                 //get text of variables
                 CharSequence title = processTitle.getText();
-                CharSequence description = processDescription.getText();
                 CharSequence youtubeLink = youtubeID.getText();
                 //pass them to auxiliary method
-                onButtonPressed(title, description, youtubeLink);
+                onButtonPressed(title, "", youtubeLink);
             }
         });
 

@@ -197,9 +197,9 @@ public class WorkFragAdmin extends Fragment {
         TextInputLayout CredIL = rootView.findViewById(R.id.photoCredInputLayout);
 
         TitleIL.setHint(title);
-        DateIL.setHint(tempDate);
+        LocIL.setHint(tempDate);
         ArtistIL.setHint(artist);
-        LocIL.setHint(pieceDate);
+        DateIL.setHint(pieceDate);
         MedIL.setHint(medium);
         DimIL.setHint(dim);
         CollIL.setHint(tempCollection);
