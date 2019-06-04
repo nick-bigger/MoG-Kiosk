@@ -407,7 +407,7 @@
                     android:layout_height="300dp"
                     android:contentDescription="@string/artistAdmin_currImg_desc"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/david_walters"
+                    android:src="@drawable/work_img"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -455,8 +455,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/related_work_2"
                     app:layout_constraintTop_toBottomOf="@+id/related_work_3_title"
-                    app:srcCompat="@drawable/marwan"
-                    tools:srcCompat="@drawable/marwan" />
+                   />
 
                 <Button
                     android:id="@+id/browse_main_img3"
@@ -514,12 +513,12 @@
                     android:layout_height="129dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginEnd="32dp"
                     android:contentDescription="@string/workAdmin_relatedWork1_desc"
                     android:src="@android:drawable/ic_menu_camera"
+                    app:layout_constraintEnd_toStartOf="@+id/related_work_2"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/related_work_1_title"
-                    app:srcCompat="@drawable/marwan"
-                    tools:srcCompat="@drawable/marwan" />
+                    app:layout_constraintTop_toBottomOf="@+id/related_work_1_title" />
 
                 <ImageView
                     android:id="@+id/related_work_2"
@@ -531,13 +530,12 @@
                     android:src="@android:drawable/ic_menu_camera"
                     app:layout_constraintStart_toEndOf="@+id/related_work_1"
                     app:layout_constraintTop_toBottomOf="@+id/related_work_2_title"
-                    app:srcCompat="@drawable/marwan"
-                    tools:srcCompat="@drawable/marwan" />
+                     />
 
                 <TextView
                     android:id="@+id/related_work_2_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="16dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/workAdmin_relatedWork2_desc"
                     app:layout_constraintEnd_toEndOf="@+id/related_work_2"
