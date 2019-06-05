@@ -375,7 +375,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/left_panel"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintVertical_bias="1.0">
 
 
             <android.support.constraint.ConstraintLayout
@@ -396,7 +396,7 @@
                     android:layout_height="wrap_content"
                     android:alpha="0.8"
                     android:background="@color/colorSecondary"
-                    android:text="@string/btn_update"
+                    android:text="@string/workAdmin_btn_update_main"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -433,129 +433,128 @@
                 app:layout_constraintTop_toBottomOf="@+id/main_img_title" />
 
             <android.support.constraint.ConstraintLayout
-                android:id="@+id/constraintLayout3"
-                android:layout_width="wrap_content"
+                android:id="@+id/related_work_card"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="32dp"
+                android:layout_marginBottom="734dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider4">
+                app:layout_constraintTop_toBottomOf="@+id/divider4"
+                app:layout_constraintVertical_bias="0.0">
 
-                <ImageView
-                    android:id="@+id/related_work_3"
-                    android:layout_width="139dp"
-                    android:layout_height="129dp"
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/work_1_container"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
                     android:layout_marginStart="32dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:contentDescription="@string/workAdmin_relatedWork3_desc"
-                    android:src="@android:drawable/ic_menu_camera"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/related_work_2"
-                    app:layout_constraintTop_toBottomOf="@+id/related_work_3_title"
-                   />
-
-                <Button
-                    android:id="@+id/browse_main_img3"
-                    android:layout_width="118dp"
-                    android:layout_height="38dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/btn_bg_selector"
-                    android:contentDescription="@string/workAdmin_addImg_desc"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:text="@string/btn_upload"
-                    android:textColor="@drawable/btn_text_selector"
-                    app:layout_constraintEnd_toEndOf="@+id/related_work_2"
-                    app:layout_constraintStart_toStartOf="@+id/related_work_2"
-                    app:layout_constraintTop_toBottomOf="@+id/related_work_2" />
-
-                <Button
-                    android:id="@+id/browse_main_img2"
-                    android:layout_width="118dp"
-                    android:layout_height="38dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/btn_bg_selector"
-                    android:contentDescription="@string/workAdmin_addImg_desc"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:text="@string/btn_upload"
-                    android:textColor="@drawable/btn_text_selector"
-                    app:layout_constraintEnd_toEndOf="@+id/related_work_1"
-                    app:layout_constraintStart_toStartOf="@+id/related_work_1"
-                    app:layout_constraintTop_toBottomOf="@+id/related_work_1" />
-
-                <TextView
-                    android:id="@+id/related_work_1_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/workAdmin_relatedWork1_desc"
-                    app:layout_constraintEnd_toEndOf="@+id/related_work_1"
-                    app:layout_constraintStart_toStartOf="@+id/related_work_1"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/related_work_3_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/workAdmin_relatedWork3_desc"
-                    app:layout_constraintEnd_toEndOf="@+id/related_work_3"
-                    app:layout_constraintStart_toStartOf="@+id/related_work_3"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/related_work_1"
-                    android:layout_width="139dp"
-                    android:layout_height="129dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="32dp"
-                    android:contentDescription="@string/workAdmin_relatedWork1_desc"
-                    android:src="@android:drawable/ic_menu_camera"
-                    app:layout_constraintEnd_toStartOf="@+id/related_work_2"
+                    android:layout_marginTop="32dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/related_work_1_title" />
+                    app:layout_constraintEnd_toStartOf="@id/work_2_container"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
-                    android:id="@+id/related_work_2"
-                    android:layout_width="139dp"
-                    android:layout_height="129dp"
+                    <Button
+                        android:id="@+id/browse_main_img2"
+                        style="@style/Widget.AppCompat.Button.Colored"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:alpha="0.8"
+                        android:background="@color/colorSecondary"
+                        android:text="@string/workAdmin_btn_update_work_1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/related_work_1"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:contentDescription="@string/workAdmin_relatedWork1_desc"
+                        android:src="@drawable/related_work_1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/work_2_container"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
                     android:layout_marginStart="32dp"
-                    android:layout_marginTop="16dp"
-                    android:contentDescription="@string/workAdmin_relatedWork2_desc"
-                    android:src="@android:drawable/ic_menu_camera"
-                    app:layout_constraintStart_toEndOf="@+id/related_work_1"
-                    app:layout_constraintTop_toBottomOf="@+id/related_work_2_title"
-                     />
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintStart_toEndOf="@id/work_1_container"
+                    app:layout_constraintEnd_toStartOf="@id/work_3_container"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/related_work_2_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/workAdmin_relatedWork2_desc"
-                    app:layout_constraintEnd_toEndOf="@+id/related_work_2"
-                    app:layout_constraintStart_toStartOf="@+id/related_work_2"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    <Button
+                        android:id="@+id/browse_main_img3"
+                        style="@style/Widget.AppCompat.Button.Colored"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:alpha="0.8"
+                        android:background="@color/colorSecondary"
+                        android:text="@string/workAdmin_btn_update_work_2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
-                    android:id="@+id/browse_main_img4"
-                    android:layout_width="118dp"
-                    android:layout_height="38dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/btn_bg_selector"
-                    android:contentDescription="@string/workAdmin_addImg_desc"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:text="@string/btn_upload"
-                    android:textColor="@drawable/btn_text_selector"
-                    app:layout_constraintEnd_toEndOf="@+id/related_work_3"
-                    app:layout_constraintStart_toStartOf="@+id/related_work_3"
-                    app:layout_constraintTop_toBottomOf="@+id/related_work_3" />
+                    <ImageView
+                        android:id="@+id/related_work_2"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:contentDescription="@string/workAdmin_relatedWork2_desc"
+                        android:src="@drawable/related_work_2"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/work_3_container"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/work_2_container"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <Button
+                        android:id="@+id/browse_main_img4"
+                        style="@style/Widget.AppCompat.Button.Colored"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:alpha="0.8"
+                        android:background="@color/colorSecondary"
+                        android:text="@string/workAdmin_btn_update_work_3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/related_work_3"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:contentDescription="@string/workAdmin_relatedWork3_desc"
+                        android:src="@drawable/related_work_3"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                </android.support.constraint.ConstraintLayout>
             </android.support.constraint.ConstraintLayout>
 
             <TextView
@@ -591,10 +590,11 @@
             <Button
                 android:id="@+id/submitBtn"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/btn_height"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="64dp"
-                android:layout_marginEnd="8dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="362dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="330dp"
+                android:layout_marginBottom="443dp"
                 android:background="@drawable/btn_bg_selector"
                 android:elevation="4dp"
                 android:paddingLeft="20dp"
@@ -602,9 +602,10 @@
                 android:text="@string/btn_save"
                 android:textColor="@drawable/btn_text_selector"
                 android:textSize="@dimen/font_btn"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+                app:layout_constraintTop_toBottomOf="@+id/related_work_card" />
 
         </android.support.constraint.ConstraintLayout>
 
