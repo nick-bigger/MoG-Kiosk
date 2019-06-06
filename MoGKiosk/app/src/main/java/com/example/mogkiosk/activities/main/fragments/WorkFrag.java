@@ -132,7 +132,7 @@ public class WorkFrag extends Fragment {
         artistTitle = v.findViewById(R.id.artist_entry);
         workDate = v.findViewById(R.id.work_date);
         date = v.findViewById(R.id.date_entry);
-        TextView workBio = v.findViewById(R.id.work_desc);
+        //TextView workBio = v.findViewById(R.id.work_desc);
         workTitle = v.findViewById(R.id.work_title);
         collection = v.findViewById(R.id.collection_entry);
         mediumTitle = v.findViewById(R.id.medium_entry);
@@ -213,7 +213,6 @@ public class WorkFrag extends Fragment {
             loadImagesFromStorage(directory.getAbsolutePath(), "art2.png", bitmapArrayList);
             loadImagesFromStorage(directory.getAbsolutePath(), "art3.png", bitmapArrayList);
             imageGrid.setAdapter(new ImageAdapter(getActivity(), bitmapArrayList));
-
 
         }
 

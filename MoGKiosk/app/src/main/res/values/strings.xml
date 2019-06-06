@@ -223,6 +223,11 @@
     <string name="workAdmin_relatedWork2_desc">Related Work 2</string>
     <string name="workAdmin_relatedWork3_desc">Related Work 3</string>
 
+    <string name="workAdmin_btn_update_main">Update Main Image</string>
+    <string name="workAdmin_btn_update_work_1">Update Work 1</string>
+    <string name="workAdmin_btn_update_work_2">Update Work 2</string>
+    <string name="workAdmin_btn_update_work_3">Update Work 3</string>
+
     <!-- work admin end -->
 
     <!-- process admin start -->

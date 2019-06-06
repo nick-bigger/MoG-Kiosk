@@ -406,6 +406,7 @@
                 android:layout_marginBottom="16dp"
                 android:animateLayoutChanges="false"
                 android:columnWidth="500dp"
+                android:maxHeight="900dp"
                 android:gravity="center"
                 android:horizontalSpacing="5dp"
                 android:numColumns="3"

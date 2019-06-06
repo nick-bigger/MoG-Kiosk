@@ -68,6 +68,9 @@ public class WorkFragAdmin extends Fragment {
     private TextView photoBy;
     private TextView workdesc;
     private ImageView mainImage;
+    private ImageView relatedImg1;
+    private ImageView relatedImg2;
+    private ImageView relatedImg3;
     private int viewId;
 
     public WorkFragAdmin() {
@@ -120,6 +123,9 @@ public class WorkFragAdmin extends Fragment {
         Button submit = rootView.findViewById(R.id.submitBtn);
         photoBy = rootView.findViewById(R.id.photo_credit);
         workdesc = rootView.findViewById(R.id.description);
+        relatedImg1 = rootView.findViewById(R.id.related_work_1);
+        relatedImg2 = rootView.findViewById(R.id.related_work_2);
+        relatedImg3 = rootView.findViewById(R.id.related_work_3);
 
         Button mainImageBtn = rootView.findViewById(R.id.browse_main_img);
         Button related1ImageBtn = rootView.findViewById(R.id.browse_main_img2);
@@ -217,6 +223,9 @@ public class WorkFragAdmin extends Fragment {
         // path to /data/data/yourapp/app_data/imageDir
         File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
         loadImageFromStorage(directory.getAbsolutePath(), "main.png");
+        loadFirstImageFromStorage(directory.getAbsolutePath(), "art1.png");
+        loadSecondImageFromStorage(directory.getAbsolutePath(), "art2.png");
+        loadThirdImageFromStorage(directory.getAbsolutePath(), "art3.png");
 
 
         return rootView;
@@ -239,6 +248,62 @@ public class WorkFragAdmin extends Fragment {
         }
 
     }
+
+    private void loadFirstImageFromStorage(String path, String imageName)
+    {
+        if(imageName == "art1.png") {
+
+            try {
+                File f=new File(path, "art1.png");
+                Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
+                Drawable d = new BitmapDrawable(getResources(), b);
+                relatedImg1.setImageDrawable(d);
+            }
+            catch (FileNotFoundException e)
+            {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    private void loadSecondImageFromStorage(String path, String imageName)
+    {
+        if(imageName == "art2.png") {
+
+            try {
+                File f=new File(path, "art2.png");
+                Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
+                Drawable d = new BitmapDrawable(getResources(), b);
+                relatedImg2.setImageDrawable(d);
+            }
+            catch (FileNotFoundException e)
+            {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    private void loadThirdImageFromStorage(String path, String imageName)
+    {
+        if(imageName == "art3.png") {
+
+            try {
+                File f=new File(path, "art3.png");
+                Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
+                Drawable d = new BitmapDrawable(getResources(), b);
+                relatedImg3.setImageDrawable(d);
+            }
+            catch (FileNotFoundException e)
+            {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+
 
 
     /**
