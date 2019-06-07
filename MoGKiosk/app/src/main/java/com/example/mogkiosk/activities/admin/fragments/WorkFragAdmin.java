@@ -72,6 +72,8 @@ public class WorkFragAdmin extends Fragment {
     private ImageView relatedImg2;
     private ImageView relatedImg3;
     private int viewId;
+    private Bitmap relatedOneBitmap;
+
 
     public WorkFragAdmin() {
         // Required empty public constructor
@@ -111,7 +113,9 @@ public class WorkFragAdmin extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.frag_work_admin, container, false);
+        
 
+        // connecting elements from frag_work_admin.xml to variables in this class
         artist = rootView.findViewById(R.id.artist);
         date = rootView.findViewById(R.id.label_date);
         medium = rootView.findViewById(R.id.medium);
@@ -133,7 +137,8 @@ public class WorkFragAdmin extends Fragment {
         Button related3ImageBtn = rootView.findViewById(R.id.browse_main_img4);
 
 
-
+        // if the user hits the update button, call the helper method to load the image from the
+        // gallery
         mainImageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -147,6 +152,7 @@ public class WorkFragAdmin extends Fragment {
         related1ImageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 viewId = R.id.related_work_1;
                 loadFirstImage(view);
             }
@@ -155,6 +161,7 @@ public class WorkFragAdmin extends Fragment {
         related2ImageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 viewId = R.id.related_work_2;
                 loadSecondImage(view);
             }
@@ -163,11 +170,13 @@ public class WorkFragAdmin extends Fragment {
         related3ImageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 viewId = R.id.related_work_3;
                 loadThirdImage(view);
             }
         });
 
+        // if the user edits text fields, pass them on
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -219,9 +228,10 @@ public class WorkFragAdmin extends Fragment {
         WorkDescIL.setHint(tempWorkDesc);
 
 
+        // pull images from internal storage directory, imageDir
         ContextWrapper cw = new ContextWrapper(getContext());
         // path to /data/data/yourapp/app_data/imageDir
-        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE); // this gets, or when necessary creates, a new directory called imageDir
         loadImageFromStorage(directory.getAbsolutePath(), "main.png");
         loadFirstImageFromStorage(directory.getAbsolutePath(), "art1.png");
         loadSecondImageFromStorage(directory.getAbsolutePath(), "art2.png");
@@ -231,6 +241,13 @@ public class WorkFragAdmin extends Fragment {
         return rootView;
     }
 
+    /**
+     * This method pulls the main work image from the internal storage directory, imageDir, and sets
+     * the respective ImageView element in the Work Admin layout to hold that image.
+     *
+     * @param path
+     * @param imageName
+     */
     private void loadImageFromStorage(String path, String imageName)
     {
         if(imageName == "main.png") {
@@ -325,6 +342,11 @@ public class WorkFragAdmin extends Fragment {
                 date, collection, dimensions, medium, photo, workdesc);
     }
 
+    /**
+     * This method creates the intent that opens the gallery and it also triggers the onActivity
+     * Result method
+     * @param view
+     */
     private void loadImageFromGalleryMain(View view) {
         // Create intent to Open Image applications like Gallery, Google Photos
         Intent galleryIntent = new Intent(Intent.ACTION_PICK,
@@ -359,6 +381,15 @@ public class WorkFragAdmin extends Fragment {
         startActivityForResult(galleryIntent, RESULT_LOAD_IMG3);
     }
 
+    /**
+     * This method responds when a user selects a new image. It gets the image, creates a Bitmap
+     * object, sets the ImageView from the layout to hold the new image, and saves the image into
+     * internal storage for future use.
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -421,6 +452,14 @@ public class WorkFragAdmin extends Fragment {
 
     }
 
+    /**
+     * This method saves a Bitmap image to the internal storage directory imageDir. It also
+     * compresses the image.
+     *
+     * @param bitmapImage
+     * @param pathName
+     * @return
+     */
     private String saveToInternalStorage(Bitmap bitmapImage, String pathName){
         ContextWrapper cw = new ContextWrapper(getContext());
         // path to /data/data/yourapp/app_data/imageDir
@@ -444,6 +483,7 @@ public class WorkFragAdmin extends Fragment {
         }
         return directory.getAbsolutePath();
     }
+
 
 
     @Override
